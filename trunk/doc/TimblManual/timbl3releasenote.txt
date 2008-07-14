@@ -1,0 +1,94 @@
+
+----------------------------------------------------------------------
+ Software release:      TiMBL 3.0
+                        Tilburg Memory Based Learner
+                        ILK Research Group, http://ilk.kub.nl/
+			CNTS - Language Technology Group 
+----------------------------------------------------------------------
+
+(sorry if you get this more than once)
+
+The ILK (Induction of Linguistic Knowledge) Research Group at Tilburg
+University, The Netherlands, and the CNTS - Language Technology Group,
+at the University of Antwerp, Belgium, announce the release of a new
+version of TiMBL, the "Tilburg Memory Based Learner" (version 3.0).
+
+TiMBL is a machine learning program implementing a family of
+Memory-Based Learning techniques. TiMBL stores a representation of the
+training set explicitly in memory (hence `Memory Based'), and
+classifies new cases by extrapolating from the most similar stored
+cases. 
+
+TiMBL is being developed with a focus on classification tasks,
+symbolic data, large numbers of features and values, and very large
+case bases, as typically found in statistical natural language
+processing. However, TiMBL can be applied for any machine learning or
+data mining task that provides labeled examples with fixed numbers of
+features. The main features of the system are:
+
+- Support for symbolic, numeric and binary features.
+- Automatic feature weighting. Information Gain, Gain Ratio,
+  Chi-squared, and Shared Variance weighting are provided for dealing
+  with features of differing importance.
+- Stanfill & Waltz's / Cost & Salzberg's (Modified) Value Difference
+  metric for making graded guesses of the match between two
+  different symbolic values.
+- Several speed up optimizations that enhance the underlying
+  k-nearest neighbor classifier engine: Conversion of the flat
+  instance memory into a decision tree, and inverted indexing of the
+  instance memory, both yielding faster classification.
+- Further compression and pruning of the decision tree, guided by
+  feature information gain differences, for an even larger speed-up
+  (the IGTREE and TRIBL learning algorithms).  
+- Verbose output to enable the monitoring of the process of
+  extrapolation from nearest neighbors.
+
+Version 3.0 offers a number of new features:
+
+- A multithreaded TiMBL Server that can be used as a classification 
+  agent.
+- A simplified interface to a C++ MBLClass library.
+- Fast leave one out testing 
+- Support for sparse binary features (e.g. for text classification)
+- Many bug-fixes and small improvements.
+
+For more information: The reference guide ("TiMBL: Tilburg
+Memory-Based Learner, version 3.0, Reference Guide.", Walter
+Daelemans, Jakub Zavrel, Ko van der Sloot, and Antal van den
+Bosch. ILK Technical Report 00-01) can be downloaded separately and
+directly from
+
+       http://ilk.kub.nl/~ilk/papers/ilk0001.ps.gz
+
+-[download]-----------------------------------------------------------
+
+You are invited to download the TiMBL package for educational or
+non-commercial research purposes. When downloading the package you are
+asked to register, and express your agreement with the license
+terms. TiMBL is *not* shareware or public domain software. If you have
+registered for a previous version, please be so kind to re-register
+for the upgrade. TiMBL can be downloaded from 
+
+    http://ilk.kub.nl/
+
+by following the `Software' link.
+
+The TiMBL package contains:
+
+- Source code (C++) with a Makefile.
+- A reference guide containing descriptions of the incorporated
+  algorithms, detailed descriptions of the commandline options,
+  and a brief hands-on tutorial.
+- Some example datasets.
+- The text of the license agreement.
+
+The package should be easy to install on most UNIX systems.
+
+-[contact]---------------------------------------------------------
+
+For comments and bugreports relating to TiMBL, please send mail to
+
+       Timbl@kub.nl
+
+----------------------------------------------------------------------
+

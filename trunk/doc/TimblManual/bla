@@ -1,0 +1,12 @@
+small,compact,1,nut.
+small,long,none,screw.
+small,long,1,key.
+small,compact,1,nut.
+large,long,1,key.
+small,compact,none,screw.
+small,compact,1,nut.
+large,long,none,pen.
+large,long,2,scissors.
+large,long,1,pen.
+large,other,2,scissors.
+small,other,2,key.

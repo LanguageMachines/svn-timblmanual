@@ -1,0 +1,219 @@
+\begin{thebibliography}{10}
+
+\bibitem{Aha97a}
+D.~W. Aha.
+\newblock Lazy learning: Special issue editorial.
+\newblock {\em Artificial Intelligence Review}, 11:7--10, 1997.
+
+\bibitem{Aha+91}
+D.~W. Aha, D.~Kibler, and M.~Albert.
+\newblock Instance-based learning algorithms.
+\newblock {\em Machine Learning}, 6:37--66, 1991.
+
+\bibitem{Baayen+93}
+R.~H. Baayen, R.~Piepenbrock, and H.~van Rijn.
+\newblock {\em The {CELEX} lexical data base on {CD-ROM}}.
+\newblock Linguistic Data Consortium, Philadelphia, PA, 1993.
+
+\bibitem{Buchholz98}
+Sabine Buchholz.
+\newblock Distinguishing complements from adjuncts using memory-based learning.
+\newblock In {\em Proceedings of the ESSLLI-98 Workshop on Automated
+  Acquisition of Syntax and Parsing}, 1998.
+
+\bibitem{Buchholz+99}
+Sabine Buchholz, Jorn Veenstra, and Walter Daelemans.
+\newblock Cascaded grammatical relation assignment.
+\newblock In {\em Proceedings of EMNLP/VLC-99, University of Maryland, USA},
+  pages 239--246, 1999.
+
+\bibitem{Cardie96}
+Claire Cardie.
+\newblock Automatic feature set selection for case-based learning of linguistic
+  knowledge.
+\newblock In {\em Proc. of Conference on Empirical Methods in NLP}. University
+  of Pennsylvania, 1996.
+
+\bibitem{Cost+93}
+S.~Cost and S.~Salzberg.
+\newblock {A weighted nearest neighbour algorithm for learning with symbolic
+  features}.
+\newblock {\em {Machine Learning}}, 10:57--78, 1993.
+
+\bibitem{Cover+67}
+T.~M. Cover and P.~E. Hart.
+\newblock Nearest neighbor pattern classification.
+\newblock {\em Institute of Electrical and Electronics Engineers Transactions
+  on Information Theory}, 13:21--27, 1967.
+
+\bibitem{Daelemans95}
+W.~Daelemans.
+\newblock Memory-based lexical acquisition and processing.
+\newblock In P.~Steffens, editor, {\em Machine Translation and the Lexicon},
+  volume 898 of {\em Lecture Notes in Artificial Intelligence}, pages 85--98.
+  Springer-Verlag, Berlin, 1995.
+
+\bibitem{Daelemans+99}
+W.~Daelemans, S.~Buchholz, and J.~Veenstra.
+\newblock Memory-based shallow parsing.
+\newblock In M.~{Van Someren} and G.~Widmer, editors, {\em Proceedings of
+  CoNLL-99, Bergen, Norway, June 12, 1999}, 1999.
+
+\bibitem{Daelemans+94b}
+W.~Daelemans, S.~Gillis, and G.~Durieux.
+\newblock The acquisition of stress: a data-oriented approach.
+\newblock {\em Computational Linguistics}, 20(3):421--451, 1994.
+
+\bibitem{Daelemans+93c}
+W.~Daelemans and A.~{Van den Bosch}.
+\newblock Tabtalk: reusability in data-oriented grapheme-to-phoneme conversion.
+\newblock In {\em Proceedings of Eurospeech '93}, pages 1459--1466, Berlin,
+  1993. T.U.~Berlin.
+
+\bibitem{Daelemans+96}
+W.~Daelemans and A.~{Van den Bosch}.
+\newblock Language-independent data-oriented grapheme-to-phoneme conversion.
+\newblock In J.~P.~H. {Van Santen}, R.~W. Sproat, J.~P. Olive, and
+  J.~Hirschberg, editors, {\em Progress in Speech Processing}, pages 77--89.
+  Springer-Verlag, Berlin, 1996.
+
+\bibitem{Daelemans+97}
+W.~Daelemans, A.~{Van den Bosch}, and A.~Weijters.
+\newblock {{\sc igt}}ree: using trees for compression and classification in
+  lazy learning algorithms.
+\newblock {\em Artificial Intelligence Review}, 11:407--423, 1997.
+
+\bibitem{Daelemans+97d}
+W.~Daelemans, A.~{Van den Bosch}, and J.~Zavrel.
+\newblock A feature-relevance heuristic for indexing and compressing large case
+  bases.
+\newblock In M.~{Van Someren} and G.~Widmer, editors, {\em Poster Papers of the
+  Ninth European Conference on Machine Learing}, pages 29--38, Prague, Czech
+  Republic, 1997. University of Economics.
+
+\bibitem{Daelemans+97e}
+Walter Daelemans, Peter Berck, and Steven Gillis.
+\newblock Data mining as a method for linguistic analysis: Dutch diminutives.
+\newblock {\em Folia Linguistica}, XXXI(1-2), 1997.
+
+\bibitem{Daelemans+92b}
+Walter Daelemans and Antal van~den Bosch.
+\newblock Generalisation performance of backpropagation learning on a
+  syllabification task.
+\newblock In M.~F.~J. Drossaers and A.~Nijholt, editors, {\em Proc. of TWLT3:
+  Connectionism and Natural Language Processing}, pages 27--37, Enschede, 1992.
+  Twente University.
+
+\bibitem{Daelemans+96b}
+Walter Daelemans, Jakub Zavrel, Peter Berck, and Steven Gillis.
+\newblock {\sc MBT}: A memory-based part of speech tagger generator.
+\newblock In E.~Ejerhed and I.Dagan, editors, {\em Proc. of Fourth Workshop on
+  Very Large Corpora}, pages 14--27. ACL SIGDAT, 1996.
+
+\bibitem{Devijver+82}
+P.~.A. {De\-vij\-ver} and J.~Kittler.
+\newblock {\em Pattern recognition. A statistical approach}.
+\newblock Prentice-Hall, London, UK, 1982.
+
+\bibitem{Garner95}
+S.R. Garner.
+\newblock {\sc WEKA}: The {\sc w}aikato {\sc e}nvironment for {\sc k}nowledge
+  {\sc a}nalysis.
+\newblock In {\em Proc. of the New Zealand Computer Science Research Students
+  Conference}, pages 57--64, 1995.
+
+\bibitem{Gillis+95}
+S.~Gillis, G.~Durieux, and W.~Daelemans.
+\newblock A computational model of {P\&P}: Dresher and kaye (1990) revisited.
+\newblock In M.~Verrips and F.~Wijnen, editors, {\em Approaches to parameter
+  setting}, volume~4 of {\em Amsterdam Studies in Child Langage Development},
+  pages 135--173. xxx, 1995.
+
+\bibitem{Kolodner93}
+J.~Kolodner.
+\newblock {\em Case-based reasoning}.
+\newblock Morgan Kaufmann, San Mateo, CA, 1993.
+
+\bibitem{Quinlan86}
+J.R. Quinlan.
+\newblock {Induction of Decision Trees}.
+\newblock {\em {Machine Learning}}, 1:81--206, 1986.
+
+\bibitem{Quinlan93}
+J.R. Quinlan.
+\newblock {\em {\sc c4.5}: Programs for Machine Learning}.
+\newblock {Morgan Kaufmann}, {San Mateo, CA}, 1993.
+
+\bibitem{Stanfill+86}
+C.~Stanfill and D.~Waltz.
+\newblock Toward memory-based reasoning.
+\newblock {\em Communications of the {{\sc acm}}}, 29(12):1213--1228, December
+  1986.
+
+\bibitem{VandenBosch97}
+A.~{Van den Bosch}.
+\newblock {\em Learning to pronounce written words: A study in inductive
+  language learning}.
+\newblock PhD thesis, Universiteit Maastricht, 1997.
+
+\bibitem{VandenBosch+93}
+A.~{Van den Bosch} and W.~Daelemans.
+\newblock Data-oriented methods for grapheme-to-phoneme conversion.
+\newblock In {\em Proceedings of the 6th Conference of the EACL}, pages 45--53,
+  1993.
+
+\bibitem{Vandenbosch+99}
+A.~{Van den Bosch} and W.~Daelemans.
+\newblock Memory-based morphological analysis.
+\newblock In {\em Proceedings of the 37th Annual Meeting of the Association for
+  Computational Linguistics, University of Maryland, USA}, pages 285--292,
+  1999.
+
+\bibitem{Vandenbosch+96}
+A.~{Van den Bosch}, W.~Daelemans, and A.~Weijters.
+\newblock Morphological analysis as classification: an inductive-learning
+  approach.
+\newblock In K.~Oflazer and H.~Somers, editors, {\em Proceedings of the Second
+  International Conference on New Methods in Natural Language Processing,
+  NeMLaP-2, Ankara, Turkey}, pages 79--89, 1996.
+
+\bibitem{Veenstra+00}
+J.~Veenstra, A.~{Van den Bosch}, S.~Buchholz, W.~Daelemans, and J.~Zavrel.
+\newblock Memory-based word sense disambiguation.
+\newblock {\em Computing and the Humanities}, 34(1-2), Special issue on
+  {SENSEVAL}, 2000.
+
+\bibitem{Veenstra98}
+J.B. Veenstra.
+\newblock Fast {NP} chunking using {M}emory-{B}ased {L}earning techniques.
+\newblock In {\em Proceedings of Benelearn'98, Wageningen, the Netherlands,
+  available as ILK technical report ILK-98-07}, 1998.
+
+\bibitem{Weiss+91}
+S.~Weiss and C.~Kulikowski.
+\newblock {\em Computer systems that learn}.
+\newblock San Mateo, CA: Morgan Kaufmann, 1991.
+
+\bibitem{White+94}
+A.P. White and W.Z. Liu.
+\newblock Bias in information-based measures in decision tree induction.
+\newblock {\em Machine Learning}, 15(3):321--329, 1994.
+
+\bibitem{Zavrel+97}
+J.~Zavrel and W.~Daelemans.
+\newblock Memory-based learning: Using similarity for smoothing.
+\newblock In {\em Proc. of 35th annual meeting of the ACL}, {Madrid}, 1997.
+
+\bibitem{Zavrel+99}
+J.~Zavrel and W.~Daelemans.
+\newblock Recent advances in memory-based part-of-speech tagging.
+\newblock In {\em VI Simposio Internacional de Comunicacion Social}, pages
+  590--597, Santiago de Cuba, 1999.
+
+\bibitem{Zavrel+97b}
+J.~Zavrel, W.~Daelemans, and J.~Veenstra.
+\newblock Resolving {PP} attachment ambiguities with memory-based learning.
+\newblock In Mark Ellison, editor, {\em Proc. of the Workshop on Computational
+  Natural Language Learning (CoNLL'97), ACL}, {Madrid}, 1997.
+
+\end{thebibliography}

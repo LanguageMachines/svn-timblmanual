@@ -1,0 +1,269 @@
+TiMBL
+
+Tilburg Memory Based Learning tool.
+
+
+TiMBL werkt in die fasen:
+
+Fase 1:
+Analyse van de trainingsset, waaruit de volgende informatie wordt
+gehaald:
+A: Op basis van de EERSTE REGEL:
+  1 Het inputformaat. TENZIJ dat met -F gespecificeerd is.
+    Verder gebeurt dat nogal losjes:
+    - Staat er op de eerste regel een % of een @ dan is het formaat
+      ARFF. 
+    - Als er "white-space" wordt aangetroffen VOOR een eventuele komma,
+      dan is het formaat SPACED. (betere naam?) 
+    - Staat er een komma VOOR  eventuele "white-space" dan is het
+      formaat C4.5.
+    - Staat er NOCH een komma, NOCH "white-space" in, dan is het formaat
+      Compact.
+    Nog te doen: Specificeren van de formaten en/of beperkingen.
+  2 Het aantal features:
+    Dit door te kijken naar het aantal elementen gescheiden door
+    of "white-space" voor ARFF of komma's voor C4.5.
+    Als het formaat Compact is, dan wordt het aantal features bepaald
+    door de regellengte en de door de gebruiker op te geven
+    feature-lengte. (-l optie)
+
+B: De hele trainingsfile wordt gescanned en er wordt een database
+   opgebouwd van feature-namen en categorieen, inclusief bijbehorende
+   frequenties.
+   Met de vergaarde data worden de volgende zaken berekend:
+   - DataBase entropie
+   - Feature informatie zoals Entropie en SplitInfo
+   - Feature Gewichten, zowel GainRatio als InformationGain
+   Afhankelijk van de Metriek wordt eventueel ook alvast MVD waarden
+   berekend.
+
+Fase 2:
+De trainingsset wordt voor de tweede maal gescanned en er wordt een
+InstanceBase in de vorm van een Boom opgebouwd.
+De ordening van de boom wordt bepaald door de in Fase1 bepaalde
+Feature eigenschappen. (per default GainRation/aantal FeatureValues
+voor MBL en GainRatio voor IG tree). Maar de gebruiker kan dit
+overrulen met de -T optie. Bijvoorbeeld -T0 om NIET te ordenen, of -T7
+om te ordenen volgens de SplitInfo
+
+Aan het einde van deze fase wordt de boom eventueel ge-pruned, als
+we IG tree willen doen en desgewenst wordt hij weggeschreven naar een
+file voor later gebruik (-I optie).
+
+Fase 3.
+De TEST fase. Noodzakelijk is een testset (-t optie)
+Hierin kun je op twee manieren terechtkomen:
+1. Vanuit Fase2:
+   Je rolt gewoon door, en afhankelijk van metriek en weging wordt er
+   getest, tenzij we IG-tree doen want dan is er maar een testmogelijkheid.
+2. Direct vanaf de start:
+   Indien er met de -i optie een boom opgeven wordt, dan wordt deze
+   ingelezen waarna er direct met testen begonnen wordt.
+   Dit teruglezen van een boom is enigszins sneller dan leren, ook
+   al omdat niet alle statistieken opnieuw hoeven. Bij de geprunede
+   IG boom is het uiteraard een stuk sneller.
+   Het is echter niet mogelijk om met -T andere ordening op te geven.
+   De boom is immers al volgens een bepaalde ordening gebouwd!
+   Wel kan een voor MBL gebouwde boom alsnog tot een IG boom omgezet
+   worden.
+
+
+De commando opties.
+Algemeen:
+
+-a <n>      : Algorithme:
+	      a = 0 voor MBL of a = 1 voor IG-tree. (Default a=0)
+-d          : Sla target distributities op in de InstanceBase file (-I optie)
+              Dit is de default bij MBL.
+-D          : Sla de Distance van de Nearest Neighbour op in de uitvoerfile. 
+-e <n>      : Geef tijdens testen een schatting van de eindtiijd om <n>
+	      tests te doen.
+	      De eerste schatting wordt pas gegeven wanneer er een
+	      enigszins betrouwbaar resultaat te verwachten is.
+-f <file>   : Train met de data in <file>.
+-F <format> : behandel de invoer als <format>, (Compact, C4.5, ARFF, Spaced)
+-i <file>   : Lees de InstanceBase terug uit <file> en ga direct verder
+	      met testen (fase 3).
+-I <file>   : Sla de InstanceBase op in <file>
+-l <n>	    : Lengte per feature voor Compact formaat. (Default: l=2)
+-n <file>   : Schrijf Target en Feature namen weg in file <file>
+-o <s>      : gebruik <s> als suffix voor de uitvoerfile
+-O <path>   : Zet de uitvoerfile in directory <path>
+-p <n>      : Toon elke <n> regels de vooruitgang van leren danwel
+	      testen.
+-P <path>   : Lees invoer vanuit directory <path>.
+	      Dit wordt genegeerd indien de invoer reeds pad-informatie
+	      bevat.
+-r <file>   : Lees enkele process defaults uit de resourcefile <file>.
+	      Momenteel zijn de volgende opties ook in de resourcefile
+	      te regelen:
+	      -P -O -% -D -- -p -e -R -a -m -w -k -l
+	      daarnaast nog enkele proces-variabelen. 
+	      Zie verderop voor meer info.
+-R <n>	    : Los "gelijke spelen" tijdens testen op met een
+	      randomgenerator met <n> als seed.
+	      (Default is: Geen Random maar "eerst komen eerst malen")
+-s <n,...>  : Sla de features <n>,... over bij leren zowel als testen.
+-t <file>   : test met de data uit <file>
+-T <n>	    : Orden de InstanceBase volgens methode <n>.
+	      1: geen ordening, (houdt de volgorde uit de trainfile
+	         aan)
+	      2: Orden volgens GainRatio (default voor IG)
+	      3: Orden volgens InformationGain
+	      4: Orden volgens 1/aantal featurewaarden
+	      5: Orden volgens GainRatio/aantal featurewaarden
+		 (default voor MBL)
+	      6: Orden volgens InformationGain/aantal featurewaarden
+	      7: Orden volgens SplitInfo
+	      8: Orden volgens 1/SplitInfo
+-v <n>      : geef meer of minder info in de logfile:
+	      0: weinig uitvoer
+	      1: toon overzicht van de ingestelde opties.
+	      2: Toon de berekende featureGewichten (Default)
+	      4: toon de ValueDifference Matrices
+	      8: Toon elke EXACTE match
+	      Tel twee getallen op om beide uitvoeren te krijgen:
+	      -v 10 laat En de gewichten En de exacte Match zien.
+-w <n>	    : welke weging dienen we te nemen. 
+	      0: Geen weging. 
+	      1: Weging volgens GainRatio gewichten (de Default)
+	      2: Weging volgens InformationGain.
+   <file>   : Weeg volgens gewichten uit <file>
+-W <file>   : Sla de huidige (berekende) gewichten op in <file>
+-%	    : sla het slagingspercentage op in een file.
+
+Specifieke MBL Opties:
+-k <n>      : Bepaal de <k> nearest neighbours. (Default: k=1) 
+-m <n>      : Metriek
+	      0: Standaard overlap met weging bepaald door -w optie
+	      1: MVD met weging bepaald door -w optie
+	      2: MVD met weging bepaald door -w optie en voorberekende
+	         VD matrix. (sneller maar gebruikt meer gegeugen)
+-x	    : Zoek niet naar exacte matches alvorens te testen.
+	      Default is, om dat wel te doen. (sneller).
+--	    : Gebruik geen Inverted Files voor testen. (alleen relevant
+	      bij m=0). Trager, maar gebruikt minder geheugen.
+
+NB: Lang niet alle combinaties van opties zijn mogelijk.
+    Als het goed is worden alle "foute" combinaties gedetecteerd.
+
+Inputformaten:
+
+Voor alle invoerformaten geldt, dat er eerts een aantal feature
+waarden komen, gevolgd door een target.
+
+Compact:
+Alle feature- en target-waarden worden geacht dezelfde lengte te
+hebben (op te geven met de -l optie). Alle invoerregels zijn dus even
+lang, en de gevonden karakters worden zonder aanziens des persoons
+toegekend, bijv:
+
+===uitgL
+==uitge-
+=uitgekt
+
+de featurelengte is hier 1, er zijn dus 7 features.Het eerste met
+waarde '=', het tweede met de waarden '=' en 'u', etc.
+De mogelijke targets zijn 'L', '-' en 't'.
+
+c4.5:
+De feature en targetwaarden worden gescheiden door spaties.
+Achter de targetwaarde mag optioneel een punt voorkomen.
+Whitespace is significant. bijv:
+
+aap,noot,mies,1
+wim,zus,Jet,2.
+teun, kees en piet, schapen,3
+
+Targets: '1','2' en '3'
+featurewaarden:
+eerste feature: 'aap', 'wim' en 'teun'
+tweede feature: 'noot', 'zus' en ' kees en piet'
+derde feature:  'mies', 'Jet' en ' schapen'
+ 
+Spaced:
+De feature en targetwaarden worden gescheiden door WhiteSpace,
+(spaties, tabs). Bijv:
+aap rood woensdag 1
+ noot        geel maandag 3
+  wim groen dinsdag 1
+teun blauw maandag  3
+
+Targets: '1' en '3'.
+
+a: 'aap', 'noot', 'wim' en 'teun'.
+b: 'rood', 'geel', 'groen' en 'blauw'.
+c: 'woensdag', 'maandag' en 'dinsdag'.
+ 
+ARFF:
+Dit formaat wordt slecht beperkt ondersteund:
+Alle regels tot en met de @data regel worden geskipped.
+De verdere invoerregels worden verwerkt als c4.5, maar met
+verwaarlozing van alle (willenwedatwel!) white-space. bijv:
+
+% bla
+@data
+
+aap,  noot,         mies,    1
+wim,  zus,          Jet,     2.
+teun, kees en piet, schapen, 1
+ok,   o.k.,         goed,    2.
+
+Targets: '1' en '2'.
+
+feature a: 'aap',  'wim', 'teun' en 'ok'.
+feature b: 'noot', 'zus', 'keesenpiet' en 'o.k.'.
+feature c: 'mies', 'Jet', 'schapen' en 'goed'.
+
+
+Resource File: (willen we dit nog wel?)
+Enkele opties zijn behalve, op de commandoregel, ook in te stellen
+in een resourcefile. De default resourcefile heet .Timblrc
+Dat is te overrulen met de -r optie.
+
+Momenteel zijn de volgende opties ook in de resourcefile te regelen:
+DATA_PATH     : de -P optie
+OUTPUT_PATH   : de -O optie
+SAVE_%        : de -% optie
+SAVE_DISTANCE : de -D optie
+USE_INVERTED  : de -- optie
+PROGRESS      : de -p optie
+ESTIMATE      : de -e optie
+RANDOM        : de -R optie
+ALGORITHM     : de -a optie
+METRIC	      : de -m optie
+WEIGHTING     : de -w optie
+NEIGHBOURS    : de -k optie
+F_LENGTH      : de -l optie
+
+verder nog:
+FEATUREVALUES    : Het geschatte aantal waarden per feature. Default 100
+		   Op basis hiervan wordt ruimte ge-alloceerd.
+		   Als het werkelijke aantal (veel) groter is, dan is
+		   dat geen probleem, er wordt ruimte bijgenomen ter
+		   grootte van FEATUREINCREMENT.
+FEATUREINCREMENT : Default 100.
+TARGETVALUES     : Het geschatte aantal waarden per target. default 20
+		   Op basis hiervan wordt ruimte ge-alloceerd.
+		   Als het werkelijke aantal (veel) groter is, dan is
+		   dat geen probleem, er wordt ruimte bijgenomen ter
+		   grootte van TARGETINCREMENT.
+TARGETINCREMENT  : Default 10.
+
+
+Belangrijke begrippen:
+EXACTE MATCH: (MBL alleen)
+	Alvorens te testen dmv weging en een nearest neighbour search,
+	wordt gekeken of het testpatroon exact matched met een geleerd
+	patroon. 
+	Zo ja, dan wordt er niet verder gezocht maar wordt de
+	defaultcategorie van het trainingspatroon opgeleverd als
+	resultaat, met afstand 0.0 
+
+INVERTED FILES: (MBL alleen)
+    ...
+
+
+
+	      
+
