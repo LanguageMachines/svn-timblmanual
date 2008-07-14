@@ -1,0 +1,18 @@
+# Status: pruned
+# Permutation: < 1, 3, 2 >
+# Numeric: .
+# Version 3
+#
+( nut { nut 3 screw 2 key 3 pen 2 scissors 2 } [ small ( nut { nut 3 screw 2 key 2 } [ 1 ( nut { nut 3 key 1 } [ long ( key { key 1 } )
+ ]
+ )
+, none ( screw { screw 2 } )
+, 2 ( key { key 1 } )
+ ]
+ )
+, large ( pen { key 1 pen 2 scissors 2 } [ 1 ( key { key 1 pen 1 } )
+, 2 ( scissors { scissors 2 } )
+ ]
+ )
+ ]
+ )

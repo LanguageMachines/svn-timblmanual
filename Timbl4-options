@@ -1,0 +1,80 @@
+TiMBL 4.00 (c) ILK 1998, 1999, 2000, 2001.
+Tilburg Memory Based Learner
+Induction of Linguistic Knowledge Research Group
+Tilburg University / University of Antwerp
+Wed Aug  1 15:18:34 2001
+
+usage: Timbl -f data-file {-t test-file} [options]
+Algorithm and Metric options:
+-a n     : algorithm.
+   0 or IB1   : IB1     (default)
+   1 or IG    : IG-Tree
+   2 or TRIBL : TRIBL
+   3 or IB2   : IB2
+-m s     : use feature metrics as specified in string s:
+           format: GlobalMetric:MetricRange:MetricRange
+           e.g.: mO:N3:I2,5-7
+   O: weighted overlap. (default)
+   M: modified value difference.
+   N: numeric values.
+   I: Ignore named  values.
+-w 0     : No Weighting.
+   1     : Weight using GainRatio. (default)
+   2     : Weight using InfoGain
+   3     : Weight using Chi-square
+   4     : Weight using Shared Variance
+   f     : use Weights from file 'f'.
+-b n     : number of lines to use for bootstrapping (IB2 only).
+-d val   : weight neighbors as function of their distance:
+   Z     : all the same weight. (default)
+   ID    : Inverse Distance.
+   IL    : Inverse Linear.
+   EDa   : Exponential Decay with factor a. (no whitespace!)
+-k n     : k nearest neighbors (default n = 1).
+-q n     : TRIBL treshold at level n.
+-R n     : solve ties at random with seed n.
+-t  f    : test using file 'f'.
+-t leave_one_out: test with Leave One Out,using IB1.
+-t cross_validate: Cross Validate Test,using IB1.
+   @f    : test using files and options described in file 'f'.
+            Supported options: d e F k m o p q R t u v w x % -
+            -t <file> is mandatory
+Input options:
+-f f     : read from Datafile 'f'.
+-f f     : OR: use filenames from 'f' for CV test
+-F format: Assume the specified inputformat.
+           (Compact, C4.5, ARFF, Columns or Binary)
+-l n     : length of Features (Compact format only).
+-i f     : read the InstanceBase from file 'f'. (skips phase 1 & 2 )
+-u f     : read value_class probabilities from file 'f'.
+-P d     : read data using path 'd'.
+-s       : use examplar weights from the input file
+Output options:
+-e n     : estimate time until n patterns tested.
+-I f     : dump the InstanceBase in file 'f'.
+-n f     : create names file 'f'.
+-p n     : show progress every n lines. (default p = 100,000)
+-U f     : save value_class probabilities in file 'f'.
+-V       : Show VERSION.
++v or -v level : set or unset verbosity level, where level is
+         s:  work silently.
+         o:  show all options set.
+         f:  show Calculated Feature Weights. (default)
+         p:  show MVD matrices.
+         e:  show exact matches.
+         cm: show Confusion Matrix.
+         di: add distance to output file.
+         db: add distribution of best matched to output file
+         n:  add nearest neigbors to output file (sets -x and --)
+  You may combine levels using '+' e.g. +v p+db or -v o+di
+-W f     : save current Weights in file 'f'.
++% or -% : do or don't save test result (%) to file.
+-o s     : use s as output filename.
+-O d     : save output using path 'd'.
+Internal representation options:
+-N n: Number of features (default 1000)
+-M string : use <string> as Missing Value
++x or -x : Do or don't use the exact match shortcut.
+           (IB only, default is -x)
++- or -- : do or don't use inverted files.
+           (IB1 only, default is don't except for Binary input)         

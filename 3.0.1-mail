@@ -1,0 +1,27 @@
+
+Bugfixes for a number of problems in version 3.0 of Timbl have
+resulted in a new version, 3.0.1. A new tar file (please re-register),
+or a diff file for patching the old version are available for download
+on the ILK website (http://ilk.kub.nl).
+
+The solved problems:
+
+* In version 3.0 the new leave_one_out test was not functioning properly.
+  Accuracy estimates are affected significantly in some cases.  
+
+* A bug that caused core-dumps when working with large numbers of
+  binary features has been fixed.
+
+* The -N option was a bit broken, it works now.
+
+We are still working on some problems that arise with using the multithreaded
+clients on Linux. When this problem is solved, a new bugfix will be released.
+
+Thanks for all the feedback so far. Please send questions and
+bugreports to <Timbl@kub.nl>.
+
+
+ 
+
+
+

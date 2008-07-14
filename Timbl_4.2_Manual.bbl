@@ -1,0 +1,569 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citename{Aha}1997]{Aha97a}
+Aha, D.~W.
+\newblock 1997.
+\newblock Lazy learning: Special issue editorial.
+\newblock {\em Artificial Intelligence Review}, 11:7--10.
+
+\bibitem[\protect\citename{Aha, Kibler, and Albert}1991]{Aha+91}
+Aha, D.~W., D.~Kibler, and M.~Albert.
+\newblock 1991.
+\newblock Instance-based learning algorithms.
+\newblock {\em Machine Learning}, 6:37--66.
+
+\bibitem[\protect\citename{Androutsopoulos \bgroup et al.\egroup
+  }2000]{Androutsopoulos+00}
+Androutsopoulos, I., G.~Paliouras, V.~Karkaletsis, G.~Sakkis, C.~D.
+  Spyropoulos, and P.~Stamatopoulos.
+\newblock 2000.
+\newblock Learning to filter spam e-mail: A comparison of a naive bayesian and
+  a memory-based approach.
+\newblock In {\em Proceedings of the "Machine Learning and Textual Information
+  Access" Workshop of the 4th European Conference on Principles and Practice of
+  Knowledge Discovery in Databases}.
+
+\bibitem[\protect\citename{Baayen, Piepenbrock, and van Rijn}1993]{Baayen+93}
+Baayen, R.~H., R.~Piepenbrock, and H.~van Rijn.
+\newblock 1993.
+\newblock {\em The {CELEX} lexical data base on {CD-ROM}}.
+\newblock Linguistic Data Consortium, Philadelphia, PA.
+
+\bibitem[\protect\citename{Bailey and Jain}1978]{Bailey+78}
+Bailey, T. and A.~K. Jain.
+\newblock 1978.
+\newblock A note on distance-weighted $k$-nearest neighbor rules.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics},
+  SMC-8(4):311--313.
+
+\bibitem[\protect\citename{Buchholz}1998]{Buchholz98}
+Buchholz, S.
+\newblock 1998.
+\newblock Distinguishing complements from adjuncts using memory-based learning.
+\newblock In {\em Proceedings of the ESSLLI-98 Workshop on Automated
+  Acquisition of Syntax and Parsing, {Saarbr\"{u}cken}, Germany}.
+
+\bibitem[\protect\citename{Buchholz and {van~den~Bosch}}2000]{Buchholz+00}
+Buchholz, S. and A.~{van~den~Bosch}.
+\newblock 2000.
+\newblock Integrating seed names and n-grams for a named entity list and
+  classifier.
+\newblock In {\em Proceedings of the Second International Conference on
+  Language Resources and Evaluation}, pages 1215--1221, Athens, Greece.
+
+\bibitem[\protect\citename{Buchholz, Veenstra, and Daelemans}1999]{Buchholz+99}
+Buchholz, S., J.~Veenstra, and W.~Daelemans.
+\newblock 1999.
+\newblock Cascaded grammatical relation assignment.
+\newblock In {\em Proceedings of {EMNLP/VLC-99}}, pages 239--246, College Park,
+  MD. University of Maryland.
+
+\bibitem[\protect\citename{Cardie}1996]{Cardie96}
+Cardie, C.
+\newblock 1996.
+\newblock Automatic feature set selection for case-based learning of linguistic
+  knowledge.
+\newblock In {\em Proc. of Conference on Empirical Methods in NLP}. University
+  of Pennsylvania.
+
+\bibitem[\protect\citename{Cohen}1995]{Cohen95}
+Cohen, W.~W.
+\newblock 1995.
+\newblock Fast effective rule induction.
+\newblock In {\em Proceedings of the Twelfth International Conference on
+  Machine Learning}, Lake Tahoe, California.
+
+\bibitem[\protect\citename{Cost and Salzberg}1993]{Cost+93}
+Cost, S. and S.~Salzberg.
+\newblock 1993.
+\newblock {A weighted nearest neighbour algorithm for learning with symbolic
+  features}.
+\newblock {\em {Machine Learning}}, 10:57--78.
+
+\bibitem[\protect\citename{Cover and Hart}1967]{Cover+67}
+Cover, T.~M. and P.~E. Hart.
+\newblock 1967.
+\newblock Nearest neighbor pattern classification.
+\newblock {\em Institute of Electrical and Electronics Engineers Transactions
+  on Information Theory}, 13:21--27.
+
+\bibitem[\protect\citename{Daelemans}1999]{Daelemans99b}
+Daelemans, W.
+\newblock 1999.
+\newblock Memory-based language processing.
+\newblock {\em Journal of Experimental and Theoretical Artificial
+  Intelligence}, 11(3):287--296.
+
+\bibitem[\protect\citename{Daelemans, Berck, and Gillis}1997]{Daelemans+97e}
+Daelemans, W., P.~Berck, and S.~Gillis.
+\newblock 1997.
+\newblock Data mining as a method for linguistic analysis: Dutch diminutives.
+\newblock {\em Folia Linguistica}, XXXI(1-2).
+
+\bibitem[\protect\citename{Daelemans, Buchholz, and
+  Veenstra}1999]{Daelemans+99a}
+Daelemans, W., S.~Buchholz, and J.~Veenstra.
+\newblock 1999.
+\newblock Memory-based shallow parsing.
+\newblock In {\em Proceedings of CoNLL}, Bergen, Norway.
+
+\bibitem[\protect\citename{Daelemans, Gillis, and Durieux}1994]{Daelemans+94b}
+Daelemans, W., S.~Gillis, and G.~Durieux.
+\newblock 1994.
+\newblock The acquisition of stress: a data-oriented approach.
+\newblock {\em Computational Linguistics}, 20(3):421--451.
+
+\bibitem[\protect\citename{Daelemans, Gillis, and Durieux}1997]{Daelemans+97f}
+Daelemans, W., S.~Gillis, and G.~Durieux.
+\newblock 1997.
+\newblock Skousen's analogical modeling algorithm: A comparison with lazy
+  learning.
+\newblock In D.~Jones and H.~Somers, editors, {\em New Methods in Language
+  Processing}. University College Press, pages 3--15.
+
+\bibitem[\protect\citename{Daelemans and {van den Bosch}}1992]{Daelemans+92b}
+Daelemans, W. and A.~{van den Bosch}.
+\newblock 1992.
+\newblock Generalisation performance of backpropagation learning on a
+  syllabification task.
+\newblock In M.~F.~J. Drossaers and A.~Nijholt, editors, {\em Proc. of TWLT3:
+  Connectionism and Natural Language Processing}, pages 27--37, Enschede.
+  Twente University.
+
+\bibitem[\protect\citename{Daelemans and {van den Bosch}}1993]{Daelemans+93c}
+Daelemans, W. and A.~{van den Bosch}.
+\newblock 1993.
+\newblock Tabtalk: reusability in data-oriented grapheme-to-phoneme conversion.
+\newblock In {\em Proceedings of Eurospeech '93}, pages 1459--1466, Berlin.
+  T.U.~Berlin.
+
+\bibitem[\protect\citename{Daelemans and {van den Bosch}}1996]{Daelemans+96}
+Daelemans, W. and A.~{van den Bosch}.
+\newblock 1996.
+\newblock Language-independent data-oriented grapheme-to-phoneme conversion.
+\newblock In J.~P.~H. {Van Santen}, R.~W. Sproat, J.~P. Olive, and
+  J.~Hirschberg, editors, {\em Progress in Speech Processing}. Springer-Verlag,
+  Berlin, pages 77--89.
+
+\bibitem[\protect\citename{Daelemans, {van den Bosch}, and
+  Weijters}1997]{Daelemans+97}
+Daelemans, W., A.~{van den Bosch}, and A.~Weijters.
+\newblock 1997.
+\newblock {{\sc igt}}ree: using trees for compression and classification in
+  lazy learning algorithms.
+\newblock {\em Artificial Intelligence Review}, 11:407--423.
+
+\bibitem[\protect\citename{Daelemans, {van den Bosch}, and
+  Zavrel}1997]{Daelemans+97d}
+Daelemans, W., A.~{van den Bosch}, and J.~Zavrel.
+\newblock 1997.
+\newblock A feature-relevance heuristic for indexing and compressing large case
+  bases.
+\newblock In M.~{Van Someren} and G.~Widmer, editors, {\em Poster Papers of the
+  Ninth European Conference on Machine Learing}, pages 29--38, Prague, Czech
+  Republic. University of Economics.
+
+\bibitem[\protect\citename{Daelemans, {van~den~Bosch}, and
+  Zavrel}1999]{Daelemans+99}
+Daelemans, W., A.~{van~den~Bosch}, and J.~Zavrel.
+\newblock 1999.
+\newblock Forgetting exceptions is harmful in language learning.
+\newblock {\em Machine Learning, Special issue on Natural Language Learning},
+  34:11--41.
+
+\bibitem[\protect\citename{Daelemans \bgroup et al.\egroup
+  }1996]{Daelemans+96b}
+Daelemans, W., J.~Zavrel, P.~Berck, and S.~Gillis.
+\newblock 1996.
+\newblock {\sc mbt}: A memory-based part of speech tagger generator.
+\newblock In E.~Ejerhed and I.~Dagan, editors, {\em Proc. of Fourth Workshop on
+  Very Large Corpora}, pages 14--27. ACL SIGDAT.
+
+\bibitem[\protect\citename{Daelemans \bgroup et al.\egroup
+  }1998]{Daelemans+98a}
+Daelemans, W., J.~Zavrel, K.~{Van~der~Sloot}, and A.~{van~den~Bosch}.
+\newblock 1998.
+\newblock {TiMBL}: {T}ilburg {M}emory {B}ased {L}earner, version 1.0, reference
+  manual.
+\newblock Technical Report ILK-9803, ILK, Tilburg University.
+
+\bibitem[\protect\citename{Dasarathy}1991]{Dasarathy91}
+Dasarathy, B.~V.
+\newblock 1991.
+\newblock {\em Nearest Neighbor ({NN}) Norms: {NN} Pattern Classification
+  Techniques}.
+\newblock IEEE Computer Society Press, Los Alamitos, CA.
+
+\bibitem[\protect\citename{{De\-vij\-ver} and Kittler}1982]{Devijver+82}
+{De\-vij\-ver}, P.~.A. and J.~Kittler.
+\newblock 1982.
+\newblock {\em Pattern recognition. A statistical approach}.
+\newblock Prentice-Hall, London, UK.
+
+\bibitem[\protect\citename{Dudani}1976]{Dudani76}
+Dudani, S.A.
+\newblock 1976.
+\newblock The distance-weighted $k$-nearest neighbor rule.
+\newblock In {\em IEEE Transactions on Systems, Man, and Cybernetics}, volume
+  SMC-6, pages 325--327.
+
+\bibitem[\protect\citename{Durieux and Gillis}2000]{Durieux+00}
+Durieux, G. and S.~Gillis.
+\newblock 2000.
+\newblock Predicting grammatical classes from phonological cues: An empirical
+  test.
+\newblock In B.~H\"ohle and J.~Weissenborn, editors, {\em Approaches to
+  bootstrapping: phonological, syntactic and neurophysiological aspects of
+  early language acquisition}. Benjamins, Amsterdam, pages 189--232.
+
+\bibitem[\protect\citename{Eddington}2000]{Eddington00}
+Eddington, D.
+\newblock 2000.
+\newblock Analogy and the dual-route model of morphology.
+\newblock {\em Lingua}, 110:281--298.
+
+\bibitem[\protect\citename{Garner}1995]{Garner95}
+Garner, S.R.
+\newblock 1995.
+\newblock {\sc WEKA}: The {\sc w}aikato {\sc e}nvironment for {\sc k}nowledge
+  {\sc a}nalysis.
+\newblock In {\em Proc. of the New Zealand Computer Science Research Students
+  Conference}, pages 57--64.
+
+\bibitem[\protect\citename{Gillis, Durieux, and Daelemans}2000]{Gillis+00}
+Gillis, S., G.~Durieux, and W.~Daelemans.
+\newblock 2000.
+\newblock Lazy learning: A comparison of natural and machine learning of
+  stress.
+\newblock In P.~Broeder and J.M.J. Murre, editors, {\em Models of Language
+  Acquisition: inductive and deductive approaches}. Oxford University Press,
+  pages 76--99.
+
+\bibitem[\protect\citename{Gustafson, Lindberg, and
+  Lundeberg}1999]{Gustafson+99}
+Gustafson, J., N.~Lindberg, and M.~Lundeberg.
+\newblock 1999.
+\newblock The august spoken dialogue system.
+\newblock In {\em Proceedings of Eurospeech'99}.
+
+\bibitem[\protect\citename{Hart}1968]{Hart68}
+Hart, P.~E.
+\newblock 1968.
+\newblock The condensed nearest neighbor rule.
+\newblock {\em IEEE Transactions on Information Theory}, 14:515--516.
+
+\bibitem[\protect\citename{Kocsor \bgroup et al.\egroup }2000]{Kocsor+00}
+Kocsor, A., L.~T\'{o}th, A.~Kuba jr., K.~Kov\'{a}cs, M.~Jelasity,
+  T.~Gyim\'{o}thy, and J.~Csirik.
+\newblock 2000.
+\newblock A comparative study of several feature transformation and learning
+  methods for phoneme classification.
+\newblock {\em International Journal of Speech Technology}, 3(3/4):263--276.
+
+\bibitem[\protect\citename{Kokkinakis}2000]{Kokkinakis00}
+Kokkinakis, D.
+\newblock 2000.
+\newblock Concordancing revised or how to aid the recognition of new senses in
+  large corpora.
+\newblock In D.~Christodoulakis, editor, {\em Proceedings of NLP-2000, Bridging
+  the Gap Between Theory and Practice}, number 1835 in Lecture Notes in
+  Artificial Intelligence, Berlin. Springer Verlag.
+
+\bibitem[\protect\citename{Kolodner}1993]{Kolodner93}
+Kolodner, J.
+\newblock 1993.
+\newblock {\em Case-based reasoning}.
+\newblock Morgan Kaufmann, San Mateo, CA.
+
+\bibitem[\protect\citename{Krahmer \bgroup et al.\egroup }2001]{Krahmer+01}
+Krahmer, E., M.~Swerts, M.~Theune, and M.~Weegels.
+\newblock 2001.
+\newblock Error detection in spoken human-machine interaction.
+\newblock {\em International Journal of Speech Technology}, 4(1):19--30.
+
+\bibitem[\protect\citename{Krott, Baayen, and Schreuder}2001]{Krott+01}
+Krott, A., R.~H. Baayen, and R.~Schreuder.
+\newblock 2001.
+\newblock Analogy in morphology: modeling the choice of linking morphemes in
+  dutch.
+\newblock {\em Linguistics}, 39(1):51--93.
+
+\bibitem[\protect\citename{MacLeod, Luk, and Titterington}1987]{MacLeod+87}
+MacLeod, J.~E.~S., A.~Luk, and D.~M. Titterington.
+\newblock 1987.
+\newblock A re-examination of the distance-weighted $k$-nearest neighbor
+  classification rule.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics},
+  SMC-17(4):689--696.
+
+\bibitem[\protect\citename{Malouf}2000]{Malouf00}
+Malouf, R.
+\newblock 2000.
+\newblock The order of prenominal adjectives in natural language generation.
+\newblock In {\em Proceedings of the 38th Annual Meeting of the Association for
+  Computational Linguistics}, pages 85--92, New Brunswick, NJ. ACL.
+
+\bibitem[\protect\citename{Minnen, Bond, and Copestake}2000]{Minnen+00}
+Minnen, G., F.~Bond, and A.~Copestake.
+\newblock 2000.
+\newblock Memory-based learning for article generation.
+\newblock In {\em Proceedings of the 4th Conference on Computational Natural
+  Language Learning and the Second Learning Language in Logic Workshop}, pages
+  43--48, New Brunswick, NJ. ACL.
+
+\bibitem[\protect\citename{Morin and Raeside}1981]{Morin+81}
+Morin, R.~L. and B.~E. Raeside.
+\newblock 1981.
+\newblock A reappraisal of distance-weighted $k$-nearest neighbor
+  classification for pattern recognition with missing data.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics},
+  SMC-11(3):241--243.
+
+\bibitem[\protect\citename{Orasan}2000]{Orasan00}
+Orasan, C.
+\newblock 2000.
+\newblock A hybrid method for clause splitting in unrestricted english texts.
+\newblock In {\em Proceedings of ACIDCA '2000}, Monastir, Tunisia.
+
+\bibitem[\protect\citename{Quinlan}1986]{Quinlan86}
+Quinlan, J.R.
+\newblock 1986.
+\newblock {Induction of Decision Trees}.
+\newblock {\em {Machine Learning}}, 1:81--206.
+
+\bibitem[\protect\citename{Quinlan}1993]{Quinlan93}
+Quinlan, J.R.
+\newblock 1993.
+\newblock {\em {\sc c4.5}: Programs for Machine Learning}.
+\newblock {Morgan Kaufmann}, {San Mateo, CA}.
+
+\bibitem[\protect\citename{Raaijmakers}2000]{Raaijmakers00}
+Raaijmakers, S.
+\newblock 2000.
+\newblock Learning distributed linguistic classes.
+\newblock In {\em Proceedings of the Fourth Conference on Computational
+  Language Learning and the Second Learning Language in Logic Workshop}, pages
+  55--60, New Brunswick, NJ. ACL.
+
+\bibitem[\protect\citename{Salzberg}1990]{Salzberg90}
+Salzberg, S.
+\newblock 1990.
+\newblock {\em Learning with nested generalised exemplars}.
+\newblock Kluwer Academic Publishers, Norwell, MA.
+
+\bibitem[\protect\citename{Shepard}1987]{Shepard87}
+Shepard, R.N.
+\newblock 1987.
+\newblock {Toward a universal law of generalization for psychological science}.
+\newblock {\em {Science}}, 237:1317--1228.
+
+\bibitem[\protect\citename{Stanfill and Waltz}1986]{Stanfill+86}
+Stanfill, C. and D.~Waltz.
+\newblock 1986.
+\newblock Toward memory-based reasoning.
+\newblock {\em Communications of the {{\sc acm}}}, 29(12):1213--1228, December.
+
+\bibitem[\protect\citename{Stevenson and Gaizauskas}2000]{Stevenson+00}
+Stevenson, M. and R.~Gaizauskas.
+\newblock 2000.
+\newblock Experiments on sentence boundary detection.
+\newblock In {\em Proceedings of the Sixth Conference on Applied Natural
+  Language Processing and the First Conference of the North American Chapter of
+  the Association for Computational Linguistics}, pages 24--30.
+
+\bibitem[\protect\citename{Stevenson and Wilks}1999]{Stevenson+99}
+Stevenson, M. and Y.~Wilks.
+\newblock 1999.
+\newblock Combining weak knowledge sources for sense disambiguation.
+\newblock In {\em Proceedings of the International Joint Conference on
+  Artificial Intelligence}.
+
+\bibitem[\protect\citename{{Tjong~Kim~Sang}}2001]{Sang01}
+{Tjong~Kim~Sang}, E.
+\newblock 2001.
+\newblock Memory-based clause identification.
+\newblock In {\em Proceedings of CoNLL-2001}, pages 67--69. Toulouse, France.
+
+\bibitem[\protect\citename{{Tjong~Kim~Sang} and Veenstra}1999]{Sang+99}
+{Tjong~Kim~Sang}, E. and J.~Veenstra.
+\newblock 1999.
+\newblock Representing text chunks.
+\newblock In {\em Proceedings of EACL'99}, pages 173--179. Bergen, Norway.
+
+\bibitem[\protect\citename{{van den Bosch}}1997]{VandenBosch97}
+{van den Bosch}, A.
+\newblock 1997.
+\newblock {\em Learning to pronounce written words: A study in inductive
+  language learning}.
+\newblock {Ph.D.} thesis, Universiteit Maastricht.
+
+\bibitem[\protect\citename{{van~den~Bosch}}1999]{VandenBosch99}
+{van~den~Bosch}, A.
+\newblock 1999.
+\newblock Careful abstraction from instance families in memory-based language
+  learning.
+\newblock {\em Journal for Experimental and Theoretrical Artificial
+  Intelligence}, 11(3):339--368.
+
+\bibitem[\protect\citename{{van~den~Bosch}}2000]{VandenBosch00}
+{van~den~Bosch}, A.
+\newblock 2000.
+\newblock Using induced rules as complex features in memory-based language
+  learning.
+\newblock In {\em Proceedings of the Fourth Conference on Computational Natural
+  Language Learning and of the Second Learning Language in Logic Workshop},
+  pages 73--78, New Brunswick, NJ. ACL.
+
+\bibitem[\protect\citename{{van den Bosch} and Daelemans}1993]{VandenBosch+93}
+{van den Bosch}, A. and W.~Daelemans.
+\newblock 1993.
+\newblock Data-oriented methods for grapheme-to-phoneme conversion.
+\newblock In {\em Proceedings of the 6th Conference of the EACL}, pages 45--53.
+
+\bibitem[\protect\citename{{van~den~Bosch} and Daelemans}1999]{VandenBosch+99}
+{van~den~Bosch}, A. and W.~Daelemans.
+\newblock 1999.
+\newblock Memory-based morphological analysis.
+\newblock In {\em Proceedings of the 37th Annual Meeting of the Association for
+  Computational Linguistics,}, pages 285--292, New Brunswick, NJ. ACL.
+
+\bibitem[\protect\citename{{van den Bosch} and Daelemans}2000]{Vandenbosch+00b}
+{van den Bosch}, A. and W.~Daelemans.
+\newblock 2000.
+\newblock A distributed, yet symbolic model of text-to-speech processing.
+\newblock In P.~Broeder and J.M.J. Murre, editors, {\em Models of Language
+  Acquisition: inductive and deductive approaches}. Oxford University Press,
+  pages 55--75.
+
+\bibitem[\protect\citename{{van den Bosch}, Daelemans, and
+  Weijters}1996]{VandenBosch+96}
+{van den Bosch}, A., W.~Daelemans, and A.~Weijters.
+\newblock 1996.
+\newblock Morphological analysis as classification: an inductive-learning
+  approach.
+\newblock In K.~Oflazer and H.~Somers, editors, {\em Proceedings of the Second
+  International Conference on New Methods in Natural Language Processing,
+  NeMLaP-2, Ankara, Turkey}, pages 79--89.
+
+\bibitem[\protect\citename{{van~den~Bosch}, Krahmer, and
+  Swerts}2001]{VandenBosch+01}
+{van~den~Bosch}, A., E.~Krahmer, and M.~Swerts.
+\newblock 2001.
+\newblock Detecting problematic turns in human-machine interactions:
+  Rule-induction versus memory-based learning approaches.
+\newblock In {\em Proceedings of the 39th Meeting of the Association for
+  Computational Linguistics}, pages 499--506, New Brunswick, NJ. ACL.
+
+\bibitem[\protect\citename{{van~den~Bosch} and Zavrel}2000]{VandenBosch+00}
+{van~den~Bosch}, A. and J.~Zavrel.
+\newblock 2000.
+\newblock Unpacking multi-valued symbolic features and classes in memory-based
+  language learning.
+\newblock In P.~Langley, editor, {\em Proceedings of the Seventeenth
+  International Conference on Machine Learning}, pages 1055--1062, San
+  Francisco, CA. Morgan Kaufmann.
+
+\bibitem[\protect\citename{van Halteren, Zavrel, and
+  Daelemans}2001]{Halteren+01}
+van Halteren, H., J.~Zavrel, and W.~Daelemans.
+\newblock 2001.
+\newblock Improving accuracy in word class tagging through combination of
+  machine learning systems.
+\newblock {\em Computational Linguistics}, 27(2):199--230.
+
+\bibitem[\protect\citename{Veenstra \bgroup et al.\egroup }2000]{Veenstra+00}
+Veenstra, J., A.~{van~den~Bosch}, S.~Buchholz, W.~Daelemans, and J.~Zavrel.
+\newblock 2000.
+\newblock Memory-based word sense disambiguation.
+\newblock {\em Computers and the Humanities}, 34(1--2).
+
+\bibitem[\protect\citename{Veenstra}1998]{Veenstra98}
+Veenstra, J.~B.
+\newblock 1998.
+\newblock Fast {NP} chunking using memory-based learning techniques.
+\newblock In {\em Proceedings of BENELEARN'98}, pages 71--78, Wageningen, The
+  Netherlands.
+
+\bibitem[\protect\citename{Weiss and Kulikowski}1991]{Weiss+91}
+Weiss, S. and C.~Kulikowski.
+\newblock 1991.
+\newblock {\em Computer systems that learn}.
+\newblock San Mateo, CA: Morgan Kaufmann.
+
+\bibitem[\protect\citename{Wettschereck}1994]{Wettschereck94}
+Wettschereck, D.
+\newblock 1994.
+\newblock A study of distance-based machine learning algorithms.
+\newblock Ph.d thesis, Oregon State University.
+
+\bibitem[\protect\citename{White and Liu}1994]{White+94}
+White, A.P. and W.Z. Liu.
+\newblock 1994.
+\newblock Bias in information-based measures in decision tree induction.
+\newblock {\em Machine Learning}, 15(3):321--329.
+
+\bibitem[\protect\citename{Wilson}1972]{Wilson72}
+Wilson, D.
+\newblock 1972.
+\newblock Asymptotic properties of nearest neighbor rules using edited data.
+\newblock {\em Institute of Electrical and Electronic Engineers Transactions on
+  Systems, Man and Cybernetics}, 2:408--421.
+
+\bibitem[\protect\citename{Witten and Frank}1999]{Witten+99}
+Witten, I. and E.~Frank.
+\newblock 1999.
+\newblock {\em Data Mining: Practical Machine Learning Tools and Techniques
+  with Java Implementations}.
+\newblock San Mateo, CA: Morgan Kaufmann.
+
+\bibitem[\protect\citename{Yeh}2000]{Yeh00}
+Yeh, A.
+\newblock 2000.
+\newblock Comparing two trainable grammatical relations finders.
+\newblock In {\em Proceedings of the 18th International Conference on
+  Computational Linguistics}, pages 1146--1150, {Saarbr\"{u}cken}, Germany.
+
+\bibitem[\protect\citename{Zavrel}1997]{Zavrel97}
+Zavrel, J.
+\newblock 1997.
+\newblock An empirical re-examination of weighted voting for k-nn.
+\newblock In W.~Daelemans, P.~Flach, and A.~{van~den~Bosch}, editors, {\em
+  Proceedings of the 7th Belgian-Dutch Conference on Machine Learning}, pages
+  139--148, Tilburg.
+
+\bibitem[\protect\citename{Zavrel, Berck, and Lavrijssen}2000]{Zavrel+00b}
+Zavrel, J., P.~Berck, and W.~Lavrijssen.
+\newblock 2000.
+\newblock Information extraction by text classification: Corpus mining for
+  features.
+\newblock In {\em Proceedings of the workshop Information Extraction meets
+  Corpus Linguistics}, Athens, Greece.
+
+\bibitem[\protect\citename{Zavrel and Daelemans}1997]{Zavrel+97}
+Zavrel, J. and W.~Daelemans.
+\newblock 1997.
+\newblock Memory-based learning: Using similarity for smoothing.
+\newblock In {\em Proc. of 35th annual meeting of the ACL}, {Madrid}.
+
+\bibitem[\protect\citename{Zavrel and Daelemans}1999]{Zavrel+99}
+Zavrel, J. and W.~Daelemans.
+\newblock 1999.
+\newblock Recent advances in memory-based part-of-speech tagging.
+\newblock In {\em VI Simposio Internacional de Comunicacion Social}, pages
+  590--597, Santiago de Cuba.
+
+\bibitem[\protect\citename{Zavrel, Daelemans, and Veenstra}1997]{Zavrel+97b}
+Zavrel, J., W.~Daelemans, and J.~Veenstra.
+\newblock 1997.
+\newblock Resolving {PP} attachment ambiguities with memory-based learning.
+\newblock In M.~Ellison, editor, {\em Proc. of the Workshop on Computational
+  Language Learning (CoNLL'97)}, {ACL, Madrid}.
+
+\bibitem[\protect\citename{Zhang}1992]{Zhang92}
+Zhang, J.
+\newblock 1992.
+\newblock Selecting typical instances in instance-based learning.
+\newblock In {\em Proceedings of the International Machine Learning Conference
+  1992}, pages 470--479.
+
+\end{thebibliography}
