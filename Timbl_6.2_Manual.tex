@@ -183,7 +183,7 @@ on most UNIX systems.
 To install the package on your computer, unzip the downloaded file
 ({\tt >} is the command line prompt):
 
-{\tt > tar zxf timbl-6.2.tar.gz}
+{\tt > tar xfz timbl-6.2.tar.gz}
 
 This will make a directory {\tt timbl-6.2} under your current directory.
 
@@ -193,25 +193,25 @@ Alternatively you can do:
 
 and unpack the tar archive:
 
-{\tt > tar xvf timbl-6.2.tar}
+{\tt > tar xf timbl-6.2.tar}
 
 Go to the timbl-6.1 directory, and configure the package by typing
 
 {\tt > cd timbl-6.2} \\
 {\tt > ./configure --prefix=<location\_to\_install>}
 
-If you don't use the --prefix option, Timbl will try to install itself
+If you don't use the {\tt --prefix} option, TiMBL will try to install itself
 in the directory {\tt /usr/local/}. This may be fine for you but you
 probably need {\tt root} access to that directory.
 If you don't have {\tt root} access you should use a location such as
 {\tt \$HOME/install}
 
-It's not obligatory to install Timbl, but if you plan to install
-Timbl-based extensions like Mbt, Dimbl, or Tadpole, or you want to
-build your own extensions using the Timbl API, installing is the best
+It's not obligatory to install TiMBL, but if you plan to install
+TiMBL-based extensions like Mbt, Dimbl, or Tadpole, or you want to
+build your own extensions using the TiMBL API, installing is the best
 choice.
 
-Anyway, after {\tt configure} you can build Timbl:
+Anyway, after {\tt configure} you can build TiMBL:
 
 {\tt > make}
 
@@ -225,7 +225,7 @@ executable files named {\tt Timbl}, {\tt TimblClient} and a bunch of
 and a static library {\tt libTimbl.a} in the directory {\tt <location\_to\_install>/lib}.
 
 Within the {\tt <location\_to\_install>} directory a subdirectory is
-also created: {\tt share/doc/timbl} where the Timbl 6.2 documentation
+also created: {\tt share/doc/timbl} where the TiMBL 6.2 documentation
 can be found, and which in turn contains a subdirectory {\tt examples}
 with example data files. Some of these data sets are used in the Quick
 Start Section~\ref{tutorial} of this document; other data and source
@@ -233,7 +233,7 @@ files are referred to in the API documentation. The latter, along with
 a pdf version of this document, can also be found in the {\tt doc}
 directory. Note that the API documentation is a beta-state document.
 
-Timbl should now be ready for use. If you want to run the examples and
+TiMBL should now be ready for use. If you want to run the examples and
 demos from this manual, you should act as follows:
 
 \begin{itemize}
@@ -241,10 +241,10 @@ demos from this manual, you should act as follows:
 In many shells something like
 
  {\tt > export PATH=\$PATH:<location\_to\_install>/bin }
-wil do.
+will do.
 \item copy all the files from {\tt
   <location\_to\_install>/share/doc/timbl/examples} to some working
-location. (By default, Timbl writes its results to the directory where
+location. (By default, TiMBL writes its results to the directory where
 it finds the data.)
 \item and test:
 
@@ -253,11 +253,11 @@ it finds the data.)
 {\tt Timbl -t dimin.train -t dimin.test}
 \end{itemize}
 
-If you did not install Timbl, the executable can be found in the {\tt
-  src} directory of the build. The demo files ar in the {\tt demo}
+If you did not install TiMBL, the executable can be found in the {\tt
+  src} directory of the build. The demo files can be found in the {\tt demo}
 directory.
 
-Happy Timbling!
+Happy TiMBLing!
 
 The e-mail address for problems with the installation, bug reports,
 comments and questions is {\tt Timbl@uvt.nl}.
@@ -271,7 +271,7 @@ program.
 
 \section{From version 6.1 to 6.2}
 
-The {\sc IGTree} algorithm has been optimized beyond the optimizations introduced in version 6.0. With very large training sets, {\sc IGTree} was reported to be near-exponentially slower in the later stages of training. This has now been resolved; trees are now built in near-linear time.
+The {\sc IGTree} algorithm has been optimized beyond the optimizations introduced in version 6.0. With very large training sets, {\sc IGTree} was reported to be almost exponentially slower in the later stages of training. This has now been resolved; trees are now built in near-linear time.
 
 Finally, besides minor bug fixes, many internal changes were made to make the code better maintainable and extendible.
 
@@ -360,7 +360,7 @@ switches are added:
 Version 5.1 adds speed and memory improvements that are notable with
 datasets that have very large amounts of examples, features, feature
 values, or classes (and, especially, combinations of those). Previous
-versions exhibited exponential slowth in some worst cases; this has
+versions exhibited exponential slowdown in some worst cases; this has
 been largely countered. On the outside, TiMBL has been updated in the
 following aspects:
 
@@ -407,7 +407,7 @@ characteristics:
 
 \item In addition to the ``binary'' format, TiMBL can now read
   a more generic sparse data format. This format allows instances to
-  be coded by tuples of $< feature number, feature value >$ where the
+  be coded by tuples of $<$ feature number, feature value $>$ where the
   value can be symbolic or numeric rather than only binary.
 
 \item Tree files generated by TiMBL versions 1.*, 2.* and 3.* are no
@@ -422,7 +422,7 @@ longer supported.
   $\beta$ parameters. If unspecified, as in {\tt -d ED:<a>} or the older
   (deprecated) {\tt -d ED <a>}, $\beta$ is set to $1.0$.
 \item {\tt -F Sparse} declares that training and test files are in the
-  sparse $< feature\ number, feature\ value >$ tuple-format described in
+  sparse $<$ feature number, feature value $>$ tuple-format described in
   more detail in section~\ref{commandline}.
 \item {\tt +v k} is a new verbosity option that prints all class
 distributions per $k$-nearest distance per classified instance in the
@@ -452,9 +452,9 @@ distance weighting.
 memory only when those instances are misclassified by the then-current
 set of instances in memory.
 
-\item Frequency-filtered MVDM distance metric. The option, which is
-not selected by default, is an add-on of the MVDM metric, that backs
-off from the MVDM metric to the Overlap distance function whenever one
+\item Frequency-filtered {\sc mvdm} distance metric. The option, which is
+not selected by default, is an add-on of the {\sc mvdm} metric, that backs
+off from the {\sc mvdm} metric to the Overlap distance function whenever one
 or both in a pair of matched values occurs fewer times in the training
 material than a user-determined threshold.
 
@@ -494,7 +494,7 @@ the above changes, plus one extra verbosity option:
           {\tt n} is 1 (no switching).
 	\item the {\tt -a 3} or {\tt -a IB2} switch invokes the 
               {\sc ib2} algorithm. This algorithm expects to have 
-              the {\tt -b} switch set;
+              the {\tt -b} switch set.
 	\item the {\tt -b n} option sets the number ($n$) of lines
               counting from the top of the training set file, which form
               the bootstrap set of memorized instances to which {\sc ib2} 
@@ -749,7 +749,7 @@ baan (job) & baantje & {\em -tje\/} \\
 For these experiments, we collect a representation of nouns in terms
 of their syllable structure as training material\footnote{These words
   were collected form the {\sc celex} lexical
-  database~\cite{Baayen+93}}. For each of the last three syllables of
+  database~\cite{Baayen+93}.}. For each of the last three syllables of
 the noun, four different features are collected: whether the syllable
 is stressed or not (values - or +), the string of consonants before
 the vocalic part of the syllable (i.e. its onset), its vocalic part
@@ -811,7 +811,7 @@ trees~\cite{Quinlan93}. See Section~\ref{fileformats} for more
 information about this and other file formats.
 
 An experiment is started by executing TiMBL with the two files ({\tt
-  dimin.train} and {\tt dimin.test}) as arguments (``>'' is the
+  dimin.train} and {\tt dimin.test}) as arguments (``$>$'' is the
 command line prompt):
 
 {\footnotesize
@@ -820,7 +820,7 @@ command line prompt):
 \end{verbatim}
 }
 
-Upon completion, a new file has been created with name\\ {\small\tt
+Upon completion, a new file has been created with name {\small\tt
 dimin.test.IB1.O.gr.k1.out}, which is identical to the
 input test file except that an extra comma-separated column is added
 with the class predicted by TiMBL. The name of the file provides
@@ -937,7 +937,7 @@ InputFormat       : C4.5
 
 %\vspace{0.5cm}
 
-Phase 2 is the learning phase; all training items are stored in an
+Phase 2 is the learning phase: all training items are stored in an
 efficient way in memory for use during testing. Again timing
 information (real time) is provided, as well as information about the
 size of the data structure representing the stored examples and the
@@ -1008,7 +1008,7 @@ number of exact matches\footnote{An exact match in this experiment can
 in the nearest neighbor set). In this experiment, the diminutive
 suffix form of 96.7\% of the new words was correctly predicted. Train
 and test set overlap in 39 items, and the algorithm had to break five
-ties, four of which were broken correctly.
+ties, all of which were broken correctly.
 
 The meaning of the output file names can be explained now:\\ {\tt
 dimin.test.IB1.O.gr.k1.out} means output file ({\tt .out}) for {\tt
@@ -1089,8 +1089,8 @@ Within the {\sc ib1} {\em weighted overlap} option, the default
 feature weighting method is Gain Ratio. Other feature relevance
 weighting methods are available as well.  By setting the parameter
 {\tt -w} to 0, an {\em overlap} definition of similarity is created
-where each feature is considered equally relevant. Similarity reduces
-in that case to the number of equal values in the same position in the
+where each feature is considered equally relevant. In that case, similarity reduces
+to the number of equal values in the same position in the
 two patterns being compared. As an alternative weighting, users can
 provide their own weights by using the {\tt -w} parameter with a
 filename in which the feature weights are stored (see
@@ -1305,8 +1305,8 @@ settings may work for some classes but not for others, or some may
 improve recall, and others precision, e.g.). From such a matrix, not
 only accuracy can be derived, but also a number of additional metrics
 that have become popular in machine learning, information retrieval,
-and subsequently also in computational linguistics:: {\em recall},
-{\em precision}, and their harmonic mean {\em F-score}; {\em true
+and subsequently also in computational linguistics: {\em recall},
+{\em precision}, and their harmonic mean {\em F-score}, as well as {\em true
   positive rate}, {\em false positive rate}, and their joint measure
 {\em AUC} in ROC space.  The details of these advanced statistics are
 given in Section~\ref{advancedstats}.
@@ -1395,7 +1395,7 @@ earlier experiences (as in rule induction and rule-based processing).
 The approach has surfaced in different contexts using a variety of
 alternative names such as similarity-based, example-based,
 exemplar-based, analogical, case-based, in\-stance-based, and lazy
-learning~\cite{Stanfill+86,Cost+93,Kolodner93,Aha+91,Aha97a}.
+learning~\cite{Stanfill+86,Aha+91,Cost+93,Kolodner93,Aha97a}.
 Historically, memory-based learning algorithms are descendants of the
 $k$-nearest neighbor (henceforth $k$-{\sc nn}) algorithm
 \cite{Cover+67,Devijver+82,Aha+91}.
@@ -1450,7 +1450,7 @@ differences between the features. The $k$-{\sc nn} algorithm with this
 metric is called {\sc ib1} \cite{Aha+91}. 
 
 \begin{equation}
-\Delta(X,Y) = \sum_{i=1}^{n} \delta(x_{i},y_{i}) |
+\Delta(X,Y) = \sum_{i=1}^{n} \delta(x_{i},y_{i})
 \label{distance}
 \end{equation}
 
@@ -1511,7 +1511,7 @@ feature relevance in this way~\cite{Quinlan86,Quinlan93}.
 isolation, and measures how much information it contributes to our
 knowledge of the correct class label. The Information Gain of feature
 $i$ is measured by computing the difference in uncertainty
-(i.e. entropy) between the situations without and with knowledge of
+(i.e.\ entropy) between the situations without and with knowledge of
 the value of that feature (Equation~\ref{IGgain}).
 
 \begin{equation}
@@ -1689,9 +1689,7 @@ the conditional distribution of the classes $C_{i}$ for these values.
 
 For computational efficiency, all pairwise $\delta(v_{1}, v_{2})$
 values can be pre-comput\-ed before the actual nearest neighbor search
-starts. Note that for numeric features, no {\sc mvdm} is computed in
-TiMBL, but a scaled difference (see Equation~\ref{overlapeq}) of the
-actual numeric feature values.
+starts.
 
 Although the {\sc mvdm} metric does not explicitly compute feature
 relevance, an implicit feature weighting effect is present. If
@@ -1815,12 +1813,12 @@ formula:
 \end{equation}
 
 Due to its internal tree structure, TiMBL is not particularly suited
-to handle feature vectors with thousands or more values. Many features
+to handle feature vectors with thousands or more features. Many features
 cause very deep and usually very unbalanced trees, from which
 retrieval can be rather inefficient (especially when there is little
 variance in the feature weights). Other internal data structures such as
 inverted indices are typically more suited to these types of vector
-spaces.
+spaces. For now, inverted indices are not implemented in TiMBL.
 
 \subsection{Distance-weighted class voting}
 \label{distweightvote}
@@ -1884,7 +1882,7 @@ by zero~\cite{Wettschereck94}.
 \begin{equation}
 \label{inverseweight}
 w_{j}= \left \{ \begin{array}{ll}  
-                        \frac{1}{d_{j}} & \mbox{if $d_{j} \not= 0$ } \\ 
+                        \frac{1}{d_{j} + \epsilon} \\ 
                     \end{array} 
           \right. 
 \end{equation}
@@ -1962,7 +1960,7 @@ Thus far we have described the last step of $k$-NN classification as
 taking the majority category among the set of nearest neighbors, where
 their vote is either unweighted or weighted by their distance
 (subsection~\ref{distweightvote}). Especially in case of unweighted
-voting, ties can occur; e.g. of a set of ten nearest neighbors, five
+voting, ties can occur; e.g.\ of a set of ten nearest neighbors, five
 vote for class $A$, and the other five for $B$. The procedure for
 breaking this tie in the $k$-NN classifier in TiMBL is as
 follows. First, the value of the $k$ parameter is incremented by $1$,
@@ -2193,7 +2191,7 @@ The generalization accuracy of {\sc igtree} is usually comparable to
 that of {\sc ib1-ig}; often slightly worse, but sometimes even better.
 The two causes for {\sc IGTree}'s surprisingly good accuracies
 attained with dramatically faster classification are that (i) most
-`unseen' instances contain large parts that fully match stored parts
+'unseen' instances contain large parts that fully match stored parts
 of training instances, and (ii) the probabilistic information stored
 at non-terminal nodes (i.e., the default classifications) still
 produces strong `best guesses' when exact matching fails. The
@@ -2281,8 +2279,7 @@ instances from memory could also alleviate the practical processing
 burden of the $k$-NN classifier kernel, since it would have less
 instances to compare new instances to. This potential double pay-off
 spawned a distinct line of work on editing in the $k$-NN classifier
-quite early \namecite{Hart68} and \namecite{Wilson72}
-(for overviews, cf. \namecite{Dasarathy91,VandenBosch99}).
+quite early \namecite{Hart68} and \namecite{Wilson72}.
 
 TiMBL offers an implementation of one particular editing algorithm
 called {\sc ib2} \cite{Aha+91}, an extension to the basic {\sc ib1}
@@ -2296,7 +2293,7 @@ they are assumed to be representatives of a part of the complete
 instance space in which they themselves and potentially more
 nearest-neighbor instances have a particular class different from the
 class of neigboring instances already in memory. The economical idea
-behind {\sc ib2} is that this way tupically only instances on the
+behind {\sc ib2} is that this way typically only instances on the
 boundaries of such areas are stored, and not the insides of the areas;
 the classification of instances that would be positioned well inside
 such areas is assumed to be safeguarded by the memorized boundary
