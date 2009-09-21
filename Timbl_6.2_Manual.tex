@@ -7,6 +7,7 @@
 \usepackage{a4wide}
 \usepackage{palatino}
 \usepackage{fullname}
+\usepackage{url}
 
 \newcommand{\chisq}{{$ \chi^2 $}}
 
@@ -2584,27 +2585,7 @@ options.
 
 \end{description}
 
-The presence of a training file will make TiMBL pass through the first
-two phases of its cycle. In the first phase it examines the contents
-of the training file, and computes a number of statistics on it
-(feature weights etc.). In the second phase the instances from the
-training file are stored in memory. If no test file is specified, the
-program exits, possibly writing some of the results of learning to
-files (see below). If there is a test file, the selected classifier,
-trained on the present training data, is applied to it, and the
-results are written to a file the name of which is a combination of the
-name of the test file and a code representing the chosen algorithm
-settings. TiMBL then reports the percentage of correctly classified
-test items. The default settings for the classification phase are: a
-Memory-Based Learner, with Gain Ratio feature weighting, with $k=1$,
-and with optimizations for speedy search. If you need to change the
-settings, because you want to use a different type of classifier, or
-because you need to make a trade-off between speed and memory-use,
-then you can use the options that are shown using {\tt -h}. The
-sections below provide a reference to the use of these command line
-arguments, and they are roughly ordered by the type of action that the
-option has effect on. Note that some options (listed with ``{\tt
-+/-}'') can be turned on ({\tt +}) or off ({\tt -}).
+The presence of a training file will make TiMBL pass through the first two phases of its cycle. In the first phase it examines the contents of the training file, and computes a number of statistics on it (feature weights etc.). In the second phase the instances from the training file are stored in memory. If no test file is specified, the program exits, possibly writing some of the results of learning to files (see below). If there is a test file, the selected classifier, trained on the present training data, is applied to it, and the results are written to a file the name of which is a combination of the name of the test file and a code representing the chosen algorithm settings. TiMBL then reports the percentage of correctly classified test items. The default settings for the classification phase are: a Memory-Based Learner, with Gain Ratio feature weighting, with $k=1$, and with optimizations for speedy search. If you need to change the settings, because you want to use a different type of classifier, or because you need to make a trade-off between speed and memory-use, then you can use the options that are shown using {\tt -h}. The sections below provide a reference to the use of these command line arguments, and they are roughly ordered by the type of action that the option has effect on. Note that some options (listed with ``{\tt +/-}'') can be turned on ({\tt +}) or off ({\tt -}).
 
 \subsection{Algorithm and metric selection}
 
@@ -2644,10 +2625,7 @@ For example, {\tt -mO:N3:I2,5-7} sets the global metric to overlap,
 declares the third feature to be numeric, and ignores features 2 and
 5, 6, and 7.
 
-Contrary to earlier TiMBL versions, Ignore {\em can}\/ be the global
-metric; it must be followed by a {\tt MetricRange} string with metric
-{\tt O}, {\tt M}, {\tt J}, {\tt D}, or {\tt N} specifying in the range which
-features are {\em not}\/ ignored.
+Ignore {\em can}\/ be the global metric; it must be followed by a {\tt MetricRange} string with metric {\tt O}, {\tt M}, {\tt J}, {\tt D}, or {\tt N} specifying in the range which features are {\em not}\/ ignored.
 
 \item {\tt -w <n>} : chooses between feature-weighting possibilities.
 The weights are used in the metric of {\sc ib1} and in the ordering of the
@@ -2979,6 +2957,16 @@ parameter can take on the following values (case-insensitive):
 
 \end{description}
 
+\subsection{Hidden options}
+
+TiMBL offers an undisclosed number of hidden options that have been built in over time for particular reasons. Some have survived over time, and although their use is not for the faint-hearted, some may offer interesting functionalities. A small list of disclosed hidden options follows.
+
+\begin{description}
+  \item {\tt --sloppy=\{true|false\}}: in combination with leave-one-out (LOO) testing, this option switches off all weight recomputation. By default, leaving out one training example out causes feature weights, value-class matrices, and derived metrics such as {\sc mvdm} to be recomputed, because strictly the example-specific statistics should be absent when it is held out and classified. {\tt --sloppy} skips this, causing a significant speedup, and usually slightly better LOO scores. Use only if your experimental method allows it. Default value is {\tt false}.
+  \item {\tt --silly=\{true|false\}}: set to {\tt true}, switches off the optimized nearest-neighbor search in {\sc ib1} and {\sc tribl}. This causes TiMBL to fall back to comparing all feature values of a test instance to full paths in the TiMBL tree. This causes TiMBL to slow down dramatically on most datasets. Setting is available to enable testing the effect of optimized search. Default value is {\tt false}.
+  \item{\tt --Diversify}: modifies all features weights by subtracting the smallest weight (plus $\epsilon$) from all weights. The smallest weight thus becomes $\epsilon$. This modification ``diversifies'' the feature weights, and was introduced to enhance the effect of {\sc Dimbl}, the multi-CPU variant of TiMBL\footnote{For {\sc Dimbl}, see \url{http://ilk.uvt.nl/dimbl}}.
+\end{description}
+
 \section{File formats}
 \label{fileformats}
 
@@ -3094,8 +3082,7 @@ small,other,2,key.
 
 ARFF is a format that is used by the WEKA machine learning
 workbench~\cite{Garner95,Witten+99}\footnote{WEKA is available from
-the Waikato University Department of Computer Science, {\tt
-http://www.cs.waikato.ac.nz/\~{}ml/weka}.}.  Although TiMBL at present
+the Waikato University Department of Computer Science, \url{http://www.cs.waikato.ac.nz/\~{}ml/weka}}.  Although TiMBL at present
 does {\em not}\/ entirely follow the ARFF specification, it still
 tries to do as well as it can in reading this format. The ARFF format
 is {\em not}\/ autodetected, and needs to be specified on the
