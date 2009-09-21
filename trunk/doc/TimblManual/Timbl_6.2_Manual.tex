@@ -44,114 +44,29 @@
 
 \chapter*{Preface}
 
-Memory-Based Learning ({\sc mbl}) is an elegantly simple and robust
-machine-learning method applicable to a wide range of tasks in Natural
-Language Processing (NLP).  In our research group at Tilburg
-University, we have been working since the end of the 1980s on the
-development of Memory-Based Learning techniques and algorithms. The
-foundations are bundled in
-\namecite{Daelemans+05}. Section~\ref{furtherreading} provides a
-historical overview of work on the application of {\sc mbl} in
-NLP. With the establishment of the ILK (Induction of Linguistic
-Knowledge) research group in 1997, and with the increasing use of {\sc
-  mbl} at the CNTS research group of the University of Antwerp, the
-need for a well-coded and uniform tool for our main algorithms became
-more urgent. TiMBL was the result of combining ideas from a number of
-different {\sc mbl} implementations, cleaning up the interface, and
-using a whole bag of tricks to make it more efficient. We think it has
-become a useful tool for NLP research, and, for that matter, for many
-other domains where classification tasks are learned from
-examples. With the release of the sixth version of TiMBL, we have
-moved to releasing our software under the GPL license, for anyone to
-use under the conditions stated in the license.
+Memory-Based Learning ({\sc mbl}) is an elegantly simple and robust machine-learning method applicable to a wide range of tasks in Natural Language Processing (NLP).  In our research group at Tilburg University, we have been working since the end of the 1980s on the development of Memory-Based Learning techniques and algorithms. The foundations are bundled in \namecite{Daelemans+05}. Section~\ref{furtherreading} provides a historical overview of work on the application of {\sc mbl} in NLP. With the establishment of the ILK (Induction of Linguistic Knowledge) research group in 1997, and with the increasing use of {\sc mbl} at the CNTS research group of the University of Antwerp, the need for a well-coded and uniform tool for our main algorithms became more urgent. TiMBL was the result of combining ideas from a number of different {\sc mbl} implementations, cleaning up the interface, and using a whole bag of tricks to make it more efficient. We think it has become a useful tool for NLP research, and, for that matter, for many other domains where classification tasks are learned from examples, so we started to release the software in 1999. With the release of the sixth version of TiMBL we moved to releasing our software under the GPL license, for anyone to use under the conditions stated in the license.
 
-Memory-Based Learning is a direct descendant of the classical
-$k$-Nearest Neighbor ($k$-NN) approach to classification, which has
-become known as a powerful pattern classification algorithm for
-numeric data. In typical NLP learning tasks, however, the focus is on
-discrete data, very large numbers of examples, and many attributes of
-differing relevance. Moreover, classification speed is a critical
-issue in any realistic application of Memory-Based Learning. These
-constraints demand non-trivial data-structures and speedup
-optimizations for the core $k$-NN classifier. Our approach has
-resulted in an architecture which compresses the typical flat file
-organization found in straightforward $k$-NN implementations, into a
-decision-tree structure. While the decision tree can be used to
-retrieve the exact $k$-nearest neighbors (as happens in the {\sc ib1}
-algorithm within TiMBL), it can also be deterministically traversed as
-in a decision-tree classifier (the method adopted by the {\sc igtree}
-algorithm). We believe that our optimizations make TiMBL one of the
-fastest discrete $k$-NN implementations around.
+Memory-Based Learning is a direct descendant of the classical $k$-Nearest Neighbor ($k$-NN) approach to classification, which has become known as a powerful pattern classification algorithm for numeric data. In typical NLP learning tasks, however, the focus is on discrete data, very large numbers of examples, and many attributes of differing relevance. Moreover, classification speed is a critical issue in any realistic application of Memory-Based Learning. These constraints demand non-trivial data-structures and speedup optimizations for the core $k$-NN classifier. Our approach has resulted in an architecture which compresses the typical flat file organization found in straightforward $k$-NN implementations, into a decision-tree structure. While the decision tree can be used to retrieve the exact $k$-nearest neighbors (as happens in the {\sc ib1} algorithm within TiMBL), it can also be deterministically traversed as in a decision-tree classifier (the method adopted by the {\sc igtree} algorithm). We believe that our optimizations make TiMBL one of the fastest discrete $k$-NN implementations around.
 
-The main effort in the development and maintenance of this software
-was and continues to be invested by Ko van der Sloot. The code started
-as a rewrite of {\tt nibl}, a piece of software developed by Peter
-Berck from a Common Lisp implementation by Walter Daelemans of {\sc
-  ib1-ig}. Some of the index optimizations in TiMBL are due to Jakub
-Zavrel. The code has benefited substantially from trial, error and
-scrutiny by all past and present members of the ILK and CLiPS (formerly CNTS)
-groups in Tilburg and Antwerp. We are furthermore indebted to Ton
-Weijters of Eindhoven Technical University for his inspirational early
-work on $k$-NN and for his involvements in {\sc igtree}.
+The main effort in the development and maintenance of this software was and continues to be invested by Ko van der Sloot. The code started as a rewrite of {\tt nibl}, a piece of software developed by Peter Berck from a Common Lisp implementation by Walter Daelemans of {\sc ib1-ig}. Some of the index optimizations in TiMBL are due to Jakub Zavrel. The code has benefited substantially from trial, error and scrutiny by all past and present members of the ILK and CLiPS (formerly CNTS) groups in Tilburg and Antwerp. We are furthermore indebted to Ton Weijters of Eindhoven Technical University for his inspirational early work on $k$-NN and for his involvements in {\sc igtree}.
 
-Our sincere thanks go to the many users of TiMBL who have contributed
-to it immensely by giving us feedback and reporting bugs, and to the
-two organisations that have supported and enabled its development:
-NWO, the Netherlands Organization for Scientific Research, and the
-Faculty of Humanities of Tilburg University. NWO funding
-was divided in three subsequent periods. From 1997 until 2001
-development was part of the ``Induction of Linguistic Knowledge''
-research programme, partially funded by the Netherlands Organization
-for Scientific Research (NWO) and Tilburg University. Between 2001 and
-2006 it was funded as part of the ``Memory Models of Language''
-research project under the NWO {\em Vernieuwingsimpuls}\/ programme,
-and since 2007 it is funded as part of the ``Implicit Linguistics''
-research project under the NWO Vici programme.
+Our sincere thanks go to the many users of TiMBL who have contributed to it immensely by giving us feedback and reporting bugs, and to the two organisations that have supported and enabled its development: NWO, the Netherlands Organization for Scientific Research, and the Faculty of Humanities of Tilburg University. NWO funding has spanned three subsequent periods. From 1997 until 2001 development was part of the ``Induction of Linguistic Knowledge'' research programme, partially funded by the Netherlands Organization for Scientific Research (NWO) and Tilburg University. Between 2001 and 2006 it was funded as part of the ``Memory Models of Language'' research project under the NWO {\em Vernieuwingsimpuls}\/ programme, and since 2006 it is funded as part of the ``Implicit Linguistics'' research project under the NWO Vici programme.
 
-The current release (version 6.2) succeeds major release 6.0 and minor update 6.1. It provides several new distance functions, and the internal code has been overhauled significantly. Version 6.1 introduced, among other software improvements, autoconfiguration.  An
-elaborate description of the changes from version 1.0 up to 6.2 can be
-found in Chapter~\ref{changes}. Although all new features have been
-tested for some time in our research groups, the software may still
-contain bugs and inconsistencies in some places. We would appreciate
-it if you would send bug reports, ideas about enhancements of the
-software and the manual, and any other comments you might have, to
-{\tt Timbl@uvt.nl}.
+The current release (version 6.2) succeeds major release 6.0 and minor update 6.1. It provides several new distance functions, and the internal code has been overhauled significantly. An elaborate description of the changes from version 1.0 up to 6.2 can be found in Chapter~\ref{changes}. Although all new features have been tested for some time in our research groups, the software may still contain bugs and inconsistencies in some places. We would appreciate it if you would send bug reports, ideas about enhancements of the software and the manual, and any other comments you might have, to {\tt Timbl@uvt.nl}.
 
-This reference guide is structured as follows. In
-Chapter~\ref{license} you can find the terms of the license according
-to which you are allowed to use TiMBL. The subsequent chapter gives
-some instructions on how to install the TiMBL package on your
-computer. Chapter~\ref{changes} lists the changes that have taken
-place up to the current version. Next, Chapter~\ref{tutorial} offers a
-quick-start tutorial for readers who want to get to work with TiMBL
-right away. The tutorial describes, step-by-step, a case study with a
-sample data set (included with the software) representing the
-linguistic domain of predicting the diminutive inflection of Dutch
-nouns.  Readers who are interested in the theoretical and technical
-details of Memory-Based Learning and of this implementation can refer
-to Chapter~\ref{algorithms}. Chapter~\ref{reference} provides full
-reference to the command line options of TiMBL, supported file
-formats, and TiMBL's server interface.
+This reference guide is structured as follows. In Chapter~\ref{license} you can find the terms of the license according to which you are allowed to use TiMBL. The subsequent chapter gives some instructions on how to install the TiMBL package on your computer. Chapter~\ref{changes} lists the changes that have taken place up to the current version. Next, Chapter~\ref{tutorial} offers a quick-start tutorial for readers who want to get to work with TiMBL right away. The tutorial describes, step-by-step, a case study with a sample data set (included with the software) representing the linguistic domain of predicting the diminutive inflection of Dutch nouns.  Readers who are interested in the theoretical and technical details of Memory-Based Learning and of this implementation can refer to Chapter~\ref{algorithms}. Chapter~\ref{reference} provides full reference to the command line options of TiMBL, supported file formats, and TiMBL's server interface.
 
 \chapter{GNU General Public License}
 \label{license}
 \pagenumbering{arabic} 
 
-TiMBL is free software; you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free
-Software Foundation; either version 3 of the License, or (at your
-option) any later version.
+TiMBL is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
-TiMBL is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
-for more details.
+TiMBL is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with TiMBL.  If not, see $<$http://www.gnu.org/licenses/$>$.
+You should have received a copy of the GNU General Public License along with TiMBL.  If not, see $<$http://www.gnu.org/licenses/$>$.
 
-In publication of research that makes use of TiMBL 6.2, a citation
-should be given of: {\em ``Walter Daelemans, Jakub Zavrel, Ko van der
+In publication of research that makes use of TiMBL 6.2, a citation should be given of: {\em ``Walter Daelemans, Jakub Zavrel, Ko van der
   Sloot, and Antal van den Bosch (2009). TiMBL: Tilburg Memory Based
   Learner, version 6.2, Reference Guide. ILK Technical Report 09-01
   Available from \\ {\tt
@@ -161,8 +76,9 @@ For information about commercial licenses for TiMBL 6.2,
 contact {\tt Timbl@uvt.nl}, or send your request in writing to:
 
 Prof. dr.~Walter Daelemans\\
-CNTS - Language Technology Group\\
-Linguistics / University of Antwerp\\
+CLiPS - Language Technology Group\\
+Dept. of Linguistics \\
+University of Antwerp\\
 Universiteitsplein 1\\
 B-2610 Wilrijk (Antwerp)\\
 Belgium
@@ -175,14 +91,9 @@ You can get the TiMBL package as a gzipped tar archive from:
 
 {\tt http://ilk.uvt.nl/timbl}
 
-Following the links from that page, you can download the file {\tt
-  timbl-6.2.tar.gz}. This file contains the complete source code (C++)
-for the TiMBL program, a few sample data sets, the license and the
-documentation. The installation should be relatively straightforward
-on most UNIX systems.
+Following the links from that page, you can download the file {\tt timbl-6.2.tar.gz}. This file contains the complete source code (C++) for the TiMBL program, a few sample data sets, the license and the documentation. The installation should be relatively straightforward on most UNIX systems.
 
-To install the package on your computer, unzip the downloaded file
-({\tt >} is the command line prompt):
+To install the package on your computer, unzip the downloaded file ({\tt >} is the command line prompt):
 
 {\tt > tar xfz timbl-6.2.tar.gz}
 
@@ -201,18 +112,11 @@ Go to the timbl-6.1 directory, and configure the package by typing
 {\tt > cd timbl-6.2} \\
 {\tt > ./configure --prefix=<location\_to\_install>}
 
-If you don't use the {\tt --prefix} option, TiMBL will try to install itself
-in the directory {\tt /usr/local/}. This may be fine for you but you
-probably need {\tt root} access to that directory.
-If you don't have {\tt root} access you should use a location such as
-{\tt \$HOME/install}
+If you don't use the {\tt --prefix} option, TiMBL will try to install itself in the directory {\tt /usr/local/}.  If you don't have {\tt root} access you can specify a different installation location such as {\tt \$HOME/install}
 
-It's not obligatory to install TiMBL, but if you plan to install
-TiMBL-based extensions like Mbt, Dimbl, or Tadpole, or you want to
-build your own extensions using the TiMBL API, installing is the best
-choice.
+It's not obligatory to install TiMBL, but if you plan to install TiMBL-based extensions such as Mbt\footnote{\url{http://ilk.uvt.nl/mbt}}, Dimbl\footnote{\url{http://ilk.uvt.nl/dimbl}}, or Tadpole\footnote{\url{http://ilk.uvt.nl/tadpole}}, or you want to build your own extensions using the TiMBL API, installing is the best choice.
 
-Anyway, after {\tt configure} you can build TiMBL:
+After {\tt configure} you can build TiMBL:
 
 {\tt > make}
 
@@ -220,22 +124,11 @@ and (as recommended) install:
 
 {\tt > make install }
 
-If the process was completed successfully, you should now have
-executable files named {\tt Timbl}, {\tt TimblClient} and a bunch of
-{\tt api\_test} files in the directory {\tt <location\_to\_install>/bin},
-and a static library {\tt libTimbl.a} in the directory {\tt <location\_to\_install>/lib}.
+If the process was completed successfully, you should now have executable files named {\tt Timbl}, {\tt TimblClient} and a bunch of {\tt api\_test} files in the directory {\tt <location\_to\_install>/bin}, and a static library {\tt libTimbl.a} in the directory {\tt <location\_to\_install>/lib}.
 
-Within the {\tt <location\_to\_install>} directory a subdirectory is
-also created: {\tt share/doc/timbl} where the TiMBL 6.2 documentation
-can be found, and which in turn contains a subdirectory {\tt examples}
-with example data files. Some of these data sets are used in the Quick
-Start Section~\ref{tutorial} of this document; other data and source
-files are referred to in the API documentation. The latter, along with
-a pdf version of this document, can also be found in the {\tt doc}
-directory. Note that the API documentation is a beta-state document.
+Within the {\tt <location\_to\_install>} directory a subdirectory is also created: {\tt share/doc/timbl} where the TiMBL 6.2 documentation can be found, and which in turn contains a subdirectory {\tt examples} with example data files. Some of these data sets are used in the Quick Start Section~\ref{tutorial} of this document; other data and source files are referred to in the API documentation. The latter, along with a pdf version of this document, can also be found in the {\tt doc} directory. Note that the API documentation is a beta-state document.
 
-TiMBL should now be ready for use. If you want to run the examples and
-demos from this manual, you should act as follows:
+TiMBL should now be ready for use. If you want to run the examples and demos from this manual, you should act as follows:
 
 \begin{itemize}
 \item Be sure to add {\tt <location\_to\_install>/bin} to your PATH. 
@@ -254,39 +147,39 @@ it finds the data.)
 {\tt Timbl -t dimin.train -t dimin.test}
 \end{itemize}
 
-If you did not install TiMBL, the executable can be found in the {\tt
-  src} directory of the build. The demo files can be found in the {\tt demo}
-directory.
+If you did not install TiMBL, the executable can be found in the {\tt src} directory of the build. The demo files can be found in the {\tt demo} directory.
 
-Happy TiMBLing!
-
-The e-mail address for problems with the installation, bug reports,
-comments and questions is {\tt Timbl@uvt.nl}.
+The e-mail address for problems with the installation, bug reports, comments and questions is {\tt Timbl@uvt.nl}.
 
 \chapter{Changes}
 \label{changes}
 
-This chapter gives a brief overview of the changes from all previously
-released versions (1.0 up to 6.2) for users already familiar with the
-program.
+This chapter gives a brief overview of the changes from all previously released versions (1.0 up to 6.2) for users already familiar with the program.
 
 \section{From version 6.1 to 6.2}
 
-The {\sc IGTree} algorithm has been optimized beyond the optimizations introduced in version 6.0. With very large training sets, {\sc IGTree} was reported to be almost exponentially slower in the later stages of training. This has now been resolved; trees are now built in near-linear time.
+Version 6.2 differs from 6.1 in a great number of internal changes aimed at making the code better maintainable and extendible, in some minor bug fixes, and in the following more prominent changes:
 
-Finally, besides minor bug fixes, many internal changes were made to make the code better maintainable and extendible.
+\begin{itemize}
+
+\item A new distance metric, the Dice coefficient, has been added; the metric can be set with {\tt -mDC}. Analogous to the Levenshtein ({\tt -mL}) metric, the Dice coefficient operates at the feature value level; it computes the overlap in character bigrams of two value strings.
+
+\item Value difference matrices, as used by the {\sc mvdm} and Jeffrey divergence distance metrics, can now be written to file, and read into TiMBL, allowing for user-defined value difference metrics to be used, with {\tt --matrixout=<filename>} and {\tt --matrixout=<filename>}.
+
+\item The {\sc IGTree} algorithm has been optimized beyond the improvements introduced in version 6.0. With very large training sets, {\sc IGTree} was reported to be exponentially slower in the later stages of training. Trees are now built in near-linear time.
+
+\end{itemize}
+
+
+Finally, besides minor bug fixes, a great number of internal changes were made to make the code better maintainable and extendible.
 
 \section{From version 6.0 to 6.1}
 
-Version 6.1 differs from 6.0 mainly in the changed configuration.
-It is now based on autotools and is delivered as an installable package.
-Some bugs have been fixed as well.
+Version 6.1 differs from 6.0 mainly in the changed configuration.  It is now based on autotools and is delivered as an installable package.  Some bugs have been fixed as well.
 
 \section{From version 5.1 to 6.0}
 
-Version 6.0 differs from 5.1 firstly in terms of internal changes
-aimed at increasing classification speed and lowering memory
-usage, of which the most prominent are
+Version 6.0 differs from 5.1 firstly in terms of internal changes aimed at increasing classification speed and lowering memory usage, of which the most prominent are
 
 \begin{itemize}
 
@@ -2308,12 +2201,7 @@ also yet unclear what the effect is of the size of the seed.
 \section{Advanced evaluation metrics}
 \label{advancedstats}
 
-Aside from accuracy (the percentage of correctly classified test
-instances), TiMBL offers some more evaluation metrics that have become
-common in information retrieval and machine learning in general,
-namely precision, recall, and F-score, and ROC-space (with dimensions
-true positive rate and false positive rate), and AUC. We describe
-these metrics in more detail here.
+Aside from accuracy (the percentage of correctly classified test instances), TiMBL offers some more evaluation metrics that have become common in information retrieval and machine learning in general, namely precision, recall, and F-score, and ROC-space (with dimensions true positive rate and false positive rate), and AUC. We describe these metrics in more detail here.
 
 \begin{figure}
 \begin{center}
@@ -2324,18 +2212,7 @@ these metrics in more detail here.
   used in the advanced performance metrics. \label{confmat}}
 \end{figure}
 
-Figure~\ref{confmat} displays the general confusion
-matrix\index{confusion matrix} for one class $C$, splitting all
-classifications on a test set into four cells. The TP or true
-positives cell contains a count of examples that have class $C$ and
-are predicted to have this class correctly by the classifier. The FP
-or false positives cell contains a count of examples of a different
-class that the classifier incorrectly classified as $C$. The FN or
-false negatives cell contains examples of class $C$ for which the
-classifier predicted a different class label than $C$.  On the basis
-of these four numbers and the total number of positive examples
-$P=TP+FN$ and negative examples $N=FP+TN$, we can compute the
-following performance measures:
+Figure~\ref{confmat} displays the general confusion matrix\index{confusion matrix} for one class $C$, splitting all classifications on a test set into four cells. The TP or true positives cell contains a count of examples that have class $C$ and are predicted to have this class correctly by the classifier. The FP or false positives cell contains a count of examples of a different class that the classifier incorrectly classified as $C$. The FN or false negatives cell contains examples of class $C$ for which the classifier predicted a different class label than $C$.  On the basis of these four numbers and the total number of positive examples $P=TP+FN$ and negative examples $N=FP+TN$, we can compute the following performance measures:
 
 \begin{description}
 \item[Precision]\index{precision} $= \frac{TP}{TP+FP}$, or the
@@ -2388,19 +2265,7 @@ following performance measures:
 
 \end{description}
 
-While these advanced statistics can be computed per class, they can
-also be averaged to produce a single outcome for a full test
-set. Common methods for averaging F-scores and AUC scores are
-micro-averaging and macro-averaging. In micro-averaging, each class'
-F-score or AUC is weighted proportionally to the frequency of the
-class in the test set. A macro-average adds all the F-scores or AUCs
-and divides this sum by the number of classes in the training set. In
-computing these averages, TiMBL bases itself on the classes in the
-training set. When a class does not re-occur in test material, it can
-have no recall, but it can have precision, hence it is always
-incorporated in averages. A class that occurs in test material but not
-in training material can never be predicted correctly, and is never
-included in averages.
+While these advanced statistics can be computed per class, they can also be averaged to produce a single outcome for a full test set. Common methods for averaging F-scores and AUC scores are micro-averaging and macro-averaging. In micro-averaging, each class' F-score or AUC is weighted proportionally to the frequency of the class in the test set. A macro-average adds all the F-scores or AUCs and divides this sum by the number of classes in the training set. In computing these averages, TiMBL bases itself on the classes in the training set. When a class does not re-occur in test material, it can have no recall, but it can have precision, hence it is always incorporated in averages. A class that occurs in test material but not in training material can never be predicted correctly, and is never included in averages.
 
 \begin{figure}
 \begin{center}
@@ -2424,126 +2289,33 @@ included in averages.
 \section{NLP applications of TiMBL}
 \label{furtherreading}
 
-This section provides a brief historical overview of work, performed
-in the Tilburg and Antwerp groups and by others, with the application
-of {\sc mbl}-type algorithms to NLP tasks. For more historical
-background, see \cite{Daelemans+05}.
+This section provides a brief historical overview of work, performed in the Tilburg and Antwerp groups and by others, with the application of {\sc mbl}-type algorithms to NLP tasks. For more historical background, see \cite{Daelemans+05}.
 
-The Tilburg and Antwerp groups have published a number of articles
-containing descriptions of the algorithms and specialised metrics
-collected in TiMBL, usually demonstrating their functioning using NLP
-tasks. The {\sc ib1-ig} algorithm was first introduced in
-\cite{Daelemans+92b} in the context of a comparison of memory-based
-approaches with error-back\-propagation learning for a hyphenation
-task.  Predecessor versions of {\sc igtree} can be found in
-\cite{Daelemans+93c,VandenBosch+93} where they are applied to
-grapheme-to-phoneme conversion.  See \cite{Daelemans+97} for a
-description and review of {\sc igtree} and {\sc ib1-ig}. {\sc tribl}
-is described in \cite{Daelemans+97d}.  Experiments with
-distance-weighted class voting are described in
-\cite{Zavrel97}. Aspects of using binary-valued (unpacked
-multi-valued) features are discussed in \cite{VandenBosch+00}.
-Comparisons between memory-based learning and editing variants are
-reported in \cite{VandenBosch99,Daelemans+99}. A hybrid of TiMBL and
-the {\sc ripper} rule-induction algorithm \cite{Cohen95} is described
-in \cite{VandenBosch00,VandenBosch04}. Using TiMBL as a classifier
-combination method is discussed in
-\cite{Halteren+01}. \namecite{Raaijmakers00} describes an extension of
-TiMBL with error-correcting output codes. \namecite{Hendrickx+04}
-report on an experiment to import maximum-entropy matrices to replace
-{\sc mvdm} matrices \cite{Hendrickx+04}, improving over the
-maximum-entropy classifier. \namecite{VandenBosch04} presents a search
-algorithm to find optimal combinations of parameter settings
-automatically, given a labeled training set of examples, showing large
-gains of the default settings (also of other machine learning
-algorithms). Parallelization of TiMBL, through splitting either the
-training set or the test set in $n$ pieces in shared-memory
-multi-processor architectures, is explored in \cite{VandenBosch+07b}.
+The Tilburg and Antwerp groups have published a number of articles containing descriptions of the algorithms and specialised metrics collected in TiMBL, usually demonstrating their functioning using NLP tasks. The {\sc ib1-ig} algorithm was first introduced in \cite{Daelemans+92b} in the context of a comparison of memory-based approaches with error-back\-propagation learning for a hyphenation task.  Predecessor versions of {\sc igtree} can be found in \cite{Daelemans+93c,VandenBosch+93} where they are applied to grapheme-to-phoneme conversion.  See \cite{Daelemans+97} for a description and review of {\sc igtree} and {\sc ib1-ig}. {\sc tribl} is described in \cite{Daelemans+97d}.  Experiments with distance-weighted class voting are described in \cite{Zavrel97}. Aspects of using binary-valued (unpacked multi-valued) features are discussed in \cite{VandenBosch+00}.  Comparisons between memory-based learning and editing variants are reported in \cite{VandenBosch99,Daelemans+99}. A hybrid of TiMBL and the {\sc ripper} rule-induction algorithm \cite{Cohen95} is described in \cite{VandenBosch00,VandenBosch04}. Using TiMBL as a classifier combination method is discussed in \cite{Halteren+01}. \namecite{Raaijmakers00} describes an extension of TiMBL with error-correcting output codes. \namecite{Hendrickx+04} report on an experiment to import maximum-entropy matrices to replace {\sc mvdm} matrices \cite{Hendrickx+04}, improving over the maximum-entropy classifier. \namecite{VandenBosch04} presents a search algorithm to find optimal combinations of parameter settings automatically, given a labeled training set of examples, showing large gains of the default settings (also of other machine learning algorithms). Parallelization of TiMBL, through splitting either the training set or the test set in $n$ pieces in shared-memory multi-processor architectures, is explored in \cite{VandenBosch+07b}.
 
-The memory-based algorithms implemented in the TiMBL package have been
-targeted to a large range of Natural Language Processing
-tasks. Examples of applications in the morpho-phonological and speech
-areas are hyphenation and syllabification \cite{Daelemans+92b};
-classifiying phonemes in speech \cite{Kocsor+00}; assignment of word
-stress \cite{Daelemans+94}; grapheme-to-phoneme conversion,
-\cite{VandenBosch+93,Daelemans+96,Canisius+06}; diminutive formation
-\cite{Daelemans+98a}; and morphological analysis
-\cite{VandenBosch+96,VandenBosch+99,Canisius+06}.
+The memory-based algorithms implemented in the TiMBL package have been targeted to a large range of Natural Language Processing tasks. Examples of applications in the morpho-phonological and speech areas are hyphenation and syllabification \cite{Daelemans+92b}; classifiying phonemes in speech \cite{Kocsor+00}; assignment of word stress \cite{Daelemans+94}; grapheme-to-phoneme conversion, \cite{VandenBosch+93,Daelemans+96,Canisius+06}; diminutive formation \cite{Daelemans+98a}; and morphological analysis \cite{VandenBosch+96,VandenBosch+99,Canisius+06}. Although these examples are applied mostly to Germanic languages (English, Dutch, and German), applications to other languages with more complicated writing systems or morphologies, or with limited resources, have also been presented: for example, letter-phoneme conversion in Scottish Gaelic \cite{Wolters+97}, morphological analysis of Arabic \cite{Marsi+05}, or diacritic restoration in languages with a diacritic-rich writing system \cite{Mihalcea02,DePauw+07}.
 
-At the syntactic-semantic sentence level TiMBL has been applied to
-part of speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01};
-PP-attachment \cite{Zavrel+97b}; word sense disambiguation
-\cite{Veenstra+00,Stevenson+99,Kokkinakis00,Hoste+02,DeCadt+04};
-subcategorization \cite{Buchholz98}; phrase chunking
-\cite{Veenstra98,Sang+99}; dependency parsing \cite{Canisius+06b},
-article generation \cite{Minnen+00}; shallow parsing
-\cite{Daelemans+99a,Buchholz+99,Yeh00}; clause identification
-\cite{Orasan00,Sang01}; sentence-boundary detection
-\cite{Stevenson+00}; predicting the order of prenominal adjectives for
-generation \cite{Malouf00}; determining noun countability
-\cite{Baldwin+03}, animacy \cite{Orasan+01}, and semantic relations
-within noun compounds \cite{Kim+06b,Nastase+06}; verb particle
-construction identification \cite{Kim+06}, and anaphora resolution
-\cite{Preiss02,Mitkov+02,Hoste05}. TiMBL is also included as a core
-classification component in full parsing systems
-\cite{Nivre+04,Sagae+05}.
+At the syntactic sentence level TiMBL has been applied to part of speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01}; PP-attachment \cite{Zavrel+97b}; subcategorization \cite{Buchholz98}; phrase chunking \cite{Veenstra98,Sang+99}; dependency parsing \cite{Canisius+06b}, article generation \cite{Minnen+00}; shallow parsing \cite{Daelemans+99a,Buchholz+99,Yeh00}; clause identification \cite{Orasan00,Sang01}; sentence-boundary detection \cite{Stevenson+00}; predicting the order of prenominal adjectives for generation \cite{Malouf00}; and, beynd the sentence level, to anaphora resolution \cite{Preiss02,Mitkov+02,Hoste05}. More recently, memory-based learning has been integrated as a classifier engine in more complicated dependency parsing systems \cite{Nivre+04,Sagae+05,Canisius+06b}.
 
-On the textual level, TiMBL has been used for information extraction
-\cite{Zavrel+00b,Zavrel+03,Ahn06}, text classification
-\cite{Spitters00}, question classification \cite{Garcia+06,Dridan+07}, spam
-filtering \cite{Androutsopoulos+00,}, named-entity recognition
-\cite{Buchholz+00,Hendrickx+03,DeMeulder+03,Sporleder+06b,Leveling+06},
-and error detection in textual databases \cite{Sporleder+06}.
+Memory-based learning has been applied succesfully to lexical semantics, in particular to word sense disambiguation \cite{Veenstra+00,Stevenson+99,Kokkinakis00,Mihalcea02,Hoste+02,DeCadt+04}, but also in other lexical semantic tasks such as determining noun countability \cite{Baldwin+03}, animacy \cite{Orasan+01}, and semantic relations within noun compounds \cite{Kim+06b,Nastase+06}.
 
-In the field of discourse and dialogue modeling, TiMBL has been used
-for shallow semantic analysis of speech-recognised utterances
-\cite{Gustafson+99,Krahmer+01,VandenBosch+01,Lendvai+02a,Lendvai+03},
-in disfluency detection in transcribed spontaneous speech
-\cite{Lendvai+03c}, and in classifying ellipsis in dialogue
-\cite{Fernandez+04}.
+On the textual level, TiMBL has been used for information extraction \cite{Zavrel+00b,Zavrel+03,Ahn06}, text classification \cite{Spitters00}, question classification \cite{Garcia+06,Dridan+07}, spam filtering \cite{Androutsopoulos+00,}, named-entity recognition \cite{Buchholz+00,Hendrickx+03,DeMeulder+03,Sporleder+06b,Leveling+06}, and error detection in textual databases \cite{Sporleder+06}.
 
-Relations to statistical language processing, in particular the
-interesting equivalence relations with back-off smoothing in
-probabilistic classifiers, are discussed in
-\cite{Zavrel+97}. Relations between classification-based word
-prediction and statistical language modeling are identified in
-\cite{VandenBosch05,VandenBosch06}.
+In the field of discourse and dialogue modeling, TiMBL has been used for shallow semantic analysis of speech-recognised utterances \cite{Gustafson+99,Krahmer+01,VandenBosch+01,Lendvai+02a,Lendvai+03}, in disfluency detection in transcribed spontaneous speech \cite{Lendvai+03c}, and in classifying ellipsis in dialogue \cite{Fernandez+04}.
 
-In machine translation, $k$-nearest neighbor classification bears a
-close relation with example-based machine translation (EBMT). A first
-EBMT-implementation using TiMBL is described in \cite{VandenBosch+07}.
+Relations to statistical language processing, in particular the interesting equivalence relations with back-off smoothing in probabilistic classifiers, are discussed in \cite{Zavrel+97}. Relations between classification-based word prediction and statistical language modeling are identified in \cite{VandenBosch05,VandenBosch06}.
 
-The first dissertation-length study devoted to the
-approach is \cite{VandenBosch97}, in which the approach is compared to
-alternative learning methods for NLP tasks related to English word
-pronunciation (stress assignment, syllabification, morphological
-analysis, alignment, grapheme-to-phoneme conversion). TiMBL is also
-central in the Ph.D. theses of \namecite{Buchholz02},
-\namecite{Lendvai04}, and \namecite{Hendrickx05}. In 1999 a special
-issue of the {\em Journal for Experimental and Theoretical Artificial
-  Intelligence} (Vol.~11(3), edited by Walter Daelemans) was devoted
-to Memory-Based Language Processing. The introduction to this special
-issue discusses the inspiration sources and alternative developments
-related to the memory-based approach taken in TiMBL
-\cite{Daelemans99b}.
+In machine translation, $k$-nearest neighbor classification bears a close relation with example-based machine translation (EBMT). A first EBMT-implementation using TiMBL is described in \cite{VandenBosch+07}.
 
-Whereas most work using TiMBL has been oriented towards {\em language
-  engineering}\/ applications, the linguistic and psycholinguistic
-relevance of memory-based learning is another focus of research in
-Antwerp, Tilburg and elsewhere. Work in this area has been done on
-stress assignment in Dutch \cite{Daelemans+94,Gillis+00}, reading
-aloud \cite{VandenBosch+00b}, phonological bootstrapping
-\cite{Durieux+00}, the above-mentioned prediction of linking morphemes
-in Dutch \cite{Krott+01}, morphology \cite{Eddington00,Eddington03},
-and the Dutch plural inflection \cite{Keuleers+07}. A comparison to
-other analogical methods for linguistics is provided in
-\cite{Daelemans+97f}.
+The first dissertation-length study devoted to the approach is \cite{VandenBosch97}, in which the approach is compared to alternative learning methods for NLP tasks related to English word pronunciation (stress assignment, syllabification, morphological analysis, alignment, grapheme-to-phoneme conversion). TiMBL is also central in the Ph.D. theses of \namecite{Buchholz02}, \namecite{Lendvai04}, and \namecite{Hendrickx05}. In 1999 a special issue of the {\em Journal for Experimental and Theoretical Artificial Intelligence} (Vol.~11(3), edited by Walter Daelemans) was devoted to Memory-Based Language Processing. The introduction to this special issue discusses the inspiration sources and alternative developments related to the memory-based approach taken in TiMBL \cite{Daelemans99b}.
+
+Whereas most work using TiMBL has been oriented towards natural language engineering applications, the linguistic and psycholinguistic relevance of memory-based learning is another focus of research in Antwerp, Tilburg and elsewhere. Work in this area has been done on stress assignment in Dutch \cite{Daelemans+94,Gillis+00}, reading aloud \cite{VandenBosch+00b}, phonological bootstrapping \cite{Durieux+00}, the above-mentioned prediction of linking morphemes in Dutch \cite{Krott+01}, morphology \cite{Eddington00,Eddington03}, and the Dutch plural inflection \cite{Keuleers+07}. A comparison to other analogical methods for linguistics is provided in \cite{Daelemans+97f}.
 
 \ \\
 
 {\it All Tilburg/Antwerp papers referred to in this section, as well
 as more recent papers, are available in electronic form from the {\sc
-ILK} home page: {\tt http://ilk.uvt.nl} and the {\sc CNTS} home page: \\
+ILK} home page: {\tt http://ilk.uvt.nl} and the {\sc CLiPS} home page: \\
 {\tt http://www.cnts.ua.ac.be/cnts}.}
 
 \chapter{Software usage and options}
@@ -2559,11 +2331,11 @@ of the most basic command line options.
 
 {\footnotesize
 \begin{verbatim}
-TiMBL 6.1 (release) (c) ILK 1998 - 2007.
+TiMBL 6.2 (release) (c) ILK 1998 - 2007.
 Tilburg Memory Based Learner
 Induction of Linguistic Knowledge Research Group
 Tilburg University / University of Antwerp
-Mon Feb 26 18:08:41 2007
+Mon Sep 21 14:28:00 2009
 
 usage:  Timbl -f data-file {-t test-file}
 or see: Timbl -h
@@ -2718,7 +2490,7 @@ the probability distribution in the nearest neighbor set. By default,
 {\tt -R} is not used, but rather the deterministic tie resolution
 scheme described in Subsection~\ref{overlap}.
 
-\item {\tt -t <@file>} : If the filename given after {\tt -t} starts
+\item {\tt -t $<$@file$>$} : If the filename given after {\tt -t} starts
 with '{\tt @}', TiMBL will read commands for testing from {\tt file}.
 This file should contain one set of instructions per line. On each
 line new values can be set for the following command line options:
@@ -2732,7 +2504,7 @@ of the file with the test items.
 \item {\tt -t leave\_one\_out} : No test file is read, but testing is
 done on each pattern of the training file, by treating each pattern of
 the training file in turn as a test case (and the whole remainder of
-the file as training cases).
+the file as training cases). Only applicable in conjunction with {\sc ib1} ({\tt -a0}).
 
 \item {\tt -t cross\_validate} : An $n$-fold cross-validation
 experiment is performed on the basis of $n$ files (e.g. $1/n$
@@ -2740,7 +2512,7 @@ partitionings of an original data file). The names of these $n$ files
 need to be in a text file (one name per line) which is given as
 argument of {\tt -f}. In each fold $f=1 \ldots n$, file number $f$ is
 taken as test set, and the remaining $n-1$ files are concatenated to
-form the training set.
+form the training set. Only applicable in conjunction with {\sc ib1} ({\tt -a0}).
 
 \end{description}
 
@@ -2874,11 +2646,11 @@ parameter can take on the following values (case-insensitive):
   lines in total) to a file with the same name as the output file, but
   with the suffix ``{\tt .\%}''.
 
-\item {\tt -o <filename>} : Write the test output to filename. Useful
+\item {\tt -o $<$filename$>$} : Write the test output to filename. Useful
   for different runs with the same settings on the same testfile,
   where the default output file name would normally be the same.
 
-\item {\tt -O <path>} : Write all output to the path given here. The
+\item {\tt -O $<$path$>$} : Write all output to the path given here. The
   default is to write all output to the directory where the test file
   is located.
 
@@ -3236,7 +3008,7 @@ class} or {\tt ,class}.
 The feature weights used for computing similarities and for the
 internal organization of the memory base can be saved to a file {\tt
   -W}. These files can be read back into TiMBL with {\tt -w
-  <filename>:<weight number>}, where the weight number refers to the
+  $<$filename$>$:$<$weight number$>$}, where the weight number refers to the
 five options in TiMBL. It is also possible to change these files
 manually before reading them in -- and additionally it is also
 possible to write a file from scratch and read this into TiMBL. This
@@ -3345,46 +3117,13 @@ mvdm} metric.
 \subsection{Tree files}
 \label{treeformat}
 
-Although the learning phase in TiMBL is relatively fast, it can be
-useful to store the internal representation of the data set both for
-later usage and for faster subsequent retrieval. In TiMBL, the data
-set is stored internally in a tree structure (see
-Section~\ref{indexing}). When using {\sc ib1}, this tree
-representation contains all the training cases as full paths in the
-tree. When using {\sc igtree}, unambiguous paths in the tree are
-pruned before it is used for classification or written to file. In
-either tree, the arcs represent feature-values and nodes contain class
-(frequency distribution) information. The features are in the same
-order throughout the tree. This order is either determined by
-memory-size considerations in {\sc ib1}, or by feature relevance in
-{\sc igtree}. It can explicitly be manipulated using the {\tt -T}
-option.
+Although the learning phase in TiMBL is relatively fast, it can be useful to store the internal representation of the data set both for later usage and for faster subsequent learning. In TiMBL, the data set is stored internally in a tree structure (see Section~\ref{indexing}). When using {\sc ib1}, this tree representation contains all the training cases as full paths in the tree. When using {\sc igtree}, unambiguous paths in the tree are pruned before it is used for classification or written to file; on the same data, {\sc igtree} trees are usually considerably smaller than {\sc ib1} trees. In either tree type, the arcs represent feature values and nodes contain class distribution information. The features are in the same order throughout the tree. This order is either determined by memory-size considerations in {\sc ib1}, or by feature relevance in {\sc igtree}. It can explicitly be manipulated using the {\tt -T} option.
 
-We strongly advise to refrain from manually editing the tree
-file. However, the syntax of the tree file is as follows. First a
-header consisting of information about the status of the tree, the
-feature-ordering (the permutation from the order in the data file to
-the order in the tree), and the presence of numeric features is
-provided\footnote{Although in this header each line starts with '\#',
-these lines cannot be seen as comment lines.}. Subsequently, unless
-hashing has been set off explicitly ({\tt -H}), a legenda is given of
-numeric hash codes for the class names (one unique integer per class)
-and feature value names (one unique integer per value).  Subsequently,
-the tree's nodes and arcs are given in a proprietary non-indented
-bracket notation.
+We strongly advise to refrain from manually editing the tree file. However, the syntax of the tree file is as follows. First a header consisting of information about the status of the tree, the feature-ordering (the permutation from the order in the data file to the order in the tree), and the presence of numeric features is provided\footnote{Although in this header each line starts with '\#', these lines cannot be seen as comment lines.}. Subsequently, unless hashing has been set off explicitly ({\tt -H}), a legenda is given of numeric hash codes for the class names (one unique integer per class) and feature value names (one unique integer per value).  Subsequently, the tree's nodes and arcs are given in a proprietary non-indented bracket notation.
 
-Starting from the root node, each node is denoted by an opening
-parenthesis ``('', followed by an integer coding the default
-class. After this, there is the class distribution list, within curly
-braces ``\{ \}'', containing a non-empty list of category codes
-followed by integer counts. After this comes an optional
-comma-separated list of arcs to child nodes, within ``[ ]''
-brackets. An arc is labeled with a coded feature value. The node that
-the arc leads to again has a class distribution, and any number of
-child nodes pointed to by arcs.
+Starting from the root node, each node is denoted by an opening parenthesis ``('', followed by an integer coding the default class. After this, there is the class distribution list, within curly braces ``\{ \}'', containing a non-empty list of category codes followed by integer counts. After this comes an optional comma-separated list of arcs to child nodes, within ``[ ]'' brackets. An arc is labeled with a coded feature value. The node that the arc leads to again has a class distribution, and any number of child nodes pointed to by arcs.
 
-The {\sc ib1} tree that was constructed from our example data set looks as
-follows:
+The {\sc ib1} tree constructed from our example data set looks as follows:
 
 \begin{footnotesize}
 \begin{verbatim}
@@ -3482,45 +3221,27 @@ Features
 \end{verbatim}
 \end{footnotesize}
 
-TiMBL tree files generated by versions 1.0 to 3.0 of TiMBL, which do
-not contain hashed class and value names, are no longer
-recognized. This backward compatibility is only preserved in TiMBL
-version 4 up to release 4.3.1.
+TiMBL tree files generated by versions 1.0 to 3.0 of TiMBL, which do not contain hashed class and value names, are no longer recognized in current TiMBL versions. Backward compatibility to trees generated by versions 1.0 to 3.0 is preserved in TiMBL version 4 up to release 4.3.1.
 
 \section{Server interface}
 \label{serverformat}
 
-It is not always practical or possible to have all test items in one
-static test file. Example cases include:
+It is not always practical or possible to have all test items in one static test file. Example cases include:
 
 \begin{itemize}
-\item The output of one classifier is being reused as a feature of
-some other classifier instantly, hence it is not available until it is
-processed.
+
+\item The output of one classifier is being reused as a feature of some other classifier instantly, hence it is not available until it is processed.
+
 \item The test items come in at arbitrary time intervals.
+
 \end{itemize}
 
-In such cases it is more practical to load the training patterns once
-and have TiMBL stand by as a server waiting for new test items to be
-processed. This can be achieved by starting TiMBL with the {\tt -S
-portnumber} option. TiMBL will load the training set and do the
-necessary preparation of statistics and metrics, and then enter an
-infinite loop, waiting for input on the specified portnumber. When a
-client connects on this portnumber, the server starts a separate
-thread for it to process (classification) commands. A sample client
-program is included in the distribution. The client must communicate
-with the server using the protocol described below. After accepting
-the connection, the server first sends a welcome message to the client:
+In such cases it is more practical to load the training patterns once and have TiMBL stand by as a server waiting for new test items to be processed. This can be achieved by starting TiMBL with the {\tt -S portnumber} option. TiMBL will load the training set and do the necessary preparation of statistics and metrics, and then enter an infinite loop, waiting for input on the specified portnumber. When a client connects on this portnumber, the server starts a separate thread, processing any given commands, such as to classify a new example. A sample client program is included in the distribution. The client must communicate with the server using the protocol described below. After accepting the connection, the server first sends a welcome message to the client:
 
 {\tt Welcome to the Timbl server.}
 
-After this, the server waits for client-side requests.
-The client can now issue four types of commands: classify, set
-(options), query (status), and exit. The type of command is specified
-by the the first string of the request line, which can be abbreviated
-to any prefix of the command, up to one letter (i.e.~c,s,q,e). The
-command is followed by whitespace and the remainder of the command as
-described below.
+After this, the server waits for client-side requests.  The client can now issue four types of commands: classify, set (options), query (status), and exit. The type of command is specified by the the first string of the request line, which can be abbreviated to any prefix of the command, up to one letter (i.e.~c,s,q,e). The command is followed by whitespace and the remainder of the command as described below.
+
 \begin{description}
 \item {\tt classify testcase}\\
       testcase is a pattern of features (must have the same number of
