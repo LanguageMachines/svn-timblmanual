@@ -210,11 +210,7 @@ switches are added:
 \item Two distance metrics are added: {\tt -mC} sets the Cosine
   metric, and {\tt -mL} sets the Levenshtein metric. The latter metric
   operates at the feature-value level, and thus offers an alternative
-  to the all-or-nothing Overlap metric for string-valued features. The
-  existing {\tt -L n} option (which sets the value frequency threshold
-  at which the {\sc mvdm} distance metric backs off to the Overlap
-  metric) is extended to {\tt -L L:n} to denote that {\sc mvdm} should
-  backoff to the Levenshtein metric rather than to Overlap. \footnote{KO: this backoff mechanism is removed in Timbl 6.2}
+  to the all-or-nothing Overlap metric for string-valued features. 
 
 \item Class distribution output generated with {\tt +v db} can be
   normalized so that they add to $1.0$, with the additional {\tt -G}
@@ -223,11 +219,11 @@ switches are added:
   normalization.  For example, {\tt -G1:1} (or {\tt -G1} for short) is
   ``add one''-smoothing; {\tt -G1:0.5} adds $0.5$ to all class votes.
 
-\item With {\tt -Beam=n}, where $n$ is an integer, the {\tt +v db}
+\item With {\tt -Beam=n} (from version 6.2 onwards: {\tt --Beam=n}), where $n$ is an integer, the {\tt +v db}
   output is constrained to the $n$ classes receiving the highest
   votes. This special limit is useful in cases in which the {\tt +v
     db} output, typically used for further processing, generates far
-  too much output in its default unconstrained setting. \footnote{KO: this option is renamed to {\tt --Beam} in Timbl version 6.2}
+  too much output in its default unconstrained setting. 
 
 \item Class distributions are not stored on non-terminal nodes with
   {\sc IGTree} and {\sc tribl} by default. To revert this default,
@@ -1337,7 +1333,7 @@ used. This method is described in subsection~\ref{tiebreaking}.
         \end{center}
 \end{figure}
 
-\subsection{Overlap and Levenshtein metrics}
+\subsection{The Overlap metric}
 \label{overlap}
 
 The most basic metric that works for patterns with symbolic features
@@ -1379,6 +1375,8 @@ toolkit \cite{Witten+99} is the way in which ties are resolved in
 choosing the majority category among the set of nearest
 neighbors. Since this method is independent of the distance function
 we discuss this issue separately in subsection~\ref{tiebreaking}.
+
+\subsubsection{Variants on Overlap: Levenshtein and Dice Coefficient metrics}
 
 The Overlap metric is all-or-nothing. For measuring similarity between
 numeric or symbolically atomic or arbitrary values this may suffice,
@@ -2473,10 +2471,7 @@ extrapolation from the nearest neighbor set. {\tt val} can be one of:
   Overlap. Higher values of {\tt n} force TiMBL to use the Overlap
   metric more. 
 
-  Instead of backing off to the Overlap metric, it is also possible to
-  back-off to the Levenshtein metric with {\tt -L L:<n>}. \footnote{KO: niet meer in 6.2}
-
-  Only applicable in conjunction with the {\sc mvdm}
+ Only applicable in conjunction with the {\sc mvdm}
   ({\tt -mM}) and Jeffrey divergence ({\tt -mJ}) distance metrics.
 
 
@@ -2741,7 +2736,7 @@ parameter can take on the following values (case-insensitive):
 TiMBL offers an undisclosed number of hidden options that have been built in over time for particular reasons. Some have survived over time, and although their use is not for the faint-hearted, some may offer interesting functionalities. A small list of disclosed hidden options follows.
 
 \begin{description}
-  \item {\tt --sloppy=\{true|false\}}: in combination with leave-one-out (LOO) testing, this option switches off all weight recomputation. By default, leaving out one training example out causes feature weights, value-class matrices, and derived metrics such as {\sc mvdm} to be recomputed, because strictly the example-specific statistics should be absent when it is held out and classified. {\tt --sloppy} skips this, causing a significant speedup, and usually slightly better LOO scores. Use only if your experimental method allows it. Default value is {\tt false}.
+  \item {\tt --sloppy=\{true|false\}}: in combination with leave-one-out (LOO) testing, this option turns off all weight recomputation. By default, leaving out one training example out causes feature weights, value-class matrices, and derived metrics such as {\sc mvdm} to be recomputed, because strictly the example-specific statistics should be absent when it is held out and classified. {\tt --sloppy} skips this, causing a significant speedup, and usually slightly better LOO scores. Use only if your experimental method allows it. Default value is {\tt false}.
   \item {\tt --silly=\{true|false\}}: set to {\tt true}, switches off the optimized nearest-neighbor search in {\sc ib1} and {\sc tribl}. This causes TiMBL to fall back to comparing all feature values of a test instance to full paths in the TiMBL tree. This causes TiMBL to slow down dramatically on most datasets. Setting is available to enable testing the effect of optimized search. Default value is {\tt false}.
   \item{\tt --Diversify}: modifies all features weights by subtracting the smallest weight (plus $\epsilon$) from all weights. The smallest weight thus becomes $\epsilon$. This modification ``diversifies'' the feature weights, and was introduced to enhance the effect of {\sc Dimbl}, the multi-CPU variant of TiMBL\footnote{For {\sc Dimbl}, see \url{http://ilk.uvt.nl/dimbl}}.
 \end{description}
