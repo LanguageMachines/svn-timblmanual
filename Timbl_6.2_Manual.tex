@@ -79,8 +79,7 @@ Prof. dr.~Walter Daelemans\\
 CLiPS - Language Technology Group\\
 Dept. of Linguistics \\
 University of Antwerp\\
-Universiteitsplein 1\\
-B-2610 Wilrijk (Antwerp)\\
+Prinsstraat 13, L-203, B-2000 Antwerp \\
 Belgium
 
 \pagestyle{headings}
@@ -91,7 +90,7 @@ You can get the TiMBL package as a gzipped tar archive from:
 
 {\tt http://ilk.uvt.nl/timbl}
 
-Following the links from that page, you can download the file {\tt timbl-6.2.tar.gz}. This file contains the complete source code (C++) for the TiMBL program, a few sample data sets, the license and the documentation. The installation should be relatively straightforward on most UNIX systems.
+Following the links from that page, you can download the file {\tt timbl-6.2.tar.gz}. This file contains the complete source code (C++) for the TiMBL program, a few sample data sets, the license, and documentation. The installation should be relatively straightforward on most UNIX systems.
 
 To install the package on your computer, unzip the downloaded file ({\tt >} is the command line prompt):
 
@@ -107,14 +106,14 @@ and unpack the tar archive:
 
 {\tt > tar xf timbl-6.2.tar}
 
-Go to the timbl-6.1 directory, and configure the package by typing
+Go to the timbl-6.2 directory, and configure the package by typing
 
 {\tt > cd timbl-6.2} \\
 {\tt > ./configure --prefix=<location\_to\_install>}
 
-If you don't use the {\tt --prefix} option, TiMBL will try to install itself in the directory {\tt /usr/local/}.  If you don't have {\tt root} access you can specify a different installation location such as {\tt \$HOME/install}
+If you do not use the {\tt --prefix} option, TiMBL will try to install itself in the directory {\tt /usr/local/}.  If you do not have {\tt root} access you can specify a different installation location such as {\tt \$HOME/install}
 
-It's not obligatory to install TiMBL, but if you plan to install TiMBL-based extensions such as Mbt\footnote{\url{http://ilk.uvt.nl/mbt}}, Dimbl\footnote{\url{http://ilk.uvt.nl/dimbl}}, or Tadpole\footnote{\url{http://ilk.uvt.nl/tadpole}}, or you want to build your own extensions using the TiMBL API, installing is the best choice.
+It is not obligatory to install TiMBL, but if you plan to install TiMBL-based extensions such as Mbt\footnote{\url{http://ilk.uvt.nl/mbt}}, Dimbl\footnote{\url{http://ilk.uvt.nl/dimbl}}, or Tadpole\footnote{\url{http://ilk.uvt.nl/tadpole}}, or you want to build your own extensions using the TiMBL API, installing is the best choice.
 
 After {\tt configure} you can build TiMBL:
 
@@ -127,9 +126,8 @@ and (as recommended) install:
 If the process was completed successfully, you should now have executable files
 named {\tt Timbl} and {\tt TimblClient} in the directory 
 {\tt <location\_to\_install>/bin}, and a static library {\tt libTimbl.a} in the
- directory {\tt <location\_to\_install>/lib}.
-Also some demo programs named {\tt api\_test*}, {\tt classify} and {\tt tse}
-are created in the {\tt ./demos} subdirecory of the current directory.
+ directory {\tt <location\_to\_install>/lib}. Additionally, several demo programs named {\tt api\_test*}, {\tt classify} and {\tt tse}
+are created in the {\tt ./demos} subdirectory.
 
 Within the {\tt <location\_to\_install>} directory a subdirectory is also created: {\tt share/doc/timbl} where the TiMBL 6.2 documentation can be found, and which in turn contains a subdirectory {\tt examples} with example data files. Some of these data sets are used in the Quick Start Section~\ref{tutorial} of this document; other data and source files are referred to in the API documentation. The latter, along with a pdf version of this document, can also be found in the {\tt doc} directory. Note that the API documentation is a beta-state document.
 
@@ -169,14 +167,11 @@ Version 6.2 differs from 6.1 in a great number of internal changes aimed at maki
 
 \item A new distance metric, the Dice coefficient, has been added; the metric can be set with {\tt -mDC}. Analogous to the Levenshtein ({\tt -mL}) metric, the Dice coefficient operates at the feature value level; it computes the overlap in character bigrams of two value strings.
 
-\item Value difference matrices, as used by the {\sc mvdm} and Jeffrey divergence distance metrics, can now be written to file, and read into TiMBL, allowing for user-defined value difference metrics to be used, with {\tt --matrixout=<filename>} and {\tt --matrixin=<filename>}.
+\item Value difference matrices, as used by the {\sc mvdm} and Jeffrey divergence distance metrics, can now be written to file, and read into TiMBL, allowing for user-defined value difference metrics to be used. The new command line options are {\tt --matrixout=<filename>} and {\tt --matrixin=<filename>}.
 
 \item The {\sc IGTree} algorithm has been optimized beyond the improvements introduced in version 6.0. With very large training sets, {\sc IGTree} was reported to be exponentially slower in the later stages of training. Trees are now built in near-linear time.
 
-\item The {sc +vmd} verbosity options works for all algorithms now. 
-
 \end{itemize}
-
 
 Finally, besides minor bug fixes, a great number of internal changes were made to make the code better maintainable and extendible.
 
@@ -388,7 +383,7 @@ the above changes, plus one extra verbosity option:
           divergence distance computation one or both of a pair of
           values occur fewer than {\tt n} times, Overlap is used
           rather than the {\sc mvdm} metric.  The default value for
-          {\tt n} is 1 (no switching). \footnote{KO: Backoff is removed in 6.2}
+          {\tt n} is 1 (no switching).
 	\item the {\tt -a 3} or {\tt -a IB2} switch invokes the 
               {\sc ib2} algorithm. This algorithm expects to have 
               the {\tt -b} switch set.
@@ -656,17 +651,17 @@ has less than three syllables), the value `=' is used. The class to be
 predicted is either E ({\em -etje}), T ({\em -tje}), J ({\em -je}), K
 ({\em -kje}), or P ({\em -pje}).
 
-Some examples are given below (the word itself is only provided for
+Some examples are given below (the word in the rightmost column is only provided for
 convenience and is not used). The values of the syllabic content
 features are given in phonetic notation.
 
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{cccccccccccc|l|l|l}
-+ & b & i & = & - & z & @ & = & - & m & A & nt & J & biezenmand \\
-= & = & = & = & = & = & = & = & + & b & I & x & E & big\\
-= & = & = & = & + & b & K & = & - & b & a & n & T & bijbaan\\
-= & = & = & = & + & b & K & = & - & b & @ & l & T & bijbel\\
++ & b & i & = & - & z & @ & = & - & m & A & nt & J & {\em biezenmand} \\
+= & = & = & = & = & = & = & = & + & b & I & x & E & {\em big}\\
+= & = & = & = & + & b & K & = & - & b & a & n & T & {\em bijbaan}\\
+= & = & = & = & + & b & K & = & - & b & @ & l & T & {\em bijbel}\\
 \end{tabular}
 \end{center}
 \end{table}
@@ -746,11 +741,11 @@ output.
 
 {\footnotesize
 \begin{verbatim}
-TiMBL 6.1 (release) (c) ILK 1998 - 2007.
+TiMBL 6.2 (release) (c) ILK 1998 - 2009.
 Tilburg Memory Based Learner
 Induction of Linguistic Knowledge Research Group
 Tilburg University / University of Antwerp
-Sat Feb 17 23:36:06 2007
+Mon Oct 19 21:30:00 2009
 
 Examine datafile 'dimin.train' gave the following results:
 Number of Features: 12
@@ -770,26 +765,26 @@ TiMBL has detected 12 features and the C4.5 input format
 {\footnotesize
 \begin{verbatim}
 Phase 1: Reading Datafile: dimin.train
-Start:          0 @ Sat Feb 17 23:36:06 2007
-Finished:    2999 @ Sat Feb 17 23:36:06 2007
-Calculating Entropy         Sat Feb 17 23:36:06 2007
+Start:          0 @ Mon Oct 19 21:30:00 2009
+Finished:    2999 @ Mon Oct 19 21:30:00 2009
+Calculating Entropy         Mon Oct 19 21:30:00 2009
 Lines of data     : 2999
 DB Entropy        : 1.6178929
 Number of Classes : 5
 
-Feats   Vals    InfoGain        GainRatio
-    1      3    0.030971064     0.024891536
-    2     50    0.060860038     0.027552191
-    3     19    0.039562857     0.018676787
-    4     37    0.052541227     0.052620750
-    5      3    0.074523225     0.047699231
-    6     61    0.10604433      0.024471911
-    7     20    0.12348668      0.034953203
-    8     69    0.097198760     0.043983864
-    9      2    0.045752381     0.046816705
-   10     64    0.21388759      0.042844587
-   11     18    0.66970458      0.18507018
-   12     43    1.2780762       0.32537181
+Feats	Vals	InfoGain	GainRatio
+    1      3	0.030971064	0.024891536
+    2     50	0.060860038	0.027552191
+    3     19	0.039562857	0.018676787
+    4     37	0.052541227	0.052620750
+    5      3	0.074523225	0.047699231
+    6     61	0.10604433	0.024471911
+    7     20	0.12348668	0.034953203
+    8     69	0.097198760	0.043983864
+    9      2	0.045752381	0.046816705
+   10     64	0.21388759	0.042844587
+   11     18	0.66970458	0.18507018
+   12     43	1.2780762	0.32537181
 
 Feature Permutation based on GainRatio/Values :
 < 9, 5, 11, 1, 12, 7, 4, 3, 10, 8, 2, 6 >
@@ -819,11 +814,10 @@ tree-index to the case-base.
 {\footnotesize
 \begin{verbatim}
 Phase 2: Learning from Datafile: dimin.train
-Start:          0 @ Sat Feb 17 23:36:06 2007
-Finished:    2999 @ Sat Feb 17 23:36:06 2007
+Start:          0 @ Mon Oct 19 21:30:00 2009
+Finished:    2999 @ Mon Oct 19 21:30:00 2009
 
-Size of InstanceBase = 19231 Nodes, (384620 bytes), 49.77 % compression
-
+Size of InstanceBase = 19231 Nodes, (769240 bytes), 49.77 % compression
 Examine datafile 'dimin.test' gave the following results:
 Number of Features: 12
 InputFormat       : C4.5
@@ -852,34 +846,34 @@ Algorithm     : IB1
 Global metric : Overlap
 Deviant Feature Metrics:(none)
 Weighting     : GainRatio
-Feature 1        : 0.024891535617620
-Feature 2        : 0.027552191321752
-Feature 3        : 0.018676787182524
-Feature 4        : 0.052620750282779
-Feature 5        : 0.047699230752236
-Feature 6        : 0.024471910753751
-Feature 7        : 0.034953203413051
-Feature 8        : 0.043983864437713
-Feature 9        : 0.046816704745507
-Feature 10       : 0.042844587034556
-Feature 11       : 0.185070180760327
-Feature 12       : 0.325371814230901
+Feature 1	 : 0.024891535617620
+Feature 2	 : 0.027552191321752
+Feature 3	 : 0.018676787182524
+Feature 4	 : 0.052620750282779
+Feature 5	 : 0.047699230752236
+Feature 6	 : 0.024471910753751
+Feature 7	 : 0.034953203413051
+Feature 8	 : 0.043983864437713
+Feature 9	 : 0.046816704745507
+Feature 10	 : 0.042844587034556
+Feature 11	 : 0.185070180760327
+Feature 12	 : 0.325371814230901
 
-Tested:      1 @ Sat Feb 17 23:36:06 2007
-Tested:      2 @ Sat Feb 17 23:36:06 2007
-Tested:      3 @ Sat Feb 17 23:36:06 2007
-Tested:      4 @ Sat Feb 17 23:36:06 2007
-Tested:      5 @ Sat Feb 17 23:36:06 2007
-Tested:      6 @ Sat Feb 17 23:36:06 2007
-Tested:      7 @ Sat Feb 17 23:36:06 2007
-Tested:      8 @ Sat Feb 17 23:36:06 2007
-Tested:      9 @ Sat Feb 17 23:36:06 2007
-Tested:     10 @ Sat Feb 17 23:36:06 2007
-Tested:    100 @ Sat Feb 17 23:36:06 2007
-Ready:     950 @ Sat Feb 17 23:36:06 2007
-Seconds taken: 0.0539 (17627.52 p/s)
+Tested:      1 @ Mon Oct 19 21:30:00 2009
+Tested:      2 @ Mon Oct 19 21:30:00 2009
+Tested:      3 @ Mon Oct 19 21:30:00 2009
+Tested:      4 @ Mon Oct 19 21:30:00 2009
+Tested:      5 @ Mon Oct 19 21:30:00 2009
+Tested:      6 @ Mon Oct 19 21:30:00 2009
+Tested:      7 @ Mon Oct 19 21:30:00 2009
+Tested:      8 @ Mon Oct 19 21:30:00 2009
+Tested:      9 @ Mon Oct 19 21:30:00 2009
+Tested:     10 @ Mon Oct 19 21:30:00 2009
+Tested:    100 @ Mon Oct 19 21:30:00 2009
+Ready:     950 @ Mon Oct 19 21:30:00 2009
+Seconds taken: 0.0650 (14609.99 p/s)
+
 overall accuracy:        0.968421  (920/950), of which 39 exact matches 
-
 There were 5 ties of which 5 (100.00%) were correctly resolved
 \end{verbatim}
 }
@@ -903,7 +897,7 @@ number of exact matches\footnote{An exact match in this experiment can
   occur when two different nouns have the same feature-value
   representation.} and ties (two or more classes are equally frequent
 in the nearest neighbor set). In this experiment, the diminutive
-suffix form of 96.7\% of the new words was correctly predicted. Train
+suffix form of 96.8\% of the new words was correctly predicted. Train
 and test set overlap in 39 items, and the algorithm had to break five
 ties, all of which were broken correctly.
 
@@ -931,11 +925,11 @@ given on the command line, whereas the {\sc ib1} algorithm used above
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -a 1 -f dimin.train -t dimin.test
+> Timbl -a1 -f dimin.train -t dimin.test
 \end{verbatim}} 
 
 We see that {\sc igtree} performs only slightly worse (96.6\%) than
-{\sc ib1} (96.7\%) for this train-test partitioning of the data --- it
+{\sc ib1} (96.8\%) for this train-test partitioning of the data --- it
 uses less memory and is faster, however.
 
 When using the {\sc ib1} algorithm, there is a choice of metrics for
@@ -966,7 +960,7 @@ metric, with extrapolation from the 5 nearest neighbors.
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -mO -k 5 -f dimin.train -t dimin.test
+> Timbl -mM -k5 -f dimin.train -t dimin.test
 \end{verbatim}
 }
 
@@ -978,14 +972,14 @@ function are provided. E.g., the following provides inverse distance:
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -mO -k 5 -f dimin.train -t dimin.test -d ID
+> Timbl -mM -k5 -dID -f dimin.train -t dimin.test
 \end{verbatim}
 }
 
-Within the {\sc ib1} {\em weighted overlap} option, the default
-feature weighting method is Gain Ratio. Other feature relevance
+Within the {\sc ib1} {\em weighted overlap}\/ option, the default
+feature weighting method is gain ratio. Other feature relevance
 weighting methods are available as well.  By setting the parameter
-{\tt -w} to 0, an {\em overlap} definition of similarity is created
+{\tt -w} to 0, an {\em unweighted overlap}\/ definition of similarity is created
 where each feature is considered equally relevant. In that case, similarity reduces
 to the number of equal values in the same position in the
 two patterns being compared. As an alternative weighting, users can
@@ -996,55 +990,30 @@ weights file).
 
 \begin{table}
 \begin{center}
-\begin{tabular}{l|rrrrr}
-             & no weight & gain  & information & chi     & inverse \\
-             & (overlap) & ratio & gain        & squared & linear\\
+\begin{tabular}{l|rrrr}
+             & no weight & gain  & information & chi    \\
+             & (overlap) & ratio & gain        & squared \\
 \noalign{\smallskip}
 \hline
 \noalign{\smallskip}
-{\sc ib1},  $-k1$ & 86.4 & 96.7 & 96.6 & 96.6 &      \\
-{\sc ib1},  $-k3$ & 73.1 & 96.4 & 96.8 & 96.9 & 96.6 \\
-{\sc mvdm}, $-k1$ & 95.8 & 96.3 & 96.1 & 96.2 &      \\
-{\sc mvdm}, $-k5$ & {\bf 97.8} & 97.7 & 97.7 & 97.7 & 96.6 \\
-
+Overlap,  $-k1$ & 86.4 & 96.8 & 96.7 & 96.7 \\
+Overlap,  $-k3$ & 73.1 & 96.4 & 96.8 & 96.9 \\
+Overlap,  $-k5$ & 62.6 & 95.4 & 96.1 & 96.1 \\
+\hline
+\noalign{\smallskip}
+{\sc mvdm}, $-k1$ & 95.8 & 96.4 & 96.2 & 96.3 \\
+{\sc mvdm}, $-k3$ & 97.3 & 97.6 & 97.6 & 97.6 \\
+{\sc mvdm}, $-k5$ & {\bf 97.8} & 97.7 & 97.7 & 97.7 \\
+\hline
+\noalign{\smallskip}
 \end{tabular}
 \caption{Some results for diminutive prediction.}
 \label{diminresults}
 \end{center}
 \end{table}
 
-Table \ref{diminresults} shows the effect of algorithm, metric,
-distance weighting of nearest neighbors, and weighting method choice
-on generalization accuracy using leave-one-out as experimental
-method. The results show that no feature weighting may lead to
-excellent performance, in this case in combination with {\sc mvdm} and
-$k=5$.
-
-{\footnotesize
-\begin{verbatim}
-> Timbl -t leave_one_out -f dimin.data
-\end{verbatim}
-}
-
-When comparing {\sc mvdm} and {\sc ib1}, we see that the overall best
-results are achieved with {\sc mvdm}, but only with a higher value for
-$k$, the number of memory items (actually distances) on which the
-extrapolation is based. Increasing the value of $k$ for (weighted)
-Overlap metrics decreased performance. Within the feature weighting
-approaches, overlap (i.e. no weighting) performs markedly worse than
-the {\em information gain}, {\em gain ratio} or {\em
-chi-square} weighting methods. 
-
-The default settings provided in TiMBL were selected on the basis of
-our experience with a large set of (mostly linguistic)
-datasets. However, as can be seen from this dataset, they are not
-guaranteed to be the best choice. It is useful to try out a large set
-of reasonable combinations of options by cross-validation on the
-training data to achieve best results with {\sc mbl}. The option {\tt
-  -t @f} where {\tt f} is the name of a file, allows you to predefine
-various combinations of options to be tested and test them without
-having the training stages repeated each time. See Chapter
-\ref{commandline}. 
+Table \ref{diminresults} shows a small matrix indicating the effect of distance metric (Overlap versus {\sc mvdm}) and weighting method choice on generalization accuracy, using the same training and test set as before, and increasing $k$ from 1 to 3 and 5. While increasing $k$ leads to a deterioration of generalization accuracy with the Overlap function, it leads to improvements with {\sc mvdm}. Another clear contrast is that the absence of feature weighting leads to the lowest scores with the Overlap function, and the highest score with {\sc mvdm} and $k=5$. Given that TiMBL offers several more hyperparameters than only $k$, the distance metric, and the feature weighting metric, it should be obvious that even with a single training and test set experiment, a large experimental matrix can be explored. Unfortunately, the location of the cell with the highest number in this matrix cannot be predicted upfront. It is therefore useful to try out a large set of reasonable combinations of options by cross-validation on the training data to achieve best results with {\sc mbl} \cite{VandenBosch04b}. The option {\tt
+  -t @f} where {\tt f} is the name of a file, allows you to predefine various combinations of options to be tested and test them without having the training stages repeated each time. See Chapter \ref{commandline}.
 
 \section{More options}
 
@@ -1058,20 +1027,17 @@ the last syllable are actually relevant in determining the form of the
 diminutive suffix, we can execute the following with the previously
 best parameter settings to disregard all but the fourth-last and the
 last two features. As a result we get an accuracy of
-97.0\%\footnote{It should be kept in mind that the amount of overlap
-in training and test set has significantly increased, so that
-generalization is based on retrieval more than on similarity
-computation.}. 
+97.1\%.
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -mM:I1-8,10 -f dimin.data -t leave_one_out -k5 -w3
+> Timbl -mM:I1-8,10 -k5 -w0 -f dimin.train -t dimin.test
 \end{verbatim}
 }
 
 The {\tt +/-v} (verbosity) option allows you to control the amount of
-information that is generated in the output, ranging from nothing much
-({\tt +v s}) to a lot ({\tt +v o+p+e+cm+di+db+n+k}). Specific
+information that is generated in the output, ranging from nearly nothing
+({\tt +v s}) to a lot ({\tt +v as+cs+di+db+n+k}). Specific
 verbosity settings exist for dumping option settings ({\tt +v o}),
 feature relevance weights (default), value-class conditional
 probabilities ({\tt +v p}), exact matches ({\tt +v e}), distributions
@@ -1109,7 +1075,7 @@ lines like the following.
 }
 
 This information can e.g. be used to assign a certainty to a decision
-of the classifier, or to make available a second-best back-off option.
+of the classifier, or to make available a second-best back-off option. Another verbosity option, {\tt +v di}, displays the distance to the nearest neighbor:
 
 {\footnotesize
 \begin{verbatim}
@@ -1138,27 +1104,22 @@ decisions or errors occur.
 
 {\footnotesize
 \begin{verbatim}
-> Timbl +v n -f dimin.train -t dimin.test
+> Timbl +v n+k -mM -k3 -w0 -f dimin.train -t dimin.test
 
--,t,@,=,-,l,|,=,-,G,@,n,T,T
-# k=1, 1 Neighbor(s) at distance: 0.0997233
-#       -,x,@,=,+,h,|,=,-,G,@,n, -*-
--,=,I,n,-,str,y,=,+,m,E,nt,J,J
-# k=1, 1 Neighbor(s) at distance: 0.123322
-#       -,m,o,=,-,n,y,=,+,m,E,nt, -*-
-=,=,=,=,=,=,=,=,+,br,L,t,J,J
-# k=1, 4 Neighbor(s) at distance: 0.0428446
-#       =,=,=,=,=,=,=,=,+,r,L,t, -*-
-#       =,=,=,=,=,=,=,=,+,kr,L,t, -*-
-#       =,=,=,=,=,=,=,=,+,sx,L,t, -*-
-#       =,=,=,=,=,=,=,=,+,fl,L,t, -*-
-=,=,=,=,+,zw,A,=,-,m,@,r,T,T
-# k=1, 5 Neighbor(s) at distance: 0.0594251
-#       =,=,=,=,+,fl,e,=,-,m,@,r, -*-
-#       =,=,=,=,+,=,E,=,-,m,@,r, -*-
-#       =,=,=,=,+,l,E,=,-,m,@,r, -*-
-#       =,=,=,=,+,k,a,=,-,m,@,r, -*-
-#       =,=,=,=,+,h,O,=,-,m,@,r, -*-                    
++,m,I,=,-,d,A,G,-,d,},t,J,J { J 3.00000 }
+# k=1, 1 Neighbor(s) at distance:       0.99179269134432
+#       +,p,a,=,-,t,@,rs,-,f,A,t,{ J 1.00000 }
+# k=2, 1 Neighbor(s) at distance:       0.99458957262696
+#       +,h,o,=,-,n,@,G,-,b,A,k,{ J 1.00000 }
+# k=3, 1 Neighbor(s) at distance:       1.0088291749842
+#       +,h,E,r,-,d,@,rs,-,t,A,s,{ J 1.00000 }
+-,t,@,=,-,l,|,=,-,G,@,n,T,T { T 3.00000 }
+# k=1, 1 Neighbor(s) at distance:       0.33024081383366
+#       -,x,@,=,+,h,|,=,-,G,@,n,{ T 1.00000 }
+# k=2, 1 Neighbor(s) at distance:       0.49144604610567
+#       -,d,@,r,-,w,a,=,-,G,@,n,{ T 1.00000 }
+# k=3, 1 Neighbor(s) at distance:       0.56944572926932
+#       -,st,@,=,-,l,I,=,-,N,@,=,{ T 1.00000 }
 \end{verbatim}
 }
 
@@ -1176,10 +1137,11 @@ Confusion Matrix:
         -----------------------------------
      T |    453      0      2      0      0 
      E |      0     87      4      1      8 
-     J |      1      5    346      0      0 
+     J |      1      4    347      0      0 
      P |      0      3      0     24      0 
      K |      0      7      0      0      9 
    -*- |      0      0      0      0      0 
+
 \end{verbatim}
 }
 
@@ -1216,18 +1178,18 @@ verbosity options:
 > Timbl +v as+cs -f dimin.train -t dimin.test
 
 Scores per Value Class:
-class TP    FP    TN    FN   precision   recall(TPR) FPR         F-score     AUC
-T |   453   1     494   2    0.997797    0.995604    0.002020    0.996700    0.996792
-E |   87    15    835   13   0.852941    0.870000    0.017647    0.861386    0.926176
-J |   346   6     592   6    0.982955    0.982955    0.010033    0.982955    0.986461
-P |   24    1     922   3    0.960000    0.888889    0.001083    0.923077    0.943903
-K |   9     8     926   7    0.529412    0.562500    0.008565    0.545455    0.776967
-
-F-Score beta=1, microav: 0.967160
-F-Score beta=1, macroav: 0.861914
-AUC, microav:            0.980138
-AUC, macroav:            0.926060
-overall accuracy:        0.967368  (919/950), of which 39 exact matches 
+class |     TP    FP    TN    FN	precision	recall(TPR)	FPR		F-score		AUC
+    T |    453     1   494     2 	0.99780 	0.99560 	0.00202 	0.99670 	0.99679
+    E |     87    14   836    13 	0.86139 	0.87000 	0.01647 	0.86567 	0.92676
+    J |    347     6   592     5 	0.98300 	0.98580 	0.01003 	0.98440 	0.98788
+    P |     24     1   922     3 	0.96000 	0.88889 	0.00108 	0.92308 	0.94390
+    K |      9     8   926     7 	0.52941 	0.56250 	0.00857 	0.54545 	0.77697
+F-Score beta=1, microav: 0.968123
+F-Score beta=1, macroav: 0.863060
+AUC, microav:            0.980729
+AUC, macroav:            0.926462
+overall accuracy:        0.968421  (920/950), of which 39 exact matches 
+There were 5 ties of which 5 (100.00%) were correctly resolved
 \end{verbatim}
 }
 
@@ -1376,25 +1338,21 @@ choosing the majority category among the set of nearest
 neighbors. Since this method is independent of the distance function
 we discuss this issue separately in subsection~\ref{tiebreaking}.
 
-\subsubsection{Variants on Overlap: Levenshtein and Dice Coefficient metrics}
+\paragraph{Variants on Overlap: Levenshtein and Dice coefficient metrics}
 
-The Overlap metric is all-or-nothing. For measuring similarity between
-numeric or symbolically atomic or arbitrary values this may suffice,
-but there are cases (especially in NLP) in which string-valued feature
-values occur that can mismatch with other string values in a
-meaningfully graded way. For example, the value pair ``bathe'' and
-``bathes'' only differs in one letter; counting them as more similar
-than ``bathe'' and ``rumour'', for example, may be useful for the
-classification task at hand. We implemented a classic {\em edit
-  distance}\/ metric, Levenshtein distance \cite{Levenshtein66}, which
-counts the number of insertions, deletions, and substitutions to
-transform the one string into the other. In our (dynamic programming)
-implementation the three operations count equally heavily.
+The Overlap metric is all-or-nothing. For measuring the similarity between numeric or symbolically atomic or arbitrary values this may suffice, but there are cases (such as in natural language processing) in which string-valued feature values occur that can mismatch with other string values in a meaningfully graded way. For example, the value pair ``bathe'' and ``bathes'' only differs in one letter; counting them as more similar than ``bathe'' and ``rumour'', for example, may be useful for the classification task at hand. We implemented two additional metrics, Levenshtein distance and the Dice coefficient, that each provide a graded similarity score between pairs of strings.
+
+{\bf Levenshtein} distance is a classic {\em edit distance}\/ metric \cite{Levenshtein66} that counts the number of insertions, deletions, and substitutions to transform the one string into the other. In our (dynamic programming) implementation the three operations count equally heavily. The {\bf Dice} coefficient computes the overlap between the occurrences of character bigrams in two strings as in Equation~\ref{dice}, where $n_{x_{i} \cap y{i}}$ is the number of character bigrams (uniquely) occuring both in string value $x_{i}$ and in string value $y_{i}$ (and where $i$ is the index of the feature as introduced in Equation~\ref{distance})\footnote{Strings of length one are not handled by Dice; we back off to Overlap in these cases.}. The equation subtracts the similarity from 1, because we assume $\delta$ to produce a distance, not a similarity.
+
+\begin{equation}
+\delta(x_{i}, y_{i}) = 1 - \frac{2 n_{x_{i} \cap y{i}}}{n_{x_{i}} + n_{y_{i}}}
+\label{dice}
+\end{equation}
 
 \subsection{Information-gain and gain ratio feature weighting}
 \label{infogain}
 
-The distance metric in Equation~\ref{overlapeq} simply counts the
+The distance metric in Equation~\ref{overlapeq} straightforwardly counts the
 number of (mis)matching feature-values in both patterns. In the
 absence of information about feature relevance, this is a reasonable
 choice. Otherwise, we can add domain knowledge bias to weight or
@@ -1418,10 +1376,7 @@ w_{i} = H(C) -  \sum_{v \in V_{i}} P(v) \times H(C|v)
 \label{IGgain}
 \end{equation}
 
-Where $C$ is the set of class labels, $V_{i}$ is the set of values for
-feature $i$, and $H(C) = - \sum_{c \in C} P(c) \log_{2} P(c)$ is the
-entropy of the class labels. The probabilities are estimated from
-relative frequencies in the training set. 
+Where $C$ is the set of class labels, $H(C) = - \sum_{c \in C} P(c) \log_{2} P(c)$ is the entropy of the class labels, and $V_{i}$ is the set of values for feature $i$. The probabilities are estimated from relative frequencies in the training set.
 
 For numeric features, an intermediate step needs to be taken to apply
 the symbol-based computation of IG. All real values of a numeric
@@ -2336,11 +2291,11 @@ of the most basic command line options.
 
 {\footnotesize
 \begin{verbatim}
-TiMBL 6.2 (release) (c) ILK 1998 - 2007.
+TiMBL 6.2 (release) (c) ILK 1998 - 2009.
 Tilburg Memory Based Learner
 Induction of Linguistic Knowledge Research Group
 Tilburg University / University of Antwerp
-Mon Sep 21 14:28:00 2009
+Mon Oct 19 22:33:13 2009
 
 usage:  Timbl -f data-file {-t test-file}
 or see: Timbl -h
@@ -2385,18 +2340,19 @@ GlobalMetric:MetricRange:MetricRange}\\ Where {\tt GlobalMetric} is
 used for alle features except for the ones that are assigned other
 metrics by following the restrictions given by {\tt :MetricRange}.  A
 range can be written using comma's for lists, and hyphens for
-intervals. The metric code can be one of the following five:
+intervals. The metric code can be one of the following nine:
 
-\begin{enumerate}
+\begin{itemize}
 \item {\tt O} -- Overlap (default; see Subsection~\ref{overlap})
-\item {\tt L} -- Levenshtein (see Subsection~\ref{overlap})
 \item {\tt M} -- Modified value difference ({\sc mvdm}; see Subsection~\ref{mvdm})
 \item {\tt J} -- Jeffrey divergence (see Subsection~\ref{mvdm})
 \item {\tt D} -- Dot product (see Subsection~\ref{dotproduct})
 \item {\tt C} -- Cosine (see Subsection~\ref{dotproduct})
 \item {\tt N} -- Numeric (all features are numeric. see Subsection~\ref{overlap})
+\item {\tt L} -- Levenshtein (see Subsection~\ref{overlap})
+\item {\tt DC} -- Dice coefficient (see Subsection~\ref{overlap})
 \item {\tt I} -- Ignore (ignore specified features)
-\end{enumerate}
+\end{itemize}
 
 For example, {\tt -mO:N3:I2,5-7} sets the global metric to overlap,
 declares the third feature to be numeric, and ignores features 2 and
@@ -2546,8 +2502,7 @@ cannot be used with numeric features.
     treefile}. See section~\ref{treeformat} for the format of this
   file.
 
-\item {\tt --matrixin=<filename>} : Retrieve distance metrics from file 
-{\tt filename}.
+\item {\tt --matrixin=<filename>} : Read value distance metrics (such as {\sc mvdm} or Jeffrey divergence matrices written to file with {\tt --matrixout=<filename}, or from user-generated matrices) from file {\tt filename}.
 
 \item {\tt -u <valueclassprobfile>} : Replace the automatically
   computed value-class probability matrix with the matrices provided
@@ -2600,7 +2555,7 @@ value-class probability matrix to this file.
 \item {\tt -n <file>} : Save the feature-value and target category
 symbols in a C4.5 style ``names file'' with the name {\tt
 <file>}. Take caution of the fact that TiMBL does not mind creating a
-file with ',' '.' '|' and ':' values in features. C4.5 will choke on this.
+file with ',' '.' '$|$' and ':' values in features; C4.5 will produce errors on this.
 
 \item {\tt -p <n>} : Indicate progress during training and testing
 after every n processed patterns. The default setting is 10000.
@@ -2736,7 +2691,7 @@ parameter can take on the following values (case-insensitive):
 TiMBL offers an undisclosed number of hidden options that have been built in over time for particular reasons. Some have survived over time, and although their use is not for the faint-hearted, some may offer interesting functionalities. A small list of disclosed hidden options follows.
 
 \begin{description}
-  \item {\tt --sloppy=\{true|false\}}: in combination with leave-one-out (LOO) testing, this option turns off all weight recomputation. By default, leaving out one training example out causes feature weights, value-class matrices, and derived metrics such as {\sc mvdm} to be recomputed, because strictly the example-specific statistics should be absent when it is held out and classified. {\tt --sloppy} skips this, causing a significant speedup, and usually slightly better LOO scores. Use only if your experimental method allows it. Default value is {\tt false}.
+  \item {\tt --sloppy=\{true|false\}}: in combination with leave-one-out (LOO) testing, this option turns off all weight recomputation. By default, leaving out one training example out causes all feature weights, value-class matrices, and derived metrics such as {\sc mvdm} to be recomputed, because strictly the example-specific statistics should be absent when it is held out and classified. {\tt --sloppy} skips this, causing a significant speedup, and usually slightly better LOO scores. Use only if your experimental method allows it. Default value is {\tt false}.
   \item {\tt --silly=\{true|false\}}: set to {\tt true}, switches off the optimized nearest-neighbor search in {\sc ib1} and {\sc tribl}. This causes TiMBL to fall back to comparing all feature values of a test instance to full paths in the TiMBL tree. This causes TiMBL to slow down dramatically on most datasets. Setting is available to enable testing the effect of optimized search. Default value is {\tt false}.
   \item{\tt --Diversify}: modifies all features weights by subtracting the smallest weight (plus $\epsilon$) from all weights. The smallest weight thus becomes $\epsilon$. This modification ``diversifies'' the feature weights, and was introduced to enhance the effect of {\sc Dimbl}, the multi-CPU variant of TiMBL\footnote{For {\sc Dimbl}, see \url{http://ilk.uvt.nl/dimbl}}.
 \end{description}
@@ -2856,7 +2811,7 @@ small,other,2,key.
 
 ARFF is a format that is used by the WEKA machine learning
 workbench~\cite{Garner95,Witten+99}\footnote{WEKA is available from
-the Waikato University Department of Computer Science, \url{http://www.cs.waikato.ac.nz/\~{}ml/weka}}.  Although TiMBL at present
+the Waikato University Department of Computer Science, \url{http://www.cs.waikato.ac.nz/~ml/weka}}.  Although TiMBL at present
 does {\em not}\/ entirely follow the ARFF specification, it still
 tries to do as well as it can in reading this format. The ARFF format
 is {\em not}\/ autodetected, and needs to be specified on the
