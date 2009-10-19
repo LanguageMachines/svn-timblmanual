@@ -169,7 +169,7 @@ Version 6.2 differs from 6.1 in a great number of internal changes aimed at maki
 
 \item A new distance metric, the Dice coefficient, has been added; the metric can be set with {\tt -mDC}. Analogous to the Levenshtein ({\tt -mL}) metric, the Dice coefficient operates at the feature value level; it computes the overlap in character bigrams of two value strings.
 
-\item Value difference matrices, as used by the {\sc mvdm} and Jeffrey divergence distance metrics, can now be written to file, and read into TiMBL, allowing for user-defined value difference metrics to be used, with {\tt --matrixout=<filename>} and {\tt --matrixout=<filename>}.
+\item Value difference matrices, as used by the {\sc mvdm} and Jeffrey divergence distance metrics, can now be written to file, and read into TiMBL, allowing for user-defined value difference metrics to be used, with {\tt --matrixout=<filename>} and {\tt --matrixin=<filename>}.
 
 \item The {\sc IGTree} algorithm has been optimized beyond the improvements introduced in version 6.0. With very large training sets, {\sc IGTree} was reported to be exponentially slower in the later stages of training. Trees are now built in near-linear time.
 
@@ -212,7 +212,7 @@ switches are added:
   existing {\tt -L n} option (which sets the value frequency threshold
   at which the {\sc mvdm} distance metric backs off to the Overlap
   metric) is extended to {\tt -L L:n} to denote that {\sc mvdm} should
-  backoff to the Levenshtein metric rather than to Overlap.
+  backoff to the Levenshtein metric rather than to Overlap. \footnote{KO: this backoff mechanism is removed in Timbl 6.2}
 
 \item Class distribution output generated with {\tt +v db} can be
   normalized so that they add to $1.0$, with the additional {\tt -G}
@@ -225,7 +225,7 @@ switches are added:
   output is constrained to the $n$ classes receiving the highest
   votes. This special limit is useful in cases in which the {\tt +v
     db} output, typically used for further processing, generates far
-  too much output in its default unconstrained setting.
+  too much output in its default unconstrained setting. \footnote{KO: this option is renamed to {\tt --Beam} in Timbl version 6.2}
 
 \item Class distributions are not stored on non-terminal nodes with
   {\sc IGTree} and {\sc tribl} by default. To revert this default,
@@ -390,7 +390,7 @@ the above changes, plus one extra verbosity option:
           divergence distance computation one or both of a pair of
           values occur fewer than {\tt n} times, Overlap is used
           rather than the {\sc mvdm} metric.  The default value for
-          {\tt n} is 1 (no switching).
+          {\tt n} is 1 (no switching). \footnote{KO: Backoff is removed in 6.2}
 	\item the {\tt -a 3} or {\tt -a IB2} switch invokes the 
               {\sc ib2} algorithm. This algorithm expects to have 
               the {\tt -b} switch set.
@@ -1997,7 +1997,7 @@ partial similarity of the current least similar nearest neighbor. By
 doing the search depth first\footnote{Suggested by Gert Durieux.}, the
 similarity threshold quickly gets initialized to a good value, so that
 large parts of the search space can be pruned\footnote{With the
-  special command line setting {\tt -silly} this tree search shortcut
+  special command line setting {\tt --silly} this tree search shortcut
   is switched off; as the name of the setting suggests, this is not
   recommended, except for explicit speed comparisons.}.
 
@@ -2472,7 +2472,7 @@ extrapolation from the nearest neighbor set. {\tt val} can be one of:
   metric more. 
 
   Instead of backing off to the Overlap metric, it is also possible to
-  back-off to the Levenshtein metric with {\tt -L L:<n>}.
+  back-off to the Levenshtein metric with {\tt -L L:<n>}. \footnote{KO: niet meer in 6.2}
 
   Only applicable in conjunction with the {\sc mvdm}
   ({\tt -mM}) and Jeffrey divergence ({\tt -mJ}) distance metrics.
@@ -2549,6 +2549,9 @@ cannot be used with numeric features.
     treefile}. See section~\ref{treeformat} for the format of this
   file.
 
+\item {\tt --matrixin=<filename>} : Retrieve distance metrics from file 
+{\tt filename}.
+
 \item {\tt -u <valueclassprobfile>} : Replace the automatically
   computed value-class probability matrix with the matrices provided
   in this file.
@@ -2583,6 +2586,8 @@ cannot be used with numeric features.
   saves the current weights into {\tt treefile.wgt} unless this is
   overridden by {\tt -W}.
   See section~\ref{treeformat} for a description of the resulting file's format.
+
+\item {\tt --matrixout=<filename>} : Store calculated {\sc mvdm} or Jeffrey divergence distance metrics in file {\tt filename}.
 
 \item {\tt -X <xmlfile>} : instead of the proprietary file format
   written with the {\tt -I} switch, {\tt -X} writes the TiMBL tree
@@ -2642,7 +2647,7 @@ parameter can take on the following values (case-insensitive):
     \item {\tt 1:<f>}: Smooth by adding floating-point $f$ to all class votes (e.g. {\tt -G1:1} performs add-one smoothing).
   \end{description}
 
-\item {\tt -Beam=<n>}: Limit the number of returned classes and class
+\item {\tt --Beam=<n>}: Limit the number of returned classes and class
   votes returned by {\tt +v db} to $n$. Default is infinity (no limit).
 
 \item {\tt +/- \%} : Write the percentage of correctly classified test
@@ -2689,11 +2694,6 @@ parameter can take on the following values (case-insensitive):
   labels in TiMBL trees. Hashing is done by default, but with short
   (e.g. one-character) feature values and/or classes less memory is
   used when hashing is set off.
-
-\item {\tt -silly} : Switches off shortcut in tree-based depth-first
-  retrieval of $k$ nearest neighbors, making classification severely
-  slower when feature weighting is used. For comparative timing
-  experiments.
 
 \item {\tt -B <n>} : Number of bins used for discretizing numeric data
   (only used for computing feature weights).
