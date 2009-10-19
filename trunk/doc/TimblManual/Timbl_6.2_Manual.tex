@@ -173,6 +173,8 @@ Version 6.2 differs from 6.1 in a great number of internal changes aimed at maki
 
 \item The {\sc IGTree} algorithm has been optimized beyond the improvements introduced in version 6.0. With very large training sets, {\sc IGTree} was reported to be exponentially slower in the later stages of training. Trees are now built in near-linear time.
 
+\item The {sc +vmd} verbosity options works for all algorithms now. 
+
 \end{itemize}
 
 
@@ -2632,7 +2634,7 @@ parameter can take on the following values (case-insensitive):
          \item {\tt di}: add the distance of the nearest neighbor to the output file.
          \item {\tt db}: add class distribution in the nearest neighbor set to the output file.
          \item {\tt md}: add matching depth and node type (N for non-ending
-           node, L for leaf) to output file (-a1 only).
+           node, L for leaf) to output file.
 	 \item {\tt k}:  add a summary of class distribution information of all nearest neighbors to the output file (sets {\tt -x})
          \item {\tt n}:  add nearest neigbors to the output file (sets {\tt -x})
          \item {\tt b}:  provide branching statistics of the internal tree, overall and per level.
