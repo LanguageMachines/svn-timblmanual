@@ -741,7 +741,7 @@ int main(){
   My_Experiment.ShowSettings( std::cout );
   My_Experiment.Learn( "dimin.train" );  
   My_Experiment.Test( "dimin.test", "my_first_test.out" );  
-  My_Experiment.SetOptions( "-w2 -mM" );
+  My_Experiment.SetOptions( "-mM" );
   My_Experiment.Test( "dimin.test", "my_first_test.out" );  
 }
 \end{verbatim}
@@ -861,8 +861,6 @@ Feature 12       : 7160.368151902808677
 Seconds taken: 0.1331 (7135.13 p/s)
 
 overall accuracy:        0.962105  (914/950)
-Warning:-test1-SetOption 'WEIGHTING: ig' ignored.          [Note 4]
-This option may not be changed after an InstanceBase is already created
 Examine datafile 'dimin.test' gave the following results:
 Number of Features: 12
 InputFormat       : C4.5
@@ -884,8 +882,8 @@ Notes:
 \item The first {\tt SetOptions()} sets the verbosity with {\tt +F+DI+DB}.
 The second {\tt SetOptions()}, however, sets the verbosity with {\tt -vDB}, and the resulting verbosity is therefore {\tt F+DI}.
 \item Due to the second {\tt SetOptions()}, the default metric is set to
-MVDM --- this is however not applicable to IGTREE. This raises a warning 
-later on, when we start to test. Also the attampt to change the Weighting fails.
+MVDM --- this is however not applicable to IGTREE. This raises a warning
+when we start to test.
 \end{enumerate}
 
 Result in my\_first\_test.out (first 20 lines):
@@ -942,7 +940,7 @@ bootstrap the learning, as we can see from the output:
 \begin{footnotesize}
 \begin{verbatim}
 Current Experiment Settings :
-LENGTH              : 0
+FLENGTH              : 0
 MAXBESTS             : 500
 TRIBL_OFFSET         : 0
 INPUTFORMAT          : Unknown
@@ -961,20 +959,17 @@ SEED                 : -1
 BEAM_SIZE            : 0
 DECAYPARAM_A         : 1.00000
 DECAYPARAM_B         : 1.00000
-NORMALISATION        : -1
+NORMALISATION        : None
 NORM_FACTOR          : 1.00000
 EXEMPLAR_WEIGHTS     : false
 IGNORE_EXEMPLAR_WEIGHTS : true
 NO_EXEMPLAR_WEIGHTS_TEST : true
 VERBOSITY            : F+DI+DB
 EXACT_MATCH          : false
-DO_DOT_PRODUCT       : false
-DO_COSINE            : false
 HASHED_TREE          : true
 GLOBAL_METRIC        : O
 METRICS              :
 MVD_LIMIT            : 1
-MVD_DEFAULT_METRIC   : O
 NEIGHBORS            : 1
 PROGRESS             : 100000
 CLIP_FACTOR          : 10
@@ -984,57 +979,69 @@ Number of Features: 12
 InputFormat       : C4.5
 
 -test2-Phase 1: Reading Datafile: dimin.train
--test2-Start:          0 @ Wed Jul 11 10:50:47 2007
--test2-Finished:     100 @ Wed Jul 11 10:50:47 2007
--test2-Calculating Entropy         Wed Jul 11 10:50:47 2007
-Lines of data     : 100
-DB Entropy        : 1.7148291
-Number of Classes : 5
-
-Feats   Vals    InfoGain        GainRatio
-    1      3    0.059969698     0.041607175
-    2     16    0.31505423      0.14385015
-    3     13    0.28508033      0.11717175
-    4     12    0.29549424      0.20791549
-    5      3    0.081665925     0.053303154
-    6     25    0.52671728      0.13537479
-    7     15    0.35043203      0.10312857
-    8     21    0.33767640      0.14930809
-    9      2    0.031832973     0.033768474
-   10     29    0.70753849      0.15973455
-   11     14    0.90357639      0.25337382
-   12     22    1.3841139       0.34375881
-
-Feature Permutation based on GainRatio/Values :
-< 11, 5, 4, 9, 12, 1, 3, 2, 8, 7, 10, 6 >
--test2-Phase 2: Learning from Datafile: dimin.train
--test2-Start:          0 @ Wed Jul 11 10:50:47 2007
--test2-Finished:     100 @ Wed Jul 11 10:50:47 2007
-
-Size of InstanceBase = 991 Nodes, (19820 bytes), 23.77 % compression
--test2-Phase 2: Appending from Datafile: dimin.train (starting at line 101)
--test2-Start:        101 @ Wed Jul 11 10:50:47 2007
--test2-Finished:    2999 @ Wed Jul 11 10:50:48 2007
-added 243 new entries                                      [Note 1]
-
-Size of InstanceBase = 2816 Nodes, (56320 bytes), 32.52 % compression
-
-DB Entropy        : 2.06102214
+-test2-Start:          0 @ Mon Oct 19 17:00:18 2009
+-test2-Finished:    2999 @ Mon Oct 19 17:00:18 2009
+-test2-Calculating Entropy         Mon Oct 19 17:00:18 2009
+Lines of data     : 2999                                  [Note 1]
+DB Entropy        : 1.6178929
 Number of Classes : 5
 
 Feats	Vals	InfoGain	GainRatio
-    1      3	0.04554767	0.03383515
-    2     26	0.21712128	0.09871036
-    3     15	0.16940288	0.07558872
-    4     16	0.13396509	0.11878590
-    5      3	0.07680154	0.04866030
-    6     32	0.30386439	0.07867154
-    7     18	0.26978935	0.08149390
-    8     30	0.18332100	0.09408395
-    9      2	0.07760376	0.07785647
-   10     42	0.45192062	0.09432288
-   11     16	0.63364433	0.17494936
-   12     40	1.34781701	0.31742342
+    1      3	0.030971064	0.024891536
+    2     50	0.060860038	0.027552191
+    3     19	0.039562857	0.018676787
+    4     37	0.052541227	0.052620750
+    5      3	0.074523225	0.047699231
+    6     61	0.10604433	0.024471911
+    7     20	0.12348668	0.034953203
+    8     69	0.097198760	0.043983864
+    9      2	0.045752381	0.046816705
+   10     64	0.21388759	0.042844587
+   11     18	0.66970458	0.18507018
+   12     43	1.2780762	0.32537181
+
+Feature Permutation based on GainRatio/Values :
+< 9, 5, 11, 1, 12, 7, 4, 3, 10, 8, 2, 6 >
+-test2-Phase 2: Learning from Datafile: dimin.train
+-test2-Start:          0 @ Mon Oct 19 17:00:18 2009
+-test2-Finished:     100 @ Mon Oct 19 17:00:18 2009
+
+Size of InstanceBase = 954 Nodes, (38160 bytes), 26.62 % compression
+-test2-Phase 2: Appending from Datafile: dimin.train (starting at line 101)
+-test2-Start:        101 @ Mon Oct 19 17:00:18 2009
+-test2-Learning:     101 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     102 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     103 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     104 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     105 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     106 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     107 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     108 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     109 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     110 @ Mon Oct 19 17:00:18 2009	 added:0
+-test2-Learning:     200 @ Mon Oct 19 17:00:18 2009	 added:9
+-test2-Learning:    1100 @ Mon Oct 19 17:00:18 2009	 added:66
+-test2-Finished:    2999 @ Mon Oct 19 17:00:18 2009
+
+in total added 173 new entries                                      [Note 2]
+
+Size of InstanceBase = 2232 Nodes, (89280 bytes), 32.40 % compression
+DB Entropy        : 1.61789286
+Number of Classes : 5
+
+Feats	Vals	InfoGain	GainRatio
+    1      3	0.03097106	0.02489154
+    2     50	0.06086004	0.02755219
+    3     19	0.03956286	0.01867679
+    4     37	0.05254123	0.05262075
+    5      3	0.07452322	0.04769923
+    6     61	0.10604433	0.02447191
+    7     20	0.12348668	0.03495320
+    8     69	0.09719876	0.04398386
+    9      2	0.04575238	0.04681670
+   10     64	0.21388759	0.04284459
+   11     18	0.66970458	0.18507018
+   12     43	1.27807625	0.32537181
 
 Examine datafile 'dimin.test' gave the following results:
 Number of Features: 12
@@ -1047,44 +1054,47 @@ Algorithm     : IB2
 Global metric : Overlap
 Deviant Feature Metrics:(none)
 Weighting     : GainRatio
-Feature 1	 : 0.033835145963271
-Feature 2	 : 0.098710361953118
-Feature 3	 : 0.075588723963477
-Feature 4	 : 0.118785903920912
-Feature 5	 : 0.048660299116492
-Feature 6	 : 0.078671538452017
-Feature 7	 : 0.081493895194308
-Feature 8	 : 0.094083953380450
-Feature 9	 : 0.077856473802927
-Feature 10	 : 0.094322883333513
-Feature 11	 : 0.174949363233078
-Feature 12	 : 0.317423417741858
+Feature 1	 : 0.026241147173103
+Feature 2	 : 0.030918769841214
+Feature 3	 : 0.021445836516602
+Feature 4	 : 0.056561885447060
+Feature 5	 : 0.048311436541460
+Feature 6	 : 0.027043360641622
+Feature 7	 : 0.037453180788027
+Feature 8	 : 0.044999091421718
+Feature 9	 : 0.048992032381874
+Feature 10	 : 0.044544230779268
+Feature 11	 : 0.185449683494634
+Feature 12	 : 0.324719540921155
 
--test2-Tested:      1 @ Wed Jul 11 10:50:48 2007
--test2-Tested:      2 @ Wed Jul 11 10:50:48 2007
--test2-Tested:      3 @ Wed Jul 11 10:50:48 2007
--test2-Tested:      4 @ Wed Jul 11 10:50:48 2007
--test2-Tested:      5 @ Wed Jul 11 10:50:48 2007
--test2-Tested:      6 @ Wed Jul 11 10:50:48 2007
--test2-Tested:      7 @ Wed Jul 11 10:50:48 2007
--test2-Tested:      8 @ Wed Jul 11 10:50:48 2007
--test2-Tested:      9 @ Wed Jul 11 10:50:48 2007
--test2-Tested:     10 @ Wed Jul 11 10:50:48 2007
--test2-Tested:    100 @ Wed Jul 11 10:50:48 2007
--test2-Ready:     950 @ Wed Jul 11 10:50:48 2007
-Seconds taken: 0.1129 (8416.99 p/s)
-overall accuracy:        0.935789  (889/950), of which 15 exact matches 
-                                                         [Note 2]
-There were 58 ties of which 48 (82.76%) were correctly resolved
+-test2-Tested:      1 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:      2 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:      3 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:      4 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:      5 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:      6 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:      7 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:      8 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:      9 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:     10 @ Mon Oct 19 17:00:18 2009
+-test2-Tested:    100 @ Mon Oct 19 17:00:18 2009
+-test2-Ready:     950 @ Mon Oct 19 17:00:18 2009
+Seconds taken: 0.0456 (20826.48 p/s)
+
+overall accuracy:        0.941053  (894/950), of which 15 exact matches 
+                                                         [Note 3]
+There were 43 ties of which 32 (74.42%) were correctly resolved
 \end{verbatim}
 \end{footnotesize}
 
 
 Notes:
 \begin{enumerate}
-\item As we see here, 243 entries from the input file had a mismatch,
+\item IB2 is bootstrapped with 100 lines, but for the statistics all 2999
+ lines are used.
+\item As we see here, 173 entries from the input file had a mismatch,
 and were therefore entered in the Instancebase.
-\item We see that IB2 scores 93.58 \%, compared to 96.21 \% for IGTREE
+\item We see that IB2 scores 94.11 \%, compared to 96.21 \% for IGTREE
   in our first example.  For this data, IB2 is not a good
   algorithm. However, it saves a lot of space, and is faster than
   IB1. Yet, IGTREE is both faster and better. Had we used IB1, the
@@ -1154,18 +1164,19 @@ Global metric : Overlap
 Deviant Feature Metrics:(none)
 Weighting     : GainRatio
 
-Tested:      1 @ Wed Jul 11 10:56:03 2007
-Tested:      2 @ Wed Jul 11 10:56:03 2007
-Tested:      3 @ Wed Jul 11 10:56:03 2007
-Tested:      4 @ Wed Jul 11 10:56:03 2007
-Tested:      5 @ Wed Jul 11 10:56:03 2007
-Tested:      6 @ Wed Jul 11 10:56:03 2007
-Tested:      7 @ Wed Jul 11 10:56:03 2007
-Tested:      8 @ Wed Jul 11 10:56:03 2007
-Tested:      9 @ Wed Jul 11 10:56:03 2007
-Tested:     10 @ Wed Jul 11 10:56:03 2007
-Ready:      10 @ Wed Jul 11 10:56:03 2007
-Seconds taken: 0.0022 (4508.57 p/s)
+Tested:      1 @ Mon Oct 19 17:07:38 2009
+Tested:      2 @ Mon Oct 19 17:07:38 2009
+Tested:      3 @ Mon Oct 19 17:07:38 2009
+Tested:      4 @ Mon Oct 19 17:07:38 2009
+Tested:      5 @ Mon Oct 19 17:07:38 2009
+Tested:      6 @ Mon Oct 19 17:07:38 2009
+Tested:      7 @ Mon Oct 19 17:07:38 2009
+Tested:      8 @ Mon Oct 19 17:07:38 2009
+Tested:      9 @ Mon Oct 19 17:07:38 2009
+Tested:     10 @ Mon Oct 19 17:07:38 2009
+Ready:      10 @ Mon Oct 19 17:07:38 2009
+Seconds taken: 0.0006 (16207.46 p/s)
+
 overall accuracy:        0.800000  (8/10)
 Examine datafile 'small_2.train' gave the following results:
 Number of Features: 8
@@ -1179,18 +1190,19 @@ Global metric : Overlap
 Deviant Feature Metrics:(none)
 Weighting     : GainRatio
 
-Tested:      1 @ Wed Jul 11 10:56:03 2007
-Tested:      2 @ Wed Jul 11 10:56:03 2007
-Tested:      3 @ Wed Jul 11 10:56:03 2007
-Tested:      4 @ Wed Jul 11 10:56:03 2007
-Tested:      5 @ Wed Jul 11 10:56:03 2007
-Tested:      6 @ Wed Jul 11 10:56:03 2007
-Tested:      7 @ Wed Jul 11 10:56:03 2007
-Tested:      8 @ Wed Jul 11 10:56:03 2007
-Tested:      9 @ Wed Jul 11 10:56:03 2007
-Tested:     10 @ Wed Jul 11 10:56:03 2007
-Ready:      10 @ Wed Jul 11 10:56:03 2007
-Seconds taken: 0.0021 (4777.83 p/s)
+Tested:      1 @ Mon Oct 19 17:07:38 2009
+Tested:      2 @ Mon Oct 19 17:07:38 2009
+Tested:      3 @ Mon Oct 19 17:07:38 2009
+Tested:      4 @ Mon Oct 19 17:07:38 2009
+Tested:      5 @ Mon Oct 19 17:07:38 2009
+Tested:      6 @ Mon Oct 19 17:07:38 2009
+Tested:      7 @ Mon Oct 19 17:07:38 2009
+Tested:      8 @ Mon Oct 19 17:07:38 2009
+Tested:      9 @ Mon Oct 19 17:07:38 2009
+Tested:     10 @ Mon Oct 19 17:07:38 2009
+Ready:      10 @ Mon Oct 19 17:07:38 2009
+Seconds taken: 0.0005 (19646.37 p/s)
+
 overall accuracy:        0.800000  (8/10)
 Examine datafile 'small_3.train' gave the following results:
 Number of Features: 8
@@ -1204,18 +1216,19 @@ Global metric : Overlap
 Deviant Feature Metrics:(none)
 Weighting     : GainRatio
 
-Tested:      1 @ Wed Jul 11 10:56:03 2007
-Tested:      2 @ Wed Jul 11 10:56:03 2007
-Tested:      3 @ Wed Jul 11 10:56:03 2007
-Tested:      4 @ Wed Jul 11 10:56:03 2007
-Tested:      5 @ Wed Jul 11 10:56:03 2007
-Tested:      6 @ Wed Jul 11 10:56:03 2007
-Tested:      7 @ Wed Jul 11 10:56:03 2007
-Tested:      8 @ Wed Jul 11 10:56:03 2007
-Tested:      9 @ Wed Jul 11 10:56:03 2007
-Tested:     10 @ Wed Jul 11 10:56:03 2007
-Ready:      10 @ Wed Jul 11 10:56:03 2007
-Seconds taken: 0.0021 (4863.81 p/s)
+Tested:      1 @ Mon Oct 19 17:07:38 2009
+Tested:      2 @ Mon Oct 19 17:07:38 2009
+Tested:      3 @ Mon Oct 19 17:07:38 2009
+Tested:      4 @ Mon Oct 19 17:07:38 2009
+Tested:      5 @ Mon Oct 19 17:07:38 2009
+Tested:      6 @ Mon Oct 19 17:07:38 2009
+Tested:      7 @ Mon Oct 19 17:07:38 2009
+Tested:      8 @ Mon Oct 19 17:07:38 2009
+Tested:      9 @ Mon Oct 19 17:07:38 2009
+Tested:     10 @ Mon Oct 19 17:07:38 2009
+Ready:      10 @ Mon Oct 19 17:07:38 2009
+Seconds taken: 0.0005 (20202.02 p/s)
+
 overall accuracy:        0.900000  (9/10)
 Examine datafile 'small_4.train' gave the following results:
 Number of Features: 8
@@ -1229,18 +1242,19 @@ Global metric : Overlap
 Deviant Feature Metrics:(none)
 Weighting     : GainRatio
 
-Tested:      1 @ Wed Jul 11 10:56:03 2007
-Tested:      2 @ Wed Jul 11 10:56:03 2007
-Tested:      3 @ Wed Jul 11 10:56:03 2007
-Tested:      4 @ Wed Jul 11 10:56:03 2007
-Tested:      5 @ Wed Jul 11 10:56:03 2007
-Tested:      6 @ Wed Jul 11 10:56:03 2007
-Tested:      7 @ Wed Jul 11 10:56:03 2007
-Tested:      8 @ Wed Jul 11 10:56:03 2007
-Tested:      9 @ Wed Jul 11 10:56:03 2007
-Tested:     10 @ Wed Jul 11 10:56:03 2007
-Ready:      10 @ Wed Jul 11 10:56:03 2007
-Seconds taken: 0.0021 (4837.93 p/s)
+Tested:      1 @ Mon Oct 19 17:07:38 2009
+Tested:      2 @ Mon Oct 19 17:07:38 2009
+Tested:      3 @ Mon Oct 19 17:07:38 2009
+Tested:      4 @ Mon Oct 19 17:07:38 2009
+Tested:      5 @ Mon Oct 19 17:07:38 2009
+Tested:      6 @ Mon Oct 19 17:07:38 2009
+Tested:      7 @ Mon Oct 19 17:07:38 2009
+Tested:      8 @ Mon Oct 19 17:07:38 2009
+Tested:      9 @ Mon Oct 19 17:07:38 2009
+Tested:     10 @ Mon Oct 19 17:07:38 2009
+Ready:      10 @ Mon Oct 19 17:07:38 2009
+Seconds taken: 0.0005 (19880.72 p/s)
+
 overall accuracy:        0.800000  (8/10)
 Examine datafile 'small_5.train' gave the following results:
 Number of Features: 8
@@ -1254,16 +1268,17 @@ Global metric : Overlap
 Deviant Feature Metrics:(none)
 Weighting     : GainRatio
 
-Tested:      1 @ Wed Jul 11 10:56:03 2007
-Tested:      2 @ Wed Jul 11 10:56:03 2007
-Tested:      3 @ Wed Jul 11 10:56:03 2007
-Tested:      4 @ Wed Jul 11 10:56:03 2007
-Tested:      5 @ Wed Jul 11 10:56:03 2007
-Tested:      6 @ Wed Jul 11 10:56:03 2007
-Tested:      7 @ Wed Jul 11 10:56:03 2007
-Tested:      8 @ Wed Jul 11 10:56:03 2007
-Ready:       8 @ Wed Jul 11 10:56:03 2007
-Seconds taken: 0.0018 (4415.01 p/s)
+Tested:      1 @ Mon Oct 19 17:07:38 2009
+Tested:      2 @ Mon Oct 19 17:07:38 2009
+Tested:      3 @ Mon Oct 19 17:07:38 2009
+Tested:      4 @ Mon Oct 19 17:07:38 2009
+Tested:      5 @ Mon Oct 19 17:07:38 2009
+Tested:      6 @ Mon Oct 19 17:07:38 2009
+Tested:      7 @ Mon Oct 19 17:07:38 2009
+Tested:      8 @ Mon Oct 19 17:07:38 2009
+Ready:       8 @ Mon Oct 19 17:07:38 2009
+Seconds taken: 0.0004 (19093.08 p/s)
+
 overall accuracy:        1.000000  (8/8)
 \end{verbatim}
 \end{footnotesize}
@@ -1291,6 +1306,9 @@ this program, wg.1 should be equal to wg.5 and wg.2 eq to
 wg.4. Important to note is also, that while we do not use a weighting
 of X2 or SV here, only the ``simple'' weights are calculated and
 stored.
+
+Further, arr.1.arr should be equal to arr.5.arr and arr.2.arr should be equal
+to arr.4.arr
 
 First the program: 
 
@@ -1338,6 +1356,7 @@ Current Experiment Settings :
 FLENGTH              : 0
 MAXBESTS             : 500
 TRIBL_OFFSET         : 0
+IG_THRESHOLD         : 1000
 INPUTFORMAT          : Unknown
 TREE_ORDER           : G/V
 ALL_WEIGHTS          : false
@@ -1346,7 +1365,7 @@ BIN_SIZE             : 20
 IB2_OFFSET           : 0
 KEEP_DISTRIBUTIONS   : false
 DO_SLOPPY_LOO        : false
-TARGET_POS           : 4294967295
+TARGET_POS           : 18446744073709551615
 DO_SILLY             : false
 DO_DIVERSIFY         : false
 DECAY                : Z
@@ -1354,20 +1373,17 @@ SEED                 : -1
 BEAM_SIZE            : 0
 DECAYPARAM_A         : 1.00000
 DECAYPARAM_B         : 1.00000
-NORMALISATION        : -1
+NORMALISATION        : None
 NORM_FACTOR          : 1.00000
 EXEMPLAR_WEIGHTS     : false
 IGNORE_EXEMPLAR_WEIGHTS : true
 NO_EXEMPLAR_WEIGHTS_TEST : true
 VERBOSITY            : DI+DB
 EXACT_MATCH          : false
-DO_DOT_PRODUCT       : false
-DO_COSINE            : false
 HASHED_TREE          : true
 GLOBAL_METRIC        : M
 METRICS              : 
 MVD_LIMIT            : 1
-MVD_DEFAULT_METRIC   : O
 NEIGHBORS            : 1
 PROGRESS             : 100000
 CLIP_FACTOR          : 10
@@ -1377,16 +1393,16 @@ Number of Features: 12
 InputFormat       : C4.5
 
 -test4-Phase 1: Reading Datafile: dimin.train
--test4-Start:          0 @ Wed Jul 11 11:00:02 2007
--test4-Finished:    2999 @ Wed Jul 11 11:00:02 2007
--test4-Calculating Entropy         Wed Jul 11 11:00:02 2007
+-test4-Start:          0 @ Mon Oct 19 17:12:39 2009
+-test4-Finished:    2999 @ Mon Oct 19 17:12:39 2009
+-test4-Calculating Entropy         Mon Oct 19 17:12:39 2009
 Feature Permutation based on GainRatio/Values :
 < 9, 5, 11, 1, 12, 7, 4, 3, 10, 8, 2, 6 >
 -test4-Phase 2: Learning from Datafile: dimin.train
--test4-Start:          0 @ Wed Jul 11 11:00:02 2007
--test4-Finished:    2999 @ Wed Jul 11 11:00:02 2007
+-test4-Start:          0 @ Mon Oct 19 17:12:39 2009
+-test4-Finished:    2999 @ Mon Oct 19 17:12:40 2009
 
-Size of InstanceBase = 19231 Nodes, (384620 bytes), 49.77 % compression
+Size of InstanceBase = 19231 Nodes, (769240 bytes), 49.77 % compression
 Examine datafile 'dimin.test' gave the following results:
 Number of Features: 12
 InputFormat       : C4.5
@@ -1397,37 +1413,37 @@ Writing output in:          inc1.out
 Algorithm     : IB1
 Global metric : Value Difference, Prestored matrix
 Deviant Feature Metrics:(none)
-Size of value-matrix[1] = 96 Bytes 
-Size of value-matrix[2] = 704 Bytes 
-Size of value-matrix[3] = 704 Bytes 
-Size of value-matrix[4] = 96 Bytes 
-Size of value-matrix[5] = 96 Bytes 
-Size of value-matrix[6] = 1496 Bytes 
-Size of value-matrix[7] = 1496 Bytes 
-Size of value-matrix[8] = 336 Bytes 
-Size of value-matrix[9] = 56 Bytes 
-Size of value-matrix[10] = 2376 Bytes 
-Size of value-matrix[11] = 1344 Bytes 
-Size of value-matrix[12] = 936 Bytes 
-Total Size of value-matrices 9736 Bytes 
+Size of value-matrix[1] = 168 Bytes 
+Size of value-matrix[2] = 968 Bytes 
+Size of value-matrix[3] = 968 Bytes 
+Size of value-matrix[4] = 168 Bytes 
+Size of value-matrix[5] = 168 Bytes 
+Size of value-matrix[6] = 1904 Bytes 
+Size of value-matrix[7] = 1904 Bytes 
+Size of value-matrix[8] = 504 Bytes 
+Size of value-matrix[9] = 104 Bytes 
+Size of value-matrix[10] = 2904 Bytes 
+Size of value-matrix[11] = 1728 Bytes 
+Size of value-matrix[12] = 1248 Bytes 
+Total Size of value-matrices 12736 Bytes 
 
 Weighting     : GainRatio
 
--test4-Tested:      1 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      2 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      3 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      4 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      5 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      6 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      7 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      8 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      9 @ Wed Jul 11 11:00:02 2007
--test4-Tested:     10 @ Wed Jul 11 11:00:02 2007
--test4-Tested:    100 @ Wed Jul 11 11:00:02 2007
--test4-Ready:     950 @ Wed Jul 11 11:00:02 2007
-Seconds taken: 0.1529 (6211.75 p/s)
-overall accuracy:        0.964211  (916/950), of which 62 exact matches 
+-test4-Tested:      1 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      2 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      3 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      4 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      5 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      6 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      7 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      8 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      9 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:     10 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:    100 @ Mon Oct 19 17:12:40 2009
+-test4-Ready:     950 @ Mon Oct 19 17:12:40 2009
+Seconds taken: 0.0791 (12003.74 p/s)
 
+overall accuracy:        0.964211  (916/950), of which 62 exact matches 
 There were 6 ties of which 6 (100.00%) were correctly resolved
 -test4-Saving Weights in wg.1.wgt
 -test4-Saving Probability Arrays in arr.1.arr
@@ -1441,37 +1457,37 @@ Writing output in:          inc2.out
 Algorithm     : IB1
 Global metric : Value Difference, Prestored matrix
 Deviant Feature Metrics:(none)
-Size of value-matrix[1] = 96 Bytes 
-Size of value-matrix[2] = 704 Bytes 
-Size of value-matrix[3] = 704 Bytes 
-Size of value-matrix[4] = 96 Bytes 
-Size of value-matrix[5] = 96 Bytes 
-Size of value-matrix[6] = 1496 Bytes 
-Size of value-matrix[7] = 1496 Bytes 
-Size of value-matrix[8] = 336 Bytes 
-Size of value-matrix[9] = 56 Bytes 
-Size of value-matrix[10] = 2376 Bytes 
-Size of value-matrix[11] = 1344 Bytes 
-Size of value-matrix[12] = 936 Bytes 
-Total Size of value-matrices 9736 Bytes 
+Size of value-matrix[1] = 168 Bytes 
+Size of value-matrix[2] = 968 Bytes 
+Size of value-matrix[3] = 968 Bytes 
+Size of value-matrix[4] = 168 Bytes 
+Size of value-matrix[5] = 168 Bytes 
+Size of value-matrix[6] = 1904 Bytes 
+Size of value-matrix[7] = 1904 Bytes 
+Size of value-matrix[8] = 504 Bytes 
+Size of value-matrix[9] = 104 Bytes 
+Size of value-matrix[10] = 2904 Bytes 
+Size of value-matrix[11] = 1728 Bytes 
+Size of value-matrix[12] = 1248 Bytes 
+Total Size of value-matrices 12736 Bytes 
 
 Weighting     : GainRatio
 
--test4-Tested:      1 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      2 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      3 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      4 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      5 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      6 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      7 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      8 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      9 @ Wed Jul 11 11:00:02 2007
--test4-Tested:     10 @ Wed Jul 11 11:00:02 2007
--test4-Tested:    100 @ Wed Jul 11 11:00:02 2007
--test4-Ready:     950 @ Wed Jul 11 11:00:02 2007
-Seconds taken: 0.2206 (4305.52 p/s)
-overall accuracy:        0.964211  (916/950), of which 62 exact matches 
+-test4-Tested:      1 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      2 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      3 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      4 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      5 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      6 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      7 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      8 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      9 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:     10 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:    100 @ Mon Oct 19 17:12:40 2009
+-test4-Ready:     950 @ Mon Oct 19 17:12:40 2009
+Seconds taken: 0.0866 (10965.92 p/s)
 
+overall accuracy:        0.964211  (916/950), of which 62 exact matches 
 There were 6 ties of which 6 (100.00%) were correctly resolved
 -test4-Saving Weights in wg.2.wgt
 -test4-Saving Probability Arrays in arr.2.arr
@@ -1485,37 +1501,37 @@ Writing output in:          inc3.out
 Algorithm     : IB1
 Global metric : Value Difference, Prestored matrix
 Deviant Feature Metrics:(none)
-Size of value-matrix[1] = 96 Bytes 
-Size of value-matrix[2] = 704 Bytes 
-Size of value-matrix[3] = 704 Bytes 
-Size of value-matrix[4] = 96 Bytes 
-Size of value-matrix[5] = 96 Bytes 
-Size of value-matrix[6] = 1496 Bytes 
-Size of value-matrix[7] = 1496 Bytes 
-Size of value-matrix[8] = 336 Bytes 
-Size of value-matrix[9] = 56 Bytes 
-Size of value-matrix[10] = 2376 Bytes 
-Size of value-matrix[11] = 1344 Bytes 
-Size of value-matrix[12] = 936 Bytes 
-Total Size of value-matrices 9736 Bytes 
+Size of value-matrix[1] = 168 Bytes 
+Size of value-matrix[2] = 968 Bytes 
+Size of value-matrix[3] = 968 Bytes 
+Size of value-matrix[4] = 168 Bytes 
+Size of value-matrix[5] = 168 Bytes 
+Size of value-matrix[6] = 1904 Bytes 
+Size of value-matrix[7] = 1904 Bytes 
+Size of value-matrix[8] = 504 Bytes 
+Size of value-matrix[9] = 104 Bytes 
+Size of value-matrix[10] = 2904 Bytes 
+Size of value-matrix[11] = 1728 Bytes 
+Size of value-matrix[12] = 1248 Bytes 
+Total Size of value-matrices 12736 Bytes 
 
 Weighting     : GainRatio
 
--test4-Tested:      1 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      2 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      3 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      4 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      5 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      6 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      7 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      8 @ Wed Jul 11 11:00:02 2007
--test4-Tested:      9 @ Wed Jul 11 11:00:02 2007
--test4-Tested:     10 @ Wed Jul 11 11:00:02 2007
--test4-Tested:    100 @ Wed Jul 11 11:00:02 2007
--test4-Ready:     950 @ Wed Jul 11 11:00:03 2007
-Seconds taken: 0.1681 (5652.84 p/s)
-overall accuracy:        0.964211  (916/950), of which 62 exact matches 
+-test4-Tested:      1 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      2 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      3 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      4 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      5 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      6 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      7 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      8 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      9 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:     10 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:    100 @ Mon Oct 19 17:12:40 2009
+-test4-Ready:     950 @ Mon Oct 19 17:12:40 2009
+Seconds taken: 0.0740 (12844.09 p/s)
 
+overall accuracy:        0.964211  (916/950), of which 62 exact matches 
 There were 6 ties of which 6 (100.00%) were correctly resolved
 -test4-Saving Weights in wg.3.wgt
 -test4-Saving Probability Arrays in arr.3.arr
@@ -1529,37 +1545,37 @@ Writing output in:          inc4.out
 Algorithm     : IB1
 Global metric : Value Difference, Prestored matrix
 Deviant Feature Metrics:(none)
-Size of value-matrix[1] = 96 Bytes 
-Size of value-matrix[2] = 704 Bytes 
-Size of value-matrix[3] = 704 Bytes 
-Size of value-matrix[4] = 96 Bytes 
-Size of value-matrix[5] = 96 Bytes 
-Size of value-matrix[6] = 1496 Bytes 
-Size of value-matrix[7] = 1496 Bytes 
-Size of value-matrix[8] = 336 Bytes 
-Size of value-matrix[9] = 56 Bytes 
-Size of value-matrix[10] = 2376 Bytes 
-Size of value-matrix[11] = 1344 Bytes 
-Size of value-matrix[12] = 936 Bytes 
-Total Size of value-matrices 9736 Bytes 
+Size of value-matrix[1] = 168 Bytes 
+Size of value-matrix[2] = 968 Bytes 
+Size of value-matrix[3] = 968 Bytes 
+Size of value-matrix[4] = 168 Bytes 
+Size of value-matrix[5] = 168 Bytes 
+Size of value-matrix[6] = 1904 Bytes 
+Size of value-matrix[7] = 1904 Bytes 
+Size of value-matrix[8] = 504 Bytes 
+Size of value-matrix[9] = 104 Bytes 
+Size of value-matrix[10] = 2904 Bytes 
+Size of value-matrix[11] = 1728 Bytes 
+Size of value-matrix[12] = 1248 Bytes 
+Total Size of value-matrices 12736 Bytes 
 
 Weighting     : GainRatio
 
--test4-Tested:      1 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      2 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      3 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      4 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      5 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      6 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      7 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      8 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      9 @ Wed Jul 11 11:00:03 2007
--test4-Tested:     10 @ Wed Jul 11 11:00:03 2007
--test4-Tested:    100 @ Wed Jul 11 11:00:03 2007
--test4-Ready:     950 @ Wed Jul 11 11:00:03 2007
-Seconds taken: 0.1755 (5414.06 p/s)
-overall accuracy:        0.964211  (916/950), of which 62 exact matches 
+-test4-Tested:      1 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      2 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      3 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      4 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      5 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      6 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      7 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      8 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      9 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:     10 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:    100 @ Mon Oct 19 17:12:40 2009
+-test4-Ready:     950 @ Mon Oct 19 17:12:40 2009
+Seconds taken: 0.0727 (13075.49 p/s)
 
+overall accuracy:        0.964211  (916/950), of which 62 exact matches 
 There were 6 ties of which 6 (100.00%) were correctly resolved
 -test4-Saving Weights in wg.4.wgt
 -test4-Saving Probability Arrays in arr.4.arr
@@ -1573,37 +1589,37 @@ Writing output in:          inc5.out
 Algorithm     : IB1
 Global metric : Value Difference, Prestored matrix
 Deviant Feature Metrics:(none)
-Size of value-matrix[1] = 96 Bytes 
-Size of value-matrix[2] = 704 Bytes 
-Size of value-matrix[3] = 704 Bytes 
-Size of value-matrix[4] = 96 Bytes 
-Size of value-matrix[5] = 96 Bytes 
-Size of value-matrix[6] = 1496 Bytes 
-Size of value-matrix[7] = 1496 Bytes 
-Size of value-matrix[8] = 336 Bytes 
-Size of value-matrix[9] = 56 Bytes 
-Size of value-matrix[10] = 2376 Bytes 
-Size of value-matrix[11] = 1344 Bytes 
-Size of value-matrix[12] = 936 Bytes 
-Total Size of value-matrices 9736 Bytes 
+Size of value-matrix[1] = 168 Bytes 
+Size of value-matrix[2] = 968 Bytes 
+Size of value-matrix[3] = 968 Bytes 
+Size of value-matrix[4] = 168 Bytes 
+Size of value-matrix[5] = 168 Bytes 
+Size of value-matrix[6] = 1904 Bytes 
+Size of value-matrix[7] = 1904 Bytes 
+Size of value-matrix[8] = 504 Bytes 
+Size of value-matrix[9] = 104 Bytes 
+Size of value-matrix[10] = 2904 Bytes 
+Size of value-matrix[11] = 1728 Bytes 
+Size of value-matrix[12] = 1248 Bytes 
+Total Size of value-matrices 12736 Bytes 
 
 Weighting     : GainRatio
 
--test4-Tested:      1 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      2 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      3 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      4 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      5 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      6 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      7 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      8 @ Wed Jul 11 11:00:03 2007
--test4-Tested:      9 @ Wed Jul 11 11:00:03 2007
--test4-Tested:     10 @ Wed Jul 11 11:00:03 2007
--test4-Tested:    100 @ Wed Jul 11 11:00:03 2007
--test4-Ready:     950 @ Wed Jul 11 11:00:03 2007
-Seconds taken: 0.1656 (5737.44 p/s)
-overall accuracy:        0.964211  (916/950), of which 62 exact matches 
+-test4-Tested:      1 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      2 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      3 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      4 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      5 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      6 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      7 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      8 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:      9 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:     10 @ Mon Oct 19 17:12:40 2009
+-test4-Tested:    100 @ Mon Oct 19 17:12:40 2009
+-test4-Ready:     950 @ Mon Oct 19 17:12:40 2009
+Seconds taken: 0.0732 (12975.31 p/s)
 
+overall accuracy:        0.964211  (916/950), of which 62 exact matches 
 There were 6 ties of which 6 (100.00%) were correctly resolved
 -test4-Saving Weights in wg.5.wgt
 -test4-Saving Probability Arrays in arr.5.arr
@@ -1656,6 +1672,8 @@ int main(){
     neighborSet uit2;
     {
       neighborSet uit;
+      uit.setShowDistance(true);
+      uit.setShowDistribution(true);
       cout << " before first merge " << endl;
       cout << uit;
       uit.merge( *neighbours1 );
@@ -1698,16 +1716,16 @@ Number of Features: 12
 InputFormat       : C4.5
 
 -test5-Phase 1: Reading Datafile: dimin.train
--test5-Start:          0 @ Wed Jul 11 11:07:31 2007
--test5-Finished:    2999 @ Wed Jul 11 11:07:31 2007
--test5-Calculating Entropy         Wed Jul 11 11:07:31 2007
+-test5-Start:          0 @ Mon Oct 19 17:19:52 2009
+-test5-Finished:    2999 @ Mon Oct 19 17:19:52 2009
+-test5-Calculating Entropy         Mon Oct 19 17:19:52 2009
 Feature Permutation based on GainRatio/Values :
 < 9, 5, 11, 1, 12, 7, 4, 3, 10, 8, 2, 6 >
 -test5-Phase 2: Learning from Datafile: dimin.train
--test5-Start:          0 @ Wed Jul 11 11:07:31 2007
--test5-Finished:    2999 @ Wed Jul 11 11:07:31 2007
+-test5-Start:          0 @ Mon Oct 19 17:19:52 2009
+-test5-Finished:    2999 @ Mon Oct 19 17:19:52 2009
 
-Size of InstanceBase = 19231 Nodes, (384620 bytes), 49.77 % compression
+Size of InstanceBase = 19231 Nodes, (769240 bytes), 49.77 % compression
 Classify OK on =,=,=,=,+,k,e,=,-,r,@,l,T
 # k=1 { T 1.00000 } 0.0000000000000
 # k=2 { T 1.00000 } 0.0031862902473388
@@ -1817,16 +1835,16 @@ Number of Features: 12
 InputFormat       : C4.5
 
 -test6-Phase 1: Reading Datafile: dimin.train
--test6-Start:          0 @ Wed Jul 11 11:12:07 2007
--test6-Finished:    2999 @ Wed Jul 11 11:12:07 2007
--test6-Calculating Entropy         Wed Jul 11 11:12:07 2007
+-test6-Start:          0 @ Mon Oct 19 17:22:26 2009
+-test6-Finished:    2999 @ Mon Oct 19 17:22:26 2009
+-test6-Calculating Entropy         Mon Oct 19 17:22:26 2009
 Feature Permutation based on GainRatio/Values :
 < 9, 5, 11, 1, 12, 7, 4, 3, 10, 8, 2, 6 >
 -test6-Phase 2: Learning from Datafile: dimin.train
--test6-Start:          0 @ Wed Jul 11 11:12:07 2007
--test6-Finished:    2999 @ Wed Jul 11 11:12:08 2007
+-test6-Start:          0 @ Mon Oct 19 17:22:26 2009
+-test6-Finished:    2999 @ Mon Oct 19 17:22:26 2009
 
-Size of InstanceBase = 19231 Nodes, (384620 bytes), 49.77 % compression
+Size of InstanceBase = 19231 Nodes, (769240 bytes), 49.77 % compression
 resulting target: K
 resulting Distribution: { E 1.00000, K 7.00000 }
 E 1 OR E 1
