@@ -40,9 +40,10 @@ study programs such as {\tt classify.cxx}, {\tt tse.cxx}, and the
 examples given in this manual, which can all be found in the {\tt demos}
 directory of this distribution.
 
-As you can readily gather from these examples, the basic thing you need to do to get access to the
-TimblAPI functions is to include {\tt TimblAPI.h} in the program, and to
-include {\tt libTimbl.a} in your linking path. 
+As you can readily gather from these examples, the basic thing you
+need to do to get access to the TimblAPI functions is to include {\tt
+  TimblAPI.h} in the program, and to include {\tt libTimbl.a} in your
+linking path.
 
 {\bf Important note}: The described functions return a result (mostly
 a bool) to indicate succes or failure. To simplify the examples, we
@@ -69,9 +70,12 @@ the results make sense.
 
 \section{From version 6.1 to 6.2}
 
-In version 6.2, some additional functions were added to the API:
-{\tt matchDepth()}, {\tt matchedAtLeaf()}, {\tt WriteMatrices()}, {\tt GetMatrices()} and {\tt ShowStatistics()}. These reflect the additional functionality of Timbl 6.2.
-The API is still experimental, and contains more functions than described in this manual. Using these 'undocumented' features is, as usual, unwise.
+In version 6.2, some additional functions were added to the API: {\tt
+  matchDepth()}, {\tt matchedAtLeaf()}, {\tt WriteMatrices()}, {\tt
+  GetMatrices()} and {\tt ShowStatistics()}. These reflect the
+additional functionality of Timbl 6.2.  The API is still experimental,
+and contains more functions than described in this manual. Using these
+'undocumented' features is, as usual, unwise.
 
 \section{From version 5.1 to 6.1}
 
@@ -198,7 +202,7 @@ There are special cases where {\tt Learn()} behaves differently:
   give the name of a file, which, on separate lines, gives the names
   of the files to be cross-validated.
 
-  Also, if {\em featureWeights} or {\em probabilities} have to be read from 
+  Also, if {\em featureWeights}\/ or {\em probabilities}\/ are read from 
   user-defined datafiles, a special {\tt CVprepare()} function must be called, 
   to make the weigthing, weightFilename and probabilityFileName known to the 
 {\tt Test()} function.
@@ -220,7 +224,7 @@ options can be changed "on the fly" with:
 \end{verbatim}
 \end{footnotesize}
 
-'opts' is interpreted as a list of options which are set, just like in
+Here, 'opts' is interpreted as a list of option settings, just like in
 the TimblAPI constructor. When an error in the opts string is found,
 {\tt SetOptions()} returns false. Whether any options are really set
 or changed in that case is undefined. Note that a few options can only
@@ -312,10 +316,10 @@ TiMBL manual. Remember that it is a bad idea to edit this file in any way.
 \item {\tt GetWeights()} can be used to override the weights that
 {\tt Learn()} calculated. {\tt UNKNOWN\_W} should not be used.
 \item The Probability arrays are described in the TiMBL manual. They can be
-manipulated to tune MVDM testing.
+manipulated to tune the MVDM similarity metric.
 \end{enumerate}
 
-If you like you may dump the Instancebase in XML format. No Retrieve
+If you like you may dump the Instancebase in an XML format. No Retrieve
 function is available for this format.
 
 \begin{footnotesize}
@@ -346,7 +350,7 @@ get the calculated distance, and 'Distrib' the distribution at
 'distance' which is used to calculate 'result'.  Distrib will be a
 string like ``\{ NP 2, PP 6 \}''. It is up to you to parse and
 interpret this. (In this case: There were 8 classes assigned at
-'distance', 2 NP's and 6 PP's, giving a 'result' of ``PP'')
+'distance', 2 NP's and 6 PP's, giving a 'result' of ``PP''.)
 
 If you want to perform analyses on these distributions, it might be a
 good idea to read the next section about the other range of Classify()
@@ -374,7 +378,7 @@ Provided that the option {\tt +v n} or {\tt +v k} is set and we use
 IB1 or IB2, output is produced similar to what we see in the TiMBL
 program.  When 'distr' is true, their distributions are also
 displayed.  Bear in mind: The {\tt +vn} option is expensive in time
-and memory and does not work for IGTREE, TRIBL, and TRIBL-2.
+and memory and does not work for IGTREE, TRIBL, and TRIBL2.
 
 Two other functions provide the results as given by the {\tt +vmd} verbosity 
 option:
@@ -386,8 +390,8 @@ option:
 \end{verbatim}
 \end{footnotesize}
 
-The first one gives the matching Depth in the InstanceBase, the second one
-explains wether it was a Leaf or a Non Terminal Node.
+The first returns the matching Depth in the InstanceBase; the second 
+flags whether it was a Leaf or a Non-Terminal Node.
 
 \section{Classify functions: advanced}
 
@@ -417,14 +421,13 @@ Classify functions return that as their main result.
 
 {\bf Important}: Because these functions return pointers into Timbl's
 internal representation, the results are only valid until the next
-Classify function is called. (or the experiment is deleted).
+Classify function is called (or the experiment is deleted).
 
 Both the TargetValue and ValueDistribution objects have output
-operators defined, so you can print them.
-TargetValue also has a {\tt Name()} function, which returns a
-std::string so you can collect results.
-ValueDistribution has an iterator-like interface which makes it
-possible to walk through the Distribution.
+operators defined, so you can print them.  TargetValue also has a {\tt
+  Name()} function, which returns a std::string so you can collect
+results.  ValueDistribution has an iterator-like interface which makes
+it possible to walk through the Distribution.
 
 An iterator on a {\tt ValueDistribution *vd} is created like this:
 \begin{footnotesize}
@@ -434,7 +437,7 @@ An iterator on a {\tt ValueDistribution *vd} is created like this:
 \end{footnotesize}
 
 Unfortunately, the iterator cannot be printed or used directly.
-It walks throuhg a map like structure with pairs of values, of which
+It walks through a map-like structure with pairs of values, of which
 only the {\tt second} part is of interest to you.
 You may print it, or extract its {\tt Value()} (which happens to be a
 TargetValue pointer) or extract its {\tt Weight()}, which is a {\tt double}.
@@ -450,7 +453,8 @@ Like this:
   }
 \end{verbatim}
 \end{footnotesize}
-Printing {\tt it->second} is in fact nothing else than printing the
+
+Printing {\tt it->second} is the same as printing the
 TargetValue plus its Weight.
 
 In the {\em demos}\/ directory you will find a complete example in api\_test6.
