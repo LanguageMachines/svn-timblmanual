@@ -16,7 +16,7 @@
 	Induction of Linguistic Knowledge Research Group\\
 	Tilburg centre for Creative Computing\\
         Tilburg University \\ \\
-	(*) CLiPS - Language Technology Group\\
+	(*) CLiPS - Computational Linguistics Group\\
         Department of Linguistics \\
 	University of Antwerp\\ \\
 	($\dagger$) Textkernel B.V.\\ \\
@@ -44,17 +44,98 @@
 
 \chapter*{Preface}
 
-Memory-Based Learning ({\sc mbl}) is an elegantly simple and robust machine-learning method applicable to a wide range of tasks in Natural Language Processing (NLP).  In our research group at Tilburg University, we have been working since the end of the 1980s on the development of Memory-Based Learning techniques and algorithms. The foundations are bundled in \namecite{Daelemans+05}. Section~\ref{furtherreading} provides a historical overview of work on the application of {\sc mbl} in NLP. With the establishment of the ILK (Induction of Linguistic Knowledge) research group in 1997, and with the increasing use of {\sc mbl} at the CNTS research group of the University of Antwerp, the need for a well-coded and uniform tool for our main algorithms became more urgent. TiMBL was the result of combining ideas from a number of different {\sc mbl} implementations, cleaning up the interface, and using a whole bag of tricks to make it more efficient. We think it has become a useful tool for NLP research, and, for that matter, for many other domains where classification tasks are learned from examples, so we started to release the software in 1999. With the release of the sixth version of TiMBL we moved to releasing our software under the GPL license, for anyone to use under the conditions stated in the license.
+Memory-Based Learning ({\sc mbl}) is an elegantly simple and robust
+machine-learning method applicable to a wide range of tasks in Natural
+Language Processing (NLP).  In our research group at Tilburg
+University, we have been working since the end of the 1980s on the
+development of Memory-Based Learning techniques and algorithms. The
+foundations are bundled in
+\namecite{Daelemans+05}. Section~\ref{furtherreading} provides a
+historical overview of work on the application of {\sc mbl} in
+NLP. With the establishment of the ILK (Induction of Linguistic
+Knowledge) research group in 1997, and with the increasing use of {\sc
+  mbl} at the CNTS (now CLiPS) research group of the University of
+Antwerp, the need for a well-coded and uniform tool for our main
+algorithms became more urgent. TiMBL was the result of combining ideas
+from a number of different {\sc mbl} implementations, cleaning up the
+interface, and using a whole bag of tricks to make it more
+efficient. We think it has become a useful tool for NLP research, and,
+for that matter, for many other domains where classification tasks are
+learned from examples, so we started to release the software in
+1999. With the release of the sixth version of TiMBL we moved to
+releasing our software under the GPL license, for anyone to use under
+the conditions stated in the license.
 
-Memory-Based Learning is a direct descendant of the classical $k$-Nearest Neighbor ($k$-NN) approach to classification, which has become known as a powerful pattern classification algorithm for numeric data. In typical NLP learning tasks, however, the focus is on discrete data, very large numbers of examples, and many attributes of differing relevance. Moreover, classification speed is a critical issue in any realistic application of Memory-Based Learning. These constraints demand non-trivial data-structures and speedup optimizations for the core $k$-NN classifier. Our approach has resulted in an architecture which compresses the typical flat file organization found in straightforward $k$-NN implementations, into a decision-tree structure. While the decision tree can be used to retrieve the exact $k$-nearest neighbors (as happens in the {\sc ib1} algorithm within TiMBL), it can also be deterministically traversed as in a decision-tree classifier (the method adopted by the {\sc igtree} algorithm). We believe that our optimizations make TiMBL one of the fastest discrete $k$-NN implementations around.
+Memory-Based Learning is a direct descendant of the classical
+$k$-Nearest Neighbor ($k$-NN) approach to classification, which has
+become known as a powerful pattern classification algorithm for
+numeric data. In typical NLP learning tasks, however, the focus is on
+discrete data, very large numbers of examples, and many attributes of
+differing relevance. Moreover, classification speed is a critical
+issue in any realistic application of Memory-Based Learning. These
+constraints demand non-trivial data-structures and speedup
+optimizations for the core $k$-NN classifier. Our approach has
+resulted in an architecture which compresses the typical flat file
+organization found in straightforward $k$-NN implementations, into a
+decision-tree structure. While the decision tree can be used to
+retrieve the exact $k$-nearest neighbors (as happens in the {\sc ib1}
+algorithm within TiMBL), it can also be deterministically traversed as
+in a decision-tree classifier (the method adopted by the {\sc igtree}
+algorithm). We believe that our optimizations make TiMBL one of the
+fastest discrete $k$-NN implementations around.
 
-The main effort in the development and maintenance of this software was and continues to be invested by Ko van der Sloot. The code started as a rewrite of {\tt nibl}, a piece of software developed by Peter Berck from a Common Lisp implementation by Walter Daelemans of {\sc ib1-ig}. Some of the index optimizations in TiMBL are due to Jakub Zavrel. The code has benefited substantially from trial, error and scrutiny by all past and present members of the ILK and CLiPS (formerly CNTS) groups in Tilburg and Antwerp. We are furthermore indebted to Ton Weijters of Eindhoven Technical University for his inspirational early work on $k$-NN and for his involvements in {\sc igtree}.
+The main effort in the development and maintenance of this software
+was and continues to be invested by Ko van der Sloot. The code started
+as a rewrite of {\tt nibl}, a piece of software developed by Peter
+Berck from a Common Lisp implementation by Walter Daelemans of {\sc
+  ib1-ig}. Some of the index optimizations in TiMBL are due to Jakub
+Zavrel. The code has benefited substantially from trial, error and
+scrutiny by all past and present members of the ILK and CLiPS
+(formerly CNTS) groups in Tilburg and Antwerp. We are furthermore
+indebted to Ton Weijters of Eindhoven Technical University for his
+inspirational early work on $k$-NN and for his involvements in {\sc
+  igtree}.
 
-Our sincere thanks go to the many users of TiMBL who have contributed to it immensely by giving us feedback and reporting bugs, and to the two organisations that have supported and enabled its development: NWO, the Netherlands Organization for Scientific Research, and the Faculty of Humanities of Tilburg University. NWO funding has spanned three subsequent periods. From 1997 until 2001 development was part of the ``Induction of Linguistic Knowledge'' research programme, partially funded by the Netherlands Organization for Scientific Research (NWO) and Tilburg University. Between 2001 and 2006 it was funded as part of the ``Memory Models of Language'' research project under the NWO {\em Vernieuwingsimpuls}\/ programme, and since 2006 it is funded as part of the ``Implicit Linguistics'' research project under the NWO Vici programme.
+Our sincere thanks go to the many users of TiMBL who have contributed
+to it immensely by giving us feedback and reporting bugs, and to the
+two organisations that have supported and enabled its development:
+NWO, the Netherlands Organization for Scientific Research, and the
+Faculty of Humanities of Tilburg University. NWO funding has spanned
+three subsequent periods. From 1997 until 2001 development was part of
+the ``Induction of Linguistic Knowledge'' research programme,
+partially funded by the Netherlands Organization for Scientific
+Research (NWO) and Tilburg University. Between 2001 and 2006 it was
+funded as part of the ``Memory Models of Language'' research project
+under the NWO {\em Vernieuwingsimpuls}\/ programme, and since 2006 it
+is funded as part of the ``Implicit Linguistics'' research project
+under the NWO Vici programme.
 
-The current release (version 6.2) succeeds major release 6.0 and minor update 6.1. It provides several new distance functions, and the internal code has been overhauled significantly. An elaborate description of the changes from version 1.0 up to 6.2 can be found in Chapter~\ref{changes}. Although all new features have been tested for some time in our research groups, the software may still contain bugs and inconsistencies in some places. We would appreciate it if you would send bug reports, ideas about enhancements of the software and the manual, and any other comments you might have, to {\tt Timbl@uvt.nl}.
+The current release (version 6.2) succeeds major release 6.0 and minor
+update 6.1. It provides several new distance functions, and the
+internal code has been overhauled significantly. An elaborate
+description of the changes from version 1.0 up to 6.2 can be found in
+Chapter~\ref{changes}. Although all new features have been tested for
+some time in our research groups, the software may still contain bugs
+and inconsistencies in some places. We would appreciate it if you
+would send bug reports, ideas about enhancements of the software and
+the manual, and any other comments you might have, to {\tt
+  Timbl@uvt.nl}.
 
-This reference guide is structured as follows. In Chapter~\ref{license} you can find the terms of the license according to which you are allowed to use TiMBL. The subsequent chapter gives some instructions on how to install the TiMBL package on your computer. Chapter~\ref{changes} lists the changes that have taken place up to the current version. Next, Chapter~\ref{tutorial} offers a quick-start tutorial for readers who want to get to work with TiMBL right away. The tutorial describes, step-by-step, a case study with a sample data set (included with the software) representing the linguistic domain of predicting the diminutive inflection of Dutch nouns.  Readers who are interested in the theoretical and technical details of Memory-Based Learning and of this implementation can refer to Chapter~\ref{algorithms}. Chapter~\ref{reference} provides full reference to the command line options of TiMBL, supported file formats, and TiMBL's server interface.
+This reference guide is structured as follows. In
+Chapter~\ref{license} you can find the terms of the license according
+to which you are allowed to use TiMBL. The subsequent chapter gives
+some instructions on how to install the TiMBL package on your
+computer. Chapter~\ref{changes} lists the changes that have taken
+place up to the current version. Next, Chapter~\ref{tutorial} offers a
+quick-start tutorial for readers who want to get to work with TiMBL
+right away. The tutorial describes, step-by-step, a case study with a
+sample data set (included with the software) representing the
+linguistic domain of predicting the diminutive inflection of Dutch
+nouns.  Readers who are interested in the theoretical and technical
+details of Memory-Based Learning and of this implementation can refer
+to Chapter~\ref{algorithms}. Chapter~\ref{reference} provides full
+reference to the command line options of TiMBL, supported file
+formats, and TiMBL's server interface.
 
 \chapter{GNU General Public License}
 \label{license}
@@ -611,7 +692,7 @@ examples given below on your own system.
 
 The operation of TiMBL will be illustrated below by means of a real
 natural language processing task: prediction of the diminutive suffix
-form in Dutch~\cite{Daelemans+97e}. In Dutch, a noun can receive a
+form in Dutch~\cite{Daelemans+97b}. In Dutch, a noun can receive a
 diminutive suffix to indicate {\em small size} literally or
 metaphorically attributed to the referent of the noun; e.g. {\em
 mannetje} means {\em little man}. Diminutives are formed by a
@@ -1149,10 +1230,7 @@ The confusion matrix associates the class predicted by TiMBL
 (vertically) with the real class of the test items given
 (horizontally). All cells outside the diagonal contain errors of one
 class being mistaken for another. For example, the K class ({\em
-  -kje}) is mispredicted seven times as class E ({\em -etje}), which
-is an often-made mistake that can only be disambiguated properly when
-the stress of the noun is known: compare, for example, {\em delinkje}\/
-(little division) versus {\em wandelingetje}.
+  -kje}) is mispredicted seven times as class E ({\em -etje}).
 
 (The bottom line, labeled with {\tt -*-}, would contain aggregate
 counts of classes occuring in the test data that did not occur in the
@@ -1338,14 +1416,35 @@ choosing the majority category among the set of nearest
 neighbors. Since this method is independent of the distance function
 we discuss this issue separately in subsection~\ref{tiebreaking}.
 
-\paragraph{Variants on Overlap: Levenshtein and Dice coefficient metrics}
+\paragraph{Variations on Overlap: Levenshtein and Dice coefficient metrics}
 
-The Overlap metric is all-or-nothing. For measuring the similarity between numeric or symbolically atomic or arbitrary values this may suffice, but there are cases (such as in natural language processing) in which string-valued feature values occur that can mismatch with other string values in a meaningfully graded way. For example, the value pair ``bathe'' and ``bathes'' only differs in one letter; counting them as more similar than ``bathe'' and ``rumour'', for example, may be useful for the classification task at hand. We implemented two additional metrics, Levenshtein distance and the Dice coefficient, that each provide a graded similarity score between pairs of strings.
+The Overlap metric is all-or-nothing. For measuring the similarity
+between numeric or atomically symbolic values this may suffice, but
+there are cases (such as in natural language processing) in which
+string-valued feature values occur that can mismatch with other string
+values in a meaningfully graded way. For example, the value pair
+``bathe'' and ``bathes'' only differs in one letter; counting them as
+more similar than ``bathe'' and ``rumour'', for example, may be useful
+for the classification task at hand. We implemented two additional
+metrics, Levenshtein distance and the Dice coefficient, that each
+provide a graded similarity score between pairs of strings.
 
-{\bf Levenshtein} distance is a classic {\em edit distance}\/ metric \cite{Levenshtein66} that counts the number of insertions, deletions, and substitutions to transform the one string into the other. In our (dynamic programming) implementation the three operations count equally heavily. The {\bf Dice} coefficient computes the overlap between the occurrences of character bigrams in two strings as in Equation~\ref{dice}, where $n_{x_{i} \cap y{i}}$ is the number of character bigrams (uniquely) occuring both in string value $x_{i}$ and in string value $y_{i}$ (and where $i$ is the index of the feature as introduced in Equation~\ref{distance})\footnote{Strings of length one are not handled by Dice; we back off to Overlap in these cases.}. The equation subtracts the similarity from 1, because we assume $\delta$ to produce a distance, not a similarity.
+{\bf Levenshtein} distance is a classic {\em edit distance}\/ metric
+\cite{Levenshtein66} that counts the number of insertions, deletions,
+and substitutions to transform the one string into the other. In our
+(dynamic programming) implementation the three operations count
+equally heavily. The {\bf Dice} coefficient computes the overlap
+between the occurrences of character bigrams in two strings as in
+Equation~\ref{dice}, where $n_{x_{i} \cap y{i}}$ is the number of
+character bigrams (uniquely) occuring both in string value $x_{i}$ and
+in string value $y_{i}$ (and where $i$ is the index of the feature as
+introduced in Equation~\ref{distance})\footnote{Strings of length one
+  are not handled by Dice; we back off to Overlap in these
+  cases.}. The equation subtracts the similarity from 1, because we
+assume $\delta$ to produce a distance, not a similarity.
 
 \begin{equation}
-\delta(x_{i}, y_{i}) = 1 - \frac{2 n_{x_{i} \cap y{i}}}{n_{x_{i}} + n_{y_{i}}}
+\delta(x_{i}, y_{i}) = 1 - \frac{2 n_{x_{i} \cap y_{i}}}{n_{x_{i}} + n_{y_{i}}}
 \label{dice}
 \end{equation}
 
@@ -1681,7 +1780,7 @@ The most straightforward method for letting the $k$ nearest neighbors
 vote on the class of a new case is the {\em majority voting} method,
 in which the vote of each neighbor receives equal weight, and the
 class with the highest number of votes is chosen (or in case of a tie,
-some tie resolution is performed, cf. Subsection~\ref{overlap}).
+some tie resolution is performed, cf. Subsection~\ref{tiebreaking}).
 
 We can see the voting process of the $k$-NN classifier as an attempt
 to make an optimal class decision, given an estimate of the
@@ -1952,7 +2051,7 @@ partial similarity of the current least similar nearest neighbor. By
 doing the search depth first\footnote{Suggested by Gert Durieux.}, the
 similarity threshold quickly gets initialized to a good value, so that
 large parts of the search space can be pruned\footnote{With the
-  special command line setting {\tt --silly} this tree search shortcut
+  special command line setting {\tt --silly=true} this tree search shortcut
   is switched off; as the name of the setting suggests, this is not
   recommended, except for explicit speed comparisons.}.
 
@@ -2249,34 +2348,137 @@ While these advanced statistics can be computed per class, they can also be aver
 \section{NLP applications of TiMBL}
 \label{furtherreading}
 
-This section provides a brief historical overview of work, performed in the Tilburg and Antwerp groups and by others, with the application of {\sc mbl}-type algorithms to NLP tasks. For more historical background, see \cite{Daelemans+05}.
+This section provides a brief historical overview of work, performed
+in the Tilburg and Antwerp groups and by others, with the application
+of {\sc mbl}-type algorithms to NLP tasks. For more historical
+background, see \cite{Daelemans+05}.
 
-The Tilburg and Antwerp groups have published a number of articles containing descriptions of the algorithms and specialised metrics collected in TiMBL, usually demonstrating their functioning using NLP tasks. The {\sc ib1-ig} algorithm was first introduced in \cite{Daelemans+92b} in the context of a comparison of memory-based approaches with error-back\-propagation learning for a hyphenation task.  Predecessor versions of {\sc igtree} can be found in \cite{Daelemans+93c,VandenBosch+93} where they are applied to grapheme-to-phoneme conversion.  See \cite{Daelemans+97} for a description and review of {\sc igtree} and {\sc ib1-ig}. {\sc tribl} is described in \cite{Daelemans+97d}.  Experiments with distance-weighted class voting are described in \cite{Zavrel97}. Aspects of using binary-valued (unpacked multi-valued) features are discussed in \cite{VandenBosch+00}.  Comparisons between memory-based learning and editing variants are reported in \cite{VandenBosch99,Daelemans+99}. A hybrid of TiMBL and the {\sc ripper} rule-induction algorithm \cite{Cohen95} is described in \cite{VandenBosch00,VandenBosch04}. Using TiMBL as a classifier combination method is discussed in \cite{Halteren+01}. \namecite{Raaijmakers00} describes an extension of TiMBL with error-correcting output codes. \namecite{Hendrickx+04} report on an experiment to import maximum-entropy matrices to replace {\sc mvdm} matrices \cite{Hendrickx+04}, improving over the maximum-entropy classifier. \namecite{VandenBosch04} presents a search algorithm to find optimal combinations of parameter settings automatically, given a labeled training set of examples, showing large gains of the default settings (also of other machine learning algorithms). Parallelization of TiMBL, through splitting either the training set or the test set in $n$ pieces in shared-memory multi-processor architectures, is explored in \cite{VandenBosch+07b}.
+The Tilburg and Antwerp groups have published a number of articles
+containing descriptions of the algorithms and specialised metrics
+collected in TiMBL, usually demonstrating their functioning using NLP
+tasks. The {\sc ib1-ig} algorithm was first introduced in
+\cite{Daelemans+92b} in the context of a comparison of memory-based
+approaches with error-back\-propagation learning for a hyphenation
+task.  Predecessor versions of {\sc igtree} can be found in
+\cite{Daelemans+93c,VandenBosch+93} where they are applied to
+grapheme-to-phoneme conversion.  See \cite{Daelemans+97} for a
+description and review of {\sc igtree} and {\sc ib1-ig}. {\sc tribl}
+is described in \cite{Daelemans+97d}.  Experiments with
+distance-weighted class voting are described in
+\cite{Zavrel97}. Aspects of using binary-valued (unpacked
+multi-valued) features are discussed in \cite{VandenBosch+00}.
+Comparisons between memory-based learning and editing variants are
+reported in \cite{VandenBosch99,Daelemans+99}. A hybrid of TiMBL and
+the {\sc ripper} rule-induction algorithm \cite{Cohen95} is described
+in \cite{VandenBosch00,VandenBosch04}. Using TiMBL as a classifier
+combination method is discussed in
+\cite{Halteren+01}. \namecite{Raaijmakers00} describes an extension of
+TiMBL with error-correcting output codes. \namecite{Hendrickx+04}
+report on an experiment to import maximum-entropy matrices to replace
+{\sc mvdm} matrices \cite{Hendrickx+04}, improving over the
+maximum-entropy classifier. \namecite{VandenBosch04} presents a search
+algorithm to find optimal combinations of parameter settings
+automatically, given a labeled training set of examples, showing large
+gains of the default settings (also of other machine learning
+algorithms). Parallelization of TiMBL, through splitting either the
+training set or the test set in $n$ pieces in shared-memory
+multi-processor architectures, is explored in \cite{VandenBosch+07b}.
 
-The memory-based algorithms implemented in the TiMBL package have been targeted to a large range of Natural Language Processing tasks. Examples of applications in the morpho-phonological and speech areas are hyphenation and syllabification \cite{Daelemans+92b}; classifiying phonemes in speech \cite{Kocsor+00}; assignment of word stress \cite{Daelemans+94}; grapheme-to-phoneme conversion, \cite{VandenBosch+93,Daelemans+96,Canisius+06}; diminutive formation \cite{Daelemans+98a}; and morphological analysis \cite{VandenBosch+96,VandenBosch+99,Canisius+06}. Although these examples are applied mostly to Germanic languages (English, Dutch, and German), applications to other languages with more complicated writing systems or morphologies, or with limited resources, have also been presented: for example, letter-phoneme conversion in Scottish Gaelic \cite{Wolters+97}, morphological analysis of Arabic \cite{Marsi+05}, or diacritic restoration in languages with a diacritic-rich writing system \cite{Mihalcea02,DePauw+07}.
+The memory-based algorithms implemented in the TiMBL package have been
+targeted to a large range of Natural Language Processing
+tasks. Examples of applications in the morpho-phonological and speech
+areas are hyphenation and syllabification \cite{Daelemans+92b};
+classifiying phonemes in speech \cite{Kocsor+00}; assignment of word
+stress \cite{Daelemans+94}; grapheme-to-phoneme conversion,
+\cite{VandenBosch+93,Daelemans+96,Canisius+06}; diminutive formation
+\cite{Daelemans+98a}; and morphological analysis
+\cite{VandenBosch+96,VandenBosch+99,Canisius+06}. Although these
+examples are applied mostly to Germanic languages (English, Dutch, and
+German), applications to other languages with more complicated writing
+systems or morphologies, or with limited resources, have also been
+presented: for example, letter-phoneme conversion in Scottish Gaelic
+\cite{Wolters+97}, morphological analysis of Arabic \cite{Marsi+05},
+or diacritic restoration in languages with a diacritic-rich writing
+system \cite{Mihalcea02,DePauw+07}.
 
-At the syntactic sentence level TiMBL has been applied to part of speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01}; PP-attachment \cite{Zavrel+97b}; subcategorization \cite{Buchholz98}; phrase chunking \cite{Veenstra98,Sang+99}; dependency parsing \cite{Canisius+06b}, article generation \cite{Minnen+00}; shallow parsing \cite{Daelemans+99a,Buchholz+99,Yeh00}; clause identification \cite{Orasan00,Sang01}; sentence-boundary detection \cite{Stevenson+00}; predicting the order of prenominal adjectives for generation \cite{Malouf00}; and, beynd the sentence level, to anaphora resolution \cite{Preiss02,Mitkov+02,Hoste05}. More recently, memory-based learning has been integrated as a classifier engine in more complicated dependency parsing systems \cite{Nivre+04,Sagae+05,Canisius+06b}.
+At the syntactic sentence level TiMBL has been applied to part of
+speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01};
+PP-attachment \cite{Zavrel+97b}; subcategorization \cite{Buchholz98};
+phrase chunking \cite{Veenstra98,Sang+99}; dependency parsing
+\cite{Canisius+06b}, article generation \cite{Minnen+00}; shallow
+parsing \cite{Daelemans+99a,Buchholz+99,Yeh00}; clause identification
+\cite{Orasan00,Sang01}; sentence-boundary detection
+\cite{Stevenson+00}; predicting the order of prenominal adjectives for
+generation \cite{Malouf00}; and, beynd the sentence level, to anaphora
+resolution \cite{Preiss02,Mitkov+02,Hoste05}. More recently,
+memory-based learning has been integrated as a classifier engine in
+more complicated dependency parsing systems
+\cite{Nivre+04,Sagae+05,Canisius+06b}.
 
-Memory-based learning has been applied succesfully to lexical semantics, in particular to word sense disambiguation \cite{Veenstra+00,Stevenson+99,Kokkinakis00,Mihalcea02,Hoste+02,DeCadt+04}, but also in other lexical semantic tasks such as determining noun countability \cite{Baldwin+03}, animacy \cite{Orasan+01}, and semantic relations within noun compounds \cite{Kim+06b,Nastase+06}.
+Memory-based learning has been applied succesfully to lexical
+semantics, in particular to word sense disambiguation
+\cite{Veenstra+00,Stevenson+99,Kokkinakis00,Mihalcea02,Hoste+02,DeCadt+04},
+but also in other lexical semantic tasks such as determining noun
+countability \cite{Baldwin+03}, animacy \cite{Orasan+01}, and semantic
+relations within noun compounds \cite{Kim+06b,Nastase+06}.
 
-On the textual level, TiMBL has been used for information extraction \cite{Zavrel+00b,Zavrel+03,Ahn06}, text classification \cite{Spitters00}, question classification \cite{Garcia+06,Dridan+07}, spam filtering \cite{Androutsopoulos+00,}, named-entity recognition \cite{Buchholz+00,Hendrickx+03,DeMeulder+03,Sporleder+06b,Leveling+06}, and error detection in textual databases \cite{Sporleder+06}.
+On the textual level, TiMBL has been used for information extraction
+\cite{Zavrel+00b,Zavrel+03,Ahn06}, text classification
+\cite{Spitters00}, question classification \cite{Garcia+06,Dridan+07},
+spam filtering \cite{Androutsopoulos+00}, named-entity recognition
+\cite{Buchholz+00,Hendrickx+03,DeMeulder+03,Sporleder+06b,Leveling+06},
+and error detection in textual databases \cite{Sporleder+06}.
 
-In the field of discourse and dialogue modeling, TiMBL has been used for shallow semantic analysis of speech-recognised utterances \cite{Gustafson+99,Krahmer+01,VandenBosch+01,Lendvai+02a,Lendvai+03}, in disfluency detection in transcribed spontaneous speech \cite{Lendvai+03c}, and in classifying ellipsis in dialogue \cite{Fernandez+04}.
+In the field of discourse and dialogue modeling, TiMBL has been used
+for shallow semantic analysis of speech-recognised utterances
+\cite{Gustafson+99,Krahmer+01,VandenBosch+01,Lendvai+02a,Lendvai+03},
+in disfluency detection in transcribed spontaneous speech
+\cite{Lendvai+03c}, and in classifying ellipsis in dialogue
+\cite{Fernandez+04}.
 
-Relations to statistical language processing, in particular the interesting equivalence relations with back-off smoothing in probabilistic classifiers, are discussed in \cite{Zavrel+97}. Relations between classification-based word prediction and statistical language modeling are identified in \cite{VandenBosch05,VandenBosch06}.
+Relations to statistical language processing, in particular the
+interesting equivalence relations with back-off smoothing in
+probabilistic classifiers, are discussed in
+\cite{Zavrel+97}. Relations between classification-based word
+prediction and statistical language modeling are identified in
+\cite{VandenBosch05,VandenBosch06}.
 
-In machine translation, $k$-nearest neighbor classification bears a close relation with example-based machine translation (EBMT). A first EBMT-implementation using TiMBL is described in \cite{VandenBosch+07}.
+In machine translation, $k$-nearest neighbor classification bears a
+close relation with example-based machine translation (EBMT). A first
+EBMT-implementation using TiMBL is described in \cite{VandenBosch+07}.
 
-The first dissertation-length study devoted to the approach is \cite{VandenBosch97}, in which the approach is compared to alternative learning methods for NLP tasks related to English word pronunciation (stress assignment, syllabification, morphological analysis, alignment, grapheme-to-phoneme conversion). TiMBL is also central in the Ph.D. theses of \namecite{Buchholz02}, \namecite{Lendvai04}, and \namecite{Hendrickx05}. In 1999 a special issue of the {\em Journal for Experimental and Theoretical Artificial Intelligence} (Vol.~11(3), edited by Walter Daelemans) was devoted to Memory-Based Language Processing. The introduction to this special issue discusses the inspiration sources and alternative developments related to the memory-based approach taken in TiMBL \cite{Daelemans99b}.
+The first dissertation-length study devoted to the approach is
+\cite{VandenBosch97}, in which the approach is compared to alternative
+learning methods for NLP tasks related to English word pronunciation
+(stress assignment, syllabification, morphological analysis,
+alignment, grapheme-to-phoneme conversion). TiMBL is also central in
+the Ph.D. theses of \namecite{Buchholz02}, \namecite{Lendvai04},
+\namecite{Hendrickx05} \namecite{Hoste05},
+\namecite{Keuleers08}, and \namecite{Canisius09}. In 1999 a special issue of the {\em Journal for
+  Experimental and Theoretical Artificial Intelligence} (Vol.~11(3),
+edited by Walter Daelemans) was devoted to Memory-Based Language
+Processing. The introduction to this special issue discusses the
+inspiration sources and alternative developments related to the
+memory-based approach taken in TiMBL \cite{Daelemans99b}.
 
-Whereas most work using TiMBL has been oriented towards natural language engineering applications, the linguistic and psycholinguistic relevance of memory-based learning is another focus of research in Antwerp, Tilburg and elsewhere. Work in this area has been done on stress assignment in Dutch \cite{Daelemans+94,Gillis+00}, reading aloud \cite{VandenBosch+00b}, phonological bootstrapping \cite{Durieux+00}, the above-mentioned prediction of linking morphemes in Dutch \cite{Krott+01}, morphology \cite{Eddington00,Eddington03}, and the Dutch plural inflection \cite{Keuleers+07}. A comparison to other analogical methods for linguistics is provided in \cite{Daelemans+97f}.
+Whereas most work using TiMBL has been oriented towards natural
+language engineering applications, the linguistic and psycholinguistic
+relevance of memory-based learning is another focus of research in
+Antwerp, Tilburg and elsewhere. Work in this area has been done on
+stress assignment in Dutch \cite{Daelemans+94,Gillis+00}, reading
+aloud \cite{VandenBosch+00b}, phonological bootstrapping
+\cite{Durieux+00}, the prediction of linking morphemes
+in Dutch \cite{Krott+01}, morphology \cite{Eddington00,Eddington03},
+and the Dutch plural inflection \cite{Keuleers+07}. A comparison to
+other analogical methods for linguistics is provided in
+\cite{Daelemans+97f,Daelemans02}.
 
 \ \\
 
 {\it All Tilburg/Antwerp papers referred to in this section, as well
 as more recent papers, are available in electronic form from the {\sc
 ILK} home page: {\tt http://ilk.uvt.nl} and the {\sc CLiPS} home page: \\
-{\tt http://www.cnts.ua.ac.be/cnts}.}
+{\tt http://www.clips.ua.ac.be/}.}
 
 \chapter{Software usage and options}
 \label{reference}
@@ -2595,7 +2797,7 @@ parameter can take on the following values (case-insensitive):
 
 \item {\tt -G <n>}: Normalize class distributions generated by {\tt +v db}.
   \begin{description}
-    \item {\tt 0}: Normalize distributions so that they add up to 1.0
+    \item {\tt 0 (zero)}: Normalize distributions so that they add up to 1.0
     \item {\tt 1:<f>}: Smooth by adding floating-point $f$ to all class votes (e.g. {\tt -G1:1} performs add-one smoothing).
   \end{description}
 
