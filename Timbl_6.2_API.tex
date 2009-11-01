@@ -15,7 +15,7 @@
 
 \title{{\huge TiMBL: Tilburg Memory-Based Learner} \\ \vspace*{0.5cm}
 {\bf version 6.2} \\ \vspace*{0.5cm}{\huge API Reference Guide}\\
-\vspace*{1cm} {\it ILK Technical Report -- ILK ??-??}}
+\vspace*{1cm} {\it ILK Technical Report -- ILK 09-02}}
 
 %better paragraph indentation
 \parindent 0pt
@@ -36,12 +36,12 @@ described. Some functions are still "work in progress" and some others
 are artefacts to simplify the implementation of the TiMBL main
 program\footnote{Timbl.cxx is therefore {\em not} a good example of
   how to use the API.}.  To learn more about using the API, you should
-study programs like {\tt classify.cxx}, {\tt tse.cxx}, and the
-examples given in this manual, which can be found in the {\tt demos}
+study programs such as {\tt classify.cxx}, {\tt tse.cxx}, and the
+examples given in this manual, which can all be found in the {\tt demos}
 directory of this distribution.
 
-As you can learn from these examples, all you need to get access to the
-TimblAPI functions, is to include {\tt TimblAPI.h} in the program, and to
+As you can readily gather from these examples, the basic thing you need to do to get access to the
+TimblAPI functions is to include {\tt TimblAPI.h} in the program, and to
 include {\tt libTimbl.a} in your linking path. 
 
 {\bf Important note}: The described functions return a result (mostly
@@ -70,8 +70,8 @@ the results make sense.
 \section{From version 6.1 to 6.2}
 
 In version 6.2, some additional functions were added to the API:
-{\tt matchDepth()}, {\tt matchedAtLeaf()}, {\tt WriteMatrices()}, {\tt GetMatrices()} and {\tt ShowStatistics()}. These reflect the additional fuctionality of Timbl 6.2.
-The API is still experimental, and contains more functions then described in this manual. Using these 'undocumented' features is, as usual, unwise.
+{\tt matchDepth()}, {\tt matchedAtLeaf()}, {\tt WriteMatrices()}, {\tt GetMatrices()} and {\tt ShowStatistics()}. These reflect the additional functionality of Timbl 6.2.
+The API is still experimental, and contains more functions than described in this manual. Using these 'undocumented' features is, as usual, unwise.
 
 \section{From version 5.1 to 6.1}
 
@@ -110,7 +110,7 @@ settings for metric, weighting etc. If something is wrong with the
 settings, {\em no}\/ object is created.
 
 The most important option is {\tt -a}  to set the kind of algorithm,
-e.g. {\tt -a IB1} to get an IB1 experiment or {\tt -a IGTREE} to get an IGTREE
+e.g. {\tt -a IB1} to invoke an IB1 experiment or {\tt -a IGTREE} to invoke an IGTREE
 experiment. A list of possible options is give in Appendix A.
 
 The optional name can be useful if you have multiple experiments.
@@ -126,7 +126,7 @@ For example:
 \end{footnotesize}
 
 {\tt My\_Experiment} is created as an IGTREE experiment with the name
-"test1" and the verbosity is set to DI+DB, meaning that the output
+"test1", and the verbosity is set to DI+DB, meaning that the output
 will contain DIstance and DistriBution information.
 
 The counterpart to creation is the {\tt \~{ }TimblAPI()} destructor,
@@ -140,7 +140,7 @@ which is called when you delete an experiment:
 
 \section{Running an experiment}
 
-Assuming that we have appropriate datafiles (such as {\tt
+Assuming that we have appropriate datafiles (such as the example files {\tt
 dimin.train} and {\tt dimin.test} in the TiMBL package), we can get
 started right away with the functions {\tt Learn()} and {\tt Test()}.
 
@@ -205,7 +205,7 @@ There are special cases where {\tt Learn()} behaves differently:
 
 See Appendix B for a complete CV example (program {\tt api\_test3}).
 
-TODO: een voorbeeld met CVPrepare erbij!
+%TODO: een voorbeeld met CVPrepare erbij!
 
 \end{itemize}
 
