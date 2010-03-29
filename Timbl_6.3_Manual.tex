@@ -22,13 +22,13 @@
 	($\dagger$) Textkernel B.V.\\ \\
         P.O. Box 90153, NL-5000 LE, Tilburg, The Netherlands \\ 
         URL: http://ilk.uvt.nl\thanks{This document is available from
-	http://ilk.uvt.nl/downloads/pub/papers/ilk.TODO.pdf. All rights reserved
+	http://ilk.uvt.nl/downloads/pub/papers/ilk.1001.pdf. All rights reserved
 	Induction of Linguistic Knowledge, Tilburg University and 
         CLiPS, University of Antwerp.}}
 
 \title{{\huge TiMBL: Tilburg Memory-Based Learner} \\ \vspace*{0.5cm}
 {\bf version 6.3} \\ \vspace*{0.5cm}{\huge Reference Guide}\\
-\vspace*{1cm} {\it ILK Technical Report -- ILK TODO}}
+\vspace*{1cm} {\it ILK Technical Report -- ILK 10-01}}
 
 %better paragraph indentation
 \parindent 0pt
@@ -111,11 +111,10 @@ is funded as part of the ``Implicit Linguistics'' research project
 under the NWO Vici programme.
 
 The current release (version 6.3) succeeds major release 6.2. The most
-significant change is, that all {\em server} related stuff is moved to a 
-separate TimblServer package.
-An elaborate description of the changes from
-version 1.0 up to 6.3 can be found in Chapter~\ref{changes}.
-Although all new features have been tested for
+significant change is that all {\em server}-related functionality is
+moved to a separate TimblServer package.  An elaborate description of
+the changes from version 1.0 up to 6.3 can be found in
+Chapter~\ref{changes}.  Although all new features have been tested for
 some time in our research groups, the software may still contain bugs
 and inconsistencies in some places. We would appreciate it if you
 would send bug reports, ideas about enhancements of the software and
@@ -150,9 +149,9 @@ You should have received a copy of the GNU General Public License along with TiM
 
 In publication of research that makes use of TiMBL 6.3, a citation should be given of: {\em ``Walter Daelemans, Jakub Zavrel, Ko van der
   Sloot, and Antal van den Bosch (2009). TiMBL: Tilburg Memory Based
-  Learner, version 6.3, Reference Guide. ILK Technical Report TODO
+  Learner, version 6.3, Reference Guide. ILK Technical Report 10-01
   Available from \\ {\tt
-    http://ilk.uvt.nl/downloads/pub/papers/ilkTODO.pdf}''}
+    http://ilk.uvt.nl/downloads/pub/papers/ilk1001.pdf}''}
 
 For information about commercial licenses for TiMBL 6.3,
 contact {\tt Timbl@uvt.nl}, or send your request in writing to:
@@ -244,37 +243,61 @@ This chapter gives a brief overview of the changes from all previously released 
 \section{From version 6.2 to 6.3}
 
 \begin{itemize}
-\item All server related functionality is removed from Timbl. A new TimblServer package is available wich provides the same interface as Timbl upto 6.3, but also adds some extra features, like running serveral several unrelated experiments on one TCP port. See the TimblServer package for more details.
+\item All server-related functionality is removed from Timbl. A new
+  TimblServer package is available wich provides the same interface as
+  Timbl up to version 6.3, but also adds some extra features, such as
+  running serveral several unrelated experiments on one TCP port. See
+  the TimblServer package for more details.
 
-\item Starting with Timbl 6.3, we will support installable packages for Debian and Ubuntu (.deb), RedHat (.rmp) and MacOSX (Fink) (see TODO)
+\item Starting with Timbl 6.3 we support installable packages for
+  Debian and Ubuntu (.deb), RedHat (.rpm) and MacOSX
+  (Fink)\footnote{\url{http://ilk.uvt.nl/timbl-packages}}.
 
-\item As usual, some bugs and inconsistencies have been fixed.
+\item Some bugs and inconsistencies have been fixed.
 
 \end{itemize}
 
 \section{From version 6.1 to 6.2}
 
-Version 6.2 differs from 6.1 in a great number of internal changes aimed at making the code better maintainable and extendible, in some minor bug fixes, and in the following more prominent changes:
+Version 6.2 differs from 6.1 in a great number of internal changes
+aimed at making the code better maintainable and extendible, in some
+minor bug fixes, and in the following more prominent changes:
 
 \begin{itemize}
 
-\item A new distance metric, the Dice coefficient, has been added; the metric can be set with {\tt -mDC}. Analogous to the Levenshtein ({\tt -mL}) metric, the Dice coefficient operates at the feature value level; it computes the overlap in character bigrams of two value strings.
+\item A new distance metric, the Dice coefficient, has been added; the
+  metric can be set with {\tt -mDC}. Analogous to the Levenshtein
+  ({\tt -mL}) metric, the Dice coefficient operates at the feature
+  value level; it computes the overlap in character bigrams of two
+  value strings.
 
-\item Value difference matrices, as used by the {\sc mvdm} and Jeffrey divergence distance metrics, can now be written to file, and read into TiMBL, allowing for user-defined value difference metrics to be used. The new command line options are {\tt --matrixout=<filename>} and {\tt --matrixin=<filename>}.
+\item Value difference matrices, as used by the {\sc mvdm} and Jeffrey
+  divergence distance metrics, can now be written to file, and read
+  into TiMBL, allowing for user-defined value difference metrics to be
+  used. The new command line options are {\tt --matrixout=<filename>}
+  and {\tt --matrixin=<filename>}.
 
-\item The {\sc IGTree} algorithm has been optimized beyond the improvements introduced in version 6.0. With very large training sets, {\sc IGTree} was reported to be exponentially slower in the later stages of training. Trees are now built in near-linear time.
+\item The {\sc IGTree} algorithm has been optimized beyond the
+  improvements introduced in version 6.0. With very large training
+  sets, {\sc IGTree} was reported to be exponentially slower in the
+  later stages of training. Trees are now built in near-linear time.
 
 \end{itemize}
 
-Finally, besides minor bug fixes, a great number of internal changes were made to make the code better maintainable and extendible.
+Finally, besides minor bug fixes, a great number of internal changes
+were made to make the code better maintainable and extendible.
 
 \section{From version 6.0 to 6.1}
 
-Version 6.1 differs from 6.0 mainly in the changed configuration.  It is now based on autotools and is delivered as an installable package.  Some bugs have been fixed as well.
+Version 6.1 differs from 6.0 mainly in the changed configuration.  It
+is now based on autotools and is delivered as an installable package.
+Some bugs have been fixed as well.
 
 \section{From version 5.1 to 6.0}
 
-Version 6.0 differs from 5.1 firstly in terms of internal changes aimed at increasing classification speed and lowering memory usage, of which the most prominent are
+Version 6.0 differs from 5.1 firstly in terms of internal changes
+aimed at increasing classification speed and lowering memory usage, of
+which the most prominent are
 
 \begin{itemize}
 
@@ -307,11 +330,12 @@ switches are added:
   normalization.  For example, {\tt -G1:1} (or {\tt -G1} for short) is
   ``add one''-smoothing; {\tt -G1:0.5} adds $0.5$ to all class votes.
 
-\item With {\tt -Beam=n} (from version 6.2 onwards: {\tt --Beam=n}), where $n$ is an integer, the {\tt +v db}
-  output is constrained to the $n$ classes receiving the highest
-  votes. This special limit is useful in cases in which the {\tt +v
-    db} output, typically used for further processing, generates far
-  too much output in its default unconstrained setting. 
+\item With {\tt -Beam=n} (from version 6.2 onwards: {\tt --Beam=n}),
+  where $n$ is an integer, the {\tt +v db} output is constrained to
+  the $n$ classes receiving the highest votes. This special limit is
+  useful in cases in which the {\tt +v db} output, typically used for
+  further processing, generates far too much output in its default
+  unconstrained setting.
 
 \item Class distributions are not stored on non-terminal nodes with
   {\sc IGTree} and {\sc tribl} by default. To revert this default,
@@ -398,7 +422,8 @@ characteristics:
 \item Tree files generated by TiMBL versions 1.*, 2.* and 3.* are no
 longer supported.
 
-\item The command line interface has had the following additions, including the ones reflecting the above changes:
+\item The command line interface has had the following additions,
+  including the ones reflecting the above changes:
 
 \begin{itemize} 
 \item {\tt -m J} activates the Jeffrey divergence distance metric.
@@ -552,9 +577,7 @@ sample client program is included in the distribution. This allows
 fast response times when small amounts of test material are presented
 at various intervals. It also opens the possibility of having large
 numbers of ``classification agents'' cooperate in real time, or of
-classication of the same data with different parameters. The syntax of
-our simple Client/Server protocol is described in
-Chapter~\ref{serverformat}.
+classication of the same data with different parameters.
 
 \item Leave-one-out testing. To get an estimate of the classification
 error, without setting aside part of one's data as a test set, one
@@ -1105,8 +1128,26 @@ Overlap,  $-k5$ & 62.6 & 95.4 & 96.1 & 96.1 \\
 \end{center}
 \end{table}
 
-Table \ref{diminresults} shows a small matrix indicating the effect of distance metric (Overlap versus {\sc mvdm}) and weighting method choice on generalization accuracy, using the same training and test set as before, and increasing $k$ from 1 to 3 and 5. While increasing $k$ leads to a deterioration of generalization accuracy with the Overlap function, it leads to improvements with {\sc mvdm}. Another clear contrast is that the absence of feature weighting leads to the lowest scores with the Overlap function, and the highest score with {\sc mvdm} and $k=5$. Given that TiMBL offers several more hyperparameters than only $k$, the distance metric, and the feature weighting metric, it should be obvious that even with a single training and test set experiment, a large experimental matrix can be explored. Unfortunately, the location of the cell with the highest number in this matrix cannot be predicted upfront. It is therefore useful to try out a large set of reasonable combinations of options by cross-validation on the training data to achieve best results with {\sc mbl} \cite{VandenBosch04b}. The option {\tt
-  -t @f} where {\tt f} is the name of a file, allows you to predefine various combinations of options to be tested and test them without having the training stages repeated each time. See Chapter \ref{commandline}.
+Table \ref{diminresults} shows a small matrix indicating the effect of
+distance metric (Overlap versus {\sc mvdm}) and weighting method
+choice on generalization accuracy, using the same training and test
+set as before, and increasing $k$ from 1 to 3 and 5. While increasing
+$k$ leads to a deterioration of generalization accuracy with the
+Overlap function, it leads to improvements with {\sc mvdm}. Another
+clear contrast is that the absence of feature weighting leads to the
+lowest scores with the Overlap function, and the highest score with
+{\sc mvdm} and $k=5$. Given that TiMBL offers several more
+hyperparameters than only $k$, the distance metric, and the feature
+weighting metric, it should be obvious that even with a single
+training and test set experiment, a large experimental matrix can be
+explored. Unfortunately, the location of the cell with the highest
+number in this matrix cannot be predicted upfront. It is therefore
+useful to try out a large set of reasonable combinations of options by
+cross-validation on the training data to achieve best results with
+{\sc mbl} \cite{VandenBosch04b}. The option {\tt -t @f} where {\tt f}
+is the name of a file, allows you to predefine various combinations of
+options to be tested and test them without having the training stages
+repeated each time. See Chapter \ref{commandline}.
 
 \section{More options}
 
@@ -1168,7 +1209,9 @@ lines like the following.
 }
 
 This information can e.g. be used to assign a certainty to a decision
-of the classifier, or to make available a second-best back-off option. Another verbosity option, {\tt +v di}, displays the distance to the nearest neighbor:
+of the classifier, or to make available a second-best back-off
+option. Another verbosity option, {\tt +v di}, displays the distance
+to the nearest neighbor:
 
 {\footnotesize
 \begin{verbatim}
@@ -1487,7 +1530,10 @@ w_{i} = H(C) -  \sum_{v \in V_{i}} P(v) \times H(C|v)
 \label{IGgain}
 \end{equation}
 
-Where $C$ is the set of class labels, $H(C) = - \sum_{c \in C} P(c) \log_{2} P(c)$ is the entropy of the class labels, and $V_{i}$ is the set of values for feature $i$. The probabilities are estimated from relative frequencies in the training set.
+Where $C$ is the set of class labels, $H(C) = - \sum_{c \in C} P(c)
+\log_{2} P(c)$ is the entropy of the class labels, and $V_{i}$ is the
+set of values for feature $i$. The probabilities are estimated from
+relative frequencies in the training set.
 
 For numeric features, an intermediate step needs to be taken to apply
 the symbol-based computation of IG. All real values of a numeric
@@ -1895,8 +1941,10 @@ instances.
                 \leavevmode
                 \epsfxsize=0.8\columnwidth
                 \epsffile{distanceweight-ided.eps}
-                \caption{Visualisation of the Inverse Distance weighting function (IL) and three variants of the Exponential Decay distance weighting function (ED) varying settings of $\alpha$ (1) and $\beta$ (b).
-                }
+                \caption{Visualisation of the Inverse Distance
+                  weighting function (IL) and three variants of the
+                  Exponential Decay distance weighting function (ED)
+                  varying settings of $\alpha$ (1) and $\beta$ (b).  }
                 \label{dist-weight-fig}
         \end{center}
 \end{figure}
@@ -2272,7 +2320,12 @@ also yet unclear what the effect is of the size of the seed.
 \section{Advanced evaluation metrics}
 \label{advancedstats}
 
-Aside from accuracy (the percentage of correctly classified test instances), TiMBL offers some more evaluation metrics that have become common in information retrieval and machine learning in general, namely precision, recall, and F-score, and ROC-space (with dimensions true positive rate and false positive rate), and AUC. We describe these metrics in more detail here.
+Aside from accuracy (the percentage of correctly classified test
+instances), TiMBL offers some more evaluation metrics that have become
+common in information retrieval and machine learning in general,
+namely precision, recall, and F-score, and ROC-space (with dimensions
+true positive rate and false positive rate), and AUC. We describe
+these metrics in more detail here.
 
 \begin{figure}
 \begin{center}
@@ -2283,7 +2336,18 @@ Aside from accuracy (the percentage of correctly classified test instances), TiM
   used in the advanced performance metrics. \label{confmat}}
 \end{figure}
 
-Figure~\ref{confmat} displays the general confusion matrix\index{confusion matrix} for one class $C$, splitting all classifications on a test set into four cells. The TP or true positives cell contains a count of examples that have class $C$ and are predicted to have this class correctly by the classifier. The FP or false positives cell contains a count of examples of a different class that the classifier incorrectly classified as $C$. The FN or false negatives cell contains examples of class $C$ for which the classifier predicted a different class label than $C$.  On the basis of these four numbers and the total number of positive examples $P=TP+FN$ and negative examples $N=FP+TN$, we can compute the following performance measures:
+Figure~\ref{confmat} displays the general confusion
+matrix\index{confusion matrix} for one class $C$, splitting all
+classifications on a test set into four cells. The TP or true
+positives cell contains a count of examples that have class $C$ and
+are predicted to have this class correctly by the classifier. The FP
+or false positives cell contains a count of examples of a different
+class that the classifier incorrectly classified as $C$. The FN or
+false negatives cell contains examples of class $C$ for which the
+classifier predicted a different class label than $C$.  On the basis
+of these four numbers and the total number of positive examples
+$P=TP+FN$ and negative examples $N=FP+TN$, we can compute the
+following performance measures:
 
 \begin{description}
 \item[Precision]\index{precision} $= \frac{TP}{TP+FP}$, or the
@@ -2336,7 +2400,19 @@ Figure~\ref{confmat} displays the general confusion matrix\index{confusion matri
 
 \end{description}
 
-While these advanced statistics can be computed per class, they can also be averaged to produce a single outcome for a full test set. Common methods for averaging F-scores and AUC scores are micro-averaging and macro-averaging. In micro-averaging, each class' F-score or AUC is weighted proportionally to the frequency of the class in the test set. A macro-average adds all the F-scores or AUCs and divides this sum by the number of classes in the training set. In computing these averages, TiMBL bases itself on the classes in the training set. When a class does not re-occur in test material, it can have no recall, but it can have precision, hence it is always incorporated in averages. A class that occurs in test material but not in training material can never be predicted correctly, and is never included in averages.
+While these advanced statistics can be computed per class, they can
+also be averaged to produce a single outcome for a full test
+set. Common methods for averaging F-scores and AUC scores are
+micro-averaging and macro-averaging. In micro-averaging, each class'
+F-score or AUC is weighted proportionally to the frequency of the
+class in the test set. A macro-average sums the F-scores or AUCs
+and divides the total by the number of classes in the training set. In
+computing these averages, TiMBL bases itself on the classes in the
+training set. When a class does not re-occur in test material, it can
+have no recall, but it can have precision, hence it is always
+incorporated in averages. A class that occurs in test material but not
+in training material can never be predicted correctly, and is never
+included in averages.
 
 \begin{figure}
 \begin{center}
@@ -2416,16 +2492,18 @@ system \cite{Mihalcea02,DePauw+07}.
 At the syntactic sentence level TiMBL has been applied to part of
 speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01};
 PP-attachment \cite{Zavrel+97b}; subcategorization \cite{Buchholz98};
-phrase chunking \cite{Veenstra98,Sang+99}; dependency parsing
-\cite{Canisius+06b}, article generation \cite{Minnen+00}; shallow
-parsing \cite{Daelemans+99a,Buchholz+99,Yeh00}; clause identification
-\cite{Orasan00,Sang01}; sentence-boundary detection
-\cite{Stevenson+00}; predicting the order of prenominal adjectives for
-generation \cite{Malouf00}; and, beynd the sentence level, to anaphora
-resolution \cite{Preiss02,Mitkov+02,Hoste05}. More recently,
-memory-based learning has been integrated as a classifier engine in
-more complicated dependency parsing systems
-\cite{Nivre+04,Sagae+05,Canisius+06b}.
+phrase chunking \cite{Veenstra98,Sang+99}; shallow parsing
+\cite{Daelemans+99a,Buchholz+99,Yeh00}; clause identification
+\cite{Orasan00,Sang01}; detecting the scope of negation markers
+\cite{Morante+08c}; sentence-boundary detection \cite{Stevenson+00};
+predicting the order of prenominal adjectives for generation
+\cite{Malouf00} and article generation \cite{Minnen+00}; and, beyond
+the sentence level, to anaphora resolution
+\cite{Preiss02,Mitkov+02,Hoste05}. More recently, memory-based
+learning has been integrated as a classifier engine in more
+complicated dependency parsing systems
+\cite{Nivre+04,Sagae+05,Canisius+06b}, or dependency parsing in
+combination with semantic role labeling \cite{Morante+09b}.
 
 Memory-based learning has been applied succesfully to lexical
 semantics, in particular to word sense disambiguation
@@ -2455,9 +2533,12 @@ probabilistic classifiers, are discussed in
 prediction and statistical language modeling are identified in
 \cite{VandenBosch05,VandenBosch06}.
 
-In machine translation, $k$-nearest neighbor classification bears a
-close relation with example-based machine translation (EBMT). A first
-EBMT-implementation using TiMBL is described in \cite{VandenBosch+07}.
+In machine translation, $k$-nearest neighbor classification offers a
+conceptual bridge between example-based machine translation (EBMT) and
+statistical MT. Pure memory-based approaches are described in
+\cite{VandenBosch+07,Canisius+09,VandenBosch+09,VanGompel+09}; hybrids
+with statistical machine translation are presented in
+\cite{Stroppa+07,Haque+09}.
 
 The first dissertation-length study devoted to the approach is
 \cite{VandenBosch97}, in which the approach is compared to alternative
@@ -2531,7 +2612,27 @@ options.
 
 \end{description}
 
-The presence of a training file will make TiMBL pass through the first two phases of its cycle. In the first phase it examines the contents of the training file, and computes a number of statistics on it (feature weights etc.). In the second phase the instances from the training file are stored in memory. If no test file is specified, the program exits, possibly writing some of the results of learning to files (see below). If there is a test file, the selected classifier, trained on the present training data, is applied to it, and the results are written to a file the name of which is a combination of the name of the test file and a code representing the chosen algorithm settings. TiMBL then reports the percentage of correctly classified test items. The default settings for the classification phase are: a Memory-Based Learner, with Gain Ratio feature weighting, with $k=1$, and with optimizations for speedy search. If you need to change the settings, because you want to use a different type of classifier, or because you need to make a trade-off between speed and memory-use, then you can use the options that are shown using {\tt -h}. The sections below provide a reference to the use of these command line arguments, and they are roughly ordered by the type of action that the option has effect on. Note that some options (listed with ``{\tt +/-}'') can be turned on ({\tt +}) or off ({\tt -}).
+The presence of a training file will make TiMBL pass through the first
+two phases of its cycle. In the first phase it examines the contents
+of the training file, and computes a number of statistics on it
+(feature weights etc.). In the second phase the instances from the
+training file are stored in memory. If no test file is specified, the
+program exits, possibly writing some of the results of learning to
+files (see below). If there is a test file, the selected classifier,
+trained on the present training data, is applied to it, and the
+results are written to a file the name of which is a combination of
+the name of the test file and a code representing the chosen algorithm
+settings. TiMBL then reports the percentage of correctly classified
+test items. The default settings for the classification phase are: a
+Memory-Based Learner, with Gain Ratio feature weighting, with $k=1$,
+and with optimizations for speedy search. If you need to change the
+settings, because you want to use a different type of classifier, or
+because you need to make a trade-off between speed and memory-use,
+then you can use the options that are shown using {\tt -h}. The
+sections below provide a reference to the use of these command line
+arguments, and they are roughly ordered by the type of action that the
+option has effect on. Note that some options (listed with ``{\tt
+  +/-}'') can be turned on ({\tt +}) or off ({\tt -}).
 
 \subsection{Algorithm and metric selection}
 
@@ -2572,7 +2673,10 @@ For example, {\tt -mO:N3:I2,5-7} sets the global metric to overlap,
 declares the third feature to be numeric, and ignores features 2 and
 5, 6, and 7.
 
-Ignore {\em can}\/ be the global metric; it must be followed by a {\tt MetricRange} string with metric {\tt O}, {\tt M}, {\tt J}, {\tt D}, or {\tt N} specifying in the range which features are {\em not}\/ ignored.
+Ignore {\em can}\/ be the global metric; it must be followed by a {\tt
+  MetricRange} string with metric {\tt O}, {\tt M}, {\tt J}, {\tt D},
+or {\tt N} specifying in the range which features are {\em not}\/
+ignored.
 
 \item {\tt -w <n>} : chooses between feature-weighting possibilities.
 The weights are used in the metric of {\sc ib1} and in the ordering of the
@@ -2716,7 +2820,10 @@ cannot be used with numeric features.
     treefile}. See section~\ref{treeformat} for the format of this
   file.
 
-\item {\tt --matrixin=<filename>} : Read value distance metrics (such as {\sc mvdm} or Jeffrey divergence matrices written to file with {\tt --matrixout=<filename}, or from user-generated matrices) from file {\tt filename}.
+\item {\tt --matrixin=<filename>} : Read value distance metrics (such
+  as {\sc mvdm} or Jeffrey divergence matrices written to file with
+  {\tt --matrixout=<filename}, or from user-generated matrices) from
+  file {\tt filename}.
 
 \item {\tt -u <valueclassprobfile>} : Replace the automatically
   computed value-class probability matrix with the matrices provided
@@ -2748,7 +2855,8 @@ cannot be used with numeric features.
   overridden by {\tt -W}.
   See section~\ref{treeformat} for a description of the resulting file's format.
 
-\item {\tt --matrixout=<filename>} : Store calculated {\sc mvdm} or Jeffrey divergence distance metrics in file {\tt filename}.
+\item {\tt --matrixout=<filename>} : Store calculated {\sc mvdm} or
+  Jeffrey divergence distance metrics in file {\tt filename}.
 
 \item {\tt -X <xmlfile>} : instead of the proprietary file format
   written with the {\tt -I} switch, {\tt -X} writes the TiMBL tree
@@ -2897,12 +3005,35 @@ parameter can take on the following values (case-insensitive):
 
 \subsection{Hidden options}
 
-TiMBL offers an undisclosed number of hidden options that have been built in over time for particular reasons. Some have survived over time, and although their use is not for the faint-hearted, some may offer interesting functionalities. A small list of disclosed hidden options follows.
+The commandline interface to TiMBL contains several hidden options
+that have been built in over time for particular reasons. Some have
+survived over time, and although their use is not for the
+faint-hearted, some may offer interesting functionalities. A small
+list of disclosed hidden options follows.
 
 \begin{description}
-  \item {\tt --sloppy=\{true|false\}}: in combination with leave-one-out (LOO) testing, this option turns off all weight recomputation. By default, leaving out one training example out causes all feature weights, value-class matrices, and derived metrics such as {\sc mvdm} to be recomputed, because strictly the example-specific statistics should be absent when it is held out and classified. {\tt --sloppy} skips this, causing a significant speedup, and usually slightly better LOO scores. Use only if your experimental method allows it. Default value is {\tt false}.
-  \item {\tt --silly=\{true|false\}}: set to {\tt true}, switches off the optimized nearest-neighbor search in {\sc ib1} and {\sc tribl}. This causes TiMBL to fall back to comparing all feature values of a test instance to full paths in the TiMBL tree. This causes TiMBL to slow down dramatically on most datasets. Setting is available to enable testing the effect of optimized search. Default value is {\tt false}.
-  \item{\tt --Diversify}: modifies all features weights by subtracting the smallest weight (plus $\epsilon$) from all weights. The smallest weight thus becomes $\epsilon$. This modification ``diversifies'' the feature weights, and was introduced to enhance the effect of {\sc Dimbl}, the multi-CPU variant of TiMBL\footnote{For {\sc Dimbl}, see \url{http://ilk.uvt.nl/dimbl}}.
+\item {\tt --sloppy=\{true|false\}}: in combination with leave-one-out
+  (LOO) testing, this option turns off all weight recomputation. By
+  default, leaving out one training example out causes all feature
+  weights, value-class matrices, and derived metrics such as {\sc
+    mvdm} to be recomputed, because strictly the example-specific
+  statistics should be absent when it is held out and classified. {\tt
+    --sloppy} skips this, causing a significant speedup, and usually
+  slightly better LOO scores. Use only if your experimental method
+  allows it. Default value is {\tt false}.
+\item {\tt --silly=\{true|false\}}: set to {\tt true}, switches off
+  the optimized nearest-neighbor search in {\sc ib1} and {\sc
+    tribl}. This causes TiMBL to compare all feature values of a test
+  instance to full paths in the TiMBL tree. This causes TiMBL to slow
+  down dramatically on most datasets. Setting is available to enable
+  testing the effect of optimized search. Default value is {\tt
+    false}.
+\item{\tt --Diversify}: modifies all features weights by subtracting
+  the smallest weight (plus $\epsilon$) from all weights. The smallest
+  weight thus becomes $\epsilon$. This modification ``diversifies''
+  the feature weights, and was introduced to enhance the effect of
+  {\sc Dimbl}, the multi-CPU variant of TiMBL\footnote{For {\sc
+      Dimbl}, see \url{http://ilk.uvt.nl/dimbl}}.
 \end{description}
 
 \section{File formats}
@@ -3283,11 +3414,44 @@ mvdm} metric.
 \subsection{Tree files}
 \label{treeformat}
 
-Although the learning phase in TiMBL is relatively fast, it can be useful to store the internal representation of the data set both for later usage and for faster subsequent learning. In TiMBL, the data set is stored internally in a tree structure (see Section~\ref{indexing}). When using {\sc ib1}, this tree representation contains all the training cases as full paths in the tree. When using {\sc igtree}, unambiguous paths in the tree are pruned before it is used for classification or written to file; on the same data, {\sc igtree} trees are usually considerably smaller than {\sc ib1} trees. In either tree type, the arcs represent feature values and nodes contain class distribution information. The features are in the same order throughout the tree. This order is either determined by memory-size considerations in {\sc ib1}, or by feature relevance in {\sc igtree}. It can explicitly be manipulated using the {\tt -T} option.
+Although the learning phase in TiMBL is relatively fast, it can be
+useful to store the internal representation of the data set both for
+later usage and for faster subsequent learning. In TiMBL, the data set
+is stored internally in a tree structure (see
+Section~\ref{indexing}). When using {\sc ib1}, this tree
+representation contains all the training cases as full paths in the
+tree. When using {\sc igtree}, unambiguous paths in the tree are
+pruned before it is used for classification or written to file; on the
+same data, {\sc igtree} trees are usually considerably smaller than
+{\sc ib1} trees. In either tree type, the arcs represent feature
+values and nodes contain class distribution information. The features
+are in the same order throughout the tree. This order is either
+determined by memory-size considerations in {\sc ib1}, or by feature
+relevance in {\sc igtree}. It can explicitly be manipulated using the
+{\tt -T} option.
 
-We strongly advise to refrain from manually editing the tree file. However, the syntax of the tree file is as follows. First a header consisting of information about the status of the tree, the feature-ordering (the permutation from the order in the data file to the order in the tree), and the presence of numeric features is provided\footnote{Although in this header each line starts with '\#', these lines cannot be seen as comment lines.}. Subsequently, unless hashing has been set off explicitly ({\tt -H}), a legenda is given of numeric hash codes for the class names (one unique integer per class) and feature value names (one unique integer per value).  Subsequently, the tree's nodes and arcs are given in a proprietary non-indented bracket notation.
+We strongly advise to refrain from manually editing the tree
+file. However, the syntax of the tree file is as follows. First a
+header consisting of information about the status of the tree, the
+feature-ordering (the permutation from the order in the data file to
+the order in the tree), and the presence of numeric features is
+provided\footnote{Although in this header each line starts with '\#',
+  these lines cannot be seen as comment lines.}. Subsequently, unless
+hashing has been set off explicitly ({\tt -H}), a legenda is given of
+numeric hash codes for the class names (one unique integer per class)
+and feature value names (one unique integer per value).  Subsequently,
+the tree's nodes and arcs are given in a proprietary non-indented
+bracket notation.
 
-Starting from the root node, each node is denoted by an opening parenthesis ``('', followed by an integer coding the default class. After this, there is the class distribution list, within curly braces ``\{ \}'', containing a non-empty list of category codes followed by integer counts. After this comes an optional comma-separated list of arcs to child nodes, within ``[ ]'' brackets. An arc is labeled with a coded feature value. The node that the arc leads to again has a class distribution, and any number of child nodes pointed to by arcs.
+Starting from the root node, each node is denoted by an opening
+parenthesis ``('', followed by an integer coding the default
+class. After this, there is the class distribution list, within curly
+braces ``\{ \}'', containing a non-empty list of category codes
+followed by integer counts. After this comes an optional
+comma-separated list of arcs to child nodes, within ``[ ]''
+brackets. An arc is labeled with a coded feature value. The node that
+the arc leads to again has a class distribution, and any number of
+child nodes pointed to by arcs.
 
 The {\sc ib1} tree constructed from our example data set looks as follows:
 
@@ -3387,11 +3551,15 @@ Features
 \end{verbatim}
 \end{footnotesize}
 
-TiMBL tree files generated by versions 1.0 to 3.0 of TiMBL, which do not contain hashed class and value names, are no longer recognized in current TiMBL versions. Backward compatibility to trees generated by versions 1.0 to 3.0 is preserved in TiMBL version 4 up to release 4.3.1.
+TiMBL tree files generated by versions 1.0 to 3.0 of TiMBL, which do
+not contain hashed class and value names, are no longer recognized in
+current TiMBL versions. Backward compatibility to trees generated by
+versions 1.0 to 3.0 is preserved in TiMBL version 4 up to release
+4.3.1.
 
 \clearpage
 
 \bibliographystyle{fullname}
-\bibliography{ilk}
+\bibliography{../../ilkbib/ilk}
 
 \end{document}
