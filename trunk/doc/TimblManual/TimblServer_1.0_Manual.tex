@@ -40,7 +40,7 @@
 
 This reference guide describes the server interface to TiMBL, the
 Tilburg Memory-Based Learner software package. To be able to use
-TimblServer a working installation of TiMBL (version 6.3 or upward)
+TimblServer, a working installation of TiMBL (version 6.3 or upward)
 should be present on your system. For information on the installation
 and use of TiMBL, see the TiMBL Reference Guide \cite{Daelemans+10}
 and the TiMBL webpage\footnote{\url{http://ilk.uvt.nl/timbl}}.
@@ -76,7 +76,7 @@ TimblServer is distributed in the hope that it will be useful, but WITHOUT ANY W
 You should have received a copy of the GNU General Public License along with TiMBL.  If not, see $<$http://www.gnu.org/licenses/$>$.
 
 In publication of research that makes use of TimblServer 1.0, a citation should be given of: {\em ``Walter Daelemans, Jakub Zavrel, Ko van der
-  Sloot, and Antal van den Bosch (2009). TiMBL: Tilburg Memory Based
+  Sloot, and Antal van den Bosch (2010). TiMBL: Tilburg Memory Based
   Learner, version 6.3, Reference Guide. ILK Technical Report ILK-1001
   Available from \\ {\tt
     http://ilk.uvt.nl/downloads/pub/papers/ilk1001.pdf}''}
@@ -150,44 +150,7 @@ Within the {\tt <location\_to\_install>} directory a subdirectory is
 also created: {\tt share/doc/timblserver} where the TimblServer 1.0
 documentation can be found.
 
-TimblServer should now be ready for use. If you want to run the
-examples and demos from this manual, you should act as follows:
-
-\begin{itemize}
-\item Be sure to add {\tt <location\_to\_install>/bin} to your PATH. 
-In many shells something like
-
- {\tt > export PATH=\$PATH:<location\_to\_install>/bin }
-will do.
-\item We will use the same examples as TiMBL, so copy all the files from {\tt
-  <location\_to\_install>/share/doc/timbl/examples} to some working
-location. (By default, TiMBL writes its results to the directory where
-it finds the data.)
-\item and test:
-
-{\tt cd} to the working location, and then
-
-{\tt > TimblServer -f dimin.train -S 7000}
-
-This will start a TimblServer on port 7000 (if that port is occupied you might need to try another number).
-
-The server can be used (from the same machine) over Telnet like this:
-
-{\tt > telnet localhost 7000 }
-
-The server responds:
-
-{\tt Welcome to the Timbl server.}
-
-Try to classify an instance:
-
-{\tt c =,=,=,=,=,=,=,=,+,p,e,=,? }
-
-The server should respond with:
-
-{\tt CATEGORY \{T\} }
-
-\end{itemize}
+TimblServer should now be ready for use. 
 
 The e-mail address for problems with the installation, bug reports, comments and questions is {\tt Timbl@uvt.nl}.
 
@@ -214,7 +177,34 @@ Compared with the version included in Timbl (up to version 6.2) the following is
 
 The use of TimblServer subsumes a familiarity with TiMBL.  The
 TimblServer commandline interface is the same as that of Timbl with a
-few additions.
+few additions, exemplified below.
+
+If you want to run the examples and demos from this manual, you should
+act as follows. We will use the same examples as TiMBL, so copy all the files from {\tt
+ <location\_to\_install>/share/doc/timbl/examples} to some working
+location. (By default, TiMBL writes its results to the directory where
+it finds the data.) From the directory you copied the files to, issue
+the following command:
+
+{\tt > TimblServer -f dimin.train -S 7000}
+
+This will start a TimblServer on port 7000 (if that port is occupied you might need to try another number).
+
+The server can be used (from the same machine) over Telnet like this:
+
+{\tt > telnet localhost 7000 }
+
+The server responds:
+
+{\tt Welcome to the Timbl server.}
+
+Try to classify an instance:
+
+{\tt c =,=,=,=,=,=,=,=,+,p,e,=,? }
+
+The server should respond with:
+
+{\tt CATEGORY \{T\} }
 
 
 \chapter{Software usage and options}
@@ -244,13 +234,13 @@ or see: TimblServer -h
 \end{verbatim}
 }
 
-\subsection{server options}
+\subsection{Server options}
 
 \begin{description}
 
 \item {\tt --config <file>} : Start a server with a range of TiMBL experiments as specified in the configfile.
 
-This is the {\bf prefered} way to use TimblServer. See Section~\ref{configfile}. for details about the configfile.
+This is the {\bf preferred} way to use TimblServer. See Section~\ref{configfile}. for details about the configfile.
 
 \item {\tt -S <portnumber>} : Starts a TiMBL server listening on the
   specified port number of the localhost.  This option is only
@@ -261,17 +251,18 @@ This is the {\bf prefered} way to use TimblServer. See Section~\ref{configfile}.
 
 \end{description}
 
-\subsection{configuration file}
+\subsection{Configuration file}
 \label{configfile}
+
 The configfile contains lines of the general format {\tt
   attribute=value}.  Valid attributes are: {\tt port} to set the TCP
 port and {\tt maxconn} to set the numer of parallel connections of the
 server. The attribute {\tt protocol} is reserved for future usage. (We
-plan to implement a HTTP interface).
+plan to implement a HTTP interface.)
 
-Besides those attribute/value pairs, the configfile can contain any
+Besides attribute--value pairs, the configfile can contain any
 number of lines describing TiMBL experiments to be served. The lines
-look like {\tt basename=''timbl training options''}.  {\tt basename}
+take the form of {\tt basename=''timbl training options''}.  {\tt basename}
 is a name you can choose to identfy the experiment. The {\tt basename}
 is needed when you call the server to classify an instance.
 
@@ -305,20 +296,22 @@ server first sends a welcome message to the client:
 {\tt Welcome to the Timbl server.}
 
 After this, the server waits for client-side requests.  The client can
-now issue five types of commands: {\tt base}, {\tt classify}, {\tt set} (options), {\tt query} (status), and {\tt exit}. The type of command is specified by the the first string of the request line, which can be abbreviated to any prefix of
-the command, up to one letter (i.e.~b, c,s,q,e). The command is
-followed by whitespace and the remainder of the command as described
-below.
+now issue five types of commands: {\tt base}, {\tt classify}, {\tt
+  set} (options), {\tt query} (status), and {\tt exit}. The type of
+command is specified by the the first string of the request line,
+which can be abbreviated to any prefix of the command, up to one
+letter (i.e.~b, c,s,q,e). The command is followed by whitespace and
+the remainder of the command as described below.
 
 \begin{description}
 \item {\tt base basename}\\
   tell the server to which base the next command(s) refer. The
-  basename must be one of the basenames specified in the {\em
-    configfile}.  If {\bf NO} configfile was specified (that means:
-  TimblServer is started with the old-school -S option) then the
-  basename is ``default''. It is not needed to specify that when
-  testing. (therefore preserving backward compatability with older
-  Timbl versions)
+  basename must be one of the basenames specified in the configfile.
+  If no configfile was specified, i.e. TimblServer is
+  started with the old-school {\tt -S} option, then the basename is
+  ``default''. It is not necessary to specify this default name when
+  testing (therefore preserving backward compatability with older
+  Timbl versions).
 
 \item {\tt classify testcase}\\
   testcase is a pattern of features (must have the same number of
@@ -329,7 +322,7 @@ below.
       \begin{verbatim}
 	ERROR { explanation }
       \end{verbatim}
-      if something's gone wrong, or the answer
+      if something has gone wrong, or the answer
       \begin{verbatim}
 CATEGORY {category} DISTRIBUTION { category 1 } DISTANCE { 1.000000} NEIGHBORS
 ENDNEIGHBORS
@@ -338,7 +331,7 @@ ENDNEIGHBORS
       {\tt NEIGHBORS} parts depends upon the current verbosity
       setting. Note that if the last string on the answer line is {\tt
         NEIGHBORS}, the server will proceed to return lines of nearest
-      neighbor information until the keyword {\tt ENDNEIGHBORS}.
+      neighbor information until it prints the keyword {\tt ENDNEIGHBORS}.
 \item {\tt set option}\\ where option is specified as a string of
       commandline options (described in detail in
       Chapter~\ref{commandline} below). Only the following commandline

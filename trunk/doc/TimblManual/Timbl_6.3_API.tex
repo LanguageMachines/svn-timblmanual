@@ -5,6 +5,7 @@
 \usepackage{a4wide}
 \usepackage{palatino}
 \usepackage{fullname}
+\usepackage{url}
 
 \newcommand{\chisq}{{$ \chi^2 $}}
 
@@ -30,20 +31,23 @@
 
 \chapter*{Preface}
 
-This is a brief description of the TimblAPI class and its main
-functions.  Not everything found in {\tt TimblAPI.h} is
-described. Some functions are still "work in progress" and some others
+This is a brief description of the TimblAPI class, the application
+programming interface to the Timbl\footnote{\url{http://ilk.uvt.nl/timbl}} software package, and its main
+functions. For an introduction into Timbl, consult the Timbl Reference
+Guide \cite{Daelemans+10}. Although most of the API can be
+traced in the {\tt TimblAPI.h} file, the reverse is not true; some
+functions {\tt TimblAPI.h} are still ``work in progress'' and some others
 are artefacts to simplify the implementation of the TiMBL main
 program\footnote{Timbl.cxx is therefore {\em not} a good example of
-  how to use the API.}.  To learn more about using the API, you should
-study programs such as {\tt classify.cxx}, {\tt tse.cxx}, and the
-examples given in this manual, which can all be found in the {\tt demos}
-directory of this distribution.
+  how to use the API.}.
 
-As you can readily gather from these examples, the basic thing you
-need to do to get access to the TimblAPI functions is to include {\tt
-  TimblAPI.h} in the program, and to include {\tt libTimbl.a} in your
-linking path.
+To learn more about using the API, you should study programs such as
+{\tt classify.cxx}, {\tt tse.cxx}, and the examples given in this
+manual, which can all be found in the {\tt demos} directory of this
+distribution. As you can readily gather from these examples, the basic
+thing you need to do to get access to the TimblAPI functions is to
+include {\tt TimblAPI.h} in the program, and to include {\tt
+  libTimbl.a} in your linking path.
 
 {\bf Important note}: The described functions return a result (mostly
 a bool) to indicate succes or failure. To simplify the examples, we
@@ -70,7 +74,8 @@ the results make sense.
 
 \section{From version 6.2 to 6.3}
 
-No changes to the API are made for this release. This Manual is made up to date though. (preserving the beta-state).
+No changes to the API are made for this release. This Manual is made
+up to date (preserving the beta-state).
  
 \section{From version 6.1 to 6.2}
 
@@ -79,7 +84,7 @@ In version 6.2, some additional functions were added to the API: {\tt
   GetMatrices()} and {\tt ShowStatistics()}. These reflect the
 additional functionality of Timbl 6.2.  The API is still experimental,
 and contains more functions than described in this manual. Using these
-'undocumented' features is, as usual, unwise.
+`undocumented' features is, as usual, unwise.
 
 \section{From version 5.1 to 6.1}
 
@@ -191,7 +196,7 @@ An InstanceBase will be created from dimin.train, then dimin.test is
 tested against that InstanceBase and output is written to
 my\_first\_test.
 
-\subsection{special cases of Learing and Testing}
+\subsection{Special cases of {\tt Learn()} and {\tt Test()}}
 
 There are special cases where {\tt Learn()} behaves differently:
 
@@ -228,7 +233,7 @@ options can be changed "on the fly" with:
 \end{verbatim}
 \end{footnotesize}
 
-Here, 'opts' is interpreted as a list of option settings, just like in
+Here, `opts' is interpreted as a list of option settings, just like in
 the TimblAPI constructor. When an error in the opts string is found,
 {\tt SetOptions()} returns false. Whether any options are really set
 or changed in that case is undefined. Note that a few options can only
@@ -237,7 +242,7 @@ algorithm. Any attempt to change these options will result in a
 failure.  See Appendix A for all valid options and information about
 the possibility to change them within a running experiment.
 
-Note: {\tt SetOptions()} is "lazy"; changes are cached until the
+Note: {\tt SetOptions()} is lazy; changes are cached until the
 moment they are really needed, so you can do several {\tt SetOptions()}
 calls with even different values for the same option. Only the last
 one seen will be used for running the experiment.
@@ -301,7 +306,7 @@ Retrieve with their counterparts:
 \end{verbatim}
 \end{footnotesize}
 
-All use 'f' as a filename for storing/retrieving. {\tt GetWeights} needs
+All use `f' as a filename for storing/retrieving. {\tt GetWeights} needs
 information to decide {\em which}\/ weighting to retrieve.
 Weighting is defined as the enumerated type:
 
@@ -332,9 +337,9 @@ function is available for this format.
 \end{verbatim}
 \end{footnotesize}
 
-\chapter{Getting the details}
+\chapter{Classify functions}
 
-\section{Classify functions: elementary}
+\section{Classify functions: Elementary}
 After an experiment is trained with {\tt Learn()}, we do not have to use
 {\tt Test()} to do bulk-testing on a file.
 We can create our own tests with the {\tt Classify} functions:
@@ -397,7 +402,7 @@ option:
 The first returns the matching Depth in the InstanceBase; the second 
 flags whether it was a Leaf or a Non-Terminal Node.
 
-\section{Classify functions: advanced}
+\section{Classify functions: Advanced}
 
 A faster, but more dangerous version of Classify is also available.
 It is faster because it returns pointers into Timbl's internal
@@ -552,7 +557,7 @@ For example, to get a ValueDistribution form a neighborSet {\tt nb}, using
 \end{footnotesize}
 
 
-\subsection{Usefull operations on neighborSet objects}
+\subsection{Useful operations on neighborSet objects}
 
 You can print neighborSet objects:
 
@@ -723,7 +728,7 @@ Returns a string containing the Version number, the Revision and the
 Revision string of the current API implementation. If full is true,
 also information about the date and time of compilation is included.
 
-\chapter{Server Mode}
+\chapter{Server mode}
 \label{Using TiMBL as a Server}
 
 \begin{footnotesize}
