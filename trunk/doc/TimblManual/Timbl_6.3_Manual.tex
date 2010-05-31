@@ -194,7 +194,7 @@ Go to the timbl-6.3 directory, and configure the package by typing
 
 If you do not use the {\tt --prefix} option, TiMBL will try to install itself in the directory {\tt /usr/local/}.  If you do not have {\tt root} access you can specify a different installation location such as {\tt \$HOME/install}
 
-It is not obligatory to install TiMBL, but if you plan to install TiMBL-based extensions such as Mbt\footnote{\url{http://ilk.uvt.nl/mbt}}, Dimbl\footnote{\url{http://ilk.uvt.nl/dimbl}}, or Tadpole\footnote{\url{http://ilk.uvt.nl/tadpole}}, or you want to build your own extensions using the TiMBL API, installing is the best choice.
+It is not obligatory to install TiMBL, but if you plan to install TiMBL-based extensions such as TimblServer\footnote{\url{http://ilk.uvt.nl/timblserver}}, Mbt\footnote{\url{http://ilk.uvt.nl/mbt}}, Dimbl\footnote{\url{http://ilk.uvt.nl/dimbl}}, or Tadpole\footnote{\url{http://ilk.uvt.nl/tadpole}}, or you want to build your own extensions using the TiMBL API, installing is the best choice.
 
 After {\tt configure} you can build TiMBL:
 
@@ -204,11 +204,8 @@ and (as recommended) install:
 
 {\tt > make install }
 
-If the process was completed successfully, you should now have executable files
-named {\tt Timbl} and {\tt TimblClient} in the directory 
-{\tt <location\_to\_install>/bin}, and a static library {\tt libTimbl.a} in the
- directory {\tt <location\_to\_install>/lib}. Additionally, several demo programs named {\tt api\_test*}, {\tt classify} and {\tt tse}
-are created in the {\tt ./demos} subdirectory.
+If the process was completed successfully, you should now have an executable file named {\tt Timbl} in the directory {\tt <location\_to\_install>/bin}, and a static library {\tt libTimbl.a} in the directory {\tt <location\_to\_install>/lib}.
+Additionally, several demo programs named {\tt api\_test*}, {\tt classify} and {\tt tse} are created in the {\tt ./demos} subdirectory.
 
 Within the {\tt <location\_to\_install>} directory a subdirectory is also created: {\tt share/doc/timbl} where the TiMBL 6.3 documentation can be found, and which in turn contains a subdirectory {\tt examples} with example data files. Some of these data sets are used in the Quick Start Section~\ref{tutorial} of this document; other data and source files are referred to in the API documentation. The latter, along with a pdf version of this document, can also be found in the {\tt doc} directory. Note that the API documentation is a beta-state document.
 
