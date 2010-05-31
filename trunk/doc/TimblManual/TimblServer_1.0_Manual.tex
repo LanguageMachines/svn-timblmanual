@@ -128,8 +128,7 @@ such as {\tt \$HOME/install}
 
 It is not obligatory to install TimblServer, but if you plan to
 install TiMBL-based extensions such as
-Mbt\footnote{\url{http://ilk.uvt.nl/mbt}},
-Dimbl\footnote{\url{http://ilk.uvt.nl/dimbl}}, or
+Mbt\footnote{\url{http://ilk.uvt.nl/mbt}} or
 Tadpole\footnote{\url{http://ilk.uvt.nl/tadpole}}, installing
 TimblServer is recommended.
 
@@ -202,8 +201,8 @@ Compared with the version included in Timbl (up to version 6.2) the following is
 
 \begin{itemize}
 
-\item Some bugs are fixed ( -C <n> didn't work as expected)
-\item a --config option is added to read a configuration file. This
+\item Some bugs are fixed ({\tt -C <n>} didn't work as expected)
+\item a {\tt --config} option is added to read a configuration file. This
   file can be used to specify a whole range of separated and unrelated
   TiMBL experiments all to run on the same TCP port.
 
@@ -256,9 +255,9 @@ This is the {\bf prefered} way to use TimblServer. See Section~\ref{configfile}.
 \item {\tt -S <portnumber>} : Starts a TiMBL server listening on the
   specified port number of the localhost.  This option is only
   available to be backward compatible with Timbl 6.2 and earlier
-  versions; the --config variant is preferred.
+  versions; the {\tt --config} variant is preferred.
 \item {\tt -C <number>} : limit the number of parallel connections to
-  <number>. The default is 25.
+  {\tt <number>}. The default is 25.
 
 \end{description}
 
@@ -306,9 +305,7 @@ server first sends a welcome message to the client:
 {\tt Welcome to the Timbl server.}
 
 After this, the server waits for client-side requests.  The client can
-now issue five types of commands: base, classify, set (options), query
-(status), and exit. The type of command is specified by the the first
-string of the request line, which can be abbreviated to any prefix of
+now issue five types of commands: {\tt base}, {\tt classify}, {\tt set} (options), {\tt query} (status), and {\tt exit}. The type of command is specified by the the first string of the request line, which can be abbreviated to any prefix of
 the command, up to one letter (i.e.~b, c,s,q,e). The command is
 followed by whitespace and the remainder of the command as described
 below.
@@ -319,7 +316,7 @@ below.
   basename must be one of the basenames specified in the {\em
     configfile}.  If {\bf NO} configfile was specified (that means:
   TimblServer is started with the old-school -S option) then the
-  basename is ``default''. It not needed to specify that when
+  basename is ``default''. It is not needed to specify that when
   testing. (therefore preserving backward compatability with older
   Timbl versions)
 
