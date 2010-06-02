@@ -12,6 +12,7 @@
 \usepackage{a4wide}
 \usepackage{palatino}
 \usepackage{fullname}
+\usepackage{url}
 
 \newcommand{\chisq}{{$ \chi^2 $}}
 
@@ -20,14 +21,14 @@
 	Induction of Linguistic Knowledge Research Group\\
 	Department of Communication and Information Sciences\\ 
         Tilburg University \\ \\
-	(*) CNTS - Language Technology Group\\
+	(*) CLiPS - Computational Linguistics Group\\
 	University of Antwerp\\ \\
 	($\dagger$) Textkernel B.V.\\ \\
         P.O. Box 90153, NL-5000 LE, Tilburg, The Netherlands \\ 
         URL: http://ilk.uvt.nl\thanks{This document is available from
-	http://ilk.uvt.nl/downloads/pub/papers/ilk.0709.pdf. All rights reserved
+	http://ilk.uvt.nl/downloads/pub/papers/ilk.1004.pdf. All rights reserved
 	Induction of Linguistic Knowledge, Tilburg University and 
-        CNTS Research Group, University of Antwerp.}}
+        CLiPS Computational Linguistics Group, University of Antwerp.}}
 
 \title{{\huge MBT: Memory-Based Tagger} \\ \vspace*{0.5cm}
 {\bf version 3.2} \\ \vspace*{0.5cm}{\huge Reference Guide}\\
@@ -72,7 +73,7 @@ flexible software tool incorporating an extensive and growing family
 of memory-based learning algorithms and associated metrics
 \cite{Daelemans+07}. The most recent version of software and
 documentation are available under the GNU General Public License from
-{\tt http://ilk.uvt.nl/timbl}.  To use this software for POS Tagging
+\url{http://ilk.uvt.nl/timbl}.  To use this software for POS Tagging
 is not entirely trivial, however. We want to be able to use previous
 tagger decisions as input for current decisions, we want to build
 separate case bases for known and unknown words, allow global
@@ -88,7 +89,7 @@ maintenance of this software was invested by Ko van der Sloot. The
 system started as a rewrite of code developed by Peter Berck and
 adapted by Jakub Zavrel. The code has benefited substantially from
 trial, error and scrutiny by past and present members of the ILK
-and CNTS groups in Tilburg and Antwerp. This software was
+and CLiPS (formerly CNTS) groups in Tilburg and Antwerp. This software was
 written in the context of projects funded by the Netherlands
 Organization for Scientific Research (NWO), Tilburg University's Faculty
 of Arts, the Flemish National Science Foundation (FWO), and the
@@ -97,7 +98,7 @@ University of Antwerp Research Council.
 The current release (version 3.2) uses TiMBL version 6.3, and will not
 work with older versions of TiMBL. Note that you have to download
 and install TiMBL and TiMBLServer separately to be able to compile the tagging
-software. See {\tt http://ilk.uvt.nl/timbl} and  {\tt http://ilk.uvt.nl/timblserver}.
+software. See \url{http://ilk.uvt.nl/timbl} for software and instructions.
 
 This reference guide is structured as follows. In
 Chapter~\ref{license} you can find the terms of the license according
@@ -135,20 +136,21 @@ along with MBT.  If not, see $<$http://www.gnu.org/licenses/$>$.
 
 In publication of research that makes use of the Software, a
 citation should be given of: {\em ``Walter Daelemans, Jakub Zavrel,
-Antal van den Bosch and Ko van der Sloot (2007). MBT: Memory-Based
-Tagger, Reference Guide. ILK Technical Report 07-09, \\
+Antal van den Bosch and Ko van der Sloot (2010). MBT: Memory-Based
+Tagger, Version 3.2, Reference Guide. ILK Technical Report 10-04, \\
 Available from
-{\tt http://ilk.uvt.nl/downloads/pub/papers/ilk.0709.pdf}''}
+{\tt http://ilk.uvt.nl/downloads/pub/papers/ilk.1004.pdf}''}
 
 For information about commercial licenses for the Software,
 contact {\tt timbl@uvt.nl}, or send your request to:
 
 Prof. dr.~Walter Daelemans\\
-CNTS - Language Technology Group\\
-Department of Linguistics / University of Antwerp\\
-Universiteitsplein 1\\
-B-2610 Wilrijk (Antwerp)\\
-Belgium\\
+CLiPS - Language Technology Group\\
+Department of Linguistics\\
+University of Antwerp\\
+Prinsstraat 13 \\
+B-2000 Antwerpen \\
+Belgium \\
 Email: walter.daelemans@ua.ac.be
 
 \pagestyle{headings}
@@ -165,7 +167,7 @@ for the MBT program, a sample data set, the license and the
 documentation.
 The installation should be relatively straightforward on most UNIX systems.
 
-It is however obligatory that you first install both Timbl (version 6.3.0 or above) {\b AND} TimblServer. MBT will not build without this software.
+It is however obligatory that you first install both Timbl (version 6.3.0 or later) {\bf AND} TimblServer. MBT will not build without this software.
 
 To install the package on your computer, unpack the downloaded file:
 
@@ -189,8 +191,9 @@ Change directory to the mbt-3.2.2 directory and configure the package by typing
 
 the prefix should be the directory where Timbl and TimblServer is installed previously. Mbt will be installed there also.
 
-Note: It is possible to install Mbt in a different location, but there
-is no need, and it makes things more complicated. It involves using the
+Note: It is possible to install Mbt in a different location, but this
+tends to make further operations (such as compiling higher-level
+packages like Tadpole\footnote{\url{http://ilk.uvt.nl/tadpole}}) more complicated. It involves using the
 {\tt --with-timbl=} option in configure. 
  
 Anyway: after {\tt configure} you can build Mbt:
@@ -246,9 +249,13 @@ comments and questions is {\tt timbl@uvt.nl}.
 \section{From version 3.1 to 3.2}
 
 \begin{itemize}
-\item The major changes is, that Mbt is based on both Timbl, and TimblServer.
-In the future, it is likely that also a separate MbtServer package will be released. Mbt itself will then based on Timbl, once again.
-\item some small bugs have been fixed.
+\item Mbt is based on both Timbl and TimblServer. MBT used to depend
+  only on Timbl, but Timbl's server functionality was moved to a
+  separate package, TimblServer, that acts as a wrapper around
+  Timbl. Thus, TimblServer depends on Timbl.  In the future, it is
+  likely that also a separate MbtServer package will be released. Mbt
+  itself will then based on Timbl, once again.
+\item Some small bugs have been fixed.
 
 \end{itemize}
 
@@ -415,13 +422,14 @@ to standard output:
 
 {\small
 \begin{verbatim}
-Memory Based Tagger Generator Version 3.2.2
-  (c) ILK and CNTS 1998 - 2007.
-  Induction of Linguistic Knowledge Research Group, Tilburg University
-  Centre for Dutch Language and Speech, University of Antwerp
+Mbtg 3.2.2 (c) ILK and CLiPS 1998 - 2010.
+Memory Based Tagger Generator
+Induction of Linguistic Knowledge Research Group,Tilburg University
+CLiPS Computational Linguistics Group, University of Antwerp
 
-  Based on Timbl version 6.3.0
+Based on Timbl version 6.2.3
 
+options -PdFapsss -pddfa -Teindh.data 
 Constructing a tagger from: eindh.data
   Creating lexicon: eindh.data.lex of 17040 entries.
 \end{verbatim}
@@ -514,8 +522,8 @@ overlap metric with gain ratio feature weighting).
   Created settings file 'eindh.data.settings'
 
 Ready:
-  Time used: 10
-  Words/sec: 9556
+  Time used: 5
+  Words/sec: 38226
 \end{verbatim}
 }
 
@@ -649,16 +657,19 @@ between the two sentences:
 \begin{verbatim}
 > Mbt -s eindh.data.settings -t test.tok -e EL > test.out
 
-Memory Based Tagger Version 3.2.2
-  (c) ILK and CNTS 1998 - 2007.
-  Induction of Linguistic Knowledge Research Group, Tilburg University
-  Centre for Dutch Language and Speech, University of Antwerp
+Mbt 3.2.2 (c) ILK and CLiPS 1998 - 2010.
+Memory Based Tagger 
+Tilburg University
+CLiPS Computational Linguistics Group, University of Antwerp
 
-  Based on Timbl version 6.3.0
-  Reading the lexicon from: eindh.data.lex.ambi.05...ready, (17040 words).
-  Reading frequent words list from: eindh.data.top100...ready, (100 words).
-  Reading case-base for known words from: eindh.data.known.ddfa... ready.
-  Reading case-base for unknown words from: eindh.data.unknown.dFapsss... ready.
+Based on Timbl version 6.2.3
+
+  Reading the lexicon from: eindh.data.lex.ambi.05 (17040 words).
+  Read frequent words list from: eindh.data.top100 (100 words).
+  Reading case-base for known words from: eindh.data.known.ddfa... 
+  case-base for known words read.
+  Reading case-base for unknown words from: eindh.data.unknown.dFapsss... 
+  case-base for unknown word read
   Sentence delimiter set to 'EL'
   Beam size = 1
   Known Tree, Algorithm = IGTREE
@@ -667,8 +678,8 @@ Memory Based Tagger Version 3.2.2
 Processing data from the file test.tok:
 
 
-Done:
-  32 words processed.
+Done: 32 words processed.
+
   Known   words: 20
   Unknown words: 12 (37.5 %)
   Total        : 32
@@ -709,17 +720,30 @@ predicted tag. This way, a constructed tagger can be evaluated. E.g.,
 
 will send the tagged text (four columns) to {\tt eindh.test.out},
 and compute total, known word, and unknown word accuracies for the
-test data, as well as tagging speed indications.
+test data, as well as tagging speed indications. Along with the
+accuracy scores for known and unknown words, it will also print
+whether tie breaking occurred; this may happen if one of the taggers
+uses IB1 as a classifier, and the class vote among the nearest
+neighbors ends in a tie.
 
 {\small
 \begin{verbatim}
-Memory Based Tagger Version 3.2.2
+Mbt 3.2.2 (c) ILK and CLiPS 1998 - 2010.
 ...
-Done:
-  4424 words processed.
-  Known   words: 3730   correct from 3843 (97.0596 %)
-  Unknown words: 466    correct from 581 (80.2065 %)
-  Total        : 4196   correct from 4424 (94.8463 %)
+Done: 4424 words processed.
+
+Classification Statistics:
+
+  Known Words:
+
+overall accuracy:        0.970596  (3730/3843)
+
+  UnKnown Words:
+
+overall accuracy:        0.802065  (466/581), of which 84 exact matches 
+There were 22 ties of which 14 (64%) were correctly resolved
+
+  Total        : 4196	correct from 4424 (94.8463 %)
   Time used: 1
   Words/sec: 4424
 \end{verbatim}
@@ -840,6 +864,6 @@ verbosity settings of TiMBL may have the effect that more output
 is generated to the standard output streams than what is documented here.
 
 \bibliographystyle{fullname}
-\bibliography{ilk}
+\bibliography{../../ilkbib/ilk}
 
 \end{document}
