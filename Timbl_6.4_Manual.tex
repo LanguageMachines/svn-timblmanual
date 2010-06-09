@@ -1,4 +1,4 @@
-% TiMBL 6.3 manual
+% TiMBL 6.4 manual
 
 \documentclass{report}
 
@@ -22,13 +22,13 @@
 	($\dagger$) Textkernel B.V.\\ \\
         P.O. Box 90153, NL-5000 LE, Tilburg, The Netherlands \\ 
         URL: http://ilk.uvt.nl\thanks{This document is available from
-	http://ilk.uvt.nl/downloads/pub/papers/ilk.1001.pdf. All rights reserved
+	http://ilk.uvt.nl/downloads/pub/papers/ilk.XXXX.pdf. All rights reserved
 	Induction of Linguistic Knowledge, Tilburg University and 
         CLiPS, University of Antwerp.}}
 
 \title{{\huge TiMBL: Tilburg Memory-Based Learner} \\ \vspace*{0.5cm}
-{\bf version 6.3} \\ \vspace*{0.5cm}{\huge Reference Guide}\\
-\vspace*{1cm} {\it ILK Technical Report -- ILK 10-01}}
+{\bf version 6.4} \\ \vspace*{0.5cm}{\huge Reference Guide}\\
+\vspace*{1cm} {\it ILK Technical Report -- ILK XX-XX}}
 
 %better paragraph indentation
 \parindent 0pt
@@ -147,13 +147,13 @@ TiMBL is distributed in the hope that it will be useful, but WITHOUT ANY WARRANT
 
 You should have received a copy of the GNU General Public License along with TiMBL.  If not, see $<$http://www.gnu.org/licenses/$>$.
 
-In publication of research that makes use of TiMBL 6.3, a citation should be given of: {\em ``Walter Daelemans, Jakub Zavrel, Ko van der
+In publication of research that makes use of TiMBL 6.4, a citation should be given of: {\em ``Walter Daelemans, Jakub Zavrel, Ko van der
   Sloot, and Antal van den Bosch (2009). TiMBL: Tilburg Memory Based
-  Learner, version 6.3, Reference Guide. ILK Technical Report 10-01
+  Learner, version 6.4, Reference Guide. ILK Technical Report XX-XX
   Available from \\ {\tt
-    http://ilk.uvt.nl/downloads/pub/papers/ilk1001.pdf}''}
+    http://ilk.uvt.nl/downloads/pub/papers/ilkXXXX.pdf}''}
 
-For information about commercial licenses for TiMBL 6.3,
+For information about commercial licenses for TiMBL 6.4,
 contact {\tt Timbl@uvt.nl}, or send your request in writing to:
 
 Prof. dr.~Walter Daelemans\\
@@ -171,25 +171,25 @@ You can get the TiMBL package as a gzipped tar archive from:
 
 {\tt http://ilk.uvt.nl/timbl}
 
-Following the links from that page, you can download the file {\tt timbl-6.3.tar.gz}. This file contains the complete source code (C++) for the TiMBL program, a few sample data sets, the license, and documentation. The installation should be relatively straightforward on most UNIX systems.
+Following the links from that page, you can download the file {\tt timbl-6.4.tar.gz}. This file contains the complete source code (C++) for the TiMBL program, a few sample data sets, the license, and documentation. The installation should be relatively straightforward on most UNIX systems.
 
 To install the package on your computer, unzip the downloaded file ({\tt >} is the command line prompt):
 
-{\tt > tar xfz timbl-6.3.0.tar.gz}
+{\tt > tar xfz timbl-6.4.tar.gz}
 
-This will make a directory {\tt timbl-6.3.0} under your current directory.
+This will make a directory {\tt timbl-6.4} under your current directory.
 
 Alternatively you can do:
 
-{\tt > gunzip timbl-6.3.0.tar.gz}
+{\tt > gunzip timbl-6.4.tar.gz}
 
 and unpack the tar archive:
 
-{\tt > tar xf timbl-6.3.0.tar}
+{\tt > tar xf timbl-6.4.tar}
 
-Go to the timbl-6.3.0 directory, and configure the package by typing
+Go to the timbl-6.4 directory, and configure the package by typing
 
-{\tt > cd timbl-6.3.0} \\
+{\tt > cd timbl-6.4} \\
 {\tt > ./configure --prefix=<location\_to\_install>}
 
 If you do not use the {\tt --prefix} option, TiMBL will try to install itself in the directory {\tt /usr/local/}.  If you do not have {\tt root} access you can specify a different installation location such as {\tt \$HOME/install}
@@ -207,7 +207,7 @@ and (as recommended) install:
 If the process was completed successfully, you should now have an executable file named {\tt Timbl} in the directory {\tt <location\_to\_install>/bin}, and a static library {\tt libTimbl.a} in the directory {\tt <location\_to\_install>/lib}.
 Additionally, several demo programs named {\tt api\_test*}, {\tt classify} and {\tt tse} are created in the {\tt ./demos} subdirectory.
 
-Within the {\tt <location\_to\_install>} directory a subdirectory is also created: {\tt share/doc/timbl} where the TiMBL 6.3 documentation can be found, and which in turn contains a subdirectory {\tt examples} with example data files. Some of these data sets are used in the Quick Start Section~\ref{tutorial} of this document; other data and source files are referred to in the API documentation. The latter, along with a pdf version of this document, can also be found in the {\tt doc} directory. Note that the API documentation is a beta-state document.
+Within the {\tt <location\_to\_install>} directory a subdirectory is also created: {\tt share/doc/timbl} where the TiMBL 6.4 documentation can be found, and which in turn contains a subdirectory {\tt examples} with example data files. Some of these data sets are used in the Quick Start Section~\ref{tutorial} of this document; other data and source files are referred to in the API documentation. The latter, along with a pdf version of this document, can also be found in the {\tt doc} directory. Note that the API documentation is a beta-state document.
 
 TiMBL should now be ready for use. If you want to run the examples and demos from this manual, you should act as follows:
 
@@ -239,8 +239,10 @@ comments and questions is {\tt Timbl@uvt.nl}.
 \label{changes}
 
 This chapter gives a brief overview of the changes from all previously
-released versions (1.0 up to 6.3) for users already familiar with the
+released versions (1.0 up to 6.4) for users already familiar with the
 program.
+
+\section{From version 6.4 to 6.3}
 
 \section{From version 6.2 to 6.3}
 
