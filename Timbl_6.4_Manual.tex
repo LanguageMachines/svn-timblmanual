@@ -110,7 +110,7 @@ under the NWO {\em Vernieuwingsimpuls}\/ programme, and since 2006 it
 is funded as part of the ``Implicit Linguistics'' research project
 under the NWO Vici programme.
 
-The current release (version 6.3) succeeds major release 6.2. The most
+The current release (version 6.4) succeeds release 6.3. The most
 significant change is that all {\em server}-related functionality is
 moved to a separate TimblServer package.  An elaborate description of
 the changes from version 1.0 up to 6.3 can be found in
@@ -2502,7 +2502,7 @@ phrase chunking \cite{Veenstra98,Sang+99}; shallow parsing
 \cite{Morante+08c}; sentence-boundary detection \cite{Stevenson+00};
 predicting the order of prenominal adjectives for generation
 \cite{Malouf00}, article generation \cite{Minnen+00}, and preposition
-generation \cite{Lee+08}; and, beyond
+generation \cite{Lee+08b}; and, beyond
 the sentence level, to anaphora resolution
 \cite{Preiss02,Mitkov+02,Hoste05}. More recently, memory-based
 learning has been integrated as a classifier engine in more
@@ -2950,9 +2950,9 @@ parameter can take on the following values (case-insensitive):
   Sparse and Binary formats. When larger than a pre-defined constant
   (default 2500), N needs to be set explicitly for all algorithms.
 
-\item {\tt +/- x} : turns the shortcut search for exact matches on or
+\item {\tt +/-x} : turns the shortcut search for exact matches on or
   off in {\sc ib1} (and {\sc ib2}, {\sc tribl}, and {\sc tribl2}). The
-  default is to be off ({\tt -x}). Turning it on makes {\sc ib1}
+  default is off ({\tt -x}). Turning it on makes {\sc ib1}
   generally faster, but with $k>1$ the shortcut produces different
   results from a genuine $k$ nearest neighbors search, since absolute
   preference is given to the exact match.
@@ -2964,10 +2964,16 @@ parameter can take on the following values (case-insensitive):
   data sets with few features), {\tt n} can be increased up to
   100,000.
 
-\item {\tt +/- H} : Turn on/off hashing of feature values and class
+\item {\tt +/-H} : Turn on/off hashing of feature values and class
   labels in TiMBL trees. Hashing is done by default, but with short
   (e.g. one-character) feature values and/or classes less memory is
   used when hashing is set off.
+
+\item {\tt +/-D}: Store class distributions on all nodes in the TiMBL
+  tree. Default is off ({\tt -D}). Setting {\tt +D} costs memory, and
+  is only necessary when using IGTree in combination with the {\tt +v
+    db} verbosity setting (which prints class distributions in the
+  classifier output).
 
 \item {\tt -B <n>} : Number of bins used for discretizing numeric data
   (only used for computing feature weights).
