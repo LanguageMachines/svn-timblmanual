@@ -1535,9 +1535,11 @@ w_{i} = H(C) -  \sum_{v \in V_{i}} P(v) \times H(C|v)
 \end{equation}
 
 Where $C$ is the set of class labels, $H(C) = - \sum_{c \in C} P(c)
-\log_{2} P(c)$ is the entropy of the class labels, and $V_{i}$ is the
-set of values for feature $i$. The probabilities are estimated from
-relative frequencies in the training set.
+\log_{2} P(c)$ is the entropy of the class labels, $V_{i}$ is the set
+of values for feature $i$, and $H(C|v)$ is the conditional entropy of
+the subset of the training examples that have value $v$ on feature
+$i$. The probabilities are estimated from relative frequencies in the
+training set.
 
 For numeric features, an intermediate step needs to be taken to apply
 the symbol-based computation of IG. All real values of a numeric
