@@ -966,35 +966,35 @@ Algorithm     : IB1
 Global metric : Overlap
 Deviant Feature Metrics:(none)
 Weighting     : GainRatio
-Feature 1	 : 0.024891535617620
-Feature 2	 : 0.027552191321752
-Feature 3	 : 0.018676787182524
-Feature 4	 : 0.052620750282779
-Feature 5	 : 0.047699230752236
-Feature 6	 : 0.024471910753751
-Feature 7	 : 0.034953203413051
-Feature 8	 : 0.043983864437713
-Feature 9	 : 0.046816704745507
-Feature 10	 : 0.042844587034556
-Feature 11	 : 0.185070180760327
-Feature 12	 : 0.325371814230901
+Feature 1        : 0.024891535617620
+Feature 2        : 0.027552191321752
+Feature 3        : 0.018676787182524
+Feature 4        : 0.052620750282779
+Feature 5        : 0.047699230752236
+Feature 6        : 0.024471910753751
+Feature 7        : 0.034953203413051
+Feature 8        : 0.043983864437713
+Feature 9        : 0.046816704745507
+Feature 10       : 0.042844587034556
+Feature 11       : 0.185070180760327
+Feature 12       : 0.325371814230901
 
-Tested:      1 @ Mon Oct 19 21:30:00 2009
-Tested:      2 @ Mon Oct 19 21:30:00 2009
-Tested:      3 @ Mon Oct 19 21:30:00 2009
-Tested:      4 @ Mon Oct 19 21:30:00 2009
-Tested:      5 @ Mon Oct 19 21:30:00 2009
-Tested:      6 @ Mon Oct 19 21:30:00 2009
-Tested:      7 @ Mon Oct 19 21:30:00 2009
-Tested:      8 @ Mon Oct 19 21:30:00 2009
-Tested:      9 @ Mon Oct 19 21:30:00 2009
-Tested:     10 @ Mon Oct 19 21:30:00 2009
-Tested:    100 @ Mon Oct 19 21:30:00 2009
-Ready:     950 @ Mon Oct 19 21:30:00 2009
-Seconds taken: 0.0650 (14609.99 p/s)
+Tested:      1 @ Fri Dec 24 20:27:07 2010
+Tested:      2 @ Fri Dec 24 20:27:07 2010
+Tested:      3 @ Fri Dec 24 20:27:07 2010
+Tested:      4 @ Fri Dec 24 20:27:07 2010
+Tested:      5 @ Fri Dec 24 20:27:07 2010
+Tested:      6 @ Fri Dec 24 20:27:07 2010
+Tested:      7 @ Fri Dec 24 20:27:07 2010
+Tested:      8 @ Fri Dec 24 20:27:07 2010
+Tested:      9 @ Fri Dec 24 20:27:07 2010
+Tested:     10 @ Fri Dec 24 20:27:07 2010
+Tested:    100 @ Fri Dec 24 20:27:07 2010
+Ready:     950 @ Fri Dec 24 20:27:07 2010
+Seconds taken: 0.0678 (14003.54 p/s)
 
-overall accuracy:        0.968421  (920/950), of which 39 exact matches 
-There were 5 ties of which 5 (100.00%) were correctly resolved
+overall accuracy:        0.967368  (919/950), of which 39 exact matches 
+There were 5 ties of which 4 (80.00%) were correctly resolved
 \end{verbatim}
 }
 
@@ -1017,9 +1017,9 @@ number of exact matches\footnote{An exact match in this experiment can
   occur when two different nouns have the same feature-value
   representation.} and ties (two or more classes are equally frequent
 in the nearest neighbor set). In this experiment, the diminutive
-suffix form of 96.8\% of the new words was correctly predicted. Train
+suffix form of 96.7\% of the new words was correctly predicted. Train
 and test set overlap in 39 items, and the algorithm had to break five
-ties, all of which were broken correctly.
+ties, four of which were broken correctly.
 
 The meaning of the output file names can be explained now:\\ {\tt
 dimin.test.IB1.O.gr.k1.out} means output file ({\tt .out}) for {\tt
@@ -1116,13 +1116,13 @@ weights file).
 \noalign{\smallskip}
 \hline
 \noalign{\smallskip}
-Overlap,  $-k1$ & 86.4 & 96.8 & 96.7 & 96.7 \\
+Overlap,  $-k1$ & 86.4 & 96.7 & 96.6 & 96.6 \\
 Overlap,  $-k3$ & 73.1 & 96.4 & 96.8 & 96.9 \\
 Overlap,  $-k5$ & 62.6 & 95.4 & 96.1 & 96.1 \\
 \hline
 \noalign{\smallskip}
-{\sc mvdm}, $-k1$ & 95.8 & 96.4 & 96.2 & 96.3 \\
-{\sc mvdm}, $-k3$ & 97.3 & 97.6 & 97.6 & 97.6 \\
+{\sc mvdm}, $-k1$ & 95.8 & 96.3 & 96.1 & 96.2 \\
+{\sc mvdm}, $-k3$ & 97.4 & 97.6 & 97.6 & 97.6 \\
 {\sc mvdm}, $-k5$ & {\bf 97.8} & 97.7 & 97.7 & 97.7 \\
 \hline
 \noalign{\smallskip}
@@ -1277,7 +1277,7 @@ Confusion Matrix:
         -----------------------------------
      T |    453      0      2      0      0 
      E |      0     87      4      1      8 
-     J |      1      4    347      0      0 
+     J |      1      5    346      0      0 
      P |      0      3      0     24      0 
      K |      0      7      0      0      9 
    -*- |      0      0      0      0      0 
@@ -1315,18 +1315,18 @@ verbosity options:
 > Timbl +v as+cs -f dimin.train -t dimin.test
 
 Scores per Value Class:
-class |     TP    FP    TN    FN	precision	recall(TPR)	FPR		F-score		AUC
-    T |    453     1   494     2 	0.99780 	0.99560 	0.00202 	0.99670 	0.99679
-    E |     87    14   836    13 	0.86139 	0.87000 	0.01647 	0.86567 	0.92676
-    J |    347     6   592     5 	0.98300 	0.98580 	0.01003 	0.98440 	0.98788
-    P |     24     1   922     3 	0.96000 	0.88889 	0.00108 	0.92308 	0.94390
-    K |      9     8   926     7 	0.52941 	0.56250 	0.00857 	0.54545 	0.77697
-F-Score beta=1, microav: 0.968123
-F-Score beta=1, macroav: 0.863060
-AUC, microav:            0.980729
-AUC, macroav:            0.926462
-overall accuracy:        0.968421  (920/950), of which 39 exact matches 
-There were 5 ties of which 5 (100.00%) were correctly resolved
+class  |        TP      FP      TN      FN      precision       recall(TPR)     FPR             F-score        AUC
+     T |        453     1       494     2       0.99780         0.99560         0.00202         0.99670        0.99679
+     E |        87      15      835     13      0.85294         0.87000         0.01765         0.86139        0.92618
+     J |        346     6       592     6       0.98295         0.98295         0.01003         0.98295        0.98646
+     P |        24      1       922     3       0.96000         0.88889         0.00108         0.92308        0.94390
+     K |        9       8       926     7       0.52941         0.56250         0.00857         0.54545        0.77697
+F-Score beta=1, microav: 0.967160
+F-Score beta=1, macroav: 0.861914
+AUC, microav:            0.980138
+AUC, macroav:            0.926060
+overall accuracy:        0.967368  (919/950), of which 39 exact matches 
+There were 5 ties of which 4 (80.00%) were correctly resolved
 \end{verbatim}
 }
 
@@ -2285,6 +2285,10 @@ improve on decision-tree-style classification, which does not consider
 the other potentially matching features in the ordering
 \cite{Daelemans+99}.
 
+A final note: as with {\sc igtree}, it does not make sense to use {\sc
+  tribl} and {\sc tribl2} without feature weighting, so do not combine
+{\sc tribl} or {\sc tribl2} with ({\tt -w 0}).
+
 \section{IB2: Incremental editing}
 \label{ib2}
 
@@ -2480,8 +2484,8 @@ multi-processor architectures, is explored in \cite{VandenBosch+07b}.
 
 The memory-based algorithms implemented in the TiMBL package have been
 targeted to a large range of Natural Language Processing
-tasks. Examples of applications in the morpho-phonological and speech
-areas are hyphenation and syllabification \cite{Daelemans+92b};
+tasks. Examples of applications in the {\bf morpho-phonological} 
+area are hyphenation and syllabification \cite{Daelemans+92b};
 classifiying phonemes in speech \cite{Kocsor+00}; assignment of word
 stress \cite{Daelemans+94}; grapheme-to-phoneme conversion,
 \cite{VandenBosch+93,Daelemans+96,Canisius+06}; diminutive formation
@@ -2495,57 +2499,81 @@ presented: for example, letter-phoneme conversion in Scottish Gaelic
 or diacritic restoration in languages with a diacritic-rich writing
 system \cite{Mihalcea02,DePauw+07}.
 
-At the syntactic sentence level TiMBL has been applied to part of
+Whereas most work using TiMBL has been oriented towards natural
+language engineering applications, the {\bf linguistic} and {\bf psycholinguistic}
+relevance of memory-based learning is another focus of research in
+Antwerp, Tilburg and elsewhere. Work in this area has been done on
+stress assignment in Dutch simplex words \cite{Daelemans+94,Gillis+00}
+and English compounds \cite{Plag+07}, reading aloud
+\cite{VandenBosch+00b}, phonological bootstrapping \cite{Durieux+00},
+the prediction of linking morphemes in Dutch \cite{Krott+01},
+morphology \cite{Eddington00,Eddington03}, and the Dutch plural
+inflection \cite{Keuleers+07}. A comparison to other analogical
+methods for linguistics is provided in
+\cite{Daelemans+97f,Daelemans02}.
+
+At the {\bf syntactic} sentence level TiMBL has been applied to part of
 speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01};
 PP-attachment \cite{Zavrel+97b}; subcategorization \cite{Buchholz98};
 phrase chunking \cite{Veenstra98,Sang+99}; shallow parsing
 \cite{Daelemans+99a,Buchholz+99,Yeh00}; clause identification
-\cite{Orasan00,Sang01}; detecting the scope of negation markers
-\cite{Morante+08c}; sentence-boundary detection \cite{Stevenson+00};
-predicting the order of prenominal adjectives for generation
-\cite{Malouf00}, article generation \cite{Minnen+00}, and preposition
-generation \cite{Lee+08b}; and, beyond
-the sentence level, to anaphora resolution
-\cite{Preiss02,Mitkov+02,Hoste05}. More recently, memory-based
-learning has been integrated as a classifier engine in more
-complicated dependency parsing systems
+\cite{Orasan00,Sang01}; detecting the scope of negation markers and
+hedge cues \cite{Morante+08c,Morante+09c}; sentence-boundary detection
+\cite{Stevenson+00}; and, beyond the sentence level,
+to anaphora resolution \cite{Preiss02,Mitkov+02,Hoste05}. More
+recently, memory-based learning has been integrated as a classifier
+engine in more complicated dependency parsing systems
 \cite{Nivre+04,Sagae+05,Canisius+06b}, or dependency parsing in
 combination with semantic role labeling \cite{Morante+09b}.
 
-Memory-based learning has been applied succesfully to lexical
-semantics, in particular to word sense disambiguation
+TiMBL has been involved in several subtasks of {\bf natural language
+generation}: predicting the order of prenominal adjectives for
+generation \cite{Malouf00}, article generation \cite{Minnen+00};
+preposition generation \cite{Lee+08b}; and generating referring
+expressions \cite{Hendrickx+08}.
+
+Memory-based learning has been applied succesfully to {\bf lexical
+semantics}, in particular to word sense disambiguation
 \cite{Veenstra+00,Stevenson+99,Kokkinakis00,Mihalcea02,Hoste+02,DeCadt+04},
 but also in other lexical semantic tasks such as determining noun
 countability \cite{Baldwin+03}, animacy \cite{Orasan+01}, and semantic
 relations within noun compounds \cite{Kim+06b,Nastase+06}.
 
-On the textual level, TiMBL has been used for information extraction
-\cite{Zavrel+00b,Zavrel+03,Ahn06}, text classification
-\cite{Spitters00}, question classification \cite{Garcia+06,Dridan+07},
-spam filtering \cite{Androutsopoulos+00}, named-entity recognition
+As a tool for {\bf text mining}, TiMBL has been used for named-entity
+recognition
 \cite{Buchholz+00,Hendrickx+03,DeMeulder+03,Sporleder+06b,Leveling+06},
-and error detection in textual databases \cite{Sporleder+06}.
+information extraction \cite{Zavrel+00b,Zavrel+03,Ahn06}, event
+extraction \cite{Morante+09d}, text classification \cite{Spitters00},
+question classification \cite{Garcia+06,Dridan+07}, spam filtering
+\cite{Androutsopoulos+00}, authorship attribution \cite{Luyckx+08,Kestemont+09}.
 
-In the field of discourse and dialogue modeling, TiMBL has been used
+TiMBL has been occasionally shown to be a useful {\bf error detector} and
+corrector, such as in the context of error detection in textual
+databases \cite{Sporleder+06}, in detecting dependency parsing
+annotation errors \cite{Dickinson09}, and in confusible disambiguation
+\cite{Stehouwer+09}.
+
+In the field of {\bf discourse and dialogue}, TiMBL has been used
 for shallow semantic analysis of speech-recognised utterances
 \cite{Gustafson+99,Krahmer+01,VandenBosch+01,Lendvai+02a,Lendvai+03},
 in disfluency detection in transcribed spontaneous speech
 \cite{Lendvai+03c}, and in classifying ellipsis in dialogue
 \cite{Fernandez+04}.
 
-Relations to statistical language processing, in particular the
+Relations to {\bf statistical language modeling}, in particular the
 interesting equivalence relations with back-off smoothing in
 probabilistic classifiers, are discussed in
 \cite{Zavrel+97}. Relations between classification-based word
 prediction and statistical language modeling are identified in
-\cite{VandenBosch05,VandenBosch06}.
+\cite{VandenBosch05,VandenBosch06,Stehouwer+09b}.
 
-In machine translation, $k$-nearest neighbor classification offers a
+In {\bf machine translation}, $k$-nearest neighbor classification offers a
 conceptual bridge between example-based machine translation (EBMT) and
 statistical MT. Pure memory-based approaches are described in
 \cite{VandenBosch+07,Canisius+09,VandenBosch+09,VanGompel+09}; hybrids
 with statistical machine translation are presented in
-\cite{Stroppa+07,Haque+09}.
+\cite{Stroppa+07,Haque+09}; sub-sentential paraphrasing using pivot
+translations is described in \cite{Max09}.
 
 The first dissertation-length study devoted to the approach is
 \cite{VandenBosch97}, in which the approach is compared to alternative
@@ -2553,25 +2581,13 @@ learning methods for NLP tasks related to English word pronunciation
 (stress assignment, syllabification, morphological analysis,
 alignment, grapheme-to-phoneme conversion). TiMBL is also central in
 the Ph.D. theses of \namecite{Buchholz02}, \namecite{Lendvai04},
-\namecite{Hendrickx05} \namecite{Hoste05},
-\namecite{Keuleers08}, and \namecite{Canisius09}. In 1999 a special issue of the {\em Journal for
+\namecite{Hendrickx05}, \namecite{Hoste05}, \namecite{Keuleers08}, and
+\namecite{Canisius09}. In 1999 a special issue of the {\em Journal for
   Experimental and Theoretical Artificial Intelligence} (Vol.~11(3),
 edited by Walter Daelemans) was devoted to Memory-Based Language
 Processing. The introduction to this special issue discusses the
 inspiration sources and alternative developments related to the
 memory-based approach taken in TiMBL \cite{Daelemans99b}.
-
-Whereas most work using TiMBL has been oriented towards natural
-language engineering applications, the linguistic and psycholinguistic
-relevance of memory-based learning is another focus of research in
-Antwerp, Tilburg and elsewhere. Work in this area has been done on
-stress assignment in Dutch \cite{Daelemans+94,Gillis+00}, reading
-aloud \cite{VandenBosch+00b}, phonological bootstrapping
-\cite{Durieux+00}, the prediction of linking morphemes
-in Dutch \cite{Krott+01}, morphology \cite{Eddington00,Eddington03},
-and the Dutch plural inflection \cite{Keuleers+07}. A comparison to
-other analogical methods for linguistics is provided in
-\cite{Daelemans+97f,Daelemans02}.
 
 \ \\
 

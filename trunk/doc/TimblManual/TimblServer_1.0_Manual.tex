@@ -238,15 +238,22 @@ or see: TimblServer -h
 
 \begin{description}
 
-\item {\tt --config <file>} : Start a server with a range of TiMBL experiments as specified in the configfile.
+\item {\tt --config=<file>} : Start a server with a range of TiMBL experiments as specified in the configfile.
 
 This is the {\bf preferred} way to use TimblServer. See Section~\ref{configfile}. for details about the configfile.
+
+\item {\tt --pidfile=<file>}: Write the process identifier (pid) of
+the TiMBL process to the file $<$file$>$.
+
+\item {\tt --logfile=<file>}: Write the stderr output of the server to
+ file $<$file$>$. If not specified, stderr is opened for logging.
 
 \item {\tt -S <portnumber>} : Starts a TiMBL server listening on the
   specified port number of the localhost.  This option is only
   available to be backward compatible with Timbl 6.2 and earlier
   versions; the {\tt --config} variant is preferred.
-\item {\tt -C <number>} : limit the number of parallel connections to
+
+\item {\tt -C <number>} : Limit the number of parallel connections to
   {\tt <number>}. The default is 25.
 
 \end{description}
