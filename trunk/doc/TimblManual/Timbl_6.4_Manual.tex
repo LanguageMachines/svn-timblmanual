@@ -28,7 +28,7 @@
 
 \title{{\huge TiMBL: Tilburg Memory-Based Learner} \\ \vspace*{0.5cm}
 {\bf version 6.4} \\ \vspace*{0.5cm}{\huge Reference Guide}\\
-\vspace*{1cm} {\it ILK Technical Report -- ILK XX-XX}}
+\vspace*{1cm} {\it ILK Technical Report -- ILK 11-01}}
 
 %better paragraph indentation
 \parindent 0pt
@@ -106,20 +106,21 @@ the ``Induction of Linguistic Knowledge'' research programme,
 partially funded by the Netherlands Organization for Scientific
 Research (NWO) and Tilburg University. Between 2001 and 2006 it was
 funded as part of the ``Memory Models of Language'' research project
-under the NWO {\em Vernieuwingsimpuls}\/ programme, and since 2006 it
-is funded as part of the ``Implicit Linguistics'' research project
-under the NWO Vici programme.
+under the NWO {\em Vernieuwingsimpuls}\/ programme, and between 2006
+and 2011 it is funded as part of the ``Implicit Linguistics'' research
+project under the NWO Vici programme.
 
-The current release (version 6.4) succeeds release 6.3. The most
-significant change is that all {\em server}-related functionality is
-moved to a separate TimblServer package.  An elaborate description of
-the changes from version 1.0 up to 6.3 can be found in
-Chapter~\ref{changes}.  Although all new features have been tested for
-some time in our research groups, the software may still contain bugs
-and inconsistencies in some places. We would appreciate it if you
-would send bug reports, ideas about enhancements of the software and
-the manual, and any other comments you might have, to {\tt
-  Timbl@uvt.nl}.
+The current release (version 6.4) succeeds release 6.3. The release
+coincides with a release of a Debian Science package for Timbl. Its
+most significant change is a multiprocessor option, which ``clones''
+Timbl internally so that it can classify a test set on $n$ available
+processors. An elaborate description of the changes from version 1.0
+up to 6.4 can be found in Chapter~\ref{changes}.  Although all new
+features have been tested for some time in our research groups, the
+software may still contain bugs and inconsistencies in some places. We
+would appreciate it if you would send bug reports, ideas about
+enhancements of the software and the manual, and any other comments
+you might have, to {\tt Timbl@uvt.nl}.
 
 This reference guide is structured as follows. In
 Chapter~\ref{license} you can find the terms of the license according
@@ -243,6 +244,14 @@ released versions (1.0 up to 6.4) for users already familiar with the
 program.
 
 \section{From version 6.4 to 6.3}
+
+\begin{itemize}
+\item With {\tt --clones <n>}, Timbl can be told to classify a test
+  set using $n$ processors in parallel. This option will speed up
+  classification near-linearly with respect to $n$, although with
+  larger $n$ the overhead causes the speedup to be increasingly
+  sub-linear.
+\end{itemize}
 
 \section{From version 6.2 to 6.3}
 
@@ -2512,17 +2521,18 @@ inflection \cite{Keuleers+07}. A comparison to other analogical
 methods for linguistics is provided in
 \cite{Daelemans+97f,Daelemans02}.
 
-At the {\bf syntactic} sentence level TiMBL has been applied to part of
-speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01};
+At the {\bf syntactic} sentence level TiMBL has been applied to part
+of speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01};
 PP-attachment \cite{Zavrel+97b}; subcategorization \cite{Buchholz98};
-phrase chunking \cite{Veenstra98,Sang+99}; shallow parsing
-\cite{Daelemans+99a,Buchholz+99,Yeh00}; clause identification
-\cite{Orasan00,Sang01}; detecting the scope of negation markers and
-hedge cues \cite{Morante+08c,Morante+09c}; sentence-boundary detection
-\cite{Stevenson+00}; and, beyond the sentence level,
-to anaphora resolution \cite{Preiss02,Mitkov+02,Hoste05}. More
-recently, memory-based learning has been integrated as a classifier
-engine in more complicated dependency parsing systems
+phrase chunking \cite{Veenstra98,Sang+99}; shallow parsing of English
+\cite{Daelemans+99a,Buchholz+99,Yeh00} and Arabic \cite{Azmi+10};
+clause identification \cite{Orasan00,Sang01}; detecting the scope of
+negation markers and hedge cues \cite{Morante+08c,Morante+09c};
+sentence-boundary detection \cite{Stevenson+00}; and, beyond the
+sentence level, to anaphora resolution
+\cite{Preiss02,Mitkov+02,Hoste05}. More recently, memory-based
+learning has been integrated as a classifier engine in more
+complicated dependency parsing systems
 \cite{Nivre+04,Sagae+05,Canisius+06b}, or dependency parsing in
 combination with semantic role labeling \cite{Morante+09b}.
 
