@@ -1,6 +1,6 @@
 % TiMBL 6.4 manual
 
-\documentclass{report}
+\documentclass{book}
 
 \usepackage{epsf}
 \usepackage{epsfig}
@@ -243,7 +243,7 @@ This chapter gives a brief overview of the changes from all previously
 released versions (1.0 up to 6.4) for users already familiar with the
 program.
 
-\section{From version 6.4 to 6.3}
+\section{From version 6.3 to 6.4}
 
 \begin{itemize}
 \item With {\tt --clones <n>}, Timbl can be told to classify a test
@@ -2529,18 +2529,19 @@ phrase chunking \cite{Veenstra98,Sang+99}; shallow parsing of English
 clause identification \cite{Orasan00,Sang01}; detecting the scope of
 negation markers and hedge cues \cite{Morante+08c,Morante+09c};
 sentence-boundary detection \cite{Stevenson+00}; and, beyond the
-sentence level, to anaphora resolution
-\cite{Preiss02,Mitkov+02,Hoste05}. More recently, memory-based
-learning has been integrated as a classifier engine in more
-complicated dependency parsing systems
-\cite{Nivre+04,Sagae+05,Canisius+06b}, or dependency parsing in
+sentence level, to co-reference resolution
+\cite{Preiss02,Mitkov+02,Hoste05,Klenner+08,Wunsch+09,Zhekova+11}. More recently,
+memory-based learning has been integrated as a classifier engine in
+more complex dependency parsing systems
+\cite{Nivre+04,Sagae+05,Canisius+06b}, and dependency parsing in
 combination with semantic role labeling \cite{Morante+09b}.
 
 TiMBL has been involved in several subtasks of {\bf natural language
-generation}: predicting the order of prenominal adjectives for
+  generation}: predicting the order of prenominal adjectives for
 generation \cite{Malouf00}, article generation \cite{Minnen+00};
-preposition generation \cite{Lee+08b}; and generating referring
-expressions \cite{Hendrickx+08}.
+preposition generation \cite{Lee+08b}; generating referring
+expressions \cite{Hendrickx+08}; and ranking paraphrases of noun
+compounds \cite{Wubben10}.
 
 Memory-based learning has been applied succesfully to {\bf lexical
 semantics}, in particular to word sense disambiguation
@@ -2555,7 +2556,8 @@ recognition
 information extraction \cite{Zavrel+00b,Zavrel+03,Ahn06}, event
 extraction \cite{Morante+09d}, text classification \cite{Spitters00},
 question classification \cite{Garcia+06,Dridan+07}, spam filtering
-\cite{Androutsopoulos+00}, authorship attribution \cite{Luyckx+08,Kestemont+09}.
+\cite{Androutsopoulos+00}, and authorship attribution
+\cite{Luyckx+08,Kestemont+09}.
 
 TiMBL has been occasionally shown to be a useful {\bf error detector} and
 corrector, such as in the context of error detection in textual
@@ -2563,12 +2565,13 @@ databases \cite{Sporleder+06}, in detecting dependency parsing
 annotation errors \cite{Dickinson09}, and in confusible disambiguation
 \cite{Stehouwer+09}.
 
-In the field of {\bf discourse and dialogue}, TiMBL has been used
-for shallow semantic analysis of speech-recognised utterances
+In the field of {\bf discourse and dialogue}, TiMBL has been used for
+shallow semantic analysis of speech-recognised utterances
 \cite{Gustafson+99,Krahmer+01,VandenBosch+01,Lendvai+02a,Lendvai+03},
 in disfluency detection in transcribed spontaneous speech
-\cite{Lendvai+03c}, and in classifying ellipsis in dialogue
-\cite{Fernandez+04}.
+\cite{Lendvai+03c}, in classifying ellipsis in dialogue
+\cite{Fernandez+04}, and in classifying errors in answers to reading
+comprehension tasks \cite{Bailey+08}.
 
 Relations to {\bf statistical language modeling}, in particular the
 interesting equivalence relations with back-off smoothing in
@@ -2582,7 +2585,7 @@ conceptual bridge between example-based machine translation (EBMT) and
 statistical MT. Pure memory-based approaches are described in
 \cite{VandenBosch+07,Canisius+09,VandenBosch+09,VanGompel+09}; hybrids
 with statistical machine translation are presented in
-\cite{Stroppa+07,Haque+09}; sub-sentential paraphrasing using pivot
+\cite{Stroppa+07,Haque+09,Haque+10}; sub-sentential paraphrasing using pivot
 translations is described in \cite{Max09}.
 
 The first dissertation-length study devoted to the approach is
