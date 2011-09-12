@@ -11,8 +11,8 @@
 
 \newcommand{\chisq}{{$ \chi^2 $}}
 
-\author{Walter Daelemans* \and Jakub Zavrel*$\dagger$ \and Ko van der Sloot \and
-	Antal van den Bosch\\ \ \\
+\author{Walter Daelemans$*$ \and Jakub Zavrel$\dagger$ \and Ko van der Sloot \and
+	Antal van den Bosch$**$\\ \ \\
 	Induction of Linguistic Knowledge Research Group\\
 	Tilburg centre for Cognition and Communication \\
         Tilburg University \\ \\
@@ -246,7 +246,7 @@ program.
 \section{From version 6.3 to 6.4}
 
 \begin{itemize}
-\item With {\tt --clones <n>}, Timbl can be told to classify a test
+\item With {\tt --clones=<n>}, Timbl can be told to classify a test
   set using $n$ processors in parallel. This option will speed up
   classification near-linearly with respect to $n$, although with
   larger $n$ the overhead causes the speedup to be increasingly
@@ -356,9 +356,9 @@ switches are added:
   {\tt +D} can be used.
 
 \item With {\tt -T n}, the user can specify that the $n$th column in
-  the training set of labeled examples contains the label to be
-  predicted, while all other columns represent the input features. By
-  default, the last column is assumed to contain the class labels.
+ the training set of labeled examples contains the label to be
+ predicted, while all other columns represent the input features. By
+ default, the final column is assumed to contain the class labels.
 
 \item After classification, TiMBL reports its classification speed at
   microsecond precision instead of in seconds.
@@ -825,9 +825,9 @@ union of {\tt dimin.train} and {\tt dimin.test}.
 
 Different formats are allowed for training and test data files. TiMBL
 is able to guess the type of format in most cases. We will use
-comma-separated values here, with the class as the last value. This
+comma-separated values here, with the class as the final value. This
 format is called C4.5 format in TiMBL because it is the same as that
-used in Quinlan's well-known C4.5 program for induction of decision
+used in Quinlan's well-known C4.5 program for learning decision
 trees~\cite{Quinlan93}. See Section~\ref{fileformats} for more
 information about this and other file formats.
 
@@ -2137,10 +2137,10 @@ more overlap between partial paths, and hence a smaller tree, we can
 gain both space and time improvements. An ordering which was found to
 produce small trees for many of our NLP data sets is Gain Ratio
 divided by the number of feature-values (this is the default
-setting). Through the {\tt -T} command line switch, however, the user
-is allowed to experiment with different orderings. Note that different
-orderings may only affect classification speed, not the actual
-classifications.
+setting). Through the {\tt --Treeorder=<string>} command line switch,
+however, the user is allowed to experiment with different
+orderings. Note that different orderings may only affect
+classification speed, not the actual classifications.
 
 \section{IGTree}
 \label{igtree}
@@ -2826,6 +2826,11 @@ argument of {\tt -f}. In each fold $f=1 \ldots n$, file number $f$ is
 taken as test set, and the remaining $n-1$ files are concatenated to
 form the training set. Only applicable in conjunction with {\sc ib1} ({\tt -a0}).
 
+\item {\tt -T <n>}: The $n$th column in the training set of labeled
+  examples contains the label to be predicted, while all other columns
+  represent the input features. By default, the last column is assumed
+  to contain the class labels.
+
 \end{description}
 
 \subsection{Input options}
@@ -3013,7 +3018,7 @@ parameter can take on the following values (case-insensitive):
   {\sc mvdm} matrices. Cells in the matrix are only stored if both
   feature values occur more than {\tt <n>} times.
 
-\item {\tt -T <string>} : Set the ordering of the TiMBL tree (with
+\item {\tt --Treeorder=<string>} : Set the ordering of the TiMBL tree (with
   {\sc ib1} and {\sc ib2}), i.e., rank the features according to the
   metric identified by {\tt <string>}. The default ordering is {\tt
     G/V} (according to gain ratio divided by the number of values),
