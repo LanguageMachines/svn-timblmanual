@@ -107,8 +107,9 @@ partially funded by the Netherlands Organization for Scientific
 Research (NWO) and Tilburg University. Between 2001 and 2006 it was
 funded as part of the ``Memory Models of Language'' research project
 under the NWO {\em Vernieuwingsimpuls}\/ programme, and between 2006
-and 2011 it is funded as part of the ``Implicit Linguistics'' research
-project under the NWO Vici programme.
+and 2011 as part of the ``Implicit Linguistics'' research project
+under the NWO Vici programme. We thank NWO for fourteen years of
+funding.
 
 The current release (version 6.4) succeeds release 6.3. The release
 coincides with a release of a Debian Science package for Timbl. Its
@@ -1884,7 +1885,7 @@ scheme, henceforth referred to as IL (for inverse-linear), a neighbor
 with smaller distance is weighted more heavily than one with a greater
 distance: the nearest neighbor gets a weight of 1, the furthest
 neighbor a weight of 0 and the other weights are scaled linearly to
-the interval in between (\namecite{Dudani76}, Equation 1.).
+the interval in between (\namecite{Dudani76}, Equation~\ref{dudani_eq}.).
 
 \begin{equation}
 \label{dudani_eq}
@@ -1900,7 +1901,7 @@ Where $d_{j}$ is the distance to the query of the $j$'th nearest
 neighbor, $d_{1}$ the distance of the nearest neighbor, and $d_{k}$ of
 the furthest ($k$'th) neighbor.
 
-Dudani (\namecite{Dudani76}, eq.2,3) further proposed the {\em inverse
+Dudani (\namecite{Dudani76}, eq. 2 and 3) further proposed the {\em inverse
 distance weight} (henceforth ID). In Equation~\ref{inverseweight} a
 small constant is usually added to the denominator to avoid division
 by zero~\cite{Wettschereck94}.
@@ -2758,10 +2759,10 @@ extrapolation from the nearest neighbor set. {\tt val} can be one of:
          equal weight (default).
 
   	\item {\tt ID}: Inverse Distance weighting. See
-  	Section~\ref{distweightvote}, Equation~\ref{dudani_eq}.
+  	Section~\ref{distweightvote}, Equation~\ref{inverseweight}.
 
   	\item {\tt IL}: Inverse Linear weighting. See
-  	Section~\ref{distweightvote}, Equation~\ref{inverseweight}.
+  	Section~\ref{distweightvote}, Equation~\ref{dudani_eq}.
 
   	\item {\tt ED:<a>:<b>}: Exponential Decay weighting with decay
   	parameters {\tt a} ($\alpha$) and {\tt b} ($\beta$). No spaces
