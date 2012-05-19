@@ -11,16 +11,17 @@
 
 \newcommand{\chisq}{{$ \chi^2 $}}
 
-\author{Walter Daelemans$*$ \and Jakub Zavrel$\dagger$ \and Ko van der Sloot \and
-	Antal van den Bosch$**$\\ \ \\
-	Induction of Linguistic Knowledge Research Group\\
-	Tilburg centre for Cognition and Communication \\
-        Tilburg University \\ \\
+\author{Walter Daelemans$*$ \and Jakub Zavrel$\dagger$ \and Ko van der Sloot$**$ \and
+	Antal van den Bosch$\dagger\dagger$\\ \ \\
 	(*) CLiPS - Computational Linguistics Group\\
         Department of Linguistics \\
 	University of Antwerp\\ \\
 	($\dagger$) Textkernel B.V.\\ \\
-        P.O. Box 90153, NL-5000 LE, Tilburg, The Netherlands \\ 
+	(**) Induction of Linguistic Knowledge Research Group\\
+	Tilburg center for Cognition and Communication \\
+        Tilburg University \\ \\
+        ($\dagger\dagger$) Centre for Language Studies \\
+        Radboud University Nijmegen \\ \\
         URL: http://ilk.uvt.nl\thanks{This document is available from
 	http://ilk.uvt.nl/downloads/pub/papers/ilk.XXXX.pdf. All rights reserved
 	Induction of Linguistic Knowledge, Tilburg University and 
@@ -46,10 +47,10 @@
 
 Memory-Based Learning ({\sc mbl}) is an elegantly simple and robust
 machine-learning method applicable to a wide range of tasks in Natural
-Language Processing (NLP).  In our research group at Tilburg
-University, we have been working since the end of the 1980s on the
-development of Memory-Based Learning techniques and algorithms. The
-foundations are bundled in
+Language Processing (NLP).  Starting from our research group at
+Tilburg University, we have been working since the end of the 1980s on
+the development of Memory-Based Learning techniques and
+algorithms. The foundations are bundled in
 \namecite{Daelemans+05}. Section~\ref{furtherreading} provides a
 historical overview of work on the application of {\sc mbl} in
 NLP. With the establishment of the ILK (Induction of Linguistic
@@ -63,8 +64,8 @@ efficient. We think it has become a useful tool for NLP research, and,
 for that matter, for many other domains where classification tasks are
 learned from examples, so we started to release the software in
 1999. With the release of the sixth version of TiMBL we moved to
-releasing our software under the GPL license, for anyone to use under
-the conditions stated in the license.
+releasing our software under the GPL license, for anyone to use, adapt
+and improve under the conditions stated in the license.
 
 Memory-Based Learning is a direct descendant of the classical
 $k$-Nearest Neighbor ($k$-NN) approach to classification, which has
@@ -73,14 +74,14 @@ numeric data. In typical NLP learning tasks, however, the focus is on
 discrete data, very large numbers of examples, and many attributes of
 differing relevance. Moreover, classification speed is a critical
 issue in any realistic application of Memory-Based Learning. These
-constraints demand non-trivial data-structures and speedup
+constraints demand non-trivial data structures and speedup
 optimizations for the core $k$-NN classifier. Our approach has
 resulted in an architecture which compresses the typical flat file
 organization found in straightforward $k$-NN implementations, into a
 decision-tree structure. While the decision tree can be used to
 retrieve the exact $k$-nearest neighbors (as happens in the {\sc ib1}
 algorithm within TiMBL), it can also be deterministically traversed as
-in a decision-tree classifier (the method adopted by the {\sc igtree}
+in a decision-tree classifier (the method adopted by the {\sc IGTree}
 algorithm). We believe that our optimizations make TiMBL one of the
 fastest discrete $k$-NN implementations around.
 
@@ -93,49 +94,47 @@ Zavrel. The code has benefited substantially from trial, error and
 scrutiny by all past and present members of the ILK and CLiPS
 (formerly CNTS) groups in Tilburg and Antwerp. We are furthermore
 indebted to Ton Weijters of Eindhoven Technical University for his
-inspirational early work on $k$-NN and for his involvements in {\sc
-  igtree}.
+inspirational early work on $k$-NN and for his ideas on {\sc IGTree}.
 
 Our sincere thanks go to the many users of TiMBL who have contributed
 to it immensely by giving us feedback and reporting bugs, and to the
 two organisations that have supported and enabled its development:
 NWO, the Netherlands Organization for Scientific Research, and the
 School of Humanities of Tilburg University. NWO funding has spanned
-three subsequent periods. From 1997 until 2001 development was part of
-the ``Induction of Linguistic Knowledge'' research programme,
-partially funded by the Netherlands Organization for Scientific
-Research (NWO) and Tilburg University. Between 2001 and 2006 it was
-funded as part of the ``Memory Models of Language'' research project
-under the NWO {\em Vernieuwingsimpuls}\/ programme, and between 2006
-and 2011 as part of the ``Implicit Linguistics'' research project
-under the NWO Vici programme. We thank NWO for fourteen years of
-funding.
+three subsequent periods totalling fourteen years. From 1997 until 2001
+development was part of the ``Induction of Linguistic Knowledge''
+research project funded by NWO's {\em Pionier}\/ programme. Between
+2001 and 2006 it was funded as part of the ``Memory Models of
+Language'' research project under the NWO {\em Vernieuwingsimpuls}\/
+programme, and between 2006 and 2011 as part of the ``Implicit
+Linguistics'' research project under the NWO Vici programme.
 
-The current release (version 6.4) succeeds release 6.3. The release
-coincides with a release of a Debian Science package for Timbl. Its
-most significant change is a multiprocessor option, which ``clones''
-Timbl internally so that it can classify a test set on $n$ available
-processors. An elaborate description of the changes from version 1.0
-up to 6.4 can be found in Chapter~\ref{changes}.  Although all new
-features have been tested for some time in our research groups, the
-software may still contain bugs and inconsistencies in some places. We
-would appreciate it if you would send bug reports, ideas about
-enhancements of the software and the manual, and any other comments
-you might have, to {\tt Timbl@uvt.nl}.
+The current release (version 6.4) coincides with a release of a Debian
+Science package for TiMBL. Its most significant change is a
+multiprocessor option that ``clones'' TiMBL internally so that it can
+classify a test set on $n$ available processors. An elaborate
+description of the changes from version 1.0 up to 6.4 can be found in
+Chapter~\ref{changes}.  Although all new features have been tested for
+some time in our research groups, the software may still contain bugs
+and inconsistencies in some places. We would appreciate it if you
+would send bug reports, ideas about enhancements of the software and
+the manual, and any other comments you might have, to {\tt
+  Timbl@uvt.nl}.
 
 This reference guide is structured as follows. In
-Chapter~\ref{license} you can find the terms of the license according
-to which you are allowed to use TiMBL. The subsequent chapter gives
-some instructions on how to install the TiMBL package on your
-computer. Chapter~\ref{changes} lists the changes that have taken
-place up to the current version. Next, Chapter~\ref{tutorial} offers a
-quick-start tutorial for readers who want to get to work with TiMBL
-right away. The tutorial describes, step-by-step, a case study with a
-sample data set (included with the software) representing the
-linguistic domain of predicting the diminutive inflection of Dutch
-nouns.  Readers who are interested in the theoretical and technical
-details of Memory-Based Learning and of this implementation can refer
-to Chapter~\ref{algorithms}. Chapter~\ref{reference} provides full
+Chapter~\ref{license} you can find the terms of the open source
+license according to which you are allowed to use TiMBL. The
+subsequent chapter gives some instructions on how to install the TiMBL
+package on your computer. Chapter~\ref{changes} lists the changes that
+have taken place up to the current version. Next,
+Chapter~\ref{tutorial} offers a quick-start tutorial for readers who
+want to get to work with TiMBL right away. The tutorial describes,
+step-by-step, a case study with a sample data set (included with the
+software) representing the linguistic domain of predicting the
+diminutive inflection of Dutch nouns.  Readers who are interested in
+the theoretical and technical details of Memory-Based Learning and of
+this implementation can refer to
+Chapter~\ref{algorithms}. Chapter~\ref{reference} provides full
 reference to the command line options of TiMBL and supported file
 formats.
 
@@ -143,14 +142,22 @@ formats.
 \label{license}
 \pagenumbering{arabic} 
 
-TiMBL is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+TiMBL is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 3 of the License, or (at your
+option) any later version.
 
-TiMBL is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+TiMBL is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
 
-You should have received a copy of the GNU General Public License along with TiMBL.  If not, see $<$http://www.gnu.org/licenses/$>$.
+You should have received a copy of the GNU General Public License
+along with TiMBL.  If not, see $<$http://www.gnu.org/licenses/$>$.
 
-In publication of research that makes use of TiMBL 6.4, a citation should be given of: {\em ``Walter Daelemans, Jakub Zavrel, Ko van der
-  Sloot, and Antal van den Bosch (2009). TiMBL: Tilburg Memory Based
+In publication of research that makes use of TiMBL 6.4, a citation
+should be given of: {\em ``Walter Daelemans, Jakub Zavrel, Ko van der
+  Sloot, and Antal van den Bosch (2012). TiMBL: Tilburg Memory Based
   Learner, version 6.4, Reference Guide. ILK Technical Report XX-XX
   Available from \\ {\tt
     http://ilk.uvt.nl/downloads/pub/papers/ilkXXXX.pdf}''}
@@ -173,13 +180,19 @@ You can get the TiMBL package as a gzipped tar archive from:
 
 {\tt http://ilk.uvt.nl/timbl}
 
-Following the links from that page, you can download the file {\tt timbl-6.4.tar.gz}. This file contains the complete source code (C++) for the TiMBL program, a few sample data sets, the license, and documentation. The installation should be relatively straightforward on most UNIX systems.
+Following the links from that page, you can download the file {\tt
+  timbl-latest.tar.gz}. This file contains the complete source code (C++)
+for the TiMBL program, a few sample data sets, the license, and
+documentation. The installation should be relatively straightforward
+on most UNIX systems.
 
 To install the package on your computer, unzip the downloaded file ({\tt >} is the command line prompt):
 
-{\tt > tar xfz timbl-6.4.tar.gz}
+{\tt > tar xfz timbl-latest.tar.gz}
 
-This will make a directory {\tt timbl-6.4} under your current directory.
+This will make a directory {\tt timbl-6.4} under your current
+directory. (The numbering may be higher; the current guide refers to
+version 6.4).
 
 Alternatively you can do:
 
@@ -194,9 +207,18 @@ Go to the timbl-6.4 directory, and configure the package by typing
 {\tt > cd timbl-6.4} \\
 {\tt > ./configure --prefix=<location\_to\_install>}
 
-If you do not use the {\tt --prefix} option, TiMBL will try to install itself in the directory {\tt /usr/local/}.  If you do not have {\tt root} access you can specify a different installation location such as {\tt \$HOME/install}
+If you do not use the {\tt --prefix} option, TiMBL will try to install
+itself in the directory {\tt /usr/local/}.  If you do not have {\tt
+  root} access you can specify a different installation location such
+as {\tt \$HOME/install}.
 
-It is not obligatory to install TiMBL, but if you plan to install TiMBL-based extensions such as TimblServer\footnote{\url{http://ilk.uvt.nl/timbl}}, Mbt\footnote{\url{http://ilk.uvt.nl/mbt}}, Dimbl\footnote{\url{http://ilk.uvt.nl/dimbl}}, or Tadpole\footnote{\url{http://ilk.uvt.nl/tadpole}}, or you want to build your own extensions using the TiMBL API, installing is the best choice.
+It is not obligatory to install TiMBL, but if you plan to install
+TiMBL-based extensions such as
+TimblServer\footnote{\url{http://ilk.uvt.nl/timbl}},
+Mbt\footnote{\url{http://ilk.uvt.nl/mbt}}, or
+Frog\footnote{\url{http://ilk.uvt.nl/frog}}, or you want to
+build your own extensions using the TiMBL API, installing is the best
+choice.
 
 After {\tt configure} you can build TiMBL:
 
@@ -206,12 +228,24 @@ and (as recommended) install:
 
 {\tt > make install }
 
-If the process was completed successfully, you should now have an executable file named {\tt Timbl} in the directory {\tt <location\_to\_install>/bin}, and a static library {\tt libTimbl.a} in the directory {\tt <location\_to\_install>/lib}.
-Additionally, several demo programs named {\tt api\_test*}, {\tt classify} and {\tt tse} are created in the {\tt ./demos} subdirectory.
+If the process was completed successfully, you should now have an
+executable file named {\tt timbl} (low caps) in the directory {\tt
+  <location\_to\_install>/bin}, and a static library {\tt libTimbl.a}
+in the directory {\tt <location\_to\_install>/lib}.  Additionally,
+several demo programs named {\tt api\_test*}, {\tt classify} and {\tt
+  tse} are created in the {\tt ./demos} subdirectory.
 
-Within the {\tt <location\_to\_install>} directory a subdirectory is also created: {\tt share/doc/timbl} where the TiMBL 6.4 documentation can be found, and which in turn contains a subdirectory {\tt examples} with example data files. Some of these data sets are used in the Quick Start Section~\ref{tutorial} of this document; other data and source files are referred to in the API documentation. The latter, along with a pdf version of this document, can also be found in the {\tt doc} directory. Note that the API documentation is a beta-state document.
+Within the {\tt <location\_to\_install>} directory a subdirectory is
+also created: {\tt share/doc/timbl} where the TiMBL 6.4 documentation
+can be found, and which in turn contains a subdirectory {\tt examples}
+with example data files. Some of these data sets are used in the Quick
+Start Section~\ref{tutorial} of this document; other data and source
+files are referred to in the API documentation. The latter, along with
+a pdf version of this document, can also be found in the {\tt doc}
+directory. Note that the API documentation is a beta-state document.
 
-TiMBL should now be ready for use. If you want to run the examples and demos from this manual, you should act as follows:
+TiMBL should now be ready for use. If you want to run the examples and
+demos from this manual, you should act as follows:
 
 \begin{itemize}
 \item Be sure to add {\tt <location\_to\_install>/bin} to your PATH. 
@@ -227,7 +261,7 @@ it finds the data.)
 
 {\tt cd} to the working location, and then
 
-{\tt Timbl -f dimin.train -t dimin.test}
+{\tt timbl -f dimin.train -t dimin.test}
 \end{itemize}
 
 If you did not install TiMBL, the executable can be found in the {\tt
@@ -247,17 +281,27 @@ program.
 \section{From version 6.3 to 6.4}
 
 \begin{itemize}
-\item With {\tt --clones=<n>}, Timbl can be told to classify a test
+\item With {\tt --clones=<n>}, TiMBL can be told to classify a test
   set using $n$ processors in parallel. This option will speed up
   classification near-linearly with respect to $n$, although with
   larger $n$ the overhead causes the speedup to be increasingly
   sub-linear.
+\item With {\tt --occurrences=\{train|test|both\}}, instances in
+  instance base files can be accompanied by a (long) integer
+  specifying a number of token occurrences of that instance, so that
+  it does not count as a single instance in the TiMBL tree, but as
+  {\tt <n>} instances. These counts can be exclusively present in the
+  training set, in the test set, or in both if a training and test
+  action is invoked at once.
+\item The executable file is now called {\tt timbl} instead of {\tt
+    Timbl} to be more GNU/Linux compliant. Previous users of TiMBL may
+  want to check scripts for this name change.
 \end{itemize}
 
 \section{From version 6.2 to 6.3}
 
 \begin{itemize}
-\item All server-related functionality is removed from Timbl. A new
+\item All server-related functionality is removed from TiMBL. A new
   TimblServer package is available wich provides the same interface as
   Timbl up to version 6.3, but also adds some extra features, such as
   running multiple but separate experiments on one TCP port. See
@@ -483,7 +527,7 @@ or both in a pair of matched values occurs fewer times in the training
 material than a user-determined threshold.
 
 \item {\sc tribl2}. The {\sc tribl2} algorithm has been implemented
-as an additional trade-off between {\sc igtree} and {\sc ib1}. In
+as an additional trade-off between {\sc IGTree} and {\sc ib1}. In
 contrast to {\sc tribl}, {\sc tribl2} uses no threshold parameter.
 
 \item Exemplar weighting. TiMBL can read additional numeric exemplar
@@ -571,7 +615,7 @@ respect to namespaces.
 
 \item {\bf [4.3]} A progress marker (one dot per 10 seconds) in
 computationally intensive operations on the internal representation of
-the instance base (e.g. pruning {\sc igtree}s) is added in TiMBL's
+the instance base (e.g. pruning {\sc IGTree}s) is added in TiMBL's
 screen output.
 
 \item A number of bugs have been fixed, notably to handle erroneous
@@ -662,11 +706,11 @@ it.
 \begin{itemize}
 
 \item We have added a new algorithm: {\sc tribl}, a hybrid between
-the fast {\sc igtree} algorithm and real nearest neighbor search (for
+the fast {\sc IGTree} algorithm and real nearest neighbor search (for
 more details, see~\ref{tribl}, or~\namecite{Daelemans+97d}). This
 algorithm is invoked with the {\tt -a 2} switch and requires the
 specification of a so-called {\sc tribl}-offset, the feature where
-{\sc igtree} stops and case bases are stored under the leaves of the
+{\sc IGTree} stops and case bases are stored under the leaves of the
 constructed tree.
 
 \item Support for numeric features. Although the package has retained
@@ -838,7 +882,7 @@ command line prompt):
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -f dimin.train -t dimin.test
+> timbl -f dimin.train -t dimin.test
 \end{verbatim}
 }
 
@@ -857,7 +901,7 @@ the results.
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -f dimin.train -t dimin.test > dimin-exp1
+> timbl -f dimin.train -t dimin.test > dimin-exp1
 \end{verbatim}
 }
 
@@ -871,11 +915,11 @@ output.
 
 {\footnotesize
 \begin{verbatim}
-TiMBL 6.3.0 (c) ILK 1998 - 2010.
+TiMBL 6.4.2 (c) ILK 1998 - 2011.
 Tilburg Memory Based Learner
 Induction of Linguistic Knowledge Research Group, Tilburg University
 CLiPS Computational Linguistics Group, University of Antwerp
-Mon Oct 19 21:30:00 2009
+Mon Apr 23 15:43:26 2012
 
 Examine datafile 'dimin.train' gave the following results:
 Number of Features: 12
@@ -1049,16 +1093,16 @@ igtree}. In the trade-off between generalization accuracy and
 efficiency, {\sc ib1} usually, but not always, leads to more accuracy
 at the cost of more memory and slower computation, whereas {\sc
 igtree} is a fast heuristic approximation of {\sc ib1}, but sometimes
-less accurate. The {\sc igtree} algorithm is used when {\tt -a 1} is
+less accurate. The {\sc IGTree} algorithm is used when {\tt -a 1} is
 given on the command line, whereas the {\sc ib1} algorithm used above
 (the default) would have been specified explicitly by {\tt -a 0}. 
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -a1 -f dimin.train -t dimin.test
+> timbl -a1 -f dimin.train -t dimin.test
 \end{verbatim}} 
 
-We see that {\sc igtree} performs only slightly worse (96.6\%) than
+We see that {\sc IGTree} performs only slightly worse (96.6\%) than
 {\sc ib1} (96.8\%) for this train-test partitioning of the data --- it
 uses less memory and is faster, however.
 
@@ -1077,7 +1121,7 @@ mvdm}, whereas {\tt -mO} ({\em weighted overlap}) is the default.
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -mM -f dimin.train -t dimin.test
+> timbl -mM -f dimin.train -t dimin.test
 \end{verbatim}
 }
 
@@ -1090,7 +1134,7 @@ metric, with extrapolation from the 5 nearest neighbors.
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -mM -k5 -f dimin.train -t dimin.test
+> timbl -mM -k5 -f dimin.train -t dimin.test
 \end{verbatim}
 }
 
@@ -1102,7 +1146,7 @@ function are provided. E.g., the following provides inverse distance:
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -mM -k5 -dID -f dimin.train -t dimin.test
+> timbl -mM -k5 -dID -f dimin.train -t dimin.test
 \end{verbatim}
 }
 
@@ -1179,7 +1223,7 @@ last two features. As a result we get an accuracy of
 
 {\footnotesize
 \begin{verbatim}
-> Timbl -mM:I1-8,10 -k5 -w0 -f dimin.train -t dimin.test
+> timbl -mM:I1-8,10 -k5 -w0 -f dimin.train -t dimin.test
 \end{verbatim}
 }
 
@@ -1200,7 +1244,7 @@ distributions.
 
 {\footnotesize
 \begin{verbatim}
-> Timbl +v db -f dimin.train -t dimin.test
+> timbl +v db -f dimin.train -t dimin.test
 \end{verbatim}
 }
 
@@ -1229,7 +1273,7 @@ to the nearest neighbor:
 
 {\footnotesize
 \begin{verbatim}
-> Timbl +v di -f dimin.train -t dimin.test
+> timbl +v di -f dimin.train -t dimin.test
 
 +,l,a,=,-,d,@,=,-,k,A,st,J,J        0.070701
 -,s,i,=,-,f,E,r,-,st,O,k,J,J        0.000000
@@ -1254,7 +1298,7 @@ decisions or errors occur.
 
 {\footnotesize
 \begin{verbatim}
-> Timbl +v n+k -mM -k3 -w0 -f dimin.train -t dimin.test
+> timbl +v n+k -mM -k3 -w0 -f dimin.train -t dimin.test
 
 +,m,I,=,-,d,A,G,-,d,},t,J,J { J 3.00000 }
 # k=1, 1 Neighbor(s) at distance:       0.99179269134432
@@ -1280,7 +1324,7 @@ the following confusion matrix is computed and printed:
 
 {\footnotesize
 \begin{verbatim}
-> Timbl +v cm -f dimin.train -t dimin.test
+> timbl +v cm -f dimin.train -t dimin.test
 
 Confusion Matrix:
              T      E      J      P      K 
@@ -1322,7 +1366,7 @@ verbosity options:
 
 {\footnotesize
 \begin{verbatim}
-> Timbl +v as+cs -f dimin.train -t dimin.test
+> timbl +v as+cs -f dimin.train -t dimin.test
 
 Scores per Value Class:
 class  |        TP      FP      TN      FN      precision       recall(TPR)     FPR             F-score        AUC
@@ -1377,11 +1421,11 @@ various algorithmic optimizations for nearest neighbor search.
 Sections~\ref{igtree} to~\ref{ib2} describe three variants of the
 standard nearest neighbor classifier implemented within TiMBL, that
 optimize some intrinsic property of the standard algorithm. First, in
-Section~\ref{igtree}, we describe {\sc igtree}, which replaces the
+Section~\ref{igtree}, we describe {\sc IGTree}, which replaces the
 exact nearest neighbor search with a very fast heuristic that exploits
 the difference in importance between features. Second, in
 Section~\ref{tribl}, we describe the {\sc tribl} algorithm, which is a
-hybrid between {\sc igtree} and nearest neighbor search. Third,
+hybrid between {\sc IGTree} and nearest neighbor search. Third,
 Section~\ref{ib2} describes the {\sc ib2} algorithm, which
 incrementally and selectively adds instances to memory during
 learning.
@@ -1688,19 +1732,19 @@ number (20 by default) of equally-spaced intervals between the
 minimum and maximum values of the feature. These groups are then used
 as discrete values in computing chi-squared and shared variance weights.
 
-\subsection{Modified value difference and Jeffrey divergence metrics}
+\subsection{Modified value difference, Jensen-Shannon divergence, and Jeffrey divergence metrics}
 \label{mvdm}
 
-It should be stressed that the choice of representation for instances
-in {\sc mbl} remains the key factor determining the strength of the
-approach. The features and categories in NLP tasks are usually
-represented by symbolic labels. The metrics that have been described
-so far, i.e.~Overlap and IG Overlap, are limited to exact match
-between feature-values. This means that all values of a feature are
-seen as equally dissimilar. However, if we think of an imaginary task
-in e.g.~the phonetic domain, we might want to use the information that
-'b' and 'p' are more similar than 'b' and 'a'. For this purpose a
-metric was defined by \namecite{Stanfill+86} and further refined by
+The choice of representation for instances in {\sc mbl} remains the
+key factor determining the strength of the approach. The features and
+categories in NLP tasks are usually represented by symbolic
+labels. The metrics that have been described so far, i.e.~Overlap and
+IG Overlap, are limited to counting exact matches between feature
+values. This means that all values of a feature are seen as equally
+dissimilar. However, if we think of an imaginary task in e.g.~the
+phonetic domain, we might want to use the information that 'b' and 'p'
+are more similar than 'b' and 'a'. For this purpose a metric was
+defined by \namecite{Stanfill+86} and further refined by
 \namecite{Cost+93}. It is called the (Modified) Value Difference
 Metric ({\sc mvdm}; Equation~\ref{MVDMeq}), and it is a method to
 determine the similarity of the values of a feature by looking at
@@ -1715,17 +1759,17 @@ the conditional distribution of the classes $C_{i}$ for these values.
 \end{equation}
 
 For computational efficiency, all pairwise $\delta(v_{1}, v_{2})$
-values can be pre-comput\-ed before the actual nearest neighbor search
+values can be precomputed before the actual nearest neighbor search
 starts.
 
 Although the {\sc mvdm} metric does not explicitly compute feature
 relevance, an implicit feature weighting effect is present. If
 features are very informative, their conditional class probabilities
-will on average be very skewed towards a particular class. This
-implies that on average the $\delta(v_{1}, v_{2})$ will be large. For
-uninformative features, on the other hand, the conditional class
-probabilities will be pretty uniform, so that on average the
-$\delta(v_{1}, v_{2})$ will be very small.
+will often be skewed towards a particular class. This implies that on
+average the $\delta(v_{1}, v_{2})$ will be large. For uninformative
+features, on the other hand, the conditional class probabilities will
+tend to be closer to the overall class distribution, so that on
+average the $\delta(v_{1}, v_{2})$ will be very small.
 
 {\sc mvdm} differs considerably from Overlap based metrics in its
 composition of the nearest neighbor sets. Overlap causes an abundance
@@ -1741,13 +1785,13 @@ with the lowest $\delta(v_{1}, v_{2})$ in the mismatching position, or
 less exactly matching features, but a smaller distance in the
 mismatching features. In sum, this means that the nearest neighbor set
 is usually much smaller for {\sc mvdm} at the same value of $k$. In
-NLP tasks we have found it very useful to experiment with values of
+NLP tasks we have found it useful to experiment with values of
 $k$ larger than one for {\sc mvdm}, because this re-introduces some of
 the beneficial smoothing effects associated with large nearest
 neighbor sets.
 
 One cautionary note about this metric is connected with data
-sparsity. In many practical applications, we are confronted with a
+sparsity. In many practical applications we are confronted with a
 very limited set of examples, with values occuring only a few times or
 once in the whole data set. If two such values occur with the same
 class, {\sc mvdm} will regard them as identical, and if they occur
@@ -1760,18 +1804,23 @@ mvdm} to the Overlap metric when one or both of a pair of matched
 values occurs fewer times in the learning material than this
 threshold.
 
-Jeffrey divergence, offered as a close neighbor alternative to {\sc
-  mvdm}, is a statistical dissimilarity metric that can be used to
-compute the distance between class distributions of two values of the
-same feature. Functionally it is quite similar to {\sc mvdm}. It is
-best known for its application as a distance function in unsupervised
-vector space models, e.g. in image retrieval, where it is applied to
-histogram vectors. While {\sc mvdm} computes a straightforward
-geometrical distance between two class distribution vectors, Jeffrey
-divergence introduces a logarithm term, as seen in
-Equation~\ref{jd}. Jeffrey divergence is a symmetric variant of
-Kullback-Leibner distance; the $m$ term given in Equation~\ref{jdm} is
-used for this purpose.
+Jensen-Shannon divergence and Jeffrey divergence are offered as
+related, but more complex alternatives to {\sc mvdm}. They are both
+statistical dissimilarity metrics that can be used to compute the
+distance between class distributions of two values of the same
+feature. Functionally they are quite similar to {\sc
+  mvdm} as well as to Kullback-Leibler (KL) divergence; Jeffrey divergence
+and Jensen-Shannon divergence are both symmetric versions of KL
+divergence, and symmetry is what we need for estimating value difference.
+
+First, Jeffrey divergence is best known for its application as a
+distance function in unsupervised vector space models, e.g. in image
+retrieval, where it is applied to histogram vectors. While {\sc mvdm}
+computes a straightforward geometrical distance between two class
+distribution vectors, Jeffrey divergence introduces a logarithm term,
+as seen in Equation~\ref{jd}. Jeffrey divergence is a symmetric
+variant of Kullback-Leibner distance; the $m$ term given in
+Equation~\ref{jdm} is used for this purpose.
 
 \begin{equation}
 \delta(v_{1}, v_{2}) = \sum_{i=1}^{n} 
@@ -2153,7 +2202,7 @@ The positive effect of Information Gain on performance prompted us to
 develop an alternative approach in which the instance memory is
 restructured in such a way that it contains the same information as
 before, but in a compressed decision tree structure. We call this
-algorithm {\sc igtree}~\cite{Daelemans+97} 
+algorithm {\sc IGTree}~\cite{Daelemans+97} 
 %(see Figure~\ref{example3}
 %for an illustration). 
 In this structure, similar to the
@@ -2177,7 +2226,7 @@ as similar instances share partial paths.
 %                \leavevmode
 %                \epsfxsize=0.7\columnwidth
 %                \epsffile{example3.eps}
-%                \caption{A pruned {\sc igtree} for the instance base
+%                \caption{A pruned {\sc IGTree} for the instance base
 %                of Figure~\ref{example1}. The classification for
 %                the test instance is found by top down search of the
 %                tree, and returning the class label (default) of the
@@ -2189,7 +2238,7 @@ as similar instances share partial paths.
 %        \end{center}
 %\end{figure}
 
-Because {\sc igtree} makes a heuristic approximation of nearest
+Because {\sc IGTree} makes a heuristic approximation of nearest
 neighbor search by a top down traversal of the tree in the order of
 feature relevance, we no longer need to store all the paths. The idea
 is that it is not necessary to fully store those feature-values of the
@@ -2197,7 +2246,7 @@ instance that have lower Information Gain than those features which
 already fully disambiguate the instance classification.
 
 Apart from compressing all training instances in the tree structure,
-the {\sc igtree} algorithm also stores with each non-terminal node
+the {\sc IGTree} algorithm also stores with each non-terminal node
 information concerning the {\em most probable} or {\em default}
 classification given the path thus far, according to the bookkeeping
 information maintained by the tree construction algorithm. This extra
@@ -2216,7 +2265,7 @@ instance base using Information Gain and compression, to obtain
 simplified and faster processing during classification,
 as compared to {\sc ib1} and {\sc ib1-ig}.
 
-The generalization accuracy of {\sc igtree} is usually comparable to
+The generalization accuracy of {\sc IGTree} is usually comparable to
 that of {\sc ib1-ig}; often slightly worse, but sometimes even better.
 The two causes for {\sc IGTree}'s surprisingly good accuracies
 attained with dramatically faster classification are that (i) most
@@ -2235,56 +2284,56 @@ very fast classifier for processing large amounts of text, the
 tradeoff between a somewhat lower accuracy against stellar speed
 increases can be very attractive.
 
-It should be noted that by design, {\sc igtree} is not suited for
+It should be noted that by design, {\sc IGTree} is not suited for
 numeric features, as it does not use some type of discretization. If
 present in data, numbers will simply be treated as literal strings by
-{\sc igtree}. Moreover, one should realize that the success of {\sc
+{\sc IGTree}. Moreover, one should realize that the success of {\sc
   igtree} is determined by a good judgement of feature relevance
-ordering. Hence {\sc igtree} is not to be used with e.g. ``no
+ordering. Hence {\sc IGTree} is not to be used with e.g. ``no
 weights'' ({\tt -w 0}). Also, setting the {\tt -k} parameter obviously
-has no effect on {\sc igtree} performance.
+has no effect on {\sc IGTree} performance.
 
 \section{The TRIBL and TRIBL2 hybrids}
 \label{tribl}
 
-The application of {\sc igtree} on a number of common machine-learning
+The application of {\sc IGTree} on a number of common machine-learning
 datasets suggested that it is not applicable to problems where the
 relevance of the predictive features cannot be ordered in a
 straightforward way, e.g.~if the differences in Information Gain are
 only very small. In those cases, {\sc ib1-ig} or even {\sc ib1} tend
-to perform significantly better than {\sc igtree}.
+to perform significantly better than {\sc IGTree}.
 
 For this reason we have designed {\sc tribl} \cite{Daelemans+97d} and
-{\sc tribl2} as hybrid combinations of {\sc igtree} and {\sc
+{\sc tribl2} as hybrid combinations of {\sc IGTree} and {\sc
 ib1}. Both algorithms aim to exploit the trade-off between (i)
-optimization of search speed (as in {\sc igtree}), and (ii) maximal
+optimization of search speed (as in {\sc IGTree}), and (ii) maximal
 generalization accuracy. They do that by splitting the classification
-of new instances into a quick decision-tree ({\sc igtree}) traversal
+of new instances into a quick decision-tree ({\sc IGTree}) traversal
 based on the first (most important and most class-disambiguating)
 features, followed by a slow but relatively accurate $k$-NN ({\sc
 ib1}) classification based on the remaining less important
 features. The difference between {\sc tribl} and {\sc tribl2} is that
 the former algorithm fixes the point in the feature ordering where
-{\sc igtree} is succeeded by {\sc ib1}, while {\sc tribl2} determines
+{\sc IGTree} is succeeded by {\sc ib1}, while {\sc tribl2} determines
 this switching point automatically per classification. We briefly
 describe both variants.
 
 For {\sc tribl}, a parameter ({\tt -q}) determines the switching point
-in the feature ordering from {\sc igtree} to {\sc ib1}. A heuristic
+in the feature ordering from {\sc IGTree} to {\sc ib1}. A heuristic
 that we have used with some success is based on {\em average feature
 information gain}; when the Information Gain of a feature exceeds the
 average Information Gain of all features $+$ one standard
 deviation of the average, then the feature is used for constructing an
-{\sc igtree}, including the computation of defaults on nodes. When the
+{\sc IGTree}, including the computation of defaults on nodes. When the
 Information Gain of a feature is below this threshold, and the node is
 still ambiguous, tree construction halts and the leaf nodes at that
 point represent case bases containing subsets of the original training
-set. During search, the normal {\sc igtree} search algorithm is used,
+set. During search, the normal {\sc IGTree} search algorithm is used,
 until the case-base nodes are reached, in which case regular {\sc ib1}
 nearest neighbor search is used on this sub-case-base. 
 
 {\sc tribl2} does not employ a fixed switching point. Rather, during
-the classification of an instance it continues to use {\sc igtree} as
+the classification of an instance it continues to use {\sc IGTree} as
 long as it finds matching feature values in the weighting-governed
 feature ordering. Only when it finds a mismatch it reverts to {\sc
 ib1} classification on all remaining features. The reasoning behind
@@ -2295,7 +2344,7 @@ improve on decision-tree-style classification, which does not consider
 the other potentially matching features in the ordering
 \cite{Daelemans+99}.
 
-A final note: as with {\sc igtree}, it does not make sense to use {\sc
+A final note: as with {\sc IGTree}, it does not make sense to use {\sc
   tribl} and {\sc tribl2} without feature weighting, so do not combine
 {\sc tribl} or {\sc tribl2} with ({\tt -w 0}).
 
@@ -2467,10 +2516,10 @@ collected in TiMBL, usually demonstrating their functioning using NLP
 tasks. The {\sc ib1-ig} algorithm was first introduced in
 \cite{Daelemans+92b} in the context of a comparison of memory-based
 approaches with error-back\-propagation learning for a hyphenation
-task.  Predecessor versions of {\sc igtree} can be found in
+task.  Predecessor versions of {\sc IGTree} can be found in
 \cite{Daelemans+93c,VandenBosch+93} where they are applied to
 grapheme-to-phoneme conversion.  See \cite{Daelemans+97} for a
-description and review of {\sc igtree} and {\sc ib1-ig}. {\sc tribl}
+description and review of {\sc IGTree} and {\sc ib1-ig}. {\sc tribl}
 is described in \cite{Daelemans+97d}.  Experiments with
 distance-weighted class voting are described in
 \cite{Zavrel97}. Aspects of using binary-valued (unpacked
@@ -2617,20 +2666,20 @@ ILK} home page: {\tt http://ilk.uvt.nl} and the {\sc CLiPS} home page: \\
 \label{commandline}
 
 The user interacts with TiMBL through the use of command line arguments.
-When you have installed TiMBL successfully, and you type {\tt Timbl} at the
+When you have installed TiMBL successfully, and you type {\tt timbl} at the
 command line without any further arguments, it will print an overview
 of the most basic command line options. 
 
 {\footnotesize
 \begin{verbatim}
-TiMBL 6.3.0 (c) ILK 1998 - 2010.
+TiMBL 6.4.2 (c) ILK 1998 - 2012.
 Tilburg Memory Based Learner
 Induction of Linguistic Knowledge Research Group, Tilburg University
 CLiPS Computational Linguistics Group, University of Antwerp
-Mon Oct 19 22:33:13 2009
+Mon Apr 23 15:43:26 2012
 
-usage:  Timbl -f data-file {-t test-file}
-or see: Timbl -h
+usage:  timbl -f data-file {-t test-file}
+or see: timbl -h
         for all possible options
 \end{verbatim}
 }
@@ -2680,8 +2729,8 @@ algorithm. Possible values are:
 
 	\begin{description}
 	\item {\tt 0} or {\tt IB1} -- the {\sc ib1} ($k$-NN) algorithm (default). See Sections~\ref{mbl} and~\ref{indexing}.
-	\item {\tt 1} or {\tt IGTREE} -- {\sc igtree}, decision-tree-based optimization. See Section~\ref{igtree}.
-	\item {\tt 2} or {\tt TRIBL} -- {\sc tribl}, a hybrid of {\sc ib1} and {\sc igtree}. See Section~\ref{tribl}.
+	\item {\tt 1} or {\tt IGTREE} -- {\sc IGTree}, decision-tree-based optimization. See Section~\ref{igtree}.
+	\item {\tt 2} or {\tt TRIBL} -- {\sc tribl}, a hybrid of {\sc ib1} and {\sc IGTree}. See Section~\ref{tribl}.
 	\item {\tt 3} or {\tt IB2} -- {\sc ib2}, incremental edited memory-based learning. See Section~\ref{ib2}.
 	\item {\tt 4} or {\tt TRIBL2} -- {\sc tribl2}, a non-parameteric version of {\sc tribl}. See Section~\ref{tribl}.
 	\end{description}
@@ -2717,7 +2766,7 @@ ignored.
 
 \item {\tt -w <n>} : chooses between feature-weighting possibilities.
 The weights are used in the metric of {\sc ib1} and in the ordering of the
-{\sc igtree}. Possible values are:
+{\sc IGTree}. Possible values are:
 
 	\begin{description}
 	\item n=0 -- No weighting, i.e. all features have the same
@@ -2758,13 +2807,13 @@ extrapolation from the nearest neighbor set. {\tt val} can be one of:
   	\item {\tt Z} : normal majority voting; all neighbors have
          equal weight (default).
 
-  	\item {\tt ID}: Inverse Distance weighting. See
+  	\item {\tt ID} : Inverse Distance weighting. See
   	Section~\ref{distweightvote}, Equation~\ref{inverseweight}.
 
-  	\item {\tt IL}: Inverse Linear weighting. See
+  	\item {\tt IL} : Inverse Linear weighting. See
   	Section~\ref{distweightvote}, Equation~\ref{dudani_eq}.
 
-  	\item {\tt ED:<a>:<b>}: Exponential Decay weighting with decay
+  	\item {\tt ED:<a>:<b>} : Exponential Decay weighting with decay
   	parameters {\tt a} ($\alpha$) and {\tt b} ($\beta$). No spaces
   	are allowed in the string. Parameter {\tt b} can be left
   	unspecified: {\tt ED:<a>} assumes $\beta=1$. The syntax used
@@ -2793,7 +2842,7 @@ instances. Only applicable in conjunction with {\sc ib2} ({\tt -a 3}).
 
 \item {\tt -q <n>} : {\tt n} is the {\sc tribl} offset, the index
 number of the feature (counting from 1) after which {\sc tribl} should
-switch from {\sc igtree} to {\sc ib1}. Only applicable in conjunction
+switch from {\sc IGTree} to {\sc ib1}. Only applicable in conjunction
 with {\sc tribl} ({\tt -a 2}).
 
 \item {\tt -R <n>} : Resolve ties in the classifier randomly, using a
@@ -2827,7 +2876,7 @@ argument of {\tt -f}. In each fold $f=1 \ldots n$, file number $f$ is
 taken as test set, and the remaining $n-1$ files are concatenated to
 form the training set. Only applicable in conjunction with {\sc ib1} ({\tt -a0}).
 
-\item {\tt -T <n>}: The $n$th column in the training set of labeled
+\item {\tt -T <n>} : The $n$th column in the training set of labeled
   examples contains the label to be predicted, while all other columns
   represent the input features. By default, the last column is assumed
   to contain the class labels.
@@ -2858,7 +2907,7 @@ cannot be used with numeric features.
 
 \item {\tt -i <treefile>} : Skip the first two training phases:
   instead of processing a training file, read a previously saved (see
-  {\tt -I} option) instance-base or {\sc igtree} from the file {\tt
+  {\tt -I} option) instance-base or {\sc IGTree} from the file {\tt
     treefile}. See section~\ref{treeformat} for the format of this
   file.
 
@@ -2875,14 +2924,22 @@ cannot be used with numeric features.
   from. This path is ignored if the name of the data file already
   contains path information.
 
-\item {\tt -s}: Use the whitespace-delimited exemplar weights, given
+\item {\tt -s} : Use the whitespace-delimited exemplar weights, given
   after each training instance in the training file {\tt <datafile>},
   during classification. {\tt <testfile>} may contain exemplar
   weights, but they are not used in classification. If the test file
   does not have an exemplar weights column, you must specify {\tt
     -s1}. Exemplar weights can also be ignored (in both training and
-  test files) by specifying {\tt -s0}.
+  test files) by specifying {\tt -s0}. Does not work simultaneously
+  with {\tt --occurrences}.
 
+\item {\tt --occurrences=\{train|test|both\}} :Use the
+  whitepace-delimited integers, given after each instances in a
+  training or test file (or both when training and test actions are
+  invoked at once), as representing the number of occurrences that
+  instance should be counted as. By default these counts are not
+  given, in which case TiMBL counts every instance as a single
+  token. Does not work simultaneously with {\tt -s}.
 \end{description}
 
 \subsection{Output options}
@@ -2892,7 +2949,7 @@ cannot be used with numeric features.
 \item {\tt -I <treefile>} : After phase two of learning, save
   the resulting tree-based representation of the instance-base or {\sc
     igtree} in a file. This file can later be read back in using the
-  {\tt -i} option (see above). For {\sc igtree} this also automatically
+  {\tt -i} option (see above). For {\sc IGTree} this also automatically
   saves the current weights into {\tt treefile.wgt} unless this is
   overridden by {\tt -W}.
   See section~\ref{treeformat} for a description of the resulting file's format.
@@ -2932,33 +2989,33 @@ client/server communication or {\tt -t @testcommandfile}). This
 parameter can take on the following values (case-insensitive):
 
 	\begin{description}
-         \item {\tt s}:  work silently (turns off all set verbosity levels).
-         \item {\tt o}:  show all options set.
-         \item {\tt f}:  show calculated feature weights. (default)
-         \item {\tt p}:  show {\sc mvdm} matrices.
-         \item {\tt e}:  show exact matches.
-         \item {\tt as}: show overall advanced statistics (micro and macro averages of F-score and AUC).
-	 \item {\tt cm}: show confusion matrix between actual and predicted classes.
-         \item {\tt cs}: show per-class statistics (precision, recall, true positive rate, false positive rate, F-score, AUC).
-         \item {\tt di}: add the distance of the nearest neighbor to the output file.
-         \item {\tt db}: add class distribution in the nearest neighbor set to the output file.
-         \item {\tt md}: add matching depth and node type (N for non-ending
+         \item {\tt s} :  work silently (turns off all set verbosity levels).
+         \item {\tt o} :  show all options set.
+         \item {\tt f] :  show calculated feature weights. (default)
+         \item {\tt p} :  show {\sc mvdm} matrices.
+         \item {\tt e} :  show exact matches.
+         \item {\tt as} : show overall advanced statistics (micro and macro averages of F-score and AUC).
+	 \item {\tt cm} : show confusion matrix between actual and predicted classes.
+         \item {\tt cs} : show per-class statistics (precision, recall, true positive rate, false positive rate, F-score, AUC).
+         \item {\tt di} : add the distance of the nearest neighbor to the output file.
+         \item {\tt db} : add class distribution in the nearest neighbor set to the output file.
+         \item {\tt md} : add matching depth and node type (N for non-ending
            node, L for leaf) to output file.
-	 \item {\tt k}:  add a summary of class distribution information of all nearest neighbors to the output file (sets {\tt -x})
-         \item {\tt n}:  add nearest neigbors to the output file (sets {\tt -x})
-         \item {\tt b}:  provide branching statistics of the internal tree, overall and per level.
+	 \item {\tt k} :  add a summary of class distribution information of all nearest neighbors to the output file (sets {\tt -x})
+         \item {\tt n} :  add nearest neigbors to the output file (sets {\tt -x})
+         \item {\tt b} :  provide branching statistics of the internal tree, overall and per level.
 	\end{description}
 
         You may combine levels using '{\tt +}' e.g. {\tt +v p+db} or
         {\tt -v o+di}.
 
-\item {\tt -G <n>}: Normalize class distributions generated by {\tt +v db}.
+\item {\tt -G <n>} : Normalize class distributions generated by {\tt +v db}.
   \begin{description}
-    \item {\tt 0 (zero)}: Normalize distributions so that they add up to 1.0
-    \item {\tt 1:<f>}: Smooth by adding floating-point $f$ to all class votes (e.g. {\tt -G1:1} performs add-one smoothing).
+    \item {\tt 0 (zero)} : Normalize distributions so that they add up to 1.0
+    \item {\tt 1:<f>} : Smooth by adding floating-point $f$ to all class votes (e.g. {\tt -G1:1} performs add-one smoothing).
   \end{description}
 
-\item {\tt --Beam=<n>}: Limit the number of returned classes and class
+\item {\tt --Beam=<n>} : Limit the number of returned classes and class
   votes returned by {\tt +v db} to $n$. Default is infinity (no limit).
 
 \item {\tt +/- \%} : Write the percentage of correctly classified test
@@ -3006,7 +3063,7 @@ parameter can take on the following values (case-insensitive):
   (e.g. one-character) feature values and/or classes less memory is
   used when hashing is set off.
 
-\item {\tt +/-D}: Store class distributions on all nodes in the TiMBL
+\item {\tt +/-D} : Store class distributions on all nodes in the TiMBL
   tree. Default is off ({\tt -D}). Setting {\tt +D} costs memory, and
   is only necessary when using IGTree in combination with the {\tt +v
     db} verbosity setting (which prints class distributions in the
@@ -3019,6 +3076,9 @@ parameter can take on the following values (case-insensitive):
   {\sc mvdm} matrices. Cells in the matrix are only stored if both
   feature values occur more than {\tt <n>} times.
 
+\item {\tt --clones=<n>} : Classify a test set using $n$ processors in
+  parallel.
+
 \item {\tt --Treeorder=<string>} : Set the ordering of the TiMBL tree (with
   {\sc ib1} and {\sc ib2}), i.e., rank the features according to the
   metric identified by {\tt <string>}. The default ordering is {\tt
@@ -3029,24 +3089,24 @@ parameter can take on the following values (case-insensitive):
   following values:
 
 	\begin{description}
-         \item {\tt DO}: no ordering (the ordering of the features in
+         \item {\tt DO} : no ordering (the ordering of the features in
            the data file is taken)
-         \item {\tt GRO}: gain ratio (eq.~\ref{IGgainratio})
-         \item {\tt IGO}: information gain (eq.~\ref{IGgain})
-         \item {\tt 1/V}: $1/V$, where $V$ is the number of values
-         \item {\tt G/V}: gain ratio divided by the number of values
-         \item {\tt I/V}: information gain divided by the number of
+         \item {\tt GRO} : gain ratio (eq.~\ref{IGgainratio})
+         \item {\tt IGO} : information gain (eq.~\ref{IGgain})
+         \item {\tt 1/V} : $1/V$, where $V$ is the number of values
+         \item {\tt G/V} : gain ratio divided by the number of values
+         \item {\tt I/V} : information gain divided by the number of
            values
-         \item {\tt X2O}: \chisq \ (eq.~\ref{chisq-eq})
-         \item {\tt X/V}: \chisq \ divided by the number of values
-         \item {\tt SVO}: shared variance
+         \item {\tt X2O} : \chisq \ (eq.~\ref{chisq-eq})
+         \item {\tt X/V} : \chisq \ divided by the number of values
+         \item {\tt SVO} : shared variance
            (eq.~\ref{shared-variance-eq})
-         \item {\tt S/V}: shared variance divided by the number of
+         \item {\tt S/V} : shared variance divided by the number of
            values
-         \item {\tt GxE}: gain ratio $\times si$, where $si$ is the
+         \item {\tt GxE} : gain ratio $\times si$, where $si$ is the
            split info of the feature (eq.~\ref{splitinfo})
-         \item {\tt IxE}: information gain $\times si$
-         \item {\tt 1/S}: $1/si$
+         \item {\tt IxE} : information gain $\times si$
+         \item {\tt 1/S} : $1/si$
 	\end{description}
 
 \end{description}
@@ -3103,7 +3163,9 @@ common that the files should contain one instance per line. The number
 of instances is determined automatically, and the format of each
 instance is inferred from the format of the first line in the training
 set. The last feature of the instance is assumed to be the target
-category. Should the guess of the format by TiMBL turn out to be
+category\footnote{unless the {\tt -s} or {\tt --occurrences} options are used,
+which both assume a final column with numbers; the class is then the
+before-last feature.}. Should the guess of the format by TiMBL turn out to be
 wrong, you can force it to interpret the data as a particular format
 by using the {\tt -F} option. Note that TiMBL, by default, will
 interpret features as having {\em symbolic, discrete values}. Unless
@@ -3134,8 +3196,8 @@ features. White space is defined as a sequence of one or more spaces or
 tab characters. Every instance of white space is interpreted as a
 feature separator, so it is not possible to have feature-values
 containing white space. The column format is auto-detected when an
-instance of white space is detected on the first line {\em before a
-comma has been encountered}. The example data set looks like this in
+instance of white space is detected on the first line before a
+comma has been encountered. The example data set looks like this in
 the column format:
 
 \begin{footnotesize}
@@ -3173,8 +3235,8 @@ commas do not occur as feature values and that periods do not
 occur within the category.  Note that TiMBL's C4.5 format does not
 require a so called {\em namesfile}.  However, TiMBL can produce such
 a file for C4.5 with the {\tt -n} option.  The C4.5 format is
-auto-detected when a comma is detected on the first line {\em before
-any white space has been encountered}. The example data set looks like
+auto-detected when a comma is detected on the first line before
+any white space has been encountered. The example data set looks like
 this in the C4.5 format:
 
 \begin{footnotesize}
@@ -3199,12 +3261,12 @@ small,other,2,key.
 
 ARFF is a format that is used by the WEKA machine learning
 workbench~\cite{Garner95,Witten+99}\footnote{WEKA is available from
-the Waikato University Department of Computer Science, \url{http://www.cs.waikato.ac.nz/~ml/weka}}.  Although TiMBL at present
-does {\em not}\/ entirely follow the ARFF specification, it still
-tries to do as well as it can in reading this format. The ARFF format
-is {\em not}\/ autodetected, and needs to be specified on the
+  the Waikato University Department of Computer Science,
+  \url{http://www.cs.waikato.ac.nz/~ml/weka}}.  Although TiMBL at
+present does not entirely follow the ARFF specification, it
+still tries to do as well as it can in reading this format. The ARFF
+format is not autodetected, and needs to be specified on the
 commanline with {\tt -F ARFF}.
-
 
 In ARFF data, the actual data are preceded by a information on feature
 types, feature names, and names of values in case of symbolic
@@ -3213,8 +3275,9 @@ from after the {\tt @data} statement until the end of the
 file. Feature-values are supposed to be separated by commas; white
 space is deleted entirely, so the pattern {\tt a, b c,d} will be
 interpreted as {\tt `a',`bc',`d'}. There should be no whitespace in
-class labels.  We hope to include better support for the ARFF format
-in future releases.
+class labels. 
+% We hope to include better support for the ARFF format
+%in future releases.
 
 \begin{footnotesize}
 \begin{verbatim}
@@ -3251,13 +3314,13 @@ small,other,2,key.
 
 The compact format is especially useful when dealing with very large
 data files. Because this format does not use any feature separators,
-file-size is reduced considerably in some cases. The price of this is
+file size is reduced considerably in some cases. The price of this is
 that all features and class labels must be of equal length (in
 characters) and TiMBL needs to know beforehand what this length
 is. You must tell TiMBL by using the {\tt -l} option. The compact
 format is auto-detected when neither of the other formats applies. The
-same example data set might look like this in the column format (with
-two characters per feature):
+same example data set might look like this in the column format with
+two characters per feature:
 
 \begin{footnotesize}
 \begin{verbatim}
@@ -3337,7 +3400,7 @@ We can represent it as:
 \end{footnotesize}
 
 This format allows one to specify only the index numbers of the active
-features (indexes start at one), while implicitly assuming that the
+features (indices start at one), while implicitly assuming that the
 value for all the remaining features is zero. Because each case has a
 different number of active features, we must specify in some other way
 what the actual number of features is. This must be done using the
@@ -3455,9 +3518,9 @@ none    0.000   0.667   0.000   0.333   0.000
 \end{footnotesize}
 
 As long as this format is observed, the file can be modified (manually
-or by substituting some other vector-based representations for the
+or by substituting other vector-based representations for the
 values), and the new matrix can be read in and used with the {\sc
-mvdm} metric.
+mvdm} metric with the {\tt -u} option.
 
 \subsection{Tree files}
 \label{treeformat}
@@ -3468,14 +3531,14 @@ later usage and for faster subsequent learning. In TiMBL, the data set
 is stored internally in a tree structure (see
 Section~\ref{indexing}). When using {\sc ib1}, this tree
 representation contains all the training cases as full paths in the
-tree. When using {\sc igtree}, unambiguous paths in the tree are
+tree. When using {\sc IGTree}, unambiguous paths in the tree are
 pruned before it is used for classification or written to file; on the
-same data, {\sc igtree} trees are usually considerably smaller than
+same data, {\sc IGTree} trees are usually considerably smaller than
 {\sc ib1} trees. In either tree type, the arcs represent feature
 values and nodes contain class distribution information. The features
 are in the same order throughout the tree. This order is either
 determined by memory-size considerations in {\sc ib1}, or by feature
-relevance in {\sc igtree}. It can explicitly be manipulated using the
+relevance in {\sc IGTree}. It can explicitly be manipulated using the
 {\tt -T} option.
 
 We strongly advise to refrain from manually editing the tree
@@ -3557,7 +3620,7 @@ Features
 \end{verbatim}
 \end{footnotesize}
 
-The corresponding compressed {\sc igtree} version is considerably smaller. 
+The corresponding compressed {\sc IGTree} version is considerably smaller. 
 
 \begin{footnotesize}
 \begin{verbatim}
