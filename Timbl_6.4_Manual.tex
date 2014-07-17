@@ -2502,44 +2502,55 @@ included in averages.
 
 
 
-\section{NLP applications of TiMBL}
+\section{Applications of TiMBL}
 \label{furtherreading}
 
-This section provides a brief historical overview of work, performed
-in the Tilburg and Antwerp groups and by others, with the application
-of {\sc mbl}-type algorithms to NLP tasks. For more historical
-background, see \cite{Daelemans+05}.
+This section provides a brief historical overview of work that has
+used TiMBL as a tool. Much of this work concerns tasks in natural
+language processing, but TiMBL has been applied in other domains as
+well. For historical background predating the 1990s, see
+\cite{Daelemans+05}.
 
-The Tilburg and Antwerp groups have published a number of articles
-containing descriptions of the algorithms and specialised metrics
-collected in TiMBL, usually demonstrating their functioning using NLP
-tasks. The {\sc ib1-ig} algorithm was first introduced in
-\cite{Daelemans+92b} in the context of a comparison of memory-based
-approaches with error-back\-propagation learning for a hyphenation
-task.  Predecessor versions of {\sc IGTree} can be found in
+\subsubsection{Algorithmic development}
+
+As the original user and developer groups, the Tilburg and Antwerp
+groups have published a number of papers and articles containing
+descriptions of the algorithms and specialised metrics collected in
+TiMBL, usually demonstrating their functioning using NLP tasks. The
+{\sc ib1-ig} algorithm was first introduced in \cite{Daelemans+92b} in
+the context of a comparison of memory-based approaches with
+error-back\-propagation learning for a hyphenation task.  Predecessor
+versions of {\sc IGTree} can be found in
 \cite{Daelemans+93c,VandenBosch+93} where they are applied to
 grapheme-to-phoneme conversion.  See \cite{Daelemans+97} for a
 description and review of {\sc IGTree} and {\sc ib1-ig}. {\sc tribl}
-is described in \cite{Daelemans+97d}.  Experiments with
-distance-weighted class voting are described in
+is described in \cite{Daelemans+97d}.  
+
+Experiments with distance-weighted class voting are described in
 \cite{Zavrel97}. Aspects of using binary-valued (unpacked
-multi-valued) features are discussed in \cite{VandenBosch+00}.
+multi-valued) features are discussed in
+\cite{VandenBosch+00}. \namecite{Raaijmakers00} describes an extension
+of TiMBL with error-correcting output codes. \namecite{Hendrickx+04}
+report on an experiment to import maximum-entropy matrices to replace
+{\sc mvdm} matrices \cite{Hendrickx+04}, improving over the
+maximum-entropy classifier.
+
 Comparisons between memory-based learning and editing variants are
 reported in \cite{VandenBosch99,Daelemans+99}. A hybrid of TiMBL and
 the {\sc ripper} rule-induction algorithm \cite{Cohen95} is described
 in \cite{VandenBosch00,VandenBosch04}. Using TiMBL as a classifier
 combination method is discussed in
-\cite{Halteren+01}. \namecite{Raaijmakers00} describes an extension of
-TiMBL with error-correcting output codes. \namecite{Hendrickx+04}
-report on an experiment to import maximum-entropy matrices to replace
-{\sc mvdm} matrices \cite{Hendrickx+04}, improving over the
-maximum-entropy classifier. \namecite{VandenBosch04} presents a search
-algorithm to find optimal combinations of parameter settings
-automatically, given a labeled training set of examples, showing large
-gains of the default settings (also of other machine learning
-algorithms). Parallelization of TiMBL, through splitting either the
-training set or the test set in $n$ pieces in shared-memory
-multi-processor architectures, is explored in \cite{VandenBosch+07b}.
+\cite{Halteren+01}. 
+
+\namecite{VandenBosch04} presents a search algorithm to
+find optimal combinations of parameter settings automatically, given a
+labeled training set of examples, showing large gains of the default
+settings (also of other machine learning algorithms). Parallelization
+of TiMBL, through splitting either the training set or the test set in
+$n$ pieces in shared-memory multi-processor architectures, is explored
+in \cite{VandenBosch+07b}.
+
+\subsubsection{Applications in morpho-phonology}
 
 The memory-based algorithms implemented in the TiMBL package have been
 targeted to a large range of Natural Language Processing
@@ -2558,6 +2569,8 @@ presented: for example, letter-phoneme conversion in Scottish Gaelic
 or diacritic restoration in languages with a diacritic-rich writing
 system \cite{Mihalcea02,DePauw+07}.
 
+\subsubsection{Linguistic and psycholinguistic modelling}
+
 Whereas most work using TiMBL has been oriented towards natural
 language engineering applications, the {\bf linguistic} and {\bf psycholinguistic}
 relevance of memory-based learning is another focus of research in
@@ -2567,12 +2580,21 @@ and English compounds \cite{Plag+07}, reading aloud
 \cite{VandenBosch+00b}, phonological bootstrapping \cite{Durieux+00},
 the prediction of linking morphemes in Dutch \cite{Krott+01},
 morphology \cite{Eddington00,Eddington03}, and the Dutch plural
-inflection \cite{Keuleers+07}. A comparison to other analogical
-methods for linguistics is provided in
-\cite{Daelemans+97f,Daelemans02}.
+inflection \cite{Keuleers+07}. \namecite{Vandekerckhove+13} use
+TiMBL to develop a language bigram model and use this to explain
+behavior of patients with a specific impairment that prohibits them to
+assess adjective orderings as normal or less felicitous. 
 
-At the {\bf syntactic} sentence level TiMBL has been applied to part
-of speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01};
+A comparison to other analogical methods for linguistics is provided
+in \cite{Daelemans+97f,Daelemans02}. \namecite{VandenBosch+13b} offer
+links to work in psychology on models of human memory, in particular
+to episodic memory and fast memory access with global matching models
+\cite{Clark+96}.
+
+\subsubsection{Applications in syntax and semantics}
+
+At the {\bf syntactic} sentence level TiMBL has been applied to
+Part-of-Speech tagging \cite{Daelemans+96b,Zavrel+99,Halteren+01};
 PP-attachment \cite{Zavrel+97b}; subcategorization \cite{Buchholz98};
 phrase chunking \cite{Veenstra98,Sang+99}; shallow parsing of English
 \cite{Daelemans+99a,Buchholz+99,Yeh00} and Arabic \cite{Azmi+10};
@@ -2580,11 +2602,14 @@ clause identification \cite{Orasan00,Sang01}; detecting the scope of
 negation markers and hedge cues \cite{Morante+08c,Morante+09c};
 sentence-boundary detection \cite{Stevenson+00}; and, beyond the
 sentence level, to co-reference resolution
-\cite{Preiss02,Mitkov+02,Hoste05,Klenner+08,Wunsch+09,Zhekova+11}. More recently,
-memory-based learning has been integrated as a classifier engine in
+\cite{Preiss02,Mitkov+02,Hoste05,Klenner+08,Wunsch+09,Zhekova+11}. 
+
+Memory-based learning has been integrated as a classifier engine in
 more complex dependency parsing systems
 \cite{Nivre+04,Sagae+05,Canisius+06b}, and dependency parsing in
 combination with semantic role labeling \cite{Morante+09b}.
+
+\subsubsection{Other applications}
 
 TiMBL has been involved in several subtasks of {\bf natural language
   generation}: predicting the order of prenominal adjectives for
@@ -2594,29 +2619,26 @@ expressions \cite{Hendrickx+08}; and ranking paraphrases of noun
 compounds \cite{Wubben10}.
 
 Memory-based learning has been applied succesfully to {\bf lexical
-semantics}, in particular to word sense disambiguation
+  semantics}, in particular to word sense disambiguation
 \cite{Veenstra+00,Stevenson+99,Kokkinakis00,Mihalcea02,Hoste+02,DeCadt+04},
 but also in other lexical semantic tasks such as determining noun
-countability \cite{Baldwin+03}, animacy \cite{Orasan+01}, and semantic
-relations within noun compounds \cite{Kim+06b,Nastase+06}.
+countability \cite{Baldwin+03}, animacy \cite{Orasan+01}, semantic
+relations within noun compounds \cite{Kim+06b,Nastase+06}, and
+cross-linguistic word sense disambigation, a subtask of machine
+translation \cite{VanGompel10,VanGompel+13,VanGompel+14}.
 
 As a tool for {\bf text mining}, TiMBL has been used for named-entity
 recognition
-\cite{Buchholz+00,Hendrickx+03,DeMeulder+03,Sporleder+06b,Leveling+06},
+\cite{Buchholz+00,Hendrickx+03,DeMeulder+03,Sporleder+06b,Leveling+06,VandenBosch+13c},
 information extraction \cite{Zavrel+00b,Zavrel+03,Ahn06}, event
 extraction \cite{Morante+09d}, text classification \cite{Spitters00},
 question classification \cite{Garcia+06,Dridan+07}, spam filtering
 \cite{Androutsopoulos+00}, and authorship attribution
 \cite{Luyckx+08,Kestemont+09}.
 
-TiMBL has been occasionally shown to be a useful {\bf error detector} and
-corrector, such as in the context of error detection in textual
-databases \cite{Sporleder+06}, in detecting dependency parsing
-annotation errors \cite{Dickinson09}, and in confusible disambiguation
-\cite{Stehouwer+09}.
-
 In the field of {\bf discourse and dialogue}, TiMBL has been used for
-shallow semantic analysis of speech-recognised utterances
+dialogue act classification and shallow semantic analysis of
+speech-recognised utterances
 \cite{Gustafson+99,Krahmer+01,VandenBosch+01,Lendvai+02a,Lendvai+03},
 in disfluency detection in transcribed spontaneous speech
 \cite{Lendvai+03c}, in classifying ellipsis in dialogue
@@ -2628,29 +2650,49 @@ interesting equivalence relations with back-off smoothing in
 probabilistic classifiers, are discussed in
 \cite{Zavrel+97}. Relations between classification-based word
 prediction and statistical language modeling are identified in
-\cite{VandenBosch05,VandenBosch06,Stehouwer+09b}.
+\cite{VandenBosch05,VandenBosch06,Stehouwer+09b}. Next-word prediction
+with TiMBL has been specifically applied to {\bf word completion}
+\cite{VandenBosch+08,VandenBosch11,Verberne+12,Stoop+14}.
 
-In {\bf machine translation}, $k$-nearest neighbor classification offers a
-conceptual bridge between example-based machine translation (EBMT) and
-statistical MT. Pure memory-based approaches are described in
-\cite{VandenBosch+07,Canisius+09,VandenBosch+09,VanGompel+09}; hybrids
-with statistical machine translation are presented in
-\cite{Stroppa+07,Haque+09,Haque+10}; sub-sentential paraphrasing using pivot
-translations is described in \cite{Max09}.
+TiMBL has been shown to be a useful {\bf error detector} and
+corrector, such as in the context of error detection in textual
+databases \cite{Sporleder+06}, in detecting dependency parsing
+annotation errors \cite{Dickinson09}, in confusible disambiguation
+\cite{Stehouwer+09}, and in preposition and determiner errors
+\cite{VandenBosch+12,VandenBosch+13}.
 
-The first dissertation-length study devoted to the approach is
+In {\bf machine translation}, $k$-nearest neighbor classification
+offers a conceptual bridge between example-based machine translation
+(EBMT) and statistical MT. Pure memory-based approaches are described
+in \cite{VandenBosch+07,Canisius+09,VandenBosch+09,VanGompel+09};
+hybrids with statistical machine translation are presented in
+\cite{Stroppa+07,Haque+09,Haque+10}; sub-sentential paraphrasing using
+pivot translations is described in \cite{Max09}.
+
+Although most of the applications of TiMBL are in the natural language
+processing and computational linguistics areas, it is occasionally
+used in other related domains as well. Examples are the classification
+of newborns' cries \cite{Feier+14}, scaffolded learning by robots
+\cite{Saunders+06}, or the detection of clinically important
+micro-organisms through an electronic nose \cite{Moens+06}.
+
+\subsubsection{Dissertations and special issue}
+
+The first dissertation-length study devoted to the approach was
 \cite{VandenBosch97}, in which the approach is compared to alternative
 learning methods for NLP tasks related to English word pronunciation
 (stress assignment, syllabification, morphological analysis,
 alignment, grapheme-to-phoneme conversion). TiMBL is also central in
 the Ph.D. theses of \namecite{Buchholz02}, \namecite{Lendvai04},
-\namecite{Hendrickx05}, \namecite{Hoste05}, \namecite{Keuleers08}, and
-\namecite{Canisius09}. In 1999 a special issue of the {\em Journal for
-  Experimental and Theoretical Artificial Intelligence} (Vol.~11(3),
-edited by Walter Daelemans) was devoted to Memory-Based Language
-Processing. The introduction to this special issue discusses the
-inspiration sources and alternative developments related to the
-memory-based approach taken in TiMBL \cite{Daelemans99b}.
+\namecite{Hendrickx05}, \namecite{Hoste05}, \namecite{Keuleers08},
+\namecite{Canisius09}, and \namecite{Vandekerckhove13}. 
+
+In 1999 a special issue of the {\em Journal for Experimental and
+  Theoretical Artificial Intelligence} (Vol.~11(3), edited by Walter
+Daelemans) was devoted to Memory-Based Language Processing. The
+introduction to this special issue discusses the inspiration sources
+and alternative developments related to the memory-based approach
+taken in TiMBL \cite{Daelemans99b}.
 
 \ \\
 
@@ -2991,7 +3033,7 @@ parameter can take on the following values (case-insensitive):
 	\begin{description}
          \item {\tt s} :  work silently (turns off all set verbosity levels).
          \item {\tt o} :  show all options set.
-         \item {\tt f] :  show calculated feature weights. (default)
+         \item {\tt f} :  show calculated feature weights. (default)
          \item {\tt p} :  show {\sc mvdm} matrices.
          \item {\tt e} :  show exact matches.
          \item {\tt as} : show overall advanced statistics (micro and macro averages of F-score and AUC).
