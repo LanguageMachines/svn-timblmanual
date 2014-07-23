@@ -268,7 +268,7 @@ If you did not install TiMBL, the executable can be found in the {\tt
   src} directory of the build. The demo files can be found in the {\tt
   demo} directory.
 
-The e-mail address for problems with the installation, bug reports,
+The email address for problems with the installation, bug reports,
 comments and questions is {\tt Timbl@uvt.nl}.
 
 \chapter{Changes}
@@ -286,6 +286,14 @@ program.
   classification near-linearly with respect to $n$, although with
   larger $n$ the overhead causes the speedup to be increasingly
   sub-linear.
+\item We added Jensen-Shannon divergence as a pairwise similarity metric
+  for feature values. With {\sc mvdm} and Jeffrey divergence, TiMBL
+  now offers three class disribution distance functions for value
+  differences.
+\item Euclidean distance was long overdue as an optional distance
+  function ({\tt -mE}) for numeric features.
+\item {\tt -w 5} or {\tt -w SD} sets the feature weighting of numeric
+  features to the standard deviation of its values.
 \item With {\tt --occurrences=\{train|test|both\}}, instances in
   instance base files can be accompanied by a (long) integer
   specifying a number of token occurrences of that instance, so that
@@ -293,6 +301,9 @@ program.
   {\tt <n>} instances. These counts can be exclusively present in the
   training set, in the test set, or in both if a training and test
   action is invoked at once.
+\item The verbosity option {\tt +v b} adds overall statistics of
+  IGTree nodes (leafs and non-ending nodes) and branching at each tree
+  level.
 \item The executable file is now called {\tt timbl} instead of {\tt
     Timbl} to be more GNU/Linux compliant. Previous users of TiMBL may
   want to check scripts for this name change.
@@ -484,9 +495,9 @@ longer supported.
   including the ones reflecting the above changes:
 
 \begin{itemize} 
-\item {\tt -m J} activates the Jeffrey divergence distance metric.
-\item {\tt -m D} activates the Dot-product distance metric.
-\item {\tt -d ED:<a>:<b>} (without whitespace) sets the $\alpha$ and new
+\item {\tt -mJ} activates the Jeffrey divergence distance metric.
+\item {\tt -mD} activates the Dot-product distance metric.
+\item {\tt -dED:<a>:<b>} (without whitespace) sets the $\alpha$ and new
   $\beta$ parameters. If unspecified, as in {\tt -d ED:<a>} or the older
   (deprecated) {\tt -d ED <a>}, $\beta$ is set to $1.0$.
 \item {\tt -F Sparse} declares that training and test files are in the
@@ -1843,7 +1854,7 @@ non-zero probabilities. This makes Jeffrey divergence in principle
 more robust than {\sc mvdm} with respect to sparse data.
 
 As with {\sc mvdm}, TiMBL offers an optional frequency-thresholded
-back-off from Jeffrey divergence to the Overlap metric to further
+back-off from Jeffrey and Jensen-Shannon divergence to the Overlap metric to further
 remedy some negative effects due to data sparseness.
 
 \subsection{Dot-product and cosine metrics}
@@ -2789,9 +2800,11 @@ intervals. The metric code can be one of the following nine:
 \item {\tt O} -- Overlap (default; see Subsection~\ref{overlap})
 \item {\tt M} -- Modified value difference ({\sc mvdm}; see Subsection~\ref{mvdm})
 \item {\tt J} -- Jeffrey divergence (see Subsection~\ref{mvdm})
+\item {\tt S} -- Jensen-Shannon divergence (see Subsection~\ref{mvdm})
 \item {\tt D} -- Dot product (see Subsection~\ref{dotproduct})
-\item {\tt C} -- Cosine (see Subsection~\ref{dotproduct})
-\item {\tt N} -- Numeric (all features are numeric. see Subsection~\ref{overlap})
+\item {\tt C} -- Cosine distance (see Subsection~\ref{dotproduct})
+\item {\tt N} -- Numeric (for numeric features; see Subsection~\ref{overlap})
+\item {\tt E} -- Euclidean distance (for numeric features; see Subsection~\ref{overlap})
 \item {\tt L} -- Levenshtein (see Subsection~\ref{overlap})
 \item {\tt DC} -- Dice coefficient (see Subsection~\ref{overlap})
 \item {\tt I} -- Ignore (ignore specified features)
@@ -2811,12 +2824,15 @@ The weights are used in the metric of {\sc ib1} and in the ordering of the
 {\sc IGTree}. Possible values are:
 
 	\begin{description}
-	\item n=0 -- No weighting, i.e. all features have the same
+	\item {\tt -w0} or {\tt -w nw} -- No weighting, i.e. all features have the same
 	importance (weight = 1).
-	\item n=1 -- Gain Ratio weighting (default). See section~\ref{infogain}.
-	\item n=2 -- Information Gain weighting. See section~\ref{infogain}.
-	\item n=3 -- Chi-squared ($\chi^2$) weighting. See section~\ref{chisquared}.
-	\item n=4 -- Shared variance weighting. See section~\ref{chisquared}.
+	\item {\tt -w1} or {\tt -w gr} -- Gain Ratio weighting (default). See section~\ref{infogain}.
+	\item {\tt -w2} or {\tt -w ig} -- Information Gain weighting. See section~\ref{infogain}.
+	\item {\tt -w3} or {\tt -w x2} -- Chi-squared ($\chi^2$)
+          weighting. See section~\ref{chisquared}.
+	\item {\tt -w4} or {\tt -w sv} -- Shared Variance weighting. See
+          section~\ref{chisquared}.
+        \item {\tt -w5} or {\tt -w sd} -- Standard Deviation weighting.
 	\item n=$<$filename$>$:$<$number$>$ or n=$<$filename$>$ --
           Instead of the five weight settings above we can supply a
           filename to the {\tt -w} option. This causes TiMBL to read
@@ -2874,8 +2890,8 @@ extrapolation from the nearest neighbor set. {\tt val} can be one of:
   metric more. 
 
  Only applicable in conjunction with the {\sc mvdm}
-  ({\tt -mM}) and Jeffrey divergence ({\tt -mJ}) distance metrics.
-
+  ({\tt -mM}) and Jeffrey divergence ({\tt -mJ}) or Jensen-Shannon
+  divergence ({\tt -mS}) distance metrics.
 
 \item {\tt -b <n>} : determines n ($\geq 1$), the number of instances,
 to be taken from the top of the training file, to act as the bootstrap
@@ -3033,6 +3049,7 @@ parameter can take on the following values (case-insensitive):
 	\begin{description}
          \item {\tt s} :  work silently (turns off all set verbosity levels).
          \item {\tt o} :  show all options set.
+         \item {\tt b}: show node/branch count and branching factor.
          \item {\tt f} :  show calculated feature weights. (default)
          \item {\tt p} :  show {\sc mvdm} matrices.
          \item {\tt e} :  show exact matches.
@@ -3045,7 +3062,6 @@ parameter can take on the following values (case-insensitive):
            node, L for leaf) to output file.
 	 \item {\tt k} :  add a summary of class distribution information of all nearest neighbors to the output file (sets {\tt -x})
          \item {\tt n} :  add nearest neigbors to the output file (sets {\tt -x})
-         \item {\tt b} :  provide branching statistics of the internal tree, overall and per level.
 	\end{description}
 
         You may combine levels using '{\tt +}' e.g. {\tt +v p+db} or
